@@ -1,0 +1,75 @@
+/* 测验沿用课程的字体、按钮和配色。 */
+.assessment-page [hidden] { display: none !important; }
+.exam-ready, .exam-results { padding-block: 44px; max-width: 860px; }
+.exam-ready > .eyebrow, .exam-results > .eyebrow { margin-bottom: 18px; color: var(--muted); }
+.exam-ready h1, .exam-results h1 { max-width: 20ch; }
+.exam-ready > p:not(.eyebrow) { margin-top: 22px; }
+.exam-ready > .primary-link { margin-top: 30px; width: fit-content; }
+.exam-facts { display: flex; gap: 60px; margin-block: 32px; padding-block: 24px; border-block: 1px solid var(--rule); }
+.exam-facts strong { display: block; font: 34px var(--serif); }
+.exam-facts span { color: var(--muted); font-size: 15px; }
+.exam-only { display: none; }
+.assessment-page[data-active="true"] .exam-only { display: inline-flex; }
+.assessment-nav a { align-items: center; justify-content: flex-start; }
+.assessment-nav .nav-number { color: var(--muted); font-size: 14px; }
+.assessment-nav .icon { margin-left: auto; flex-shrink: 0; }
+.assessment-page .course-return .icon { transform: none; }
+[data-course-link][aria-disabled="true"] { color: var(--muted); cursor: not-allowed; }
+.exam-lock-message { padding-top: 20px; margin-top: 24px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 15px; }
+.text-button { width: fit-content; border: 0; background: transparent; text-decoration: underline; text-underline-offset: 4px; padding: 8px 0; margin-top: 12px; font-size: 15px; }
+.exam-toolbar { position: sticky; top: 0; z-index: 2; display: flex; justify-content: space-between; gap: 20px; align-items: center; background: var(--paper); padding-block: 22px; border-bottom: 1px solid var(--rule); }
+.question-tabs { display: flex; gap: 7px; margin-top: 12px; }
+.question-tabs button { width: 36px; height: 36px; border: 1px solid var(--rule); border-radius: 2px; background: var(--paper); font-size: 15px; }
+.question-tabs button[aria-current="step"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.question-tabs button[data-answered="true"]:not([aria-current]) { background: var(--wash); border-color: var(--accent); }
+.timer-display { text-align: right; white-space: nowrap; }
+.timer-display span { display: block; color: var(--muted); font-size: 13px; }
+.timer-display strong { font: 32px var(--sans); font-variant-numeric: tabular-nums; }
+.timer-display[data-urgent="true"] strong { text-decoration: underline; text-underline-offset: 6px; }
+.exam-status { color: var(--ink); font-weight: 600; margin-top: 10px; font-size: 16px; }
+.exam-status:empty, .submission-note:empty { display: none; }
+.exam-question { padding-block: 30px; max-width: 850px; }
+.exam-question > .eyebrow { color: var(--muted); margin-bottom: 12px; }
+.exam-question h2 { font-size: 40px; max-width: 28ch; }
+.exam-question h2:focus { outline: none; }
+.exam-question > p:not(.eyebrow) { margin-top: 20px; }
+.exam-question fieldset { border: 0; padding: 0; margin: 28px 0 0; min-width: 0; }
+.exam-question legend { font-size: 20px; font-weight: 600; line-height: 1.5; padding: 0; margin-bottom: 14px; }
+.exam-question fieldset > label, .exam-question .ingredient-choice-list label { display: flex; align-items: baseline; gap: 12px; padding: 13px 16px; border: 1px solid var(--rule); margin-block: 9px; cursor: pointer; }
+.exam-question label:has(input:checked) { background: var(--wash); border-color: var(--accent); }
+.exam-question input[type="checkbox"], .exam-question input[type="radio"] { accent-color: var(--ink); width: 17px; height: 17px; flex-shrink: 0; }
+.exam-package { float: right; width: 160px; margin: 24px 0 20px 24px; }
+.exam-package img { width: 100%; height: 185px; object-fit: contain; }
+.exam-package figcaption { font-size: 13px; }
+.exam-question::after { content: ''; display: block; clear: both; }
+.exam-question .match-row { margin-top: 24px; }
+.exam-question .fill-in-label { width: fit-content; border: 0; padding: 0; font-size: 26px; flex-wrap: wrap; }
+.fill-in-label input { width: min(280px, 100%); min-width: 0; padding: 10px; font: 24px var(--sans); border: 0; border-bottom: 2px solid var(--accent); background: var(--surface); }
+.news-brief { margin-top: 24px; padding: 22px; background: var(--surface); border-left: 3px solid var(--accent); }
+.news-brief > p + p { margin-top: 14px; }
+.exam-actions { display: flex; gap: 15px; justify-content: space-between; padding-block: 22px; border-top: 1px solid var(--rule); }
+.submission-note { padding: 15px 0 25px; color: var(--muted); }
+.result-score { font: 64px/1.1 var(--serif); margin-block: 24px 16px; }
+.result-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin-block: 26px; }
+.result-item { border-top: 1px solid var(--rule); padding-block: 20px; }
+.result-item summary { cursor: pointer; font-size: 19px; font-weight: 600; }
+.result-item p { margin-top: 14px; }
+.result-item .text-link { margin-top: 14px; }
+@media (max-width: 850px) {
+  .assessment-nav { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 0; }
+  .exam-lock-message { grid-column: 1 / -1; padding-top: 12px; margin-top: 0; }
+  .assessment-page .text-button { grid-column: 1 / -1; margin: 0; }
+}
+@media (max-width: 580px) {
+  .exam-ready, .exam-results { padding-block: 30px; }
+  .exam-facts { gap: 30px; }
+  .exam-facts strong { font-size: 28px; }
+  .exam-question h2 { font-size: 34px; }
+  .exam-question { padding-top: 24px; }
+  .exam-toolbar { gap: 12px; padding-block: 15px; }
+  .question-tabs { gap: 5px; }
+  .question-tabs button { width: 30px; height: 32px; }
+  .timer-display strong { font-size: 27px; }
+  .exam-package { float: none; width: 150px; margin-left: 0; }
+  .exam-actions { flex-wrap: wrap; }
+}
