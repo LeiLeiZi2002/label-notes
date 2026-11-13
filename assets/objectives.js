@@ -8,38 +8,38 @@ window.LabelNotesCourse = {
     objectives: [
       {
         id: 'P1',
-        text: 'Identify preservative names and purpose statements on a food label.',
+        text: 'Find the preservatives in an ingredient list you have not seen before, using purpose statements (e.g. "to maintain freshness", "as preservatives") and family name endings.',
         sections: ['bread-label', 'ingredient-names'],
       },
       {
         id: 'P2',
-        text: 'Connect related preservative names, including acids, salts and sulfiting agents.',
+        text: 'Classify a preservative into its family (propionate, sorbate, benzoate, sulfiting agent, nitrite) and recognize related acid / salt names, including family members not shown in the lesson.',
         sections: ['ingredient-names'],
       },
       {
         id: 'P3',
-        text: 'Explain why a preservative is used in a particular food.',
+        text: "Explain what spoilage problem a preservative addresses in a specific food, and why the food's conditions (acidity, moisture, whether it is fermented with yeast) affect which preservative is chosen.",
         sections: ['ingredient-names', 'bread-label'],
       },
       {
         id: 'P4',
-        text: 'Combine ingredient information with storage instructions.',
-        sections: ['drink-label'],
+        text: 'Distinguish antimicrobial roles from antioxidant and curing roles when several preservatives appear together.',
+        sections: ['why-preserve', 'ingredient-names'],
       },
       {
         id: 'P5',
-        text: 'Judge preservation claims using the evidence a label or source actually provides.',
-        sections: ['food-stories', 'try-new-label'],
+        text: 'Evaluate label wording, storage instructions and everyday claims (e.g. "natural", "no nitrites added", "preservative-free") using what the label actually says and what it leaves out.',
+        sections: ['drink-label', 'food-stories', 'bread-label'],
       },
     ],
     sections: {
-      'why-preserve': ['P1', 'P3'],
-      'ingredient-names': ['P1', 'P2', 'P3'],
+      'why-preserve': ['P3', 'P4'],
+      'ingredient-names': ['P1', 'P2', 'P3', 'P4'],
       'bread-label': ['P1', 'P3', 'P5'],
-      'drink-label': ['P1', 'P4'],
+      'drink-label': ['P1', 'P5'],
       'food-stories': ['P5'],
-      'check-understanding': ['P2', 'P3'],
-      'try-new-label': ['P2', 'P3', 'P5'],
+      'check-understanding': ['P2', 'P3', 'P4'],
+      'try-new-label': ['P1', 'P2', 'P3'],
     },
   },
   antioxidants: {
@@ -50,36 +50,36 @@ window.LabelNotesCourse = {
     objectives: [
       {
         id: 'A1',
-        text: 'Recognize antioxidant names and related ingredient families.',
-        sections: ['ingredient-names'],
+        text: 'Find the antioxidants in an unfamiliar ingredient list, including vitamin names (tocopherols, ascorbic acid / ascorbates, ascorbyl palmitate), synthetic names (BHA, BHT, TBHQ, propyl gallate) and plant extracts.',
+        sections: ['ingredient-names', 'read-label', 'try-new-label'],
       },
       {
         id: 'A2',
-        text: 'Explain what an antioxidant protects in a particular food.',
-        sections: ['ingredient-names', 'related-ingredients'],
-      },
-      {
-        id: 'A3',
-        text: "Use a label's wording to explain an ingredient's function.",
-        sections: ['read-label', 'try-new-label'],
-      },
-      {
-        id: 'A4',
-        text: 'Distinguish antioxidant use from vitamin fortification when the label provides evidence.',
+        text: 'Identify which part of a food an antioxidant protects (oils and fats vs. cut fruit surfaces) and which change it slows (rancidity vs. browning), by reasoning from the food\'s composition.',
         sections: ['ingredient-names', 'read-label'],
       },
       {
+        id: 'A3',
+        text: 'Distinguish antioxidants from helper ingredients that bind metals or adjust acidity (citric acid, EDTA), and tell apart commonly confused names (citric vs. ascorbic acid, calcium ascorbate vs. calcium carbonate, erythorbate vs. vitamin C).',
+        sections: ['related-ingredients', 'ingredient-names'],
+      },
+      {
+        id: 'A4',
+        text: 'Use label placement and wording to judge whether a vitamin ingredient is there mainly as an antioxidant, as a nutrient, or whether the label does not say.',
+        sections: ['ingredient-names'],
+      },
+      {
         id: 'A5',
-        text: 'Evaluate freshness, natural-source and health claims without assuming more than the evidence supports.',
-        sections: ['check-understanding', 'try-new-label'],
+        text: 'Evaluate claims about antioxidants (e.g. "contains antioxidants, so it\'s healthy", "no artificial preservatives") against what the ingredient list supports.',
+        sections: ['check-understanding', 'read-label'],
       },
     ],
     sections: {
-      'ingredient-names': ['A1', 'A2', 'A4'],
-      'related-ingredients': ['A1', 'A2'],
-      'read-label': ['A3', 'A4'],
-      'check-understanding': ['A1', 'A2', 'A5'],
-      'try-new-label': ['A1', 'A2', 'A3', 'A5'],
+      'ingredient-names': ['A1', 'A2', 'A3', 'A4'],
+      'related-ingredients': ['A3'],
+      'read-label': ['A1', 'A2', 'A5'],
+      'check-understanding': ['A2', 'A3', 'A5'],
+      'try-new-label': ['A1', 'A2'],
     },
   },
   pretest: {
@@ -115,7 +115,10 @@ window.LabelNotesObjectives = {
     const list = document.createElement('ul');
     objectives.forEach((o) => {
       const li = document.createElement('li');
-      li.textContent = `${o.id} · ${o.text}`;
+      const firstSpace = o.text.indexOf(' ');
+      const verb = document.createElement('strong');
+      verb.textContent = o.text.slice(0, firstSpace);
+      li.append(`${o.id} · `, verb, o.text.slice(firstSpace));
       list.append(li);
     });
     host.append(list);

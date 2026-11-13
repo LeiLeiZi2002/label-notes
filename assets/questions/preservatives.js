@@ -57,7 +57,7 @@ window.LabelNotesBanks.preservatives = {
       "originalPage": "preservatives.html",
       "set": "label-practice",
       "section": "drink-label",
-      "objective": "P4",
+      "objective": "P5",
       "points": 1,
       "stem": "The bag lists preservatives and recommends refrigeration after opening. How do these instructions work together?",
       "review": {
@@ -172,7 +172,7 @@ window.LabelNotesBanks.preservatives = {
       "originalPage": "preservatives.html",
       "set": "review",
       "section": "check-understanding",
-      "objective": "P3",
+      "objective": "P4",
       "points": 1,
       "stem": "3. Which ingredient helps develop the cured color and flavor of bacon?",
       "review": {
@@ -426,7 +426,7 @@ window.LabelNotesBanks.preservatives = {
       "originalPage": "assessment.html",
       "set": "chapter-check",
       "section": "exam-active",
-      "objective": "P2",
+      "objective": "P4",
       "points": 1,
       "stem": "1. Helps develop the cured color and flavor.",
       "review": {
@@ -458,7 +458,7 @@ window.LabelNotesBanks.preservatives = {
       "originalPage": "assessment.html",
       "set": "chapter-check",
       "section": "exam-active",
-      "objective": "P3",
+      "objective": "P4",
       "points": 1,
       "stem": "2. Helps nitrite react during curing and reduces nitrosamine formation.",
       "review": {
@@ -562,7 +562,7 @@ window.LabelNotesBanks.preservatives = {
       "originalPage": "assessment.html",
       "set": "chapter-check",
       "section": "exam-active",
-      "objective": "P4",
+      "objective": "P5",
       "points": 1,
       "stem": "Which explanation correctly combines these two pieces of information?",
       "review": {

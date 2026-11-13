@@ -132,7 +132,7 @@ window.LabelNotesBanks.pretest = {
       "originalPage": "pretest.html",
       "set": "pretest",
       "section": "exam-active",
-      "objective": "A3",
+      "objective": "A2",
       "points": 1,
       "stem": "What does this label say the rosemary extract is there for?",
       "review": {

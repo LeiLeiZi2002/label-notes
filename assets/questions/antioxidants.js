@@ -6,7 +6,7 @@ window.LabelNotesBanks.antioxidants = {
       "originalPage": "antioxidants.html",
       "set": "label-practice",
       "section": "read-label",
-      "objective": "A3",
+      "objective": "A2",
       "points": 1,
       "stem": "Which phrase tells you the antioxidant’s purpose?",
       "review": {
@@ -81,7 +81,7 @@ window.LabelNotesBanks.antioxidants = {
       "originalPage": "antioxidants.html",
       "set": "review",
       "section": "check-understanding",
-      "objective": "A1",
+      "objective": "A3",
       "points": 1,
       "stem": "Which pair belongs to the vitamin C family?",
       "review": {
@@ -153,7 +153,7 @@ window.LabelNotesBanks.antioxidants = {
       "originalPage": "antioxidants.html",
       "set": "review",
       "section": "check-understanding",
-      "objective": "A2",
+      "objective": "A3",
       "points": 1,
       "stem": "How does calcium disodium EDTA help protect mayonnaise?",
       "review": {
@@ -283,7 +283,7 @@ window.LabelNotesBanks.antioxidants = {
       "originalPage": "antioxidants-check.html",
       "set": "chapter-check",
       "section": "exam-active",
-      "objective": "A1",
+      "objective": "A3",
       "points": 1,
       "stem": "1. Select the two vitamin C ingredients.",
       "review": {
@@ -556,7 +556,7 @@ window.LabelNotesBanks.antioxidants = {
       "originalPage": "antioxidants-check.html",
       "set": "chapter-check",
       "section": "exam-active",
-      "objective": "A2",
+      "objective": "A3",
       "points": 1,
       "stem": "2. How can citric acid support this protection?",
       "review": {
@@ -592,7 +592,7 @@ window.LabelNotesBanks.antioxidants = {
       "originalPage": "antioxidants-check.html",
       "set": "chapter-check",
       "section": "exam-active",
-      "objective": "A2",
+      "objective": "A3",
       "points": 1,
       "stem": "How does calcium disodium EDTA help protect the mayonnaise?",
       "review": {
