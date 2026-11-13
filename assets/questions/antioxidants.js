@@ -236,8 +236,16 @@ window.LabelNotesBanks.antioxidants = {
       "type": "short-text",
       "inputLabel": "Your answer",
       "acceptedAnswers": [
-        "tbhq",
-        "tert-butylhydroquinone"
+        "TBHQ",
+        "tert-butylhydroquinone",
+        "tert butylhydroquinone",
+        "tertbutylhydroquinone",
+        "TBHQ (tert-butylhydroquinone)",
+        "tert-butylhydroquinone (TBHQ)",
+        "TBHQ (tert butylhydroquinone)",
+        "tert butylhydroquinone (TBHQ)",
+        "TBHQ (tertbutylhydroquinone)",
+        "tertbutylhydroquinone (TBHQ)"
       ],
       "explanation": "The antioxidant is TBHQ. Its full name is tert-butylhydroquinone.",
       "answerDisplay": "TBHQ (tert-butylhydroquinone)"
@@ -366,7 +374,16 @@ window.LabelNotesBanks.antioxidants = {
       "type": "short-text",
       "inputLabel": "Name:",
       "acceptedAnswers": [
-        "TBHQ"
+        "TBHQ",
+        "tert-butylhydroquinone",
+        "tert butylhydroquinone",
+        "tertbutylhydroquinone",
+        "TBHQ (tert-butylhydroquinone)",
+        "tert-butylhydroquinone (TBHQ)",
+        "TBHQ (tert butylhydroquinone)",
+        "tert butylhydroquinone (TBHQ)",
+        "TBHQ (tertbutylhydroquinone)",
+        "tertbutylhydroquinone (TBHQ)"
       ],
       "explanation": "The label says that the vegetable oil is preserved by TBHQ.",
       "answerDisplay": "TBHQ (tert-butylhydroquinone)"

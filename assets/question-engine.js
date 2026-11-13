@@ -6,6 +6,11 @@
       .toLowerCase()
       .replace(/\s+/g, ' ')
       .replace(/[.!]+$/, '');
+  // 填空只统一输入格式；正确名称及同义写法仍由各题的答案列表决定。
+  const normalizeText = (value) => normalize(String(value ?? '')
+    .normalize('NFKC')
+    .replace(/[\u2010-\u2015]/g, '-')
+    .replace(/\s*([()-])\s*/g, '$1'));
   const children = (q) => (q.type === 'scenario' ? [q.task] : q.parts);
   const leaves = (q) => (children(q) ? children(q).flatMap(leaves) : [q]);
   const options = (q) =>
@@ -26,14 +31,15 @@
       };
     }
     const values = Array.isArray(answer) ? answer : answer == null ? [] : [answer];
-    const selected = [...new Set(values.map(normalize).filter(Boolean))];
+    const normalizeAnswer = q.type === 'short-text' ? normalizeText : normalize;
+    const selected = [...new Set(values.map(normalizeAnswer).filter(Boolean))];
     const expected =
       q.type === 'short-text'
         ? q.acceptedAnswers || []
         : options(q)
             .filter((o) => o.correct)
             .map((o) => o.id);
-    const wanted = expected.map(normalize);
+    const wanted = expected.map(normalizeAnswer);
     let fraction = 0;
     if (q.type === 'short-text') fraction = selected.length === 1 && wanted.includes(selected[0]) ? 1 : 0;
     else if (q.type === 'multi' || q.type === 'label-select') {
