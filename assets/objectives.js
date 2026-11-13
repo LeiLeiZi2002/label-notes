@@ -34,7 +34,7 @@ window.LabelNotesCourse = {
     ],
     sections: {
       'why-preserve': ['P3', 'P4'],
-      'ingredient-names': ['P1', 'P2', 'P3', 'P4'],
+      'ingredient-names': ['P1', 'P2', 'P3', 'P4', 'P5'],
       'bread-label': ['P1', 'P3', 'P5'],
       'drink-label': ['P1', 'P5'],
       'food-stories': ['P5'],
@@ -75,6 +75,7 @@ window.LabelNotesCourse = {
       },
     ],
     sections: {
+      'why-antioxidants': ['A1', 'A2', 'A3', 'A4', 'A5'],
       'ingredient-names': ['A1', 'A2', 'A3', 'A4'],
       'related-ingredients': ['A3'],
       'read-label': ['A1', 'A2', 'A5'],

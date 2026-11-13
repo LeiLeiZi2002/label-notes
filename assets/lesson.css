@@ -65,6 +65,12 @@
 .lesson-context > .comparison-table { margin-top: 0; }
 .lesson-context .comparison-table caption { margin-bottom: 14px; font-size: 16px; font-weight: 400; color: var(--muted); }
 .lesson-context .comparison-table + p { margin-top: 18px; }
+.lesson-context > section > h4 { margin-bottom: 14px; font-size: 22px; line-height: 1.35; }
+.lesson-context > section > p { max-width: 72ch; font-size: var(--body-size); line-height: 1.7; }
+.lesson-context > section > p + p { margin-top: 16px; }
+.chapter-extra { margin-top: 32px; padding-block: 20px; border-block: 1px solid var(--rule); }
+.chapter-extra > summary { cursor: pointer; font-size: 22px; font-weight: 600; }
+.chapter-extra > p { max-width: 72ch; margin-block: 20px; font-size: var(--body-size); line-height: 1.7; }
 .context-sources { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; margin-top: 22px; font-size: 14px; line-height: 1.6; color: var(--muted); }
 .context-sources > span { font-weight: 600; }
 .context-sources ul { display: flex; flex-wrap: wrap; gap: 6px 20px; list-style: none; padding: 0; margin: 0; }

@@ -10,8 +10,14 @@
   const chapter = document.body.dataset.chapter;
   const savedSection = window.LabelNotesProgress?.read().visits[chapter];
 
+  function sectionFor(id) {
+    return document.getElementById(id)?.closest('[data-lesson-step]');
+  }
+
   function showStep(id, focus = false) {
-    const index = steps.findIndex(step => step.id === id);
+    const target = document.getElementById(id);
+    const step = sectionFor(id);
+    const index = steps.indexOf(step);
     if (index < 0) return;
     steps.forEach((step, position) => { step.hidden = position !== index; });
     links.forEach((link, position) => {
@@ -29,20 +35,29 @@
     pager.hidden = false;
     reviewReturn.hidden = !reviewQuestion;
     if (chapter) window.LabelNotesProgress?.visit(chapter, id);
-    if (!focus) return;
-    steps[index].querySelector('h1, h2').focus({ preventScroll: true });
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    // 回看链接可以指向步骤内的内容，旧的阅读位置仍然可用。
+    for (let node = target; node && node !== step; node = node.parentElement) {
+      if (node.matches('details')) node.open = true;
+    }
+    if (focus) {
+      const heading = target.matches('details') ? target.querySelector('summary')
+        : target.querySelector('h1, h2, h3, h4, legend') || target;
+      heading.setAttribute('tabindex', '-1');
+      heading.focus({ preventScroll: true });
+    }
+    if (target !== step) target.scrollIntoView({ block: 'start', behavior: 'instant' });
+    else if (focus) window.scrollTo({ top: 0, behavior: 'instant' });
   }
 
   function followHash(focus) {
     const id = location.hash.slice(1);
     if (id === 'references') {
-      showStep(steps.some(step => step.id === savedSection) ? savedSection : steps[0].id);
+      showStep(sectionFor(savedSection) ? savedSection : steps[0].id);
       document.querySelector('#references details').open = true;
       return;
     }
-    if (steps.some(step => step.id === id)) showStep(id, focus);
-    else showStep(steps.some(step => step.id === savedSection) ? savedSection : steps[0].id, focus);
+    if (sectionFor(id)) showStep(id, focus);
+    else showStep(sectionFor(savedSection) ? savedSection : steps[0].id, focus);
   }
 
   // 地址保留所在小节，刷新和浏览器的前进、后退都可以回到对应内容。
