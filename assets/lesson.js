@@ -7,6 +7,8 @@
   const next = document.getElementById('next-section');
   const reviewReturn = document.getElementById('review-return');
   let reviewQuestion = null;
+  const chapter = document.body.dataset.chapter;
+  const savedSection = window.LabelNotesProgress?.read().visits[chapter];
 
   function showStep(id, focus = false) {
     const index = steps.findIndex(step => step.id === id);
@@ -26,6 +28,7 @@
       : 'Return to course outline ';
     pager.hidden = false;
     reviewReturn.hidden = !reviewQuestion;
+    if (chapter) window.LabelNotesProgress?.visit(chapter, id);
     if (!focus) return;
     steps[index].querySelector('h1, h2').focus({ preventScroll: true });
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -34,15 +37,15 @@
   function followHash(focus) {
     const id = location.hash.slice(1);
     if (id === 'references') {
+      showStep(steps.some(step => step.id === savedSection) ? savedSection : steps[0].id);
       document.querySelector('#references details').open = true;
       return;
     }
-    if (!id) showStep(steps[0].id, focus);
-    else if (steps.some(step => step.id === id)) showStep(id, focus);
+    if (steps.some(step => step.id === id)) showStep(id, focus);
+    else showStep(steps.some(step => step.id === savedSection) ? savedSection : steps[0].id, focus);
   }
 
   // 地址保留所在小节，刷新和浏览器的前进、后退都可以回到对应内容。
-  showStep(steps[0].id);
   followHash(false);
   window.addEventListener('hashchange', () => followHash(true));
   document.querySelectorAll('[data-review]').forEach(link => {
@@ -75,7 +78,7 @@
     ingredientNotes.forEach(note => { note.hidden = note.dataset.ingredientNote !== id; });
   }
   ingredientButtons.forEach(button => button.addEventListener('click', () => selectIngredient(button.dataset.ingredient)));
-  selectIngredient(ingredientButtons[0].dataset.ingredient);
+  if (ingredientButtons.length) selectIngredient(ingredientButtons[0].dataset.ingredient);
 
   const normalize = value => String(value || '').trim().toLowerCase().replace(/\s+/g, ' ').replace(/[.!]+$/, '');
   const isCorrect = control => (control.dataset.accept || control.dataset.correctValue || '').split('|').map(normalize).includes(normalize(control.value));

@@ -35,6 +35,10 @@ img { display: block; max-width: 100%; }
 .skip-link { position: fixed; top: 12px; left: 16px; z-index: 20; padding: 10px 18px; background: var(--ink); color: white; transform: translateY(-180%); }
 .skip-link:focus { transform: translateY(0); }
 .site-shell { display: grid; grid-template-columns: 280px minmax(0, 1fr); max-width: 1600px; margin: auto; border-inline: 1px solid var(--rule); }
+.course-progress { padding-block: 24px; border-top: 1px solid var(--rule); }
+.course-progress > p + p { margin-top: 8px; }
+.course-progress .text-link { display: inline-block; margin-top: 12px; }
+.course-progress .source-note { font-size: 15px; color: var(--muted); margin-top: 10px; }
 .sidebar { position: sticky; top: 0; align-self: start; display: flex; flex-direction: column; height: 100dvh; min-height: 0; overflow-y: auto; padding: 38px 30px 26px; border-right: 1px solid var(--rule); background: var(--surface); }
 .sidebar > * { flex-shrink: 0; }
 .wordmark { align-self: flex-start; font: 72px/.9 var(--serif); letter-spacing: -5px; text-decoration: none; }

@@ -14,7 +14,10 @@
   const status = document.getElementById('exam-status');
   const endDialog = document.getElementById('end-dialog');
   const duration = Number(document.getElementById('main').dataset.durationSeconds) * 1000;
+  const assessmentId = document.body.dataset.assessment || 'preservatives';
   let state = store.read();
+  const savedAttempt = window.LabelNotesProgress?.read().assessments[assessmentId]?.latest;
+  if (!state && savedAttempt) state = { ...savedAttempt, status: 'completed', finishReason: 'submit' };
   let interval;
   let confirmIncomplete = false;
   let warned = false;
@@ -114,8 +117,19 @@
     const outcomes = score();
     const earned = outcomes.filter(outcome => outcome.correct).length;
     const unanswered = outcomes.filter(outcome => !outcome.values.length).length;
+    window.LabelNotesProgress?.complete(assessmentId, {
+      earned, total: outcomes.length, submittedAt: state.submittedAt,
+      answers: state.answers,
+      outcomes: outcomes.map(outcome => ({ title: outcome.item.dataset.title, goal: outcome.item.dataset.goal || '', correct: outcome.correct }))
+    });
+    const first = window.LabelNotesProgress?.read().assessments[assessmentId]?.first;
+    const saved = document.getElementById('saved-result');
+    if (saved && first) saved.textContent = assessmentId === 'pretest'
+      ? `Your first result, ${first.earned}/${first.total}, is kept as your starting point. Retaking this check will not replace it.`
+      : `Chapter completed. First attempt: ${first.earned}/${first.total}. You can review the explanations, try again or continue.`;
     document.getElementById('result-score').textContent = `${earned} / ${outcomes.length}`;
-    document.getElementById('result-summary').textContent = `${state.finishReason === 'time' ? 'Time is up. Your saved answers have been submitted.' : 'Your answers are in.'} ${unanswered ? `${unanswered} check${unanswered === 1 ? ' was' : 's were'} left unanswered. ` : ''}Open the notes below to compare your choices and revisit anything you’d like to practice.`;
+    const summary = document.getElementById('result-summary');
+    summary.textContent = `${state.finishReason === 'time' ? 'Time is up. Your saved answers have been submitted. ' : ''}${unanswered ? `${unanswered} question${unanswered === 1 ? ' was' : 's were'} left unanswered. ` : ''}${summary.dataset.intro || 'Your answers are in. Open the notes below to compare your choices and revisit anything you’d like to practice.'}`;
     const details = document.getElementById('result-details');
     details.replaceChildren(...outcomes.map(outcome => {
       const entry = document.createElement('details');
@@ -132,7 +146,7 @@
       const review = document.createElement('a');
       review.className = 'text-link';
       review.href = outcome.item.dataset.review;
-      review.textContent = 'Review this part of the lesson';
+      review.textContent = assessmentId === 'pretest' ? 'Find this topic in the course' : 'Review this part of the lesson';
       entry.append(heading, chosen, answer, explanation, review);
       return entry;
     }));
@@ -152,6 +166,7 @@
 
   function updateClock() {
     if (state?.status !== 'active') return;
+    if (!duration) return;
     const seconds = Math.max(0, Math.ceil((state.deadline - Date.now()) / 1000));
     document.getElementById('exam-timer').textContent = `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
     document.querySelector('.timer-display').dataset.urgent = String(seconds <= 60);
@@ -171,7 +186,7 @@
     showQuestion(state.pageIndex || 0, false);
     markProgress();
     updateClock();
-    if (state.status === 'active') interval = setInterval(updateClock, 1000);
+    if (state.status === 'active' && duration) interval = setInterval(updateClock, 1000);
   }
 
   questions.forEach((question, index) => {
@@ -203,7 +218,7 @@
   form.addEventListener('submit', event => event.preventDefault());
   const changed = () => {
     if (state?.status !== 'active') return;
-    if (Date.now() >= state.deadline) { restoreAnswers(); finish('time'); return; }
+    if (duration && Date.now() >= state.deadline) { restoreAnswers(); finish('time'); return; }
     captureAnswers();
     markProgress();
     confirmIncomplete = false;
@@ -224,7 +239,7 @@
   });
   document.getElementById('end-attempt').addEventListener('click', () => { updateClock(); if (state.status === 'active') endDialog.showModal(); });
   document.getElementById('continue-attempt').addEventListener('click', () => endDialog.close());
-  document.getElementById('confirm-end').addEventListener('click', () => finish(Date.now() >= state.deadline ? 'time' : 'submit'));
+  document.getElementById('confirm-end').addEventListener('click', () => finish(duration && Date.now() >= state.deadline ? 'time' : 'submit'));
   document.getElementById('retry-assessment').addEventListener('click', () => {
     state = null;
     store.write(null);
