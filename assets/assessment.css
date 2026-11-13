@@ -49,7 +49,8 @@
 .news-brief > p + p { margin-top: 14px; }
 .exam-actions { display: flex; gap: 15px; justify-content: space-between; padding-block: 22px; border-top: 1px solid var(--rule); }
 .submission-note { padding: 15px 0 25px; color: var(--muted); }
-.result-score { font: 24px/1.4 var(--sans); margin-block: 24px 12px; }
+.result-score, #saved-result { font: 14px/1.5 var(--sans); color: var(--muted); margin-block: 8px; }
+.exam-results > .result-score, .exam-results > #saved-result { margin-top: 8px; }
 .result-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin-block: 26px; }
 .result-item { border-top: 1px solid var(--rule); padding-block: 20px; }
 .result-item summary { cursor: pointer; font-size: 19px; font-weight: 600; }

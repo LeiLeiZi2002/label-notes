@@ -156,7 +156,8 @@
     const outcomes = score(),
       earned = Number(outcomes.reduce((n, o) => n + o.earned, 0).toFixed(2)),
       total = outcomes.reduce((n, o) => n + o.total, 0);
-    const first = progress?.read().assessments[id]?.first;
+    const savedFirst = progress?.read().assessments[id]?.first;
+    const first = savedFirst?.assessmentVersion === bank.version ? savedFirst : null;
     if (hasFinished) {
       progress?.complete(id, {
         ...state,
@@ -171,9 +172,8 @@
       hasFinished = false;
     }
     const initial = progress?.read().assessments[id]?.first;
-    $('result-score').textContent = `${earned} / ${total}`;
-    $('saved-result').textContent =
-      `First attempt: ${initial?.earned ?? earned}/${initial?.total ?? total} · This attempt: ${earned}/${total}.`;
+    $('result-score').textContent = `Total · ${earned} / ${total}`;
+    $('saved-result').textContent = `First attempt · ${initial?.earned ?? earned} / ${initial?.total ?? total}`;
     $('result-summary').textContent = id === 'pretest'
       ? 'Here is your starting point. Follow a review link to begin learning.'
       : 'See how you did in each area, then revisit the questions below.';
@@ -202,9 +202,10 @@
       meter.value = e;
       meter.setAttribute('aria-label', `${dimension.title}: ${e} out of ${t}`);
       card.append(meter, E.el('p', status, 'dimension-status'));
-      if (id !== 'pretest' && baseline?.assessmentVersion === bank.version) {
-        const earlier = totals((baseline.outcomes || []).filter((r) => ids.includes(r.objective)));
-        if (earlier.total) card.append(E.el('p', `Before learning · ${earlier.earned}/${earlier.total} on the quick check`, 'baseline-record'));
+      if (id !== 'pretest' && baseline?.assessmentVersion === window.LabelNotesCourse.pretest.assessmentVersion) {
+        const earlier = (baseline.outcomes || []).filter((r) => ids.includes(r.objective));
+        const correct = earlier.filter((r) => r.correct).length;
+        if (earlier.length) card.append(E.el('p', `Before learning · ${Math.round(correct / earlier.length * 100)}% (${correct} of ${earlier.length} ${earlier.length === 1 ? 'question' : 'questions'})`, 'baseline-record'));
       }
       const detail = E.el('details', undefined, 'objective-breakdown');
       detail.append(E.el('summary', 'Learning goals & review links'));
@@ -220,7 +221,7 @@
       card.append(detail);
       summary.append(card);
     });
-    results.insertBefore(summary, results.querySelector('.result-actions') || $('result-details'));
+    $('results-title').after($('result-summary'), summary, $('result-score'), $('saved-result'));
     $('result-details').replaceChildren(...blocks.map((block, index) => {
       const qs = block.questionIds.map((qid) => questions.find((q) => q.id === qid));
       const grades = qs.map((q) => E.grade(q, state.answers[q.id]));
@@ -244,6 +245,8 @@
       });
       return d;
     }));
+    results.querySelector('.warmup-recap')?.remove();
+    window.LabelNotesWarmup?.appendRecap(results);
     $('results-title').focus();
     window.scrollTo({ top: 0, behavior: 'instant' });
   }

@@ -361,7 +361,7 @@ window.LabelNotesBanks.preservatives = {
     {
       "id": "p-1a",
       "objective": "P1",
-      "stem": "Select both ingredients from the antimicrobial families covered in this chapter.",
+      "stem": "Select every ingredient from the antimicrobial families covered in this chapter.",
       "type": "label-select",
       "points": 2,
       "cognitiveLevel": "apply",
@@ -504,7 +504,7 @@ window.LabelNotesBanks.preservatives = {
           "correct": false
         }
       ],
-      "selectionHint": "Choose two ingredients.",
+      "selectionHint": "Select all that apply.",
       "labelFootnote": "* Dried.",
       "references": [
         {
@@ -679,9 +679,9 @@ window.LabelNotesBanks.preservatives = {
           "correct": false
         },
         {
-          "id": "color",
-          "text": "The golden color means sulfur dioxide is acting as a yellow coloring agent.",
-          "feedback": "Retaining color by slowing browning is different from adding a yellow dye.",
+          "id": "drying-claim",
+          "text": "Dark raisins do not need sulfur dioxide because drying prevents any further browning.",
+          "feedback": "Drying reduces moisture, but it does not stop every browning reaction. Sulfur dioxide can still help limit browning in dried fruit.",
           "correct": true
         }
       ],
@@ -1154,19 +1154,33 @@ window.LabelNotesBanks.preservatives = {
         },
         {
           "id": "starch",
-          "text": "Cornstarch (Added to Prevent Caking)",
-          "feedback": "Preventing caking keeps shreds separate, rather than inhibiting mold.",
+          "text": "Cornstarch",
+          "feedback": "The name identifies the ingredient. Its nearby purpose is to prevent caking.",
+          "correct": false,
+          "suffix": ""
+        },
+        {
+          "id": "caking-purpose",
+          "text": "(Added to Prevent Caking)",
+          "feedback": "Preventing caking is a stated purpose, but it keeps shreds separate rather than inhibiting spoilage.",
           "correct": false
         },
         {
           "id": "natamycin",
-          "text": "Natamycin (a Natural Mold Inhibitor)",
-          "feedback": "Mold inhibition identifies the preservative role.",
+          "text": "Natamycin",
+          "feedback": "The name alone does not state its role. Read the purpose in parentheses.",
+          "correct": false,
+          "suffix": ""
+        },
+        {
+          "id": "mold-purpose",
+          "text": "(a Natural Mold Inhibitor)",
+          "feedback": "Inhibiting mold is the preservative role identified on this label.",
           "correct": true
         }
       ],
       "maxSelections": 1,
-      "selectionHint": "Choose one ingredient and its purpose statement.",
+      "selectionHint": "Select the purpose statement.",
       "references": [
         {
           "href": "https://foodlion.com/groceries/product/kraft-natural-part-skim-finely-shredded-mozzarella-cheese-8-oz-bag/384413",
@@ -1255,7 +1269,7 @@ window.LabelNotesBanks.preservatives = {
         {
           "id": "p-6b",
           "objective": "P5",
-          "stem": "Select the complete statement that supports your conclusion.",
+          "stem": "Select every phrase that supports your conclusion.",
           "type": "label-select",
           "points": 1,
           "cognitiveLevel": "evaluate",
@@ -1266,28 +1280,52 @@ window.LabelNotesBanks.preservatives = {
           },
           "tokens": [
             {
+              "id": "uncured",
+              "text": "Uncured",
+              "feedback": "Read this label term together with the nitrite exception; it does not identify the source on its own.",
+              "correct": false
+            },
+            {
               "id": "beef",
               "text": "Made with beef.",
-              "feedback": "This identifies the meat, not the nitrite exception.",
+              "feedback": "This identifies the meat, not the source of nitrite.",
               "correct": false
+            },
+            {
+              "id": "artificial",
+              "text": "No artificial preservatives",
+              "feedback": "This origin claim does not tell you whether celery supplies nitrite.",
+              "correct": false
+            },
+            {
+              "id": "no-nitrites",
+              "text": "No nitrites added",
+              "feedback": "This headline needs its exception. On its own, it does not support nitrite coming from celery.",
+              "correct": false
+            },
+            {
+              "id": "exception",
+              "text": "except those naturally occurring in celery powder",
+              "feedback": "The exception identifies celery powder as a possible source of nitrite.",
+              "correct": true
+            },
+            {
+              "id": "celery",
+              "text": "cultured celery powder (used to support quality)",
+              "feedback": "The ingredient list confirms that the celery ingredient named in the exception is present.",
+              "correct": true
             },
             {
               "id": "cold",
               "text": "Keep refrigerated.",
-              "feedback": "This is a storage instruction.",
+              "feedback": "This tells you how to store the food, not where nitrite comes from.",
               "correct": false
-            },
-            {
-              "id": "claim",
-              "text": "No nitrites added, except those naturally occurring in celery powder.",
-              "feedback": "The complete statement includes the exception.",
-              "correct": true
             }
           ],
           "display": "passage",
-          "maxSelections": 1,
-          "selectionHint": "Choose one statement.",
-          "partLabel": "Your evidence"
+          "selectionHint": "Select all that apply.",
+          "partLabel": "Your evidence",
+          "explanation": "The exception identifies a source of nitrite, and the ingredient list confirms that the celery ingredient is present. Read these two pieces together."
         }
       ]
     },
@@ -1366,50 +1404,77 @@ window.LabelNotesBanks.preservatives = {
     },
     {
       "id": "p-7-meat",
-      "type": "two-tier",
+      "type": "matching",
       "parts": [
         {
-          "id": "p-7c",
-          "objective": "P4",
-          "stem": "A cured sausage uses sodium nitrite and sodium erythorbate. Which description separates their roles?",
+          "id": "p-7c-nitrite",
+          "stem": "What does sodium nitrite contribute?",
           "type": "single",
-          "points": 2,
+          "objective": "P4",
+          "points": 1,
           "cognitiveLevel": "analyze",
+          "options": [
+            {
+              "id": "antioxidant",
+              "text": "It mainly binds metals to slow fat oxidation.",
+              "feedback": "Metal binding is the helper role introduced with EDTA and citric acid.",
+              "correct": false
+            },
+            {
+              "id": "curing",
+              "text": "It helps control harmful bacteria and develops cured color and flavor.",
+              "feedback": "Nitrite has both an antimicrobial role and a meat-curing role.",
+              "correct": true
+            },
+            {
+              "id": "companion",
+              "text": "It speeds the action of the other curing ingredient and limits nitrosamine formation.",
+              "feedback": "This describes the companion role of erythorbate, not nitrite.",
+              "correct": false
+            }
+          ],
           "review": {
             "href": "preservatives.html#evidence-nitrite",
             "label": "Read: Sodium nitrite",
             "quote": "In cured bacon, sodium nitrite helps develop the familiar cured color and flavor. It also helps control the hazard from the bacterium that causes botulism, a serious foodborne illness. One ingredient can contribute to several features of the food."
-          },
+          }
+        },
+        {
+          "id": "p-7c-erythorbate",
+          "stem": "What does sodium erythorbate contribute?",
+          "type": "single",
+          "objective": "P4",
+          "points": 1,
+          "cognitiveLevel": "analyze",
           "options": [
             {
-              "id": "roles",
-              "text": "Nitrite supports microbial control and curing; erythorbate helps curing and antioxidant protection.",
-              "feedback": "These ingredients work together but do not have identical jobs.",
+              "id": "companion",
+              "text": "It supports antioxidant protection, speeds curing and helps limit nitrosamine formation.",
+              "feedback": "Erythorbate helps the curing reaction and provides antioxidant support.",
               "correct": true
             },
             {
-              "id": "swap",
-              "text": "Erythorbate controls the main microbial risk; nitrite mainly protects fats from rancidity.",
-              "feedback": "Erythorbate is not nitrite or a vitamin C nutrient claim.",
+              "id": "curing",
+              "text": "It supplies the nitrite responsible for the main antimicrobial curing action.",
+              "feedback": "Erythorbate is a different ingredient; the recipe lists sodium nitrite separately.",
               "correct": false
             },
             {
-              "id": "same",
-              "text": "Both ingredients serve the same antimicrobial role; the second provides extra coverage.",
-              "feedback": "Their roles overlap in preservation, but erythorbate does not replace nitrite’s antimicrobial and curing functions.",
+              "id": "interchangeable",
+              "text": "It duplicates nitrite’s role, so either ingredient can replace the other.",
+              "feedback": "They have complementary roles. Sharing a recipe does not make them interchangeable.",
               "correct": false
             }
           ],
-          "references": [
-            {
-              "href": "preservatives.html#evidence-erythorbate",
-              "label": "Read: Sodium erythorbate",
-              "quote": "Sodium erythorbate is a salt of erythorbic acid. In bacon it helps speed the reaction of nitrite with the meat and reduces the amount of nitrite available to form nitrosamines."
-            }
-          ]
+          "review": {
+            "href": "preservatives.html#evidence-erythorbate",
+            "label": "Read: Sodium erythorbate",
+            "quote": "Sodium erythorbate is a salt of erythorbic acid. In bacon it helps speed the reaction of nitrite with the meat and reduces the amount of nitrite available to form nitrosamines."
+          }
         }
       ],
-      "production": true
+      "production": true,
+      "stem": "A cured sausage uses sodium nitrite and sodium erythorbate. Identify each ingredient’s role."
     }
   ],
   "blocks": [
@@ -1583,13 +1648,16 @@ window.LabelNotesBanks.preservatives = {
       "set": "chapter-check",
       "product": {
         "name": "Practice package",
-        "ingredientsText": "Beef, water, sea salt, vinegar, celery powder, spices.",
+        "ingredientsText": "Beef, water, sea salt, vinegar, cultured celery powder (used to support quality), spices.",
         "transcriptOpen": true,
         "fictional": true,
         "statements": [
+          "Uncured",
           "Made with beef.",
-          "Keep refrigerated.",
-          "No nitrites added, except those naturally occurring in celery powder."
+          "No artificial preservatives",
+          "No nitrites added",
+          "except those naturally occurring in celery powder",
+          "Keep refrigerated."
         ]
       }
     },
@@ -1605,5 +1673,5 @@ window.LabelNotesBanks.preservatives = {
       "production": true
     }
   ],
-  "version": "20261114-7"
+  "version": "20261114-9"
 };

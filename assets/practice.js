@@ -6,7 +6,7 @@
   let pauseCurrent = () => {};
   document.querySelectorAll('[data-check-summary]').forEach((host) => {
     const config = window.LabelNotesCourse[chapter];
-    host.textContent = `${bank.blocks.filter((b) => b.set === 'chapter-check').length} questions · ${config.timeLimitSeconds == null ? 'untimed' : `${config.timeLimitSeconds / 60} min`}`;
+    host.textContent = `${bank.blocks.filter((b) => b.set === 'chapter-check').length} question groups · ${config.timeLimitSeconds == null ? 'untimed' : `${config.timeLimitSeconds / 60} min`}`;
   });
   document
     .querySelectorAll('[data-objectives]')
@@ -24,7 +24,7 @@
   document.querySelectorAll('[data-practice-section]').forEach((slot) => {
     bank.blocks
       .filter(
-        (b) => b.section === slot.dataset.practiceSection && !['pretest', 'chapter-check'].includes(b.set),
+        (b) => b.section === slot.dataset.practiceSection && !['pretest', 'chapter-check', 'warm-up'].includes(b.set),
       )
       .forEach((b) => {
         const host = E.el('div');

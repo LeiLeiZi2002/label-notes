@@ -85,6 +85,7 @@ window.LabelNotesCourse = {
   },
   pretest: {
     title: 'Your starting point',
+    assessmentVersion: '20261114-7',
     timeLimitSeconds: null,
     suggestedMinutes: 5,
     thresholds: { secure: 0.8, developing: 0.5 },

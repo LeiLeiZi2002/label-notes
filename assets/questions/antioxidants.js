@@ -297,7 +297,7 @@ window.LabelNotesBanks.antioxidants = {
     {
       "id": "a-1",
       "objective": "A1",
-      "stem": "Select all three vitamin C–related antioxidant ingredients.",
+      "stem": "Select every vitamin C–related antioxidant ingredient.",
       "type": "label-select",
       "points": 3,
       "cognitiveLevel": "apply",
@@ -356,7 +356,7 @@ window.LabelNotesBanks.antioxidants = {
           "correct": false
         }
       ],
-      "selectionHint": "Choose three ingredients.",
+      "selectionHint": "Select all that apply.",
       "fictional": true,
       "references": [
         {
@@ -1084,6 +1084,142 @@ window.LabelNotesBanks.antioxidants = {
         }
       ],
       "production": true
+    },
+    {
+      "id": "W1",
+      "type": "single",
+      "points": 0,
+      "stem": "Chips stored for eight weeks smell like old crayons. What’s most likely happening?",
+      "options": [
+        {
+          "id": "mold",
+          "text": "Mold is growing on the chips.",
+          "feedback": "The rancid smell points to oil oxidation rather than mold growth.",
+          "correct": false,
+          "recap": "mold caused the smell"
+        },
+        {
+          "id": "oil",
+          "text": "The oil in the chips is reacting with oxygen and turning rancid.",
+          "feedback": "That smell is a classic sign of fat oxidation. Antioxidants help slow it.",
+          "correct": true,
+          "recap": "the chip oil was turning rancid"
+        },
+        {
+          "id": "salt",
+          "text": "The salt is pulling moisture out of the air.",
+          "feedback": "Moisture affects crispness; it does not explain the rancid smell.",
+          "correct": false,
+          "recap": "salt was drawing in moisture"
+        }
+      ],
+      "review": {
+        "href": "antioxidants.html#evidence-tbhq",
+        "label": "Find out why in Antioxidants",
+        "quote": "TBHQ is short for tert-butylhydroquinone. It slows fat oxidation, helping foods made with oil keep their flavor during storage."
+      }
+    },
+    {
+      "id": "W2",
+      "type": "single",
+      "points": 0,
+      "stem": "Freshly cut slices turn brown within an hour. Which ingredient treatment directly slows this browning?",
+      "options": [
+        {
+          "id": "vitamin-c",
+          "text": "Dip the slices in a vitamin C solution.",
+          "feedback": "Forms of vitamin C, including calcium ascorbate, help slow browning on cut fruit.",
+          "correct": true,
+          "recap": "a vitamin C dip would protect the apples"
+        },
+        {
+          "id": "mold",
+          "text": "Add a mold inhibitor such as calcium propionate.",
+          "feedback": "Browning is not caused by mold. A mold inhibitor does not target this change.",
+          "correct": false,
+          "recap": "a mold inhibitor would protect the apples"
+        },
+        {
+          "id": "bag",
+          "text": "Seal the slices in the bag faster.",
+          "feedback": "Reducing exposure to air can help, but this is a packaging step. A vitamin C dip directly targets browning.",
+          "correct": false,
+          "recap": "faster packing would protect the apples"
+        }
+      ],
+      "review": {
+        "href": "antioxidants.html#evidence-calcium-ascorbate",
+        "label": "Find out why in Ascorbic acid & ascorbates",
+        "quote": "Calcium ascorbate is the calcium salt of ascorbic acid. It also helps slow browning. In these apple slices, it works alongside ascorbic acid to help the fruit retain its color."
+      }
+    },
+    {
+      "id": "W3",
+      "type": "single",
+      "points": 0,
+      "stem": "The dip tastes “off” sooner than expected. Lab tests find tiny traces of iron and copper from the mixing equipment. Why does that matter?",
+      "options": [
+        {
+          "id": "toxic",
+          "text": "The metals are toxic at that level.",
+          "feedback": "The off-flavor clue points to faster oxidation. Finding traces alone does not establish a toxic dose.",
+          "correct": false,
+          "recap": "the metals indicated toxicity"
+        },
+        {
+          "id": "texture",
+          "text": "Metals make the dip thicker.",
+          "feedback": "Texture does not explain the off-flavor. Metals can speed up oxidation.",
+          "correct": false,
+          "recap": "the metals changed the texture"
+        },
+        {
+          "id": "oxidation",
+          "text": "Traces of metal can speed up the oxidation that causes off-flavors.",
+          "feedback": "That is why some recipes add an ingredient that binds metals.",
+          "correct": true,
+          "recap": "the metals sped up oxidation"
+        }
+      ],
+      "review": {
+        "href": "antioxidants.html#evidence-edta",
+        "label": "Find out why in Citric acid & EDTA",
+        "quote": "Tiny amounts of metals such as iron and copper can speed up oxidation. Calcium disodium EDTA binds these metals, making them less able to drive those reactions."
+      }
+    },
+    {
+      "id": "W4",
+      "type": "single",
+      "points": 0,
+      "stem": "The chips now use rosemary extract to stay fresh. Marketing wants to print “Packed with antioxidants — a healthier chip!” What do you tell them?",
+      "options": [
+        {
+          "id": "healthy",
+          "text": "Go for it: antioxidants are good for you, so the claim is fair.",
+          "feedback": "Antioxidants in a recipe can protect the food; that does not establish a health benefit for the person eating it.",
+          "correct": false,
+          "recap": "the health claim was justified"
+        },
+        {
+          "id": "evidence",
+          "text": "The extract protects the chip oil; that is not evidence the chips are healthier.",
+          "feedback": "Protecting food and demonstrating a health benefit require different evidence.",
+          "correct": true,
+          "recap": "freshness did not justify the health claim"
+        },
+        {
+          "id": "remove",
+          "text": "Remove the extract, because natural preservatives do not work.",
+          "feedback": "Rosemary extract can slow fat oxidation. The issue is the claim, not its ability to protect the oil.",
+          "correct": false,
+          "recap": "the rosemary extract should be removed"
+        }
+      ],
+      "review": {
+        "href": "antioxidants.html#evidence-health",
+        "label": "Find out why in Review & practice",
+        "quote": "Preserving the food during storage and demonstrating a benefit for the person eating it are different claims. The freshness wording provides evidence for the first."
+      }
     }
   ],
   "blocks": [
@@ -1303,7 +1439,43 @@ window.LabelNotesBanks.antioxidants = {
       ],
       "set": "chapter-check",
       "production": true
+    },
+    {
+      "id": "warmup-W1",
+      "set": "warm-up",
+      "section": "why-antioxidants",
+      "title": "Line 1 · Potato chips",
+      "questionIds": [
+        "W1"
+      ]
+    },
+    {
+      "id": "warmup-W2",
+      "set": "warm-up",
+      "section": "why-antioxidants",
+      "title": "Line 2 · Apple slices",
+      "questionIds": [
+        "W2"
+      ]
+    },
+    {
+      "id": "warmup-W3",
+      "set": "warm-up",
+      "section": "why-antioxidants",
+      "title": "Line 3 · Ranch dip",
+      "questionIds": [
+        "W3"
+      ]
+    },
+    {
+      "id": "warmup-W4",
+      "set": "warm-up",
+      "section": "why-antioxidants",
+      "title": "Line 4 · Marketing",
+      "questionIds": [
+        "W4"
+      ]
     }
   ],
-  "version": "20261114-7"
+  "version": "20261114-9"
 };

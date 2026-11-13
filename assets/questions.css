@@ -172,6 +172,7 @@ summary:focus-visible {
 .ingredient-list .ingredient-token { padding: 8px 10px; border-color: #b8b8b8; border-radius: 3px; text-align: left; font-size: 17px; line-height: 1.55; }
 .ingredient-list .ingredient-token:not(:last-child)::after { content: ','; }
 .ingredient-list .ingredient-token:last-child::after { content: '.'; }
+.ingredient-list .ingredient-token[data-suffix]::after { content: attr(data-suffix); }
 .ingredient-token[aria-pressed='true'] { border-width: 1px; background: #232323; color: white; border-color: #232323; }
 .ingredient-token:hover:not([aria-pressed='true']) { background: #eee; }
 .ingredient-token[data-correct='true'] { outline-offset: 2px; }
@@ -202,6 +203,32 @@ summary:focus-visible {
 }
 .question-item .fill-in-label {
   display: block;
+}
+.question-item[data-question-type='matching'] > h3 { grid-column: 1 / -1; }
+.warmup { margin-block: 30px 40px; padding: 28px; border: 1px solid var(--rule); background: var(--surface); }
+.warmup > h2 { font: 32px/1.2 var(--serif); margin-bottom: 14px; }
+.warmup > p { max-width: 65ch; }
+.warmup-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 22px; }
+.warmup-nav button { min-height: 44px; padding: 9px 15px; border: 1px solid var(--rule); background: white; font: inherit; font-size: 15px; }
+.warmup-nav button[aria-current='step'] { background: var(--ink); color: var(--paper); }
+.warmup-card { padding-top: 20px; border-top: 1px solid var(--rule); }
+.warmup-card > h3 { font-size: 20px; margin-bottom: 15px; }
+.warmup .question-item { margin: 0; }
+.warmup .question-item fieldset { margin: 0; }
+.warmup .question-item legend { font-size: 19px; margin-bottom: 16px; }
+.warmup .question-item label { padding: 14px; margin-block: 9px; background: var(--paper); }
+.warmup-reveal { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--rule); }
+.warmup-reveal ul { list-style: none; padding: 0; }
+.warmup-reveal li { margin-top: 18px; }
+.warmup-reveal li p { margin-top: 6px; font-size: 16px; }
+.warmup-next { margin-top: 24px; }
+.warmup-recap { border-top: 1px solid var(--rule); margin-top: 24px; padding-top: 24px; font-size: 16px; }
+.warmup-recap .text-link { margin-top: 12px; display: inline-block; }
+@media (max-width: 580px) {
+  .warmup { padding: 18px; }
+  .warmup > h2 { font-size: 28px; }
+  .warmup-nav { gap: 6px; }
+  .warmup-nav button { padding: 8px 12px; }
 }
 .ingredient-transcript {
   font-size: 1rem;

@@ -1,8 +1,8 @@
 /* 首次成绩、完成状态和阅读位置共用一份本地记录。 */
 (() => {
-  const key = 'label-notes-course-v2';
+  const key = 'label-notes-course-v3';
   const chapters = ['preservatives', 'antioxidants'];
-  let memory = { version: 2, assessments: {}, visits: {}, practice: {} };
+  let memory = { version: 3, assessments: {}, visits: {}, practice: {}, warmups: {} };
   let persistent = true;
   let storage;
   try { storage = localStorage; storage.setItem(`${key}-check`, '1'); storage.removeItem?.(`${key}-check`); }
@@ -13,8 +13,9 @@
   }
   function read() {
     try {
-      const saved = JSON.parse(storage?.getItem(key) || 'null');
-      if (saved?.version === 2 && saved.assessments && saved.visits) memory = saved;
+      const saved = JSON.parse(storage?.getItem(key) || storage?.getItem('label-notes-course-v2') || 'null');
+      if ([2, 3].includes(saved?.version) && saved.assessments && saved.visits)
+        memory = { ...saved, version: 3, warmups: saved.warmups || {} };
     } catch { /* 无有效记录时允许重新学习。 */ }
     return memory;
   }
@@ -78,6 +79,13 @@
   }
   window.LabelNotesProgress = {
     read, complete, canOpen,
+    saveWarmup(chapter, question, answer) {
+      const data = read();
+      data.warmups[chapter] ||= {};
+      const previous = data.warmups[chapter][question];
+      data.warmups[chapter][question] = { first: previous?.first || [...answer], latest: [...answer] };
+      write();
+    },
     savePractice(id, current, result) {
       const data=read(); data.practice ||= {}; const previous=data.practice[id] || {};
       data.practice[id]={...previous,current};

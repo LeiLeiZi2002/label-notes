@@ -189,13 +189,10 @@
     group.dataset.itemId = q.id;
     const legend = html('legend', q.stem);
     group.append(legend);
-    const note = el('p', q.objective || 'Demo', 'objective-note');
-    group.append(note);
     if (q.display === 'judgment-row') {
       wrap.classList.add('judgment-row');
       wrap.append(html('p', q.stem, 'judgment-statement'));
       legend.classList.add('visually-hidden');
-      note.hidden = true;
     }
     if (q.product) group.append(product(q.product));
     const opts = options(q);
@@ -239,6 +236,7 @@
         const b = el('button', o.text, 'ingredient-token');
         b.type = 'button';
         b.dataset.tokenId = o.id;
+        if (o.suffix !== undefined) b.dataset.suffix = o.suffix;
         b.setAttribute('aria-pressed', 'false');
         b.addEventListener('click', () => {
           const selected = b.getAttribute('aria-pressed') !== 'true';
