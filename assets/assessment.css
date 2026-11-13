@@ -104,8 +104,14 @@
   .exam-question { padding-top: 24px; }
   .exam-toolbar { gap: 12px; padding-block: 15px; }
   .question-tabs { gap: 5px; }
-  .question-tabs button { width: 30px; height: 32px; }
+  .question-tabs button { width: 36px; height: 44px; }
   .timer-display strong { font-size: 27px; }
   .exam-package { float: none; width: 150px; margin-left: 0; }
   .exam-actions { flex-wrap: wrap; }
+}
+@media (max-width: 850px) {
+  .assessment-page[data-active="true"] .assessment-nav,
+  .assessment-page[data-active="true"] .course-return,
+  .assessment-page[data-active="true"] .exam-lock-message { display: none; }
+  .assessment-page[data-active="true"] .lesson-sidebar { padding-bottom: 18px; }
 }

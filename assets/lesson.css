@@ -254,3 +254,5 @@
   .lesson-pager { align-items: stretch; flex-direction: column; }
   .lesson-pager .primary-link { margin-left: 0; }
 }
+.lesson-step p[id^="evidence-"] { scroll-margin-top: 115px; }
+.lesson-step p[id^="evidence-"]:target { background: var(--wash); outline: 8px solid var(--wash); }

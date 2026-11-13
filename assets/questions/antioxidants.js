@@ -10,8 +10,9 @@ window.LabelNotesBanks.antioxidants = {
       "points": 1,
       "stem": "Which phrase tells you the antioxidant’s purpose?",
       "review": {
-        "href": "antioxidants.html#read-label",
-        "label": "Review this part of the lesson"
+        "href": "antioxidants.html#evidence-tbhq-label",
+        "label": "Read: TBHQ and the oil it protects",
+        "quote": "In this ingredient list, “preserved by TBHQ” follows the vegetable oil used in the noodles. That wording tells you what is being protected. TBHQ is not what gives the soup its chicken flavor."
       },
       "hints": [
         "Look for wording beside the vegetable oil, rather than the product name.",
@@ -49,8 +50,9 @@ window.LabelNotesBanks.antioxidants = {
       "points": 1,
       "stem": "What does TBHQ do in the noodles?",
       "review": {
-        "href": "antioxidants.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "antioxidants.html#evidence-tbhq",
+        "label": "Read: TBHQ",
+        "quote": "TBHQ is short for tert-butylhydroquinone. It slows fat oxidation, helping foods made with oil keep their flavor during storage."
       },
       "hints": [],
       "type": "single",
@@ -85,8 +87,9 @@ window.LabelNotesBanks.antioxidants = {
       "points": 1,
       "stem": "Which pair belongs to the vitamin C family?",
       "review": {
-        "href": "antioxidants.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "antioxidants.html#evidence-calcium-ascorbate",
+        "label": "Read: Calcium ascorbate",
+        "quote": "Calcium ascorbate is the calcium salt of ascorbic acid. It also helps slow browning. In these apple slices, it works alongside ascorbic acid to help the fruit retain its color."
       },
       "hints": [],
       "type": "single",
@@ -121,8 +124,9 @@ window.LabelNotesBanks.antioxidants = {
       "points": 1,
       "stem": "Why is rosemary extract added to the sea-salt crackers?",
       "review": {
-        "href": "antioxidants.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "antioxidants.html#evidence-rosemary-label",
+        "label": "Read: Rosemary extract on the cracker label",
+        "quote": "These crackers contain sunflower oil, almonds and seeds. Their label lists rosemary extract “for freshness,” so its stated job is to help preserve the crackers rather than give them a rosemary flavor."
       },
       "hints": [],
       "type": "single",
@@ -157,8 +161,9 @@ window.LabelNotesBanks.antioxidants = {
       "points": 1,
       "stem": "How does calcium disodium EDTA help protect mayonnaise?",
       "review": {
-        "href": "antioxidants.html#related-ingredients",
-        "label": "Review this part of the lesson"
+        "href": "antioxidants.html#evidence-edta",
+        "label": "Read: How EDTA binds metals",
+        "quote": "Tiny amounts of metals such as iron and copper can speed up oxidation. Calcium disodium EDTA binds these metals, making them less able to drive those reactions."
       },
       "hints": [],
       "type": "single",
@@ -193,8 +198,9 @@ window.LabelNotesBanks.antioxidants = {
       "points": 1,
       "stem": "A label says “antioxidant added to preserve freshness.” What does that tell you?",
       "review": {
-        "href": "antioxidants.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "antioxidants.html#evidence-health",
+        "label": "Read: Food preservation and health claims",
+        "quote": "Preserving the food during storage and demonstrating a benefit for the person eating it are different claims. The freshness wording provides evidence for the first."
       },
       "hints": [],
       "type": "single",
@@ -229,8 +235,9 @@ window.LabelNotesBanks.antioxidants = {
       "points": 1,
       "stem": "What is the antioxidant’s name?",
       "review": {
-        "href": "antioxidants.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "antioxidants.html#evidence-tbhq",
+        "label": "Read: TBHQ",
+        "quote": "TBHQ is short for tert-butylhydroquinone. It slows fat oxidation, helping foods made with oil keep their flavor during storage."
       },
       "hints": [],
       "type": "short-text",
@@ -259,8 +266,9 @@ window.LabelNotesBanks.antioxidants = {
       "points": 1,
       "stem": "What change is this ingredient intended to slow?",
       "review": {
-        "href": "antioxidants.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "antioxidants.html#evidence-tbhq-label",
+        "label": "Read: TBHQ and the oil it protects",
+        "quote": "In this ingredient list, “preserved by TBHQ” follows the vegetable oil used in the noodles. That wording tells you what is being protected. TBHQ is not what gives the soup its chicken flavor."
       },
       "hints": [],
       "type": "single",
@@ -294,8 +302,9 @@ window.LabelNotesBanks.antioxidants = {
       "points": 3,
       "cognitiveLevel": "apply",
       "review": {
-        "href": "antioxidants.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "antioxidants.html#evidence-palmitate",
+        "label": "Read: Ascorbyl palmitate",
+        "quote": "Ascorbyl palmitate combines ascorbic acid with palmitic acid, a fatty acid. This makes it more suited to fatty foods than plain ascorbic acid. It is used to help slow oxidation in oils and other fat-containing products."
       },
       "tokens": [
         {
@@ -348,7 +357,14 @@ window.LabelNotesBanks.antioxidants = {
         }
       ],
       "selectionHint": "Choose three ingredients.",
-      "fictional": true
+      "fictional": true,
+      "references": [
+        {
+          "href": "antioxidants.html#evidence-sodium-ascorbate",
+          "label": "Read: Sodium ascorbate",
+          "quote": "Sodium ascorbate is the sodium salt of ascorbic acid. Like calcium ascorbate, it belongs to the vitamin C family. It can help protect foods against oxidation and can also be used to add vitamin C."
+        }
+      ]
     },
     {
       "id": "a-2",
@@ -362,8 +378,9 @@ window.LabelNotesBanks.antioxidants = {
           "points": 1,
           "cognitiveLevel": "understand",
           "review": {
-            "href": "antioxidants.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "antioxidants.html#evidence-tocopherols",
+            "label": "Read: Mixed tocopherols",
+            "quote": "Tocopherols belong to the vitamin E family. They dissolve in fats and help slow the reactions that make oils and fat-containing foods develop stale, rancid flavors."
           },
           "options": [
             {
@@ -395,8 +412,9 @@ window.LabelNotesBanks.antioxidants = {
           "points": 1,
           "cognitiveLevel": "analyze",
           "review": {
-            "href": "antioxidants.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "antioxidants.html#evidence-citric",
+            "label": "Read: Citric acid",
+            "quote": "Citric acid is the acid associated with the tart taste of citrus fruit. In foods it can adjust acidity and bind small amounts of metals that would otherwise speed up oxidation."
           },
           "options": [
             {
@@ -428,8 +446,9 @@ window.LabelNotesBanks.antioxidants = {
           "points": 1,
           "cognitiveLevel": "analyze",
           "review": {
-            "href": "antioxidants.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "preservatives.html#evidence-sulfite-family",
+            "label": "Read: Sulfiting agents",
+            "quote": "Sulfur dioxide and sodium bisulfite can supply sulfites in food. Other examples include sodium sulfite and potassium metabisulfite. Recognizing this group matters for people with sulfite sensitivity."
           },
           "options": [
             {
@@ -463,8 +482,9 @@ window.LabelNotesBanks.antioxidants = {
       "points": 1,
       "cognitiveLevel": "apply",
       "review": {
-        "href": "antioxidants.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "antioxidants.html#evidence-tbhq",
+        "label": "Read: TBHQ",
+        "quote": "TBHQ is short for tert-butylhydroquinone. It slows fat oxidation, helping foods made with oil keep their flavor during storage."
       },
       "acceptedAnswers": [
         "TBHQ",
@@ -490,8 +510,9 @@ window.LabelNotesBanks.antioxidants = {
       "points": 1,
       "cognitiveLevel": "analyze",
       "review": {
-        "href": "antioxidants.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "antioxidants.html#evidence-citric",
+        "label": "Read: Citric acid",
+        "quote": "Citric acid is the acid associated with the tart taste of citrus fruit. In foods it can adjust acidity and bind small amounts of metals that would otherwise speed up oxidation."
       },
       "options": [
         {
@@ -523,8 +544,9 @@ window.LabelNotesBanks.antioxidants = {
       "points": 1,
       "cognitiveLevel": "evaluate",
       "review": {
-        "href": "antioxidants.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "antioxidants.html#evidence-health",
+        "label": "Read: Food preservation and health claims",
+        "quote": "Preserving the food during storage and demonstrating a benefit for the person eating it are different claims. The freshness wording provides evidence for the first."
       },
       "tokens": [
         {
@@ -562,8 +584,9 @@ window.LabelNotesBanks.antioxidants = {
           "points": 1,
           "cognitiveLevel": "analyze",
           "review": {
-            "href": "antioxidants.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "antioxidants.html#evidence-tocopherols",
+            "label": "Read: Mixed tocopherols",
+            "quote": "Tocopherols belong to the vitamin E family. They dissolve in fats and help slow the reactions that make oils and fat-containing foods develop stale, rancid flavors."
           },
           "options": [
             {
@@ -594,8 +617,9 @@ window.LabelNotesBanks.antioxidants = {
           "points": 1,
           "cognitiveLevel": "analyze",
           "review": {
-            "href": "antioxidants.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "antioxidants.html#evidence-tocopherols",
+            "label": "Read: Mixed tocopherols",
+            "quote": "Tocopherols belong to the vitamin E family. They dissolve in fats and help slow the reactions that make oils and fat-containing foods develop stale, rancid flavors."
           },
           "options": [
             {
@@ -632,8 +656,9 @@ window.LabelNotesBanks.antioxidants = {
           "points": 1,
           "cognitiveLevel": "evaluate",
           "review": {
-            "href": "antioxidants.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "antioxidants.html#evidence-tbhq-label",
+            "label": "Read: TBHQ and the oil it protects",
+            "quote": "In this ingredient list, “preserved by TBHQ” follows the vegetable oil used in the noodles. That wording tells you what is being protected. TBHQ is not what gives the soup its chicken flavor."
           },
           "options": [
             {
@@ -656,7 +681,14 @@ window.LabelNotesBanks.antioxidants = {
             }
           ],
           "explanation": "The purpose is explicitly stated after mixed tocopherols.",
-          "fixedOrder": true
+          "fixedOrder": true,
+          "references": [
+            {
+              "href": "https://www.wholefoodsmarket.com/grocery/product/365-by-whole-foods-market-organic-fruit-nut-granola-17-oz-b074h6qskr",
+              "label": "Package source: 365 Organic Fruit & Nut Granola · 17 oz",
+              "quote": "Mixed Tocopherols (Added To Maintain Freshness)."
+            }
+          ]
         },
         {
           "id": "a-4b2",
@@ -666,8 +698,9 @@ window.LabelNotesBanks.antioxidants = {
           "points": 1,
           "cognitiveLevel": "evaluate",
           "review": {
-            "href": "antioxidants.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "antioxidants.html#evidence-artificial",
+            "label": "Read: “No artificial preservatives”",
+            "quote": "That wording does not mean a food has no ingredients helping it keep. A recipe may use rosemary extract or tocopherols for antioxidant protection. Read the ingredient list and any purpose statement to see what the ingredient is doing."
           },
           "options": [
             {
@@ -690,7 +723,14 @@ window.LabelNotesBanks.antioxidants = {
             }
           ],
           "explanation": "Mixed tocopherols are explicitly added to maintain freshness.",
-          "fixedOrder": true
+          "fixedOrder": true,
+          "references": [
+            {
+              "href": "https://www.wholefoodsmarket.com/grocery/product/365-by-whole-foods-market-organic-fruit-nut-granola-17-oz-b074h6qskr",
+              "label": "Package source: 365 Organic Fruit & Nut Granola · 17 oz",
+              "quote": "Mixed Tocopherols (Added To Maintain Freshness)."
+            }
+          ]
         },
         {
           "id": "a-4b3",
@@ -700,8 +740,9 @@ window.LabelNotesBanks.antioxidants = {
           "points": 1,
           "cognitiveLevel": "evaluate",
           "review": {
-            "href": "antioxidants.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "antioxidants.html#evidence-vitamin-label",
+            "label": "Read: Vitamin placement and purpose",
+            "quote": "On the cereal shown here, the freshness statement follows mixed tocopherols. Sodium ascorbate appears in the Vitamins and Minerals group. Nutrition Facts describes nutrient amounts in the food; it does not, on its own, explain why every ingredient was added. If the label gives no purpose, the name alone may leave the intended use uncertain."
           },
           "options": [
             {
@@ -734,8 +775,9 @@ window.LabelNotesBanks.antioxidants = {
           "points": 1,
           "cognitiveLevel": "evaluate",
           "review": {
-            "href": "antioxidants.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "antioxidants.html#evidence-health",
+            "label": "Read: Food preservation and health claims",
+            "quote": "Preserving the food during storage and demonstrating a benefit for the person eating it are different claims. The freshness wording provides evidence for the first."
           },
           "options": [
             {
@@ -771,8 +813,9 @@ window.LabelNotesBanks.antioxidants = {
       "points": 1,
       "cognitiveLevel": "apply",
       "review": {
-        "href": "antioxidants.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "antioxidants.html#evidence-edta",
+        "label": "Read: How EDTA binds metals",
+        "quote": "Tiny amounts of metals such as iron and copper can speed up oxidation. Calcium disodium EDTA binds these metals, making them less able to drive those reactions."
       },
       "options": [
         {
@@ -793,6 +836,13 @@ window.LabelNotesBanks.antioxidants = {
           "feedback": "The label does not attach the color-retention statement to salt.",
           "correct": false
         }
+      ],
+      "references": [
+        {
+          "href": "https://hannaford.com/groceries/soups-canned-goods/canned-beans/canned-kidney-beans/bushs-best-cannellini-white-kidney-beans-155-oz-can.html",
+          "label": "Package source: Bush’s Best Cannellini White Kidney Beans · 15.5 oz",
+          "quote": "Calcium Disodium EDTA (Promotes Color Retention)."
+        }
       ]
     },
     {
@@ -803,8 +853,9 @@ window.LabelNotesBanks.antioxidants = {
       "points": 1,
       "cognitiveLevel": "analyze",
       "review": {
-        "href": "antioxidants.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "antioxidants.html#evidence-edta",
+        "label": "Read: How EDTA binds metals",
+        "quote": "Tiny amounts of metals such as iron and copper can speed up oxidation. Calcium disodium EDTA binds these metals, making them less able to drive those reactions."
       },
       "options": [
         {
@@ -835,8 +886,9 @@ window.LabelNotesBanks.antioxidants = {
       "points": 1,
       "cognitiveLevel": "evaluate",
       "review": {
-        "href": "antioxidants.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "antioxidants.html#evidence-vitamin-roles",
+        "label": "Read: A vitamin name can have two jobs",
+        "quote": "Ascorbic acid and tocopherols are vitamin-related ingredients, but a manufacturer may use them for antioxidant protection, nutrient addition, or both. Start with the nearby wording."
       },
       "options": [
         {
@@ -857,6 +909,13 @@ window.LabelNotesBanks.antioxidants = {
           "feedback": "“To protect color” directly identifies its food-protection job.",
           "correct": true
         }
+      ],
+      "references": [
+        {
+          "href": "https://foodlion.com/groceries/product/del-monte-sliced-cling-peaches-20-oz-jar/368749",
+          "label": "Package source: A · Del Monte Sliced Cling Peaches",
+          "quote": "Ascorbic Acid (to Protect Color)."
+        }
       ]
     },
     {
@@ -867,8 +926,9 @@ window.LabelNotesBanks.antioxidants = {
       "points": 1,
       "cognitiveLevel": "evaluate",
       "review": {
-        "href": "antioxidants.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "antioxidants.html#evidence-vitamin-roles",
+        "label": "Read: A vitamin name can have two jobs",
+        "quote": "Ascorbic acid and tocopherols are vitamin-related ingredients, but a manufacturer may use them for antioxidant protection, nutrient addition, or both. Start with the nearby wording."
       },
       "options": [
         {
@@ -889,6 +949,13 @@ window.LabelNotesBanks.antioxidants = {
           "feedback": "Ascorbic acid can have more than one purpose; the name alone does not rank them.",
           "correct": false
         }
+      ],
+      "references": [
+        {
+          "href": "https://shop.coborns.com/store/coborns-marketplace/products/97461-mott-s-original-applesauce-48-oz",
+          "label": "Package source: B · Mott’s Original Applesauce",
+          "quote": "Good source of vitamin C."
+        }
       ]
     },
     {
@@ -903,8 +970,9 @@ window.LabelNotesBanks.antioxidants = {
           "points": 1,
           "cognitiveLevel": "analyze",
           "review": {
-            "href": "antioxidants.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "antioxidants.html#evidence-calcium-ascorbate",
+            "label": "Read: Calcium ascorbate",
+            "quote": "Calcium ascorbate is the calcium salt of ascorbic acid. It also helps slow browning. In these apple slices, it works alongside ascorbic acid to help the fruit retain its color."
           },
           "options": [
             {
@@ -942,8 +1010,9 @@ window.LabelNotesBanks.antioxidants = {
           "points": 1,
           "cognitiveLevel": "analyze",
           "review": {
-            "href": "antioxidants.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "antioxidants.html#evidence-rosemary",
+            "label": "Read: Rosemary extract",
+            "quote": "Rosemary extract contains antioxidant compounds taken from rosemary leaves. These compounds help slow the reactions that give fats an unpleasant taste or smell."
           },
           "options": [
             {
@@ -981,8 +1050,9 @@ window.LabelNotesBanks.antioxidants = {
           "points": 1,
           "cognitiveLevel": "analyze",
           "review": {
-            "href": "antioxidants.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "antioxidants.html#evidence-edta",
+            "label": "Read: How EDTA binds metals",
+            "quote": "Tiny amounts of metals such as iron and copper can speed up oxidation. Calcium disodium EDTA binds these metals, making them less able to drive those reactions."
           },
           "options": [
             {

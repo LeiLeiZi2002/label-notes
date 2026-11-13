@@ -10,8 +10,9 @@ window.LabelNotesBanks.preservatives = {
       "points": 1,
       "stem": "Which THREE ingredients does “added as preservatives” refer to?",
       "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "preservatives.html#evidence-purpose",
+        "label": "Read: Reading a purpose statement",
+        "quote": "The parentheses follow both ingredient names. They tell you why this pair is included. This is a useful way to connect a technical name with its job in a particular food."
       },
       "hints": [
         "Find the purpose statement next to the ingredient names.",
@@ -61,8 +62,9 @@ window.LabelNotesBanks.preservatives = {
       "points": 1,
       "stem": "The bag lists preservatives and recommends refrigeration after opening. How do these instructions work together?",
       "review": {
-        "href": "preservatives.html#drink-label",
-        "label": "Review this part of the lesson"
+        "href": "preservatives.html#evidence-storage",
+        "label": "Read: Preservatives and refrigeration",
+        "quote": "The apricot bag still recommends refrigeration after opening. Ingredients and storage conditions work together; one does not cancel the other."
       },
       "hints": [
         "Find the storage advice on the back of the bag.",
@@ -100,8 +102,9 @@ window.LabelNotesBanks.preservatives = {
       "points": 1,
       "stem": "1. Which ingredient helps control mold in the tortilla example?",
       "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "preservatives.html#evidence-propionate",
+        "label": "Read: Calcium propionate",
+        "quote": "A soft tortilla needs to stay usable while it is transported, sold and stored. Calcium propionate is an antimicrobial preservative used in baked goods to help slow microbial spoilage, including mold. On this package it shares the phrase “to maintain freshness” with sorbic acid."
       },
       "hints": [],
       "type": "match",
@@ -138,8 +141,9 @@ window.LabelNotesBanks.preservatives = {
       "points": 1,
       "stem": "2. Which ingredient inhibits spoilage microbes in the Sprite example?",
       "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "preservatives.html#evidence-benzoate",
+        "label": "Read: Sodium benzoate",
+        "quote": "Sprite lists sodium benzoate with the explanation “to protect taste.” Its preservative role is to inhibit microorganisms that could spoil the drink. Benzoates are particularly useful against yeasts in acidic foods."
       },
       "hints": [],
       "type": "match",
@@ -176,8 +180,9 @@ window.LabelNotesBanks.preservatives = {
       "points": 1,
       "stem": "3. Which ingredient helps develop the cured color and flavor of bacon?",
       "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "preservatives.html#evidence-nitrite",
+        "label": "Read: Sodium nitrite",
+        "quote": "In cured bacon, sodium nitrite helps develop the familiar cured color and flavor. It also helps control the hazard from the bacterium that causes botulism, a serious foodborne illness. One ingredient can contribute to several features of the food."
       },
       "hints": [],
       "type": "match",
@@ -214,8 +219,9 @@ window.LabelNotesBanks.preservatives = {
       "points": 1,
       "stem": "How are sorbic acid and potassium sorbate related?",
       "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "preservatives.html#evidence-sorbate-family",
+        "label": "Read: Sorbic acid and potassium sorbate",
+        "quote": "They belong to the same preservative family. One is an acid; the other is a potassium salt of that acid. The shared family explains the similar names and their mold- and yeast-control roles."
       },
       "hints": [],
       "type": "single",
@@ -250,8 +256,9 @@ window.LabelNotesBanks.preservatives = {
       "points": 1,
       "stem": "Sprite lists sodium benzoate “to protect taste.” What does that mean in this example?",
       "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "preservatives.html#evidence-benzoate",
+        "label": "Read: Sodium benzoate",
+        "quote": "Sprite lists sodium benzoate with the explanation “to protect taste.” Its preservative role is to inhibit microorganisms that could spoil the drink. Benzoates are particularly useful against yeasts in acidic foods."
       },
       "hints": [],
       "type": "single",
@@ -286,8 +293,9 @@ window.LabelNotesBanks.preservatives = {
       "points": 1,
       "stem": "1. What does potassium sorbate contribute to this fruit spread?",
       "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "preservatives.html#evidence-sorbate",
+        "label": "Read: Potassium sorbate",
+        "quote": "Potassium sorbate dissolves readily in water, which helps it spread through a recipe. It is used in foods such as fruit products, sauces and other foods where molds and yeasts need to be controlled. Its effectiveness also depends on conditions in the food, including acidity."
       },
       "hints": [],
       "type": "single",
@@ -322,8 +330,9 @@ window.LabelNotesBanks.preservatives = {
       "points": 1,
       "stem": "2. Which ingredient from an earlier food example belongs to the same acid-and-salt family?",
       "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "preservatives.html#evidence-sorbate-family",
+        "label": "Read: Sorbic acid and potassium sorbate",
+        "quote": "They belong to the same preservative family. One is an acid; the other is a potassium salt of that acid. The shared family explains the similar names and their mold- and yeast-control roles."
       },
       "hints": [],
       "type": "single",
@@ -357,8 +366,9 @@ window.LabelNotesBanks.preservatives = {
       "points": 2,
       "cognitiveLevel": "apply",
       "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "preservatives.html#evidence-sorbic-family",
+        "label": "Read: Sorbic acid and sorbates",
+        "quote": "The related names sorbic acid and sorbate are worth remembering together. Sorbates are salts of sorbic acid. Later on this page, the apricot bag uses potassium sorbate, giving you a second way to recognize this family."
       },
       "tokens": [
         {
@@ -495,7 +505,14 @@ window.LabelNotesBanks.preservatives = {
         }
       ],
       "selectionHint": "Choose two ingredients.",
-      "labelFootnote": "* Dried."
+      "labelFootnote": "* Dried.",
+      "references": [
+        {
+          "href": "preservatives.html#evidence-benzoate-family",
+          "label": "Read: Benzoic acid and benzoates",
+          "quote": "Sodium benzoate contains sodium ions and benzoate ions. Compare it with sodium chloride, the chemical name for table salt. They share the word sodium; the second part identifies a different chemical component. Use both words when identifying an ingredient."
+        }
+      ]
     },
     {
       "id": "p-1b",
@@ -505,8 +522,9 @@ window.LabelNotesBanks.preservatives = {
       "points": 1,
       "cognitiveLevel": "evaluate",
       "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "preservatives.html#evidence-storage",
+        "label": "Read: Preservatives and refrigeration",
+        "quote": "The apricot bag still recommends refrigeration after opening. Ingredients and storage conditions work together; one does not cancel the other."
       },
       "options": [
         {
@@ -537,8 +555,9 @@ window.LabelNotesBanks.preservatives = {
       "points": 1,
       "cognitiveLevel": "analyze",
       "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "preservatives.html#evidence-acidity",
+        "label": "Read: Why acidity matters",
+        "quote": "Benzoates and sorbates generally work better in acidic foods. Acidity changes how much is present in the active acid form; the name alone does not tell you how well it will work in every recipe."
       },
       "options": [
         {
@@ -573,8 +592,9 @@ window.LabelNotesBanks.preservatives = {
           "points": 1,
           "cognitiveLevel": "analyze",
           "review": {
-            "href": "preservatives.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "preservatives.html#evidence-yeast",
+            "label": "Read: Preservatives in yeast-raised bread",
+            "quote": "Yeast-raised bread creates another problem: the yeast must stay active while the dough rises. Sorbates can interfere with that fermentation. Propionates are a common choice for bread; sorbates may instead be applied after baking or used in forms that delay their action. This is a reason to consider the food and its process, not a rule that sorbates never appear in bread."
           },
           "options": [
             {
@@ -605,8 +625,9 @@ window.LabelNotesBanks.preservatives = {
           "points": 1,
           "cognitiveLevel": "analyze",
           "review": {
-            "href": "preservatives.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "preservatives.html#evidence-yeast",
+            "label": "Read: Preservatives in yeast-raised bread",
+            "quote": "Yeast-raised bread creates another problem: the yeast must stay active while the dough rises. Sorbates can interfere with that fermentation. Propionates are a common choice for bread; sorbates may instead be applied after baking or used in forms that delay their action. This is a reason to consider the food and its process, not a rule that sorbates never appear in bread."
           },
           "options": [
             {
@@ -640,8 +661,9 @@ window.LabelNotesBanks.preservatives = {
       "points": 1,
       "cognitiveLevel": "analyze",
       "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "preservatives.html#evidence-sulfites",
+        "label": "Read: Sulfur dioxide",
+        "quote": "Drying changes how fruit keeps, and the recipe can include preservatives too. Sulfur dioxide is used to help limit browning and microbial spoilage in dried fruit. Here it appears alongside two other preservatives."
       },
       "tokens": [
         {
@@ -679,8 +701,9 @@ window.LabelNotesBanks.preservatives = {
           "points": 1,
           "cognitiveLevel": "evaluate",
           "review": {
-            "href": "preservatives.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "preservatives.html#evidence-sulfite-family",
+            "label": "Read: Sulfiting agents",
+            "quote": "Sulfur dioxide and sodium bisulfite can supply sulfites in food. Other examples include sodium sulfite and potassium metabisulfite. Recognizing this group matters for people with sulfite sensitivity."
           },
           "options": [
             {
@@ -703,7 +726,14 @@ window.LabelNotesBanks.preservatives = {
             }
           ],
           "explanation": "Sulfur dioxide (sulfites) is explicitly listed as added.",
-          "fixedOrder": true
+          "fixedOrder": true,
+          "references": [
+            {
+              "href": "https://www.sunmaid.com/products/golden-raisins/",
+              "label": "Package source: Sun-Maid California Golden Raisins",
+              "quote": "Sulfur Dioxide (Sulfites) Added as a Preservative."
+            }
+          ]
         },
         {
           "id": "p-3b2",
@@ -713,8 +743,9 @@ window.LabelNotesBanks.preservatives = {
           "points": 1,
           "cognitiveLevel": "evaluate",
           "review": {
-            "href": "preservatives.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "preservatives.html#evidence-purpose",
+            "label": "Read: Reading a purpose statement",
+            "quote": "The parentheses follow both ingredient names. They tell you why this pair is included. This is a useful way to connect a technical name with its job in a particular food."
           },
           "options": [
             {
@@ -737,7 +768,14 @@ window.LabelNotesBanks.preservatives = {
             }
           ],
           "explanation": "The ingredient list explicitly names an added preservative.",
-          "fixedOrder": true
+          "fixedOrder": true,
+          "references": [
+            {
+              "href": "https://www.sunmaid.com/products/golden-raisins/",
+              "label": "Package source: Sun-Maid California Golden Raisins",
+              "quote": "California Golden Raisins, Sulfur Dioxide (Sulfites) Added as a Preservative."
+            }
+          ]
         },
         {
           "id": "p-3b3",
@@ -747,8 +785,9 @@ window.LabelNotesBanks.preservatives = {
           "points": 1,
           "cognitiveLevel": "evaluate",
           "review": {
-            "href": "preservatives.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "preservatives.html#evidence-amount",
+            "label": "Read: What the label does not say",
+            "quote": "The purpose statement does not tell you an exact amount or replace separate storage instructions."
           },
           "options": [
             {
@@ -788,8 +827,9 @@ window.LabelNotesBanks.preservatives = {
           "points": 0.5,
           "cognitiveLevel": "understand",
           "review": {
-            "href": "preservatives.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "preservatives.html#evidence-propionate-family",
+            "label": "Read: The propionate family",
+            "quote": "It belongs to the propionic acid family. The name tells you which salt is present: calcium propionate contains calcium ions and propionate ions. You may also meet sodium propionate, another salt of the same acid."
           },
           "options": [
             {
@@ -801,31 +841,31 @@ window.LabelNotesBanks.preservatives = {
             {
               "id": "sorbate",
               "text": "Sorbate",
-              "feedback": "Sorbate does not match this case. Propionate is the family name; sodium identifies the salt.",
+              "feedback": "Sorbate is a salt of sorbic acid. Propionate is the family name; sodium identifies the salt.",
               "correct": false
             },
             {
               "id": "benzoate",
               "text": "Benzoate",
-              "feedback": "Benzoate does not match this case. Propionate is the family name; sodium identifies the salt.",
+              "feedback": "Benzoate is a salt of benzoic acid. Propionate is the family name; sodium identifies the salt.",
               "correct": false
             },
             {
               "id": "sulfite",
               "text": "Sulfiting agent",
-              "feedback": "Sulfiting agent does not match this case. Propionate is the family name; sodium identifies the salt.",
+              "feedback": "Sulfiting agents include bisulfite and metabisulfite; sulfate is different. Propionate is the family name; sodium identifies the salt.",
               "correct": false
             },
             {
               "id": "nitrite",
               "text": "Nitrite",
-              "feedback": "Nitrite does not match this case. Propionate is the family name; sodium identifies the salt.",
+              "feedback": "Nitrite is the curing family introduced with bacon. Propionate is the family name; sodium identifies the salt.",
               "correct": false
             },
             {
               "id": "other",
               "text": "Outside these five families",
-              "feedback": "Outside these five families does not match this case. Propionate is the family name; sodium identifies the salt.",
+              "feedback": "Use the complete name; changing the sodium, calcium or potassium does not change the acid family. Propionate is the family name; sodium identifies the salt.",
               "correct": false
             }
           ],
@@ -839,14 +879,15 @@ window.LabelNotesBanks.preservatives = {
           "points": 0.5,
           "cognitiveLevel": "understand",
           "review": {
-            "href": "preservatives.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "preservatives.html#evidence-sorbic-family",
+            "label": "Read: Sorbic acid and sorbates",
+            "quote": "The related names sorbic acid and sorbate are worth remembering together. Sorbates are salts of sorbic acid. Later on this page, the apricot bag uses potassium sorbate, giving you a second way to recognize this family."
           },
           "options": [
             {
               "id": "propionate",
               "text": "Propionate",
-              "feedback": "Propionate does not match this case. Sorbate connects this salt to sorbic acid.",
+              "feedback": "Propionate is a salt of propionic acid. Sorbate connects this salt to sorbic acid.",
               "correct": false
             },
             {
@@ -858,25 +899,25 @@ window.LabelNotesBanks.preservatives = {
             {
               "id": "benzoate",
               "text": "Benzoate",
-              "feedback": "Benzoate does not match this case. Sorbate connects this salt to sorbic acid.",
+              "feedback": "Benzoate is a salt of benzoic acid. Sorbate connects this salt to sorbic acid.",
               "correct": false
             },
             {
               "id": "sulfite",
               "text": "Sulfiting agent",
-              "feedback": "Sulfiting agent does not match this case. Sorbate connects this salt to sorbic acid.",
+              "feedback": "Sulfiting agents include bisulfite and metabisulfite; sulfate is different. Sorbate connects this salt to sorbic acid.",
               "correct": false
             },
             {
               "id": "nitrite",
               "text": "Nitrite",
-              "feedback": "Nitrite does not match this case. Sorbate connects this salt to sorbic acid.",
+              "feedback": "Nitrite is the curing family introduced with bacon. Sorbate connects this salt to sorbic acid.",
               "correct": false
             },
             {
               "id": "other",
               "text": "Outside these five families",
-              "feedback": "Outside these five families does not match this case. Sorbate connects this salt to sorbic acid.",
+              "feedback": "Use the complete name; changing the sodium, calcium or potassium does not change the acid family. Sorbate connects this salt to sorbic acid.",
               "correct": false
             }
           ],
@@ -890,20 +931,21 @@ window.LabelNotesBanks.preservatives = {
           "points": 0.5,
           "cognitiveLevel": "understand",
           "review": {
-            "href": "preservatives.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "preservatives.html#evidence-benzoate-family",
+            "label": "Read: Benzoic acid and benzoates",
+            "quote": "Sodium benzoate contains sodium ions and benzoate ions. Compare it with sodium chloride, the chemical name for table salt. They share the word sodium; the second part identifies a different chemical component. Use both words when identifying an ingredient."
           },
           "options": [
             {
               "id": "propionate",
               "text": "Propionate",
-              "feedback": "Propionate does not match this case. Benzoate connects this salt to benzoic acid.",
+              "feedback": "Propionate is a salt of propionic acid. Benzoate connects this salt to benzoic acid.",
               "correct": false
             },
             {
               "id": "sorbate",
               "text": "Sorbate",
-              "feedback": "Sorbate does not match this case. Benzoate connects this salt to benzoic acid.",
+              "feedback": "Sorbate is a salt of sorbic acid. Benzoate connects this salt to benzoic acid.",
               "correct": false
             },
             {
@@ -915,19 +957,19 @@ window.LabelNotesBanks.preservatives = {
             {
               "id": "sulfite",
               "text": "Sulfiting agent",
-              "feedback": "Sulfiting agent does not match this case. Benzoate connects this salt to benzoic acid.",
+              "feedback": "Sulfiting agents include bisulfite and metabisulfite; sulfate is different. Benzoate connects this salt to benzoic acid.",
               "correct": false
             },
             {
               "id": "nitrite",
               "text": "Nitrite",
-              "feedback": "Nitrite does not match this case. Benzoate connects this salt to benzoic acid.",
+              "feedback": "Nitrite is the curing family introduced with bacon. Benzoate connects this salt to benzoic acid.",
               "correct": false
             },
             {
               "id": "other",
               "text": "Outside these five families",
-              "feedback": "Outside these five families does not match this case. Benzoate connects this salt to benzoic acid.",
+              "feedback": "Use the complete name; changing the sodium, calcium or potassium does not change the acid family. Benzoate connects this salt to benzoic acid.",
               "correct": false
             }
           ],
@@ -941,26 +983,27 @@ window.LabelNotesBanks.preservatives = {
           "points": 0.5,
           "cognitiveLevel": "understand",
           "review": {
-            "href": "preservatives.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "preservatives.html#evidence-sulfite-family",
+            "label": "Read: Sulfiting agents",
+            "quote": "Sulfur dioxide and sodium bisulfite can supply sulfites in food. Other examples include sodium sulfite and potassium metabisulfite. Recognizing this group matters for people with sulfite sensitivity."
           },
           "options": [
             {
               "id": "propionate",
               "text": "Propionate",
-              "feedback": "Propionate does not match this case. Metabisulfite is part of the sulfiting-agent family.",
+              "feedback": "Propionate is a salt of propionic acid. Metabisulfite is part of the sulfiting-agent family.",
               "correct": false
             },
             {
               "id": "sorbate",
               "text": "Sorbate",
-              "feedback": "Sorbate does not match this case. Metabisulfite is part of the sulfiting-agent family.",
+              "feedback": "Sorbate is a salt of sorbic acid. Metabisulfite is part of the sulfiting-agent family.",
               "correct": false
             },
             {
               "id": "benzoate",
               "text": "Benzoate",
-              "feedback": "Benzoate does not match this case. Metabisulfite is part of the sulfiting-agent family.",
+              "feedback": "Benzoate is a salt of benzoic acid. Metabisulfite is part of the sulfiting-agent family.",
               "correct": false
             },
             {
@@ -972,13 +1015,13 @@ window.LabelNotesBanks.preservatives = {
             {
               "id": "nitrite",
               "text": "Nitrite",
-              "feedback": "Nitrite does not match this case. Metabisulfite is part of the sulfiting-agent family.",
+              "feedback": "Nitrite is the curing family introduced with bacon. Metabisulfite is part of the sulfiting-agent family.",
               "correct": false
             },
             {
               "id": "other",
               "text": "Outside these five families",
-              "feedback": "Outside these five families does not match this case. Metabisulfite is part of the sulfiting-agent family.",
+              "feedback": "Use the complete name; changing the sodium, calcium or potassium does not change the acid family. Metabisulfite is part of the sulfiting-agent family.",
               "correct": false
             }
           ],
@@ -992,38 +1035,39 @@ window.LabelNotesBanks.preservatives = {
           "points": 0.5,
           "cognitiveLevel": "understand",
           "review": {
-            "href": "preservatives.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "preservatives.html#evidence-sulfate",
+            "label": "Read: Sulfite and sulfate",
+            "quote": "A sulfite ion contains sulfur and three oxygen atoms, SO 3 2−; a sulfate ion has four oxygen atoms, SO 4 2−. Calcium sulfate, for example, is a sulfate. Read the ending carefully when using information about sulfites."
           },
           "options": [
             {
               "id": "propionate",
               "text": "Propionate",
-              "feedback": "Propionate does not match this case. Sulfate is not sulfite; sharing calcium does not make it a propionate.",
+              "feedback": "Propionate is a salt of propionic acid. Sulfate is not sulfite; sharing calcium does not make it a propionate.",
               "correct": false
             },
             {
               "id": "sorbate",
               "text": "Sorbate",
-              "feedback": "Sorbate does not match this case. Sulfate is not sulfite; sharing calcium does not make it a propionate.",
+              "feedback": "Sorbate is a salt of sorbic acid. Sulfate is not sulfite; sharing calcium does not make it a propionate.",
               "correct": false
             },
             {
               "id": "benzoate",
               "text": "Benzoate",
-              "feedback": "Benzoate does not match this case. Sulfate is not sulfite; sharing calcium does not make it a propionate.",
+              "feedback": "Benzoate is a salt of benzoic acid. Sulfate is not sulfite; sharing calcium does not make it a propionate.",
               "correct": false
             },
             {
               "id": "sulfite",
               "text": "Sulfiting agent",
-              "feedback": "Sulfiting agent does not match this case. Sulfate is not sulfite; sharing calcium does not make it a propionate.",
+              "feedback": "Sulfiting agents include bisulfite and metabisulfite; sulfate is different. Sulfate is not sulfite; sharing calcium does not make it a propionate.",
               "correct": false
             },
             {
               "id": "nitrite",
               "text": "Nitrite",
-              "feedback": "Nitrite does not match this case. Sulfate is not sulfite; sharing calcium does not make it a propionate.",
+              "feedback": "Nitrite is the curing family introduced with bacon. Sulfate is not sulfite; sharing calcium does not make it a propionate.",
               "correct": false
             },
             {
@@ -1043,38 +1087,39 @@ window.LabelNotesBanks.preservatives = {
           "points": 0.5,
           "cognitiveLevel": "understand",
           "review": {
-            "href": "preservatives.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "preservatives.html#evidence-roles",
+            "label": "Read: Different preservation roles",
+            "quote": "This gives you a useful comparison with the tortilla preservatives. Calcium propionate helps control microbes; erythorbate has an antioxidant and curing role. Both sit within the FDA’s broad preservative category, with different jobs in their recipes."
           },
           "options": [
             {
               "id": "propionate",
               "text": "Propionate",
-              "feedback": "Propionate does not match this case. Erythorbate is an antioxidant and curing helper, not one of these five families.",
+              "feedback": "Propionate is a salt of propionic acid. Erythorbate is an antioxidant and curing helper, not one of these five families.",
               "correct": false
             },
             {
               "id": "sorbate",
               "text": "Sorbate",
-              "feedback": "Sorbate does not match this case. Erythorbate is an antioxidant and curing helper, not one of these five families.",
+              "feedback": "Sorbate is a salt of sorbic acid. Erythorbate is an antioxidant and curing helper, not one of these five families.",
               "correct": false
             },
             {
               "id": "benzoate",
               "text": "Benzoate",
-              "feedback": "Benzoate does not match this case. Erythorbate is an antioxidant and curing helper, not one of these five families.",
+              "feedback": "Benzoate is a salt of benzoic acid. Erythorbate is an antioxidant and curing helper, not one of these five families.",
               "correct": false
             },
             {
               "id": "sulfite",
               "text": "Sulfiting agent",
-              "feedback": "Sulfiting agent does not match this case. Erythorbate is an antioxidant and curing helper, not one of these five families.",
+              "feedback": "Sulfiting agents include bisulfite and metabisulfite; sulfate is different. Erythorbate is an antioxidant and curing helper, not one of these five families.",
               "correct": false
             },
             {
               "id": "nitrite",
               "text": "Nitrite",
-              "feedback": "Nitrite does not match this case. Erythorbate is an antioxidant and curing helper, not one of these five families.",
+              "feedback": "Nitrite is the curing family introduced with bacon. Erythorbate is an antioxidant and curing helper, not one of these five families.",
               "correct": false
             },
             {
@@ -1096,8 +1141,9 @@ window.LabelNotesBanks.preservatives = {
       "points": 1,
       "cognitiveLevel": "apply",
       "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "preservatives.html#evidence-antimicrobial",
+        "label": "Read: Antimicrobial preservatives",
+        "quote": "Anti- means against; microbial refers to microorganisms. In food preservation, an antimicrobial ingredient inhibits their growth or activity. The organisms it controls depend on the ingredient and the food’s conditions, including acidity and moisture."
       },
       "tokens": [
         {
@@ -1120,7 +1166,14 @@ window.LabelNotesBanks.preservatives = {
         }
       ],
       "maxSelections": 1,
-      "selectionHint": "Choose one ingredient and its purpose statement."
+      "selectionHint": "Choose one ingredient and its purpose statement.",
+      "references": [
+        {
+          "href": "https://foodlion.com/groceries/product/kraft-natural-part-skim-finely-shredded-mozzarella-cheese-8-oz-bag/384413",
+          "label": "Package source: Kraft Finely Shredded Mozzarella · 8 oz",
+          "quote": "Natamycin (a Natural Mold Inhibitor)."
+        }
+      ]
     },
     {
       "id": "p-5b",
@@ -1130,8 +1183,9 @@ window.LabelNotesBanks.preservatives = {
       "points": 1,
       "cognitiveLevel": "evaluate",
       "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "preservatives.html#evidence-storage",
+        "label": "Read: Preservatives and refrigeration",
+        "quote": "The apricot bag still recommends refrigeration after opening. Ingredients and storage conditions work together; one does not cancel the other."
       },
       "options": [
         {
@@ -1152,6 +1206,13 @@ window.LabelNotesBanks.preservatives = {
           "feedback": "The word natural does not specify an amount for another recipe.",
           "correct": false
         }
+      ],
+      "references": [
+        {
+          "href": "https://foodlion.com/groceries/product/kraft-natural-part-skim-finely-shredded-mozzarella-cheese-8-oz-bag/384413",
+          "label": "Package source: Kraft Finely Shredded Mozzarella · 8 oz",
+          "quote": "Keep refrigerated."
+        }
       ]
     },
     {
@@ -1166,8 +1227,9 @@ window.LabelNotesBanks.preservatives = {
           "points": 1,
           "cognitiveLevel": "evaluate",
           "review": {
-            "href": "preservatives.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "preservatives.html#evidence-nitrite-claim",
+            "label": "Read: The exception after “No nitrites added”",
+            "quote": "A meat label may pair “uncured” with a statement that no nitrates or nitrites were added, followed by an exception for those naturally present in celery powder. That exception matters: celery ingredients can supply nitrate or nitrite used in curing. The wording does not mean the food contains none."
           },
           "options": [
             {
@@ -1198,8 +1260,9 @@ window.LabelNotesBanks.preservatives = {
           "points": 1,
           "cognitiveLevel": "evaluate",
           "review": {
-            "href": "preservatives.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "preservatives.html#evidence-nitrite-claim",
+            "label": "Read: The exception after “No nitrites added”",
+            "quote": "A meat label may pair “uncured” with a statement that no nitrates or nitrites were added, followed by an exception for those naturally present in celery powder. That exception matters: celery ingredients can supply nitrate or nitrite used in curing. The wording does not mean the food contains none."
           },
           "tokens": [
             {
@@ -1223,7 +1286,8 @@ window.LabelNotesBanks.preservatives = {
           ],
           "display": "passage",
           "maxSelections": 1,
-          "selectionHint": "Choose one statement."
+          "selectionHint": "Choose one statement.",
+          "partLabel": "Your evidence"
         }
       ]
     },
@@ -1239,8 +1303,9 @@ window.LabelNotesBanks.preservatives = {
           "points": 1,
           "cognitiveLevel": "analyze",
           "review": {
-            "href": "preservatives.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "preservatives.html#evidence-benzoate",
+            "label": "Read: Sodium benzoate",
+            "quote": "Sprite lists sodium benzoate with the explanation “to protect taste.” Its preservative role is to inhibit microorganisms that could spoil the drink. Benzoates are particularly useful against yeasts in acidic foods."
           },
           "options": [
             {
@@ -1271,8 +1336,9 @@ window.LabelNotesBanks.preservatives = {
           "points": 1,
           "cognitiveLevel": "analyze",
           "review": {
-            "href": "preservatives.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "preservatives.html#evidence-acidity",
+            "label": "Read: Why acidity matters",
+            "quote": "Benzoates and sorbates generally work better in acidic foods. Acidity changes how much is present in the active acid form; the name alone does not tell you how well it will work in every recipe."
           },
           "options": [
             {
@@ -1310,8 +1376,9 @@ window.LabelNotesBanks.preservatives = {
           "points": 2,
           "cognitiveLevel": "analyze",
           "review": {
-            "href": "preservatives.html#ingredient-names",
-            "label": "Review this part of the lesson"
+            "href": "preservatives.html#evidence-nitrite",
+            "label": "Read: Sodium nitrite",
+            "quote": "In cured bacon, sodium nitrite helps develop the familiar cured color and flavor. It also helps control the hazard from the bacterium that causes botulism, a serious foodborne illness. One ingredient can contribute to several features of the food."
           },
           "options": [
             {
@@ -1331,6 +1398,13 @@ window.LabelNotesBanks.preservatives = {
               "text": "Both ingredients serve the same antimicrobial role; the second provides extra coverage.",
               "feedback": "Their roles overlap in preservation, but erythorbate does not replace nitrite’s antimicrobial and curing functions.",
               "correct": false
+            }
+          ],
+          "references": [
+            {
+              "href": "preservatives.html#evidence-erythorbate",
+              "label": "Read: Sodium erythorbate",
+              "quote": "Sodium erythorbate is a salt of erythorbic acid. In bacon it helps speed the reaction of nitrite with the meat and reduces the amount of nitrite available to form nitrosamines."
             }
           ]
         }

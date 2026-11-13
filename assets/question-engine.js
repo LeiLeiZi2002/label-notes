@@ -144,6 +144,9 @@
     if (p.sourceUrl) {
       const a = el('a', p.sourceLabel || 'Product source', 'text-link');
       a.href = p.sourceUrl;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.setAttribute('aria-label', `${a.textContent} (opens in a new tab)`);
       box.append(a);
     }
     return box;
@@ -165,22 +168,16 @@
       children(q).forEach((p, index) => {
         const part = renderQuestion(q.type === 'judgment-grid' ? {...p, display: 'judgment-row'} : p, order);
         if (q.type === 'two-tier') {
-          part.prepend(el('p', index === 0 ? '01 · Your decision' : '02 · Your reason', 'part-label'));
+          const label = p.partLabel || (index === 0 ? 'Your decision' : 'Your reason');
+          part.prepend(el('p', `${String(index + 1).padStart(2, '0')} · ${label}`, 'part-label'));
           if (index > 0) {
             part.hidden = true;
-            const show = el('button', 'Continue to the reason', 'secondary-link reveal-reason');
+            const show = el('button', `Continue to ${label.toLowerCase()}`, 'secondary-link reveal-reason');
             show.type = 'button';
             show.setAttribute('aria-expanded', 'false');
             part.id = `part-${p.id}`;
             show.setAttribute('aria-controls', part.id);
-            show.addEventListener('click', () => {
-              part.hidden = false;
-              show.hidden = true;
-              show.setAttribute('aria-expanded', 'true');
-              const heading = part.querySelector('legend');
-              heading.tabIndex = -1;
-              heading.focus();
-            });
+            show.addEventListener('click', () => revealPart(part, true));
             wrap.append(show);
           }
         }
@@ -232,7 +229,9 @@
       group.append(label);
     } else if (q.type === 'label-select') {
       if (q.fictional) group.append(el('p', 'Practice label', 'eyebrow'));
-      if (q.selectionHint) group.append(el('p', q.selectionHint, 'selection-hint'));
+      const multiple = opts.filter((o) => o.correct).length > 1;
+      const hint = q.selectionHint || (multiple ? 'Select all that apply.' : 'Choose one.');
+      group.append(el('p', `${hint}${multiple ? ' Extra selections lose credit.' : ''}`, 'selection-hint'));
       const list = el('div', undefined, `label-tokens${q.display === 'passage' ? ' passage-tokens' : ' ingredient-list'}`);
       list.setAttribute('role', 'group');
       list.setAttribute('aria-label', q.display === 'passage' ? 'Select a statement' : 'Select ingredients');
@@ -271,6 +270,17 @@
     wrap.append(group);
     return wrap;
   }
+  function revealPart(part, focus = false) {
+    part.hidden = false;
+    const button = part.parentElement.querySelector(`[aria-controls="${part.id}"]`);
+    if (button) { button.hidden = true; button.setAttribute('aria-expanded', 'true'); }
+    if (focus) {
+      const heading = part.querySelector('legend');
+      heading.tabIndex = -1;
+      heading.focus();
+    }
+    if (focus) part.dispatchEvent(new Event('question-revealed', { bubbles: true }));
+  }
   function read(q, root) {
     if (children(q)) return Object.fromEntries(children(q).map((p) => [p.id, read(p, root)]));
     const group = root.querySelector(`[data-item-id="${q.id}"]`);
@@ -290,9 +300,7 @@
         const answered = (result) => result.parts ? result.parts.some(answered) : result.answered;
         if (!answered(grade(p, answer?.[p.id]))) return;
         const part = root.querySelector(`[data-question-id="${p.id}"]`);
-        part.hidden = false;
-        const button = root.querySelector(`[aria-controls="part-${p.id}"]`);
-        if (button) { button.hidden = true; button.setAttribute('aria-expanded', 'true'); }
+        revealPart(part);
       });
       return;
     }
@@ -319,8 +327,11 @@
     }
     const result = grade(q, answer),
       box = el('div', undefined, 'question-feedback');
+    const label = result.correct ? 'Correct' : !result.answered ? 'Not answered' : result.earned > 0 ? 'Partly correct' : 'Review';
+    box.dataset.feedbackId = q.id;
     box.append(
-      html('h3', `${result.correct ? 'Correct' : 'Review'} · ${q.stem}`),
+      el('p', `${label} · ${result.earned} / ${result.total} points`, 'feedback-score'),
+      html('h3', q.stem),
       el('p', `Your answer: ${answerText(q, result.values)}`),
       el('p', `Answer: ${q.answerDisplay || answerText(q, result.expected)}`),
     );
@@ -355,19 +366,25 @@
       details.append(el('summary', 'Why each option is right or wrong'), list);
       box.append(details);
     }
-    if (q.objective)
-      box.append(
-        el(
-          'p',
-          `${q.objective} · ${window.LabelNotesObjectives?.get(q.objective)?.text || ''}`,
-          'objective-note',
-        ),
-      );
-    if (q.review) {
-      const a = el('a', q.review.label || 'Review this part of the lesson', 'text-link');
-      a.href = q.review.href;
-      box.append(a);
+    if (q.objective) {
+      const goal = el('p', `Learning goal ${q.objective}`, 'objective-note');
+      goal.title = window.LabelNotesObjectives?.get(q.objective)?.text || q.objective;
+      box.append(goal);
     }
+    [q.review, ...(q.references || [])].filter(Boolean).forEach((source) => {
+      const evidence = el('div', undefined, 'answer-source');
+      if (source.quote) evidence.append(el('blockquote', source.quote));
+      const a = el('a', source.label || 'Review this part of the lesson', 'text-link');
+      a.href = source.href;
+      a.dataset.feedbackReview = '';
+      if (/^https?:/.test(source.href)) {
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.setAttribute('aria-label', `${a.textContent} (opens in a new tab)`);
+      }
+      evidence.append(a);
+      box.append(evidence);
+    });
     return box;
   }
   function renderBlock(block, bank, order = {}) {
@@ -402,6 +419,7 @@
     html,
     product,
     renderQuestion,
+    revealPart,
     renderBlock,
     read,
     restore,

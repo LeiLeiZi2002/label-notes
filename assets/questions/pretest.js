@@ -92,8 +92,9 @@ window.LabelNotesBanks.pretest = {
       "points": 1,
       "cognitiveLevel": "apply",
       "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "preservatives.html#evidence-purpose",
+        "label": "Read: Reading a purpose statement",
+        "quote": "The parentheses follow both ingredient names. They tell you why this pair is included. This is a useful way to connect a technical name with its job in a particular food."
       },
       "tokens": [
         {
@@ -169,8 +170,9 @@ window.LabelNotesBanks.pretest = {
       "points": 1,
       "cognitiveLevel": "understand",
       "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "preservatives.html#evidence-sorbic-family",
+        "label": "Read: Sorbic acid and sorbates",
+        "quote": "The related names sorbic acid and sorbate are worth remembering together. Sorbates are salts of sorbic acid. Later on this page, the apricot bag uses potassium sorbate, giving you a second way to recognize this family."
       },
       "options": [
         {
@@ -207,8 +209,9 @@ window.LabelNotesBanks.pretest = {
       "points": 1,
       "cognitiveLevel": "understand",
       "review": {
-        "href": "antioxidants.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "antioxidants.html#evidence-tocopherols",
+        "label": "Read: Mixed tocopherols",
+        "quote": "Tocopherols belong to the vitamin E family. They dissolve in fats and help slow the reactions that make oils and fat-containing foods develop stale, rancid flavors."
       },
       "options": [
         {
@@ -245,8 +248,9 @@ window.LabelNotesBanks.pretest = {
       "points": 1,
       "cognitiveLevel": "apply",
       "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "preservatives.html#evidence-benzoate",
+        "label": "Read: Sodium benzoate",
+        "quote": "Sprite lists sodium benzoate with the explanation “to protect taste.” Its preservative role is to inhibit microorganisms that could spoil the drink. Benzoates are particularly useful against yeasts in acidic foods."
       },
       "options": [
         {
@@ -283,8 +287,9 @@ window.LabelNotesBanks.pretest = {
       "points": 1,
       "cognitiveLevel": "analyze",
       "review": {
-        "href": "antioxidants.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "antioxidants.html#evidence-rosemary",
+        "label": "Read: Rosemary extract",
+        "quote": "Rosemary extract contains antioxidant compounds taken from rosemary leaves. These compounds help slow the reactions that give fats an unpleasant taste or smell."
       },
       "options": [
         {
@@ -321,8 +326,9 @@ window.LabelNotesBanks.pretest = {
       "points": 1,
       "cognitiveLevel": "analyze",
       "review": {
-        "href": "antioxidants.html#related-ingredients",
-        "label": "Review this part of the lesson"
+        "href": "antioxidants.html#evidence-edta",
+        "label": "Read: How EDTA binds metals",
+        "quote": "Tiny amounts of metals such as iron and copper can speed up oxidation. Calcium disodium EDTA binds these metals, making them less able to drive those reactions."
       },
       "options": [
         {
@@ -359,8 +365,9 @@ window.LabelNotesBanks.pretest = {
       "points": 1,
       "cognitiveLevel": "evaluate",
       "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "preservatives.html#evidence-storage",
+        "label": "Read: Preservatives and refrigeration",
+        "quote": "The apricot bag still recommends refrigeration after opening. Ingredients and storage conditions work together; one does not cancel the other."
       },
       "options": [
         {
@@ -397,8 +404,9 @@ window.LabelNotesBanks.pretest = {
       "points": 1,
       "cognitiveLevel": "evaluate",
       "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "preservatives.html#evidence-nitrite-claim",
+        "label": "Read: The exception after “No nitrites added”",
+        "quote": "A meat label may pair “uncured” with a statement that no nitrates or nitrites were added, followed by an exception for those naturally present in celery powder. That exception matters: celery ingredients can supply nitrate or nitrite used in curing. The wording does not mean the food contains none."
       },
       "options": [
         {
@@ -435,8 +443,9 @@ window.LabelNotesBanks.pretest = {
       "points": 1,
       "cognitiveLevel": "evaluate",
       "review": {
-        "href": "antioxidants.html#ingredient-names",
-        "label": "Review this part of the lesson"
+        "href": "antioxidants.html#evidence-health",
+        "label": "Read: Food preservation and health claims",
+        "quote": "Preserving the food during storage and demonstrating a benefit for the person eating it are different claims. The freshness wording provides evidence for the first."
       },
       "options": [
         {

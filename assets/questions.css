@@ -207,6 +207,11 @@ summary:focus-visible {
   font-size: 1rem;
   overflow-wrap: anywhere;
 }
+.question-feedback .feedback-score { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+.answer-source { margin-top: 20px; border-left: 2px solid var(--rule); padding: 0 0 0 18px; }
+.answer-source blockquote { margin: 0; font-size: 16px; line-height: 1.65; color: var(--muted); }
+.answer-source .text-link { display: inline-block; margin-top: 8px; font-size: 15px; }
+.question-item fieldset { scroll-margin-top: 145px; }
 @media (max-width: 600px) {
   .chapter-objectives {
     padding: 1rem;

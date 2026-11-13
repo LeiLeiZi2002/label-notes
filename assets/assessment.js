@@ -17,6 +17,10 @@
     form = $('assessment-form');
   const questionHost = E.el('div');
   form.prepend(questionHost);
+  const reviewUnanswered = E.el('button', 'Review unanswered parts', 'secondary-link');
+  reviewUnanswered.type = 'button';
+  reviewUnanswered.hidden = true;
+  $('submission-note').after(reviewUnanswered);
   const duration = config.timeLimitSeconds == null ? null : config.timeLimitSeconds * 1000;
   let state = store.read(),
     interval,
@@ -80,6 +84,10 @@
       $('question-tabs').append(tab);
     });
     questions.forEach((q) => E.restore(q, form, state?.answers?.[q.id]));
+    (state?.revealedParts || []).forEach((qid) => {
+      const part = form.querySelector(`[id="part-${qid}"]`);
+      if (part) E.revealPart(part);
+    });
   }
   const firstItem = (block) => E.leaves(bank.questions.find((q) => q.id === block.questionIds[0]))[0].id;
   function stamp() {
@@ -95,17 +103,19 @@
     if (state?.status !== 'active') return;
     stamp();
     state.answers = Object.fromEntries(questions.map((q) => [q.id, E.read(q, form)]));
+    state.revealedParts = [...form.querySelectorAll('[id^="part-"]:not([hidden])')].map((part) => part.dataset.questionId);
     store.write(state);
     ordered().forEach((b, i) => {
-      $('question-tabs').children[i].dataset.answered = String(
-        b.questionIds.every(
+      const complete = b.questionIds.every(
           (qid) =>
             E.grade(
               bank.questions.find((q) => q.id === qid),
               state.answers[qid],
             ).answered,
-        ),
       );
+      const tab = $('question-tabs').children[i];
+      tab.dataset.answered = String(complete);
+      tab.setAttribute('aria-label', `${id === 'pretest' ? 'Question' : 'Group'} ${i + 1}: ${complete ? 'answered' : 'incomplete'}`);
     });
   }
   function showQuestion(index, focus = true) {
@@ -226,6 +236,12 @@
         d.append(evidence);
       }
       qs.forEach((q) => d.append(E.feedback(q, state.answers[q.id])));
+      // Keep the result and its expanded feedback in place while the learner reads the passage.
+      d.querySelectorAll('[data-feedback-review]').forEach((a) => {
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.setAttribute('aria-label', `${a.textContent} (opens in a new tab)`);
+      });
       return d;
     }));
     $('results-title').focus();
@@ -278,16 +294,21 @@
     };
     confirmIncomplete = false;
     $('submission-note').textContent = '';
+    reviewUnanswered.hidden = true;
     store.write(state);
     showActive();
+    showQuestion(0);
   });
   form.addEventListener('submit', (e) => e.preventDefault());
-  form.addEventListener('input', capture);
-  form.addEventListener('change', () => {
+  const answerChanged = () => {
     capture();
     confirmIncomplete = false;
     $('submission-note').textContent = '';
-  });
+    reviewUnanswered.hidden = true;
+  };
+  form.addEventListener('input', answerChanged);
+  form.addEventListener('change', answerChanged);
+  form.addEventListener('question-revealed', capture);
   form.addEventListener('focusin', (e) => {
     stamp();
     if (state?.status === 'active')
@@ -301,10 +322,27 @@
     if (missing && !confirmIncomplete) {
       confirmIncomplete = true;
       $('submission-note').textContent =
-        `${missing} parts are unanswered. Review them or press Submit my answers again to finish.`;
+        `${missing} ${missing === 1 ? 'part is' : 'parts are'} unanswered. Review them below or press Submit my answers again to finish.`;
+      reviewUnanswered.hidden = false;
       return;
     }
     finish('submit');
+  });
+  reviewUnanswered.addEventListener('click', () => {
+    const missing = score().find((o) => !o.answered);
+    if (!missing) return;
+    const index = ordered().findIndex((b) => b.questionIds.some((qid) =>
+      E.leaves(questions.find((q) => q.id === qid)).some((q) => q.id === missing.id)));
+    showQuestion(index, false);
+    const field = form.querySelector(`[data-item-id="${missing.id}"]`);
+    for (let parent = field.parentElement; parent && parent !== form; parent = parent.parentElement)
+      if (parent.id.startsWith('part-')) E.revealPart(parent);
+    capture();
+    field.querySelector('input,select,button').focus({ preventScroll: true });
+    field.scrollIntoView({ block: 'start', behavior: 'instant' });
+    reviewUnanswered.hidden = true;
+    $('submission-note').textContent = '';
+    confirmIncomplete = false;
   });
   $('end-attempt').addEventListener('click', () => $('end-dialog').showModal());
   $('continue-attempt').addEventListener('click', () => $('end-dialog').close());
