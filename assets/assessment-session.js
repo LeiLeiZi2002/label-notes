@@ -2,8 +2,8 @@
 (() => {
   // 题目已调整；旧答案不沿用于本套题。
   const id = document.body.dataset.assessment || 'preservatives';
-  const key = `label-notes-check-${id}-v3`;
-  const activeKey = 'label-notes-active-check-v2';
+  const key = `label-notes-check-${id}-v4`;
+  const activeKey = 'label-notes-active-check-v3';
   let memory = null;
   const store = {
     read() {

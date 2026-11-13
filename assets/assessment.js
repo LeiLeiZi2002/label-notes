@@ -24,9 +24,10 @@
     since = Date.now(),
     hasFinished = false,
     pageVisible = !document.hidden;
+  if (state?.assessmentVersion !== bank.version) state = null;
   if (!state) {
     const last = progress?.read().assessments[id]?.latest;
-    if (last) state = { ...last, status: 'completed' };
+    if (last?.assessmentVersion === bank.version) state = { ...last, status: 'completed' };
   }
   document
     .querySelectorAll('[data-objectives]')
@@ -37,7 +38,7 @@
     .forEach((host) => (host.textContent = questions.reduce((n, q) => n + E.maximum(q), 0)));
   document
     .querySelectorAll('[data-check-count]')
-    .forEach((host) => (host.textContent = `${blocks.length} questions`));
+    .forEach((host) => (host.textContent = `${blocks.length} ${id === 'pretest' ? 'questions' : 'question groups'}`));
   $('assessment-timing').textContent = duration
     ? `Time limit: ${config.timeLimitSeconds / 60} minutes. Your saved answers submit automatically when time runs out.`
     : `No time limit. Suggested time: about ${config.suggestedMinutes} minutes.`;
@@ -117,7 +118,7 @@
       if (i === state.pageIndex) b.setAttribute('aria-current', 'step');
       else b.removeAttribute('aria-current');
     });
-    $('question-position').textContent = `Question ${state.pageIndex + 1} of ${blocks.length}`;
+    $('question-position').textContent = `${id === 'pretest' ? 'Question' : 'Group'} ${state.pageIndex + 1} of ${blocks.length}`;
     $('previous-question').hidden = !state.pageIndex;
     $('next-question').hidden = state.pageIndex === blocks.length - 1;
     $('submit-assessment').hidden = state.pageIndex !== blocks.length - 1;
@@ -163,79 +164,70 @@
     $('result-score').textContent = `${earned} / ${total}`;
     $('saved-result').textContent =
       `First attempt: ${initial?.earned ?? earned}/${initial?.total ?? total} · This attempt: ${earned}/${total}.`;
-    $('result-summary').textContent =
-      id === 'pretest'
-        ? 'This is your starting point. Both available chapters are now open.'
-        : 'Review your results below. These describe this set of questions, not a certification of mastery.';
+    $('result-summary').textContent = id === 'pretest'
+      ? 'Here is your starting point. Follow a review link to begin learning.'
+      : 'See how you did in each area, then revisit the questions below.';
     results.querySelector('[data-objectives]')?.remove();
-    let summary = $('goal-results');
-    if (summary) summary.remove();
-    summary = E.el('div');
-    summary.id = 'goal-results';
-    const going = E.el('section', undefined, 'chapter-objectives');
-    window.LabelNotesObjectives.render(going, id, 'Where am I going?');
-    summary.append(going);
-    const how = E.el('section');
-    how.append(E.el('h2', 'How am I going?'));
-    const next = E.el('section');
-    next.append(E.el('h2', 'Where to next?'));
-    const objectives =
-      config.objectives ||
-      Object.values(window.LabelNotesCourse)
-        .flatMap((c) => c.objectives || [])
-        .filter((o) => questions.some((q) => q.objective === o.id));
-    let secure = true;
-    objectives.forEach((o) => {
-      const rows = outcomes.filter((r) => r.objective === o.id),
-        t = rows.reduce((n, r) => n + r.total, 0),
-        e = Number(rows.reduce((n, r) => n + r.earned, 0).toFixed(2)),
-        status = E.status(e, t, config.thresholds);
-      how.append(
-        E.el(
-          'p',
-          `${o.id} · ${o.text} — ${t ? `${e} / ${t}` : 'No questions in this check'} · ${status}`,
-          'objective-result',
-        ),
-      );
-      if (status !== 'Secure') {
-        secure = false;
-        const p = E.el(
-          'p',
-          status === 'Not assessed' ? `${o.id} was not assessed in this check. ` : `Revisit ${o.id}: `,
-        );
-        o.sections.forEach((section, i) => {
-          const link = E.el('a', section.replaceAll('-', ' '), 'text-link');
-          link.href = `${o.id.startsWith('P') ? 'preservatives' : 'antioxidants'}.html#${section}`;
-          if (i) p.append(' · ');
-          p.append(link);
-        });
-        next.append(p);
-      }
+    results.querySelector('.goal-results')?.remove();
+    const summary = E.el('div', undefined, 'goal-results');
+    const allObjectives = Object.values(window.LabelNotesCourse).flatMap((c) => c.objectives || []);
+    const objectives = config.objectives || allObjectives.filter((o) => outcomes.some((r) => r.objective === o.id));
+    const baseline = progress?.read().assessments.pretest?.first;
+    const totals = (rows) => ({
+      earned: Number(rows.reduce((n, r) => n + r.earned, 0).toFixed(2)),
+      total: rows.reduce((n, r) => n + r.total, 0),
     });
-    if (secure)
-      next.append(
-        E.el(
-          'p',
-          'You answered these objectives securely in this check. Continue learning or try a new label.',
-        ),
-      );
-    summary.append(how, next);
+    window.LabelNotesDimensions.forEach((dimension) => {
+      const goals = objectives.filter((o) => dimension.objectives.includes(o.id));
+      const ids = goals.map((o) => o.id);
+      const rows = outcomes.filter((r) => ids.includes(r.objective));
+      const { earned: e, total: t } = totals(rows);
+      const status = E.status(e, t, config.thresholds);
+      const card = E.el('section', undefined, 'dimension-result');
+      const heading = E.el('div', undefined, 'dimension-heading');
+      heading.append(E.el('h2', dimension.title), E.el('strong', `${e} / ${t}`));
+      card.append(heading);
+      const meter = E.el('progress');
+      meter.max = t || 1;
+      meter.value = e;
+      meter.setAttribute('aria-label', `${dimension.title}: ${e} out of ${t}`);
+      card.append(meter, E.el('p', status, 'dimension-status'));
+      if (id !== 'pretest' && baseline?.assessmentVersion === bank.version) {
+        const earlier = totals((baseline.outcomes || []).filter((r) => ids.includes(r.objective)));
+        if (earlier.total) card.append(E.el('p', `Before learning · ${earlier.earned}/${earlier.total} on the quick check`, 'baseline-record'));
+      }
+      const detail = E.el('details', undefined, 'objective-breakdown');
+      detail.append(E.el('summary', 'Learning goals & review links'));
+      goals.forEach((o) => {
+        const score = totals(outcomes.filter((r) => r.objective === o.id));
+        const row = E.el('div', undefined, 'objective-result');
+        row.append(E.el('strong', `${o.id} · ${score.total ? `${score.earned}/${score.total}` : 'Not assessed'}`), E.el('p', o.text));
+        const link = E.el('a', 'Review this part of the lesson', 'text-link');
+        link.href = `${o.id.startsWith('P') ? 'preservatives' : 'antioxidants'}.html#${o.sections[0]}`;
+        row.append(link);
+        detail.append(row);
+      });
+      card.append(detail);
+      summary.append(card);
+    });
     results.insertBefore(summary, results.querySelector('.result-actions') || $('result-details'));
-    $('result-details').replaceChildren(
-      ...questions.map((q) => {
-        const d = E.el('details', undefined, 'result-item'),
-          g = E.grade(q, state.answers[q.id]);
-        d.open = !g.correct;
-        d.append(
-          E.html(
-            'summary',
-            `${g.correct ? 'Correct' : g.answered ? 'Revisit' : 'Unanswered'} · ${q.stem || q.id}`,
-          ),
-          E.feedback(q, state.answers[q.id]),
-        );
-        return d;
-      }),
-    );
+    $('result-details').replaceChildren(...blocks.map((block, index) => {
+      const qs = block.questionIds.map((qid) => questions.find((q) => q.id === qid));
+      const grades = qs.map((q) => E.grade(q, state.answers[q.id]));
+      const points = totals(grades);
+      const d = E.el('details', undefined, 'result-item');
+      d.append(E.el('summary', `${index + 1}. ${block.title} · ${points.earned}/${points.total}`));
+      if (block.intro) d.append(E.html('div', block.intro, 'question-context'));
+      const material = [block.product, ...(block.products || [])].filter(Boolean);
+      if (material.length) {
+        const evidence = E.el('details', undefined, 'result-evidence');
+        evidence.append(E.el('summary', 'Show the label'));
+        material.forEach((p) => evidence.append(E.product(p)));
+        d.append(evidence);
+      }
+      qs.forEach((q) => d.append(E.feedback(q, state.answers[q.id])));
+      return d;
+    }));
     $('results-title').focus();
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
@@ -275,6 +267,7 @@
     const now = Date.now(),
       retry = Boolean(progress?.read().assessments[id]);
     state = {
+      assessmentVersion: bank.version,
       status: 'active',
       startedAt: now,
       deadline: duration ? now + duration : null,

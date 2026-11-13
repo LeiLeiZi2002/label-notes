@@ -27,7 +27,18 @@
     const data = read();
     const previous = data.assessments[id];
     if (previous?.latest.submittedAt === result.submittedAt) return;
-    data.assessments[id] = { first: previous?.first || result, latest: result, attempts: (previous?.attempts || 0) + 1 };
+    const revised = previous && previous.latest.assessmentVersion !== result.assessmentVersion;
+    const history = previous?.history || [];
+    if (revised) {
+      const { history: older, ...archived } = previous;
+      history.push(archived);
+    }
+    data.assessments[id] = {
+      first: !revised && previous?.first || result,
+      latest: result,
+      attempts: (revised ? 0 : previous?.attempts || 0) + 1,
+      history,
+    };
     write();
   }
   function canOpen(id) {
@@ -62,7 +73,7 @@
     if (summary) {
       const baseline = data.assessments.pretest?.first;
       const count = chapters.filter(id => data.assessments[id]).length;
-      summary.textContent = baseline ? `First quick check: ${baseline.earned}/${baseline.total}. ${count} of 2 available chapters completed.` : 'Five short questions before you begin. No time limit and no pass mark.';
+      summary.textContent = baseline ? `First quick check: ${baseline.earned}/${baseline.total}. ${count} of 2 available chapters completed.` : 'Nine short questions before you begin. No time limit and no pass mark.';
     }
   }
   window.LabelNotesProgress = {

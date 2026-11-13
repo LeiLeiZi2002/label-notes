@@ -1,267 +1,470 @@
 window.LabelNotesBanks ||= {};
 window.LabelNotesBanks.pretest = {
+  "blocks": [
+    {
+      "id": "pt-stop-1",
+      "title": "First stop: the bakery shelf",
+      "intro": "You pick up a bag of bagels and turn it over.",
+      "questionIds": [
+        "pt-01"
+      ],
+      "set": "pretest"
+    },
+    {
+      "id": "pt-stop-2",
+      "title": "A name on the cheese spread",
+      "intro": "Your friend spots “sorbic acid” in a cheese spread.",
+      "questionIds": [
+        "pt-02"
+      ],
+      "set": "pretest"
+    },
+    {
+      "id": "pt-stop-3",
+      "title": "Vitamin E, under another name",
+      "intro": "In the cereal aisle, your friend points to a list of ingredients.",
+      "questionIds": [
+        "pt-03"
+      ],
+      "set": "pretest"
+    },
+    {
+      "id": "pt-stop-4",
+      "title": "Something for the picnic",
+      "intro": "A tart lemon drink lists sodium benzoate. Your friend wonders why it is there.",
+      "questionIds": [
+        "pt-04"
+      ],
+      "set": "pretest"
+    },
+    {
+      "id": "pt-stop-5",
+      "title": "The trail mix aisle",
+      "intro": "A bag of nuts and seeds lists rosemary extract “to maintain freshness.”",
+      "questionIds": [
+        "pt-05"
+      ],
+      "set": "pretest"
+    },
+    {
+      "id": "pt-stop-6",
+      "title": "Two ingredients, different jobs",
+      "intro": "An oil-based dip lists tocopherols and calcium disodium EDTA.",
+      "questionIds": [
+        "pt-06"
+      ],
+      "set": "pretest"
+    },
+    {
+      "id": "pt-stop-7",
+      "title": "The jar is already open",
+      "intro": "Back home, a salsa jar lists potassium sorbate and says “Refrigerate after opening.”",
+      "questionIds": [
+        "pt-07"
+      ],
+      "set": "pretest"
+    },
+    {
+      "id": "pt-stop-8",
+      "title": "Read the small print",
+      "intro": "A practice hot-dog label says “No nitrites added, except those naturally occurring in celery powder.”",
+      "questionIds": [
+        "pt-08"
+      ],
+      "set": "pretest"
+    },
+    {
+      "id": "pt-stop-9",
+      "title": "One last thought at checkout",
+      "intro": "Your friend says, “This snack has antioxidants, so it must be good for my health.”",
+      "questionIds": [
+        "pt-09"
+      ],
+      "set": "pretest"
+    }
+  ],
   "questions": [
     {
-      "id": "pretest-01",
-      "originalPage": "pretest.html",
-      "set": "pretest",
-      "section": "exam-active",
-      "objective": "P3",
+      "id": "pt-01",
+      "objective": "P1",
+      "stem": "Select the ingredient identified as a preservative.",
+      "type": "label-select",
       "points": 1,
-      "stem": "What is calcium propionate doing in the bread?",
+      "cognitiveLevel": "apply",
       "review": {
         "href": "preservatives.html#ingredient-names",
         "label": "Review this part of the lesson"
       },
-      "hints": [],
-      "type": "single",
-      "options": [
+      "tokens": [
         {
-          "id": "texture",
-          "text": "Making the bread softer.",
-          "correct": false,
-          "feedback": "Softness is a texture issue. Calcium propionate is included here to control mold."
+          "id": "flour",
+          "text": "Enriched flour",
+          "feedback": "Flour provides the main structure.",
+          "correct": false
         },
         {
-          "id": "mold",
-          "text": "Slowing mold growth.",
-          "correct": true,
-          "feedback": "Calcium propionate helps slow mold growth in bread."
+          "id": "water",
+          "text": "water",
+          "feedback": "Water hydrates the dough.",
+          "correct": false
         },
         {
-          "id": "sweet",
-          "text": "Making it taste sweeter.",
-          "correct": false,
-          "feedback": "Calcium propionate is a preservative, not a sweetener."
+          "id": "sugar",
+          "text": "sugar",
+          "feedback": "Sugar is not the ingredient identified here as a preservative.",
+          "correct": false
+        },
+        {
+          "id": "yeast",
+          "text": "yeast",
+          "feedback": "Yeast raises the dough.",
+          "correct": false
+        },
+        {
+          "id": "salt",
+          "text": "salt",
+          "feedback": "The label does not identify salt as its preservative.",
+          "correct": false
+        },
+        {
+          "id": "cornmeal",
+          "text": "cornmeal",
+          "feedback": "Cornmeal is a grain ingredient.",
+          "correct": false
+        },
+        {
+          "id": "sulfate",
+          "text": "calcium sulfate",
+          "feedback": "Sulfate is not the propionate family.",
+          "correct": false
+        },
+        {
+          "id": "propionate",
+          "text": "calcium propionate (preservative)",
+          "feedback": "The purpose in parentheses identifies its job.",
+          "correct": true
+        },
+        {
+          "id": "oil",
+          "text": "soybean oil",
+          "feedback": "The label does not identify this oil as a preservative.",
+          "correct": false
         },
         {
           "id": "unknown",
           "text": "I’m not sure.",
-          "correct": false,
-          "feedback": "That is a useful starting point. The bread example will explain how propionates control mold."
+          "feedback": "This is a place to start. Follow the lesson link to explore it.",
+          "correct": false
         }
       ],
-      "explanation": "The calcium propionate in this loaf helps slow mold growth. It is a preservative, rather than an ingredient added to make the bread sweeter or softer."
+      "maxSelections": 1,
+      "selectionHint": "Choose one ingredient, or “I’m not sure.”",
+      "fictional": true
     },
     {
-      "id": "pretest-02",
-      "originalPage": "pretest.html",
-      "set": "pretest",
-      "section": "exam-active",
-      "objective": "A1",
+      "id": "pt-02",
+      "objective": "P2",
+      "stem": "Which name belongs to the same family?",
+      "type": "single",
       "points": 1,
-      "stem": "Which of these names belongs to the vitamin E family?",
+      "cognitiveLevel": "understand",
+      "review": {
+        "href": "preservatives.html#ingredient-names",
+        "label": "Review this part of the lesson"
+      },
+      "options": [
+        {
+          "id": "sulfite",
+          "text": "Sodium sulfite.",
+          "feedback": "Sulfites belong to a different family.",
+          "correct": false
+        },
+        {
+          "id": "sorbate",
+          "text": "Potassium sorbate.",
+          "feedback": "Sorbate connects this salt to sorbic acid.",
+          "correct": true
+        },
+        {
+          "id": "citrate",
+          "text": "Sodium citrate.",
+          "feedback": "Citrate connects to citric acid.",
+          "correct": false
+        },
+        {
+          "id": "unknown",
+          "text": "I’m not sure.",
+          "feedback": "This is a place to start. Follow the lesson link to explore it.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "pt-03",
+      "objective": "A1",
+      "stem": "Which ingredient name belongs to the vitamin E family?",
+      "type": "single",
+      "points": 1,
+      "cognitiveLevel": "understand",
       "review": {
         "href": "antioxidants.html#ingredient-names",
         "label": "Review this part of the lesson"
       },
-      "hints": [],
-      "type": "single",
       "options": [
         {
-          "id": "tocopherols",
-          "text": "Mixed tocopherols.",
-          "correct": true,
-          "feedback": "Tocopherols are members of the vitamin E family."
+          "id": "ascorbic",
+          "text": "Ascorbic acid.",
+          "feedback": "Ascorbic acid is vitamin C.",
+          "correct": false
         },
         {
           "id": "citric",
           "text": "Citric acid.",
-          "correct": false,
-          "feedback": "Citric acid is an organic acid; it is not vitamin E."
+          "feedback": "Citric acid is not vitamin E.",
+          "correct": false
         },
         {
-          "id": "benzoate",
-          "text": "Sodium benzoate.",
-          "correct": false,
-          "feedback": "Sodium benzoate is a preservative from the benzoic acid family."
-        },
-        {
-          "id": "unknown",
-          "text": "I’m not sure.",
-          "correct": false,
-          "feedback": "Look for the tocopherol name in the antioxidant chapter."
-        }
-      ],
-      "explanation": "Mixed tocopherols belong to the vitamin E family. In cereal, they can help slow oxidation of the oils. A familiar vitamin can have an unfamiliar ingredient name."
-    },
-    {
-      "id": "pretest-03",
-      "originalPage": "pretest.html",
-      "set": "pretest",
-      "section": "exam-active",
-      "objective": "A2",
-      "points": 1,
-      "stem": "Which change is the antioxidant meant to slow?",
-      "review": {
-        "href": "antioxidants.html#ingredient-names",
-        "label": "Review this part of the lesson"
-      },
-      "hints": [],
-      "type": "single",
-      "options": [
-        {
-          "id": "bacteria",
-          "text": "Growth of all bacteria.",
-          "correct": false,
-          "feedback": "Antioxidant protection does not mean that all bacteria are controlled."
-        },
-        {
-          "id": "melting",
-          "text": "Melting when heated.",
-          "correct": false,
-          "feedback": "Melting is a physical change. This ingredient addresses oxidation during storage."
-        },
-        {
-          "id": "oxidation",
-          "text": "Oils developing off-flavors through oxidation.",
-          "correct": true,
-          "feedback": "Oxidation can cause oils to develop off-flavors; slowing that process is the role here."
+          "id": "tocopherols",
+          "text": "Mixed tocopherols.",
+          "feedback": "Tocopherols are members of the vitamin E family.",
+          "correct": true
         },
         {
           "id": "unknown",
           "text": "I’m not sure.",
-          "correct": false,
-          "feedback": "The antioxidant chapter connects ingredient names to the changes they help slow."
+          "feedback": "This is a place to start. Follow the lesson link to explore it.",
+          "correct": false
         }
-      ],
-      "explanation": "Antioxidants help slow oxidation, which can give the oils in cereal an unpleasant flavor. That is a different job from slowing the mold growth you considered at the bread shelf."
+      ]
     },
     {
-      "id": "pretest-04",
-      "originalPage": "pretest.html",
-      "set": "pretest",
-      "section": "exam-active",
-      "objective": "A2",
+      "id": "pt-04",
+      "objective": "P3",
+      "stem": "What job best fits this ingredient in an acidic drink?",
+      "type": "single",
       "points": 1,
-      "stem": "What does this label say the rosemary extract is there for?",
+      "cognitiveLevel": "apply",
+      "review": {
+        "href": "preservatives.html#ingredient-names",
+        "label": "Review this part of the lesson"
+      },
+      "options": [
+        {
+          "id": "microbes",
+          "text": "Slowing the growth of yeasts and other microbes.",
+          "feedback": "Benzoates inhibit microbes and generally work better in acidic foods.",
+          "correct": true
+        },
+        {
+          "id": "sour",
+          "text": "Providing the drink’s sharp lemon taste.",
+          "feedback": "Acid and lemon ingredients provide that taste; benzoate has a preservative role.",
+          "correct": false
+        },
+        {
+          "id": "mix",
+          "text": "Keeping the lemon flavor evenly mixed.",
+          "feedback": "Keeping ingredients mixed is an emulsifying role.",
+          "correct": false
+        },
+        {
+          "id": "unknown",
+          "text": "I’m not sure.",
+          "feedback": "This is a place to start. Follow the lesson link to explore it.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "pt-05",
+      "objective": "A2",
+      "stem": "Which change is it most likely slowing here?",
+      "type": "single",
+      "points": 1,
+      "cognitiveLevel": "analyze",
       "review": {
         "href": "antioxidants.html#ingredient-names",
         "label": "Review this part of the lesson"
       },
-      "hints": [],
-      "type": "single",
       "options": [
         {
-          "id": "freshness",
-          "text": "Helping the crackers keep their quality during storage.",
-          "correct": true,
-          "feedback": "The phrase “for freshness” links the extract to keeping quality during storage."
+          "id": "mold",
+          "text": "Mold growth on the dried fruit.",
+          "feedback": "The clue here is the oil in nuts and seeds and an antioxidant ingredient.",
+          "correct": false
+        },
+        {
+          "id": "rancid",
+          "text": "Rancidity in the oils in the nuts and seeds.",
+          "feedback": "Rosemary extract can help protect these oils from oxidation.",
+          "correct": true
+        },
+        {
+          "id": "brown",
+          "text": "Browning of freshly cut fruit surfaces.",
+          "feedback": "This is a dry, oil-rich snack, not freshly cut fruit.",
+          "correct": false
+        },
+        {
+          "id": "unknown",
+          "text": "I’m not sure.",
+          "feedback": "This is a place to start. Follow the lesson link to explore it.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "pt-06",
+      "objective": "A3",
+      "stem": "How can EDTA help protect this dip?",
+      "type": "single",
+      "points": 1,
+      "cognitiveLevel": "analyze",
+      "review": {
+        "href": "antioxidants.html#related-ingredients",
+        "label": "Review this part of the lesson"
+      },
+      "options": [
+        {
+          "id": "vitamin",
+          "text": "By supplying the same vitamin E as tocopherols.",
+          "feedback": "EDTA is not a vitamin E ingredient.",
+          "correct": false
+        },
+        {
+          "id": "thick",
+          "text": "By thickening the dip so oil stays suspended.",
+          "feedback": "EDTA’s helper role is metal binding, not thickening.",
+          "correct": false
+        },
+        {
+          "id": "metal",
+          "text": "By binding metals that can speed up oxidation.",
+          "feedback": "EDTA can slow metal-catalyzed oxidation; tocopherols act as antioxidants.",
+          "correct": true
+        },
+        {
+          "id": "unknown",
+          "text": "I’m not sure.",
+          "feedback": "This is a place to start. Follow the lesson link to explore it.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "pt-07",
+      "objective": "P5",
+      "stem": "What would you do with the opened jar?",
+      "type": "single",
+      "points": 1,
+      "cognitiveLevel": "evaluate",
+      "review": {
+        "href": "preservatives.html#ingredient-names",
+        "label": "Review this part of the lesson"
+      },
+      "options": [
+        {
+          "id": "fridge",
+          "text": "Refrigerate it; sorbate and cold storage work together.",
+          "feedback": "A preservative does not replace the storage instructions.",
+          "correct": true
+        },
+        {
+          "id": "shelf",
+          "text": "Keep it on the shelf; sorbate takes over after opening.",
+          "feedback": "Opening does not make sorbate a replacement for refrigeration.",
+          "correct": false
+        },
+        {
+          "id": "smell",
+          "text": "Decide from its smell before putting it away.",
+          "feedback": "The storage instruction is a better guide than waiting for a change in smell.",
+          "correct": false
+        },
+        {
+          "id": "unknown",
+          "text": "I’m not sure.",
+          "feedback": "This is a place to start. Follow the lesson link to explore it.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "pt-08",
+      "objective": "P5",
+      "stem": "What does the full statement mean?",
+      "type": "single",
+      "points": 1,
+      "cognitiveLevel": "evaluate",
+      "review": {
+        "href": "preservatives.html#ingredient-names",
+        "label": "Review this part of the lesson"
+      },
+      "options": [
+        {
+          "id": "none",
+          "text": "The product contains no nitrites.",
+          "feedback": "That ignores the celery-powder exception.",
+          "correct": false
         },
         {
           "id": "taste",
-          "text": "Adding a strong rosemary taste.",
-          "correct": false,
-          "feedback": "A plant name alone does not show a flavoring purpose. Here the label says “for freshness.”"
+          "text": "Celery powder is included only for its flavor.",
+          "feedback": "The statement links celery powder to nitrites, not just flavor.",
+          "correct": false
         },
         {
-          "id": "color",
-          "text": "Making the crackers green.",
-          "correct": false,
-          "feedback": "The label does not identify a coloring purpose."
+          "id": "exception",
+          "text": "Nitrites may still come from the celery powder.",
+          "feedback": "The exception limits the claim on the front.",
+          "correct": true
         },
         {
           "id": "unknown",
           "text": "I’m not sure.",
-          "correct": false,
-          "feedback": "Start with the purpose phrase beside the name: “for freshness.”"
+          "feedback": "This is a place to start. Follow the lesson link to explore it.",
+          "correct": false
         }
-      ],
-      "explanation": "The useful clue is “for freshness.” It tells you the extract helps the crackers keep their quality during storage. Seeing the name of an herb does not, by itself, mean the food will taste strongly of it."
+      ]
     },
     {
-      "id": "pretest-05",
-      "originalPage": "pretest.html",
-      "set": "pretest",
-      "section": "exam-active",
+      "id": "pt-09",
       "objective": "A5",
+      "stem": "Which response best uses the ingredient information?",
+      "type": "single",
       "points": 1,
-      "stem": "What can you actually conclude from the presence of an antioxidant?",
+      "cognitiveLevel": "evaluate",
       "review": {
         "href": "antioxidants.html#ingredient-names",
         "label": "Review this part of the lesson"
       },
-      "hints": [],
-      "type": "single",
       "options": [
         {
-          "id": "health",
-          "text": "The food has a proven health benefit.",
-          "correct": false,
-          "feedback": "Protecting a food from oxidation does not establish a health benefit for the person eating it."
+          "id": "vitamin",
+          "text": "The antioxidant names tell us it is a vitamin supplement.",
+          "feedback": "An antioxidant role does not make a snack a vitamin supplement.",
+          "correct": false
         },
         {
-          "id": "forever",
-          "text": "The food will never spoil.",
-          "correct": false,
-          "feedback": "Antioxidants do not stop every way that food can deteriorate or replace storage instructions."
+          "id": "evidence",
+          "text": "They may protect the snack; that alone does not show a health benefit.",
+          "feedback": "Keeping food from oxidizing and showing a benefit to the person eating it are different claims.",
+          "correct": true
         },
         {
-          "id": "role",
-          "text": "The ingredient has a role in slowing oxidation in the food.",
-          "correct": true,
-          "feedback": "This describes its role in the food without adding an unsupported health claim."
+          "id": "natural",
+          "text": "We can settle the health question by checking whether they are natural.",
+          "feedback": "Natural origin alone does not establish a health benefit.",
+          "correct": false
         },
         {
           "id": "unknown",
           "text": "I’m not sure.",
-          "correct": false,
-          "feedback": "The chapter will separate a food-preservation function from a health claim."
+          "feedback": "This is a place to start. Follow the lesson link to explore it.",
+          "correct": false
         }
-      ],
-      "explanation": "The ingredient’s job in the cereal does not establish a health benefit for the person eating it. It helps slow oxidation in the food; that fact alone cannot tell you the cereal is healthier or that it will never spoil."
+      ]
     }
   ],
-  "blocks": [
-    {
-      "id": "pretest-pretest-1",
-      "set": "pretest",
-      "section": "exam-active",
-      "title": "First, a loaf of bread",
-      "questionIds": [
-        "pretest-01"
-      ],
-      "intro": "<p>You pick up a loaf for the week and glance at the ingredients. Flour, water, yeast… then <strong>calcium propionate</strong>. That one takes a little longer to read.</p>"
-    },
-    {
-      "id": "pretest-pretest-2",
-      "set": "pretest",
-      "section": "exam-active",
-      "title": "Over to the cereal aisle",
-      "questionIds": [
-        "pretest-02"
-      ],
-      "intro": "<p>Cereal is next on your list. While you’re looking at the boxes, your friend mentions that vitamin E can appear under another name in an ingredient list.</p>"
-    },
-    {
-      "id": "pretest-pretest-3",
-      "set": "pretest",
-      "section": "exam-active",
-      "title": "Keeping the cereal fresh",
-      "questionIds": [
-        "pretest-03"
-      ],
-      "intro": "<p>Before the cereal goes into your basket, your friend points out that it contains an <strong>antioxidant</strong>. You pause for a moment. What does that ingredient help protect the cereal from while it sits on the shelf?</p>"
-    },
-    {
-      "id": "pretest-pretest-4",
-      "set": "pretest",
-      "section": "exam-active",
-      "title": "One last stop for crackers",
-      "questionIds": [
-        "pretest-04"
-      ],
-      "intro": "<p>At the cracker shelf, a name you recognize catches your eye: rosemary. You think of the herb used in cooking, then read the whole line: <strong>“Rosemary extract (for freshness).”</strong></p>"
-    },
-    {
-      "id": "pretest-pretest-5",
-      "set": "pretest",
-      "section": "exam-active",
-      "title": "A thought at checkout",
-      "questionIds": [
-        "pretest-05"
-      ],
-      "intro": "<p>You’ve found everything on your list. As you wait to pay, your friend looks at the cereal again. “It has an antioxidant in it. That must make it good for us, right?”</p>"
-    }
-  ]
+  "version": "20261114-7"
 };

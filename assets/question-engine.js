@@ -58,6 +58,7 @@
       total: maximum(q),
       correct,
       answered: selected.length > 0,
+      uncertain: selected.includes('unknown'),
       values,
       expected,
     };
@@ -82,9 +83,12 @@
     const optionOrder = {};
     questions.flatMap(leaves).forEach((q) => {
       const ids = options(q).map((o) => o.id);
-      optionOrder[q.id] = shuffle && q.type !== 'label-select' ? shuffled(ids) : ids;
+      const ordinary = ids.filter((id) => id !== 'unknown');
+      optionOrder[q.id] = shuffle && q.type !== 'label-select' && !q.fixedOrder
+        ? [...shuffled(ordinary), ...ids.filter((id) => id === 'unknown')]
+        : ids;
     });
-    return { blocks: (shuffle ? shuffled(blocks) : blocks).map((b) => b.id), options: optionOrder };
+    return { blocks: blocks.map((b) => b.id), options: optionOrder };
   }
   function el(tag, text, cls) {
     const e = document.createElement(tag);
@@ -105,12 +109,12 @@
     );
     return e;
   }
-  function product(p) {
-    const box = el('div', undefined, 'question-product');
+  function product(p, hideTranscript = false) {
+    const box = el('div', undefined, `question-product${p.transcriptOpen ? ' label-evidence' : ''}`);
     if (p.fictional) box.append(el('p', 'Practice label, not a real product', 'eyebrow'));
     if (p.name) box.append(el('p', p.name, 'product-name'));
     if (p.presentationHTML) box.append(html('div', p.presentationHTML));
-    else if (p.image) {
+    if (p.image && !p.presentationHTML) {
       const a = el('a');
       a.href = p.image;
       a.dataset.zoomImage = '';
@@ -119,14 +123,24 @@
       const image = el('img');
       image.src = p.displayImage || p.image;
       image.alt = p.imageAlt || p.name;
+      image.loading = 'lazy';
       a.append(image);
-      box.append(a);
+      if (p.transcriptOpen) {
+        const photo = el('details', undefined, 'package-photo');
+        photo.append(el('summary', 'View the package'), a);
+        box.append(photo);
+      } else box.append(a);
     }
-    if (p.ingredientsText) {
-      const details = el('details', undefined, 'learning-prompt');
-      details.append(el('summary', 'Ingredient list as text'), el('p', p.ingredientsText));
-      box.append(details);
+    if (p.ingredientsText && !hideTranscript) {
+      if (p.transcriptOpen) {
+        box.append(el('p', 'Ingredients', 'label-heading'), el('p', p.ingredientsText, 'evidence-transcript'));
+      } else {
+        const details = el('details', undefined, 'learning-prompt');
+        details.append(el('summary', 'Ingredient list as text'), el('p', p.ingredientsText));
+        box.append(details);
+      }
     }
+    (p.statements || []).forEach((s) => box.append(el('p', s, 'package-statement')));
     if (p.sourceUrl) {
       const a = el('a', p.sourceLabel || 'Product source', 'text-link');
       a.href = p.sourceUrl;
@@ -137,6 +151,8 @@
   function renderQuestion(q, order = {}) {
     const wrap = el('div', undefined, 'question-item');
     wrap.dataset.questionId = q.id;
+    wrap.dataset.questionType = q.type;
+    if (q.objective) wrap.dataset.objective = q.objective;
     if (q.demo) wrap.append(el('p', 'Demo · not part of the course', 'eyebrow'));
     if (q.type === 'scenario') {
       const card = el('div', undefined, 'scenario-card');
@@ -146,15 +162,44 @@
     if (children(q)) {
       if (q.stem) wrap.append(html('h3', q.stem));
       if (q.product) wrap.append(product(q.product));
-      children(q).forEach((p) => wrap.append(renderQuestion(p, order)));
+      children(q).forEach((p, index) => {
+        const part = renderQuestion(q.type === 'judgment-grid' ? {...p, display: 'judgment-row'} : p, order);
+        if (q.type === 'two-tier') {
+          part.prepend(el('p', index === 0 ? '01 · Your decision' : '02 · Your reason', 'part-label'));
+          if (index > 0) {
+            part.hidden = true;
+            const show = el('button', 'Continue to the reason', 'secondary-link reveal-reason');
+            show.type = 'button';
+            show.setAttribute('aria-expanded', 'false');
+            part.id = `part-${p.id}`;
+            show.setAttribute('aria-controls', part.id);
+            show.addEventListener('click', () => {
+              part.hidden = false;
+              show.hidden = true;
+              show.setAttribute('aria-expanded', 'true');
+              const heading = part.querySelector('legend');
+              heading.tabIndex = -1;
+              heading.focus();
+            });
+            wrap.append(show);
+          }
+        }
+        wrap.append(part);
+      });
       return wrap;
     }
     const group = el('fieldset');
     group.dataset.itemId = q.id;
     const legend = html('legend', q.stem);
     group.append(legend);
-    const note = el('p', q.objective ? `Supports ${q.objective}` : 'Demo', 'objective-note');
+    const note = el('p', q.objective || 'Demo', 'objective-note');
     group.append(note);
+    if (q.display === 'judgment-row') {
+      wrap.classList.add('judgment-row');
+      wrap.append(html('p', q.stem, 'judgment-statement'));
+      legend.classList.add('visually-hidden');
+      note.hidden = true;
+    }
     if (q.product) group.append(product(q.product));
     const opts = options(q);
     const ids = order[q.id] || opts.map((o) => o.id);
@@ -186,22 +231,31 @@
       label.append(select);
       group.append(label);
     } else if (q.type === 'label-select') {
-      const list = el('div', undefined, 'label-tokens');
+      if (q.fictional) group.append(el('p', 'Practice label', 'eyebrow'));
+      if (q.selectionHint) group.append(el('p', q.selectionHint, 'selection-hint'));
+      const list = el('div', undefined, `label-tokens${q.display === 'passage' ? ' passage-tokens' : ' ingredient-list'}`);
       list.setAttribute('role', 'group');
-      list.setAttribute('aria-label', 'Select ingredients');
+      list.setAttribute('aria-label', q.display === 'passage' ? 'Select a statement' : 'Select ingredients');
       ordered.forEach((o) => {
         const b = el('button', o.text, 'ingredient-token');
         b.type = 'button';
         b.dataset.tokenId = o.id;
         b.setAttribute('aria-pressed', 'false');
         b.addEventListener('click', () => {
-          b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true'));
+          const selected = b.getAttribute('aria-pressed') !== 'true';
+          if (selected && (q.maxSelections === 1 || o.id === 'unknown'))
+            group.querySelectorAll('[data-token-id]').forEach((other) => other.setAttribute('aria-pressed', 'false'));
+          else if (selected) group.querySelector('[data-token-id="unknown"]')?.setAttribute('aria-pressed', 'false');
+          b.setAttribute('aria-pressed', String(selected));
           b.dispatchEvent(new Event('change', { bubbles: true }));
         });
-        list.append(b);
+        if (o.id === 'unknown') { b.classList.add('uncertain-choice'); group.append(b); }
+        else list.append(b);
       });
-      group.append(list);
+      group.insertBefore(list, group.querySelector('.uncertain-choice'));
+      if (q.labelFootnote) group.append(el('p', q.labelFootnote, 'label-footnote'));
     } else {
+      if (q.type === 'multi') group.append(el('p', q.selectionHint || 'Select all that apply.', 'selection-hint'));
       ordered.forEach((o) => {
         const label = el('label');
         const input = el('input');
@@ -232,6 +286,14 @@
   function restore(q, root, answer) {
     if (children(q)) {
       children(q).forEach((p) => restore(p, root, answer?.[p.id]));
+      if (q.type === 'two-tier') children(q).slice(1).forEach((p) => {
+        const answered = (result) => result.parts ? result.parts.some(answered) : result.answered;
+        if (!answered(grade(p, answer?.[p.id]))) return;
+        const part = root.querySelector(`[data-question-id="${p.id}"]`);
+        part.hidden = false;
+        const button = root.querySelector(`[aria-controls="part-${p.id}"]`);
+        if (button) { button.hidden = true; button.setAttribute('aria-expanded', 'true'); }
+      });
       return;
     }
     const values = answer || [],
@@ -262,8 +324,10 @@
       el('p', `Your answer: ${answerText(q, result.values)}`),
       el('p', `Answer: ${q.answerDisplay || answerText(q, result.expected)}`),
     );
-    if (q.explanation) box.append(el('p', q.explanation));
+    const explanation = q.explanation || options(q).filter((o) => o.correct).map((o) => o.feedback || o.note).join(' ');
+    if (explanation) box.append(el('p', explanation));
     const list = el('ul', undefined, 'option-feedback');
+    const chosen = new Set(result.values);
     options(q).forEach((o) => {
       const li = el('li');
       li.append(
@@ -271,6 +335,8 @@
         el('p', o.feedback || o.note || q.explanation || ''),
       );
       list.append(li);
+      if (chosen.has(o.id) && !o.correct && o.id !== 'unknown')
+        box.append(el('p', o.feedback || o.note, 'selected-feedback'));
       if (q.type === 'label-select' && root) {
         const b = [...root.querySelectorAll('[data-token-id]')].find(
           (b) => b.dataset.tokenId === o.id && b.closest('[data-item-id]').dataset.itemId === q.id,
@@ -279,12 +345,16 @@
           b.dataset.correct = String(Boolean(o.correct));
           b.setAttribute(
             'aria-label',
-            `${o.text}. ${o.correct ? 'Correct ingredient' : 'Not a target ingredient'}. ${o.note || ''}`,
+            `${o.text}. ${o.correct ? 'Correct choice' : 'Not the answer'}. ${o.note || ''}`,
           );
         }
       }
     });
-    if (list.children.length) box.append(list);
+    if (list.children.length) {
+      const details = el('details', undefined, 'all-option-feedback');
+      details.append(el('summary', 'Why each option is right or wrong'), list);
+      box.append(details);
+    }
     if (q.objective)
       box.append(
         el(
@@ -305,7 +375,15 @@
     root.dataset.blockId = block.id;
     if (block.title) root.append(el('h2', block.title));
     if (block.intro) root.append(html('div', block.intro, 'question-context'));
-    if (block.product) root.append(product(block.product));
+    if (block.product) {
+      const first = bank.questions.find((q) => q.id === block.questionIds[0]);
+      root.append(product(block.product, first?.type === 'label-select' && first.display !== 'passage'));
+    }
+    if (block.products) {
+      const compare = el('div', undefined, 'product-comparison');
+      block.products.forEach((p) => compare.append(product(p)));
+      root.append(compare);
+    }
     block.questionIds.forEach((id) => {
       const q = bank.questions.find((q) => q.id === id);
       root.append(renderQuestion(q, order));

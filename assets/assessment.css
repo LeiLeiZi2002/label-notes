@@ -49,12 +49,48 @@
 .news-brief > p + p { margin-top: 14px; }
 .exam-actions { display: flex; gap: 15px; justify-content: space-between; padding-block: 22px; border-top: 1px solid var(--rule); }
 .submission-note { padding: 15px 0 25px; color: var(--muted); }
-.result-score { font: 64px/1.1 var(--serif); margin-block: 24px 16px; }
+.result-score { font: 24px/1.4 var(--sans); margin-block: 24px 12px; }
 .result-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin-block: 26px; }
 .result-item { border-top: 1px solid var(--rule); padding-block: 20px; }
 .result-item summary { cursor: pointer; font-size: 19px; font-weight: 600; }
 .result-item p { margin-top: 14px; }
 .result-item .text-link { margin-top: 14px; }
+.assessment-page .question-block > h2 { font: 38px/1.2 var(--serif); letter-spacing: -.8px; max-width: none; }
+.assessment-page .question-item .objective-note { font-size: 12px; letter-spacing: .05em; color: var(--muted); }
+.exam-question fieldset { margin-top: 18px; }
+.exam-question .question-item[data-question-type='match'] fieldset { margin-top: 0; }
+.exam-question .question-item[data-question-type='match'] label { padding: 0; border: 0; margin: 0; display: block; }
+.exam-question .question-item[data-question-type='match'] legend { font-size: 18px; margin-bottom: 4px; }
+.exam-question .question-item[data-question-type='two-tier'] { padding-block: 8px; }
+.exam-question .question-item[data-question-type='two-tier'] > .question-item + .question-item { margin-top: 28px; border-top: 1px solid var(--rule); padding-top: 24px; }
+.exam-question .fill-in-label input { width: min(460px, 100%); font-size: 20px; }
+.goal-results { display: grid; gap: 20px; margin-block: 30px; }
+.dimension-result { border: 1px solid var(--rule); padding: 24px; }
+.dimension-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; }
+.dimension-heading h2 { font: 27px/1.3 var(--serif); }
+.dimension-heading strong { font: 22px var(--sans); white-space: nowrap; }
+.dimension-result progress { display: block; width: 100%; height: 7px; margin-block: 18px 10px; border: 0; background: #eee; appearance: none; }
+.dimension-result progress::-webkit-progress-bar { background: #eee; }
+.dimension-result progress::-webkit-progress-value { background: var(--ink); }
+.dimension-result progress::-moz-progress-bar { background: var(--ink); }
+.dimension-status { font-size: 15px; font-weight: 600; }
+.baseline-record { font-size: 14px; color: var(--muted); margin-top: 6px; }
+.objective-breakdown { margin-top: 16px; border-top: 1px solid var(--rule); padding-top: 14px; }
+.objective-breakdown summary { font-size: 15px; cursor: pointer; }
+.objective-breakdown .objective-result { padding: 16px 0; font-size: 16px; }
+.objective-result p { margin: 6px 0 8px; }
+.objective-result .text-link { font-size: 15px; }
+.result-evidence { padding: 16px 0; }
+.result-item .result-evidence summary { font-size: 16px; font-weight: 400; }
+.result-item .all-option-feedback summary { font-size: 16px; font-weight: 400; }
+.exam-question, .result-item { scroll-margin-top: 130px; }
+@media (max-width: 580px) {
+  .assessment-page .question-block > h2 { font-size: 30px; }
+  .dimension-result { padding: 18px; }
+  .dimension-heading h2 { font-size: 24px; }
+  .question-tabs { flex-wrap: wrap; }
+  .exam-question .question-item.judgment-row label { padding: 12px 6px; margin: 0; font-size: 13px; align-items: center; }
+}
 @media (max-width: 850px) {
   .assessment-nav { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 0; }
   .exam-lock-message { grid-column: 1 / -1; padding-top: 12px; margin-top: 0; }

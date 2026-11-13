@@ -3,7 +3,7 @@ window.LabelNotesCourse = {
   preservatives: {
     title: 'Preservatives',
     timeLimitSeconds: null,
-    suggestedMinutes: 6,
+    suggestedMinutes: 12,
     thresholds: { secure: 0.8, developing: 0.5 },
     objectives: [
       {
@@ -45,7 +45,7 @@ window.LabelNotesCourse = {
   antioxidants: {
     title: 'Antioxidants',
     timeLimitSeconds: null,
-    suggestedMinutes: 8,
+    suggestedMinutes: 12,
     thresholds: { secure: 0.8, developing: 0.5 },
     objectives: [
       {
@@ -86,7 +86,7 @@ window.LabelNotesCourse = {
   pretest: {
     title: 'Your starting point',
     timeLimitSeconds: null,
-    suggestedMinutes: 4,
+    suggestedMinutes: 5,
     thresholds: { secure: 0.8, developing: 0.5 },
   },
   demo: {
@@ -96,6 +96,11 @@ window.LabelNotesCourse = {
     objectives: [],
   },
 };
+window.LabelNotesDimensions = [
+  { title: 'Reading labels', objectives: ['P1', 'P2', 'A1'] },
+  { title: 'Explaining functions', objectives: ['P3', 'P4', 'A2', 'A3'] },
+  { title: 'Judging claims', objectives: ['P5', 'A4', 'A5'] },
+];
 window.LabelNotesObjectives = {
   get(id) {
     return Object.values(window.LabelNotesCourse)

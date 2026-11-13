@@ -350,356 +350,992 @@ window.LabelNotesBanks.preservatives = {
       "explanation": ""
     },
     {
-      "id": "assessment-01",
-      "originalPage": "assessment.html",
-      "set": "chapter-check",
-      "section": "exam-active",
+      "id": "p-1a",
       "objective": "P1",
-      "points": 1,
-      "stem": "1. Which ingredient is identified as the preservative?",
+      "stem": "Select both ingredients from the antimicrobial families covered in this chapter.",
+      "type": "label-select",
+      "points": 2,
+      "cognitiveLevel": "apply",
       "review": {
-        "href": "preservatives.html#bread-label",
+        "href": "preservatives.html#ingredient-names",
         "label": "Review this part of the lesson"
       },
-      "hints": [],
-      "type": "single",
-      "options": [
+      "tokens": [
         {
-          "id": "chloride",
-          "text": "Calcium chloride",
-          "correct": false,
-          "feedback": "Calcium chloride appears on the label, but the word “preservative” is attached to sodium benzoate."
+          "id": "oil",
+          "text": "Soybean Oil",
+          "feedback": "Oil is the main fat ingredient.",
+          "correct": false
         },
         {
-          "id": "benzoate",
-          "text": "Sodium benzoate",
-          "correct": true,
-          "feedback": "The label explicitly reads “0.1% sodium benzoate (preservative).”"
+          "id": "vinegar",
+          "text": "Vinegar",
+          "feedback": "Vinegar contributes acidity; it is not one of the five families in this chapter.",
+          "correct": false
+        },
+        {
+          "id": "water",
+          "text": "Water",
+          "feedback": "Water is not a member of these preservative families.",
+          "correct": false
+        },
+        {
+          "id": "milk",
+          "text": "Buttermilk",
+          "feedback": "Buttermilk is a dairy ingredient.",
+          "correct": false
+        },
+        {
+          "id": "sugar",
+          "text": "Sugar",
+          "feedback": "Sugar is not a member of these five families.",
+          "correct": false
+        },
+        {
+          "id": "egg",
+          "text": "Egg Yolks",
+          "feedback": "Egg yolks help form the dressing.",
+          "correct": false
         },
         {
           "id": "salt",
-          "text": "Salt",
-          "correct": false,
-          "feedback": "Salt is listed, but it is not the ingredient identified by the parenthetical “preservative” in this question."
-        }
-      ],
-      "explanation": "The word “preservative” follows sodium benzoate on this label. Read the whole name: calcium chloride and sodium benzoate are different ingredients."
-    },
-    {
-      "id": "assessment-02",
-      "originalPage": "assessment.html",
-      "set": "chapter-check",
-      "section": "exam-active",
-      "objective": "P3",
-      "points": 1,
-      "stem": "2. Which role does the lesson describe for sodium benzoate?",
-      "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
-      },
-      "hints": [],
-      "type": "single",
-      "options": [
-        {
-          "id": "microbes",
-          "text": "Inhibiting microorganisms that can spoil the food.",
-          "correct": true,
-          "feedback": "The lesson describes benzoate as inhibiting spoilage microorganisms, especially in suitable acidic foods."
+          "text": "Contains Less Than 2% Of Salt",
+          "feedback": "Salt can affect microbial growth, but is not one of these five families.",
+          "correct": false
         },
         {
-          "id": "color",
-          "text": "Developing the characteristic color of cured foods.",
-          "correct": false,
-          "feedback": "Cured color is associated with nitrite in the meat example."
+          "id": "onion",
+          "text": "Onion*",
+          "feedback": "Onion adds flavor.",
+          "correct": false
         },
         {
-          "id": "oxidation",
-          "text": "Slowing the oxidation of fats during storage.",
-          "correct": false,
-          "feedback": "Protecting fat from oxidation is the antioxidant role, rather than the benzoate role taught here."
-        }
-      ],
-      "explanation": "The sodium benzoate profile describes an antimicrobial role, especially in acidic foods. Cured color was linked to nitrite, and fat oxidation to antioxidants."
-    },
-    {
-      "id": "assessment-03",
-      "originalPage": "assessment.html",
-      "set": "chapter-check",
-      "section": "exam-active",
-      "objective": "P4",
-      "points": 1,
-      "stem": "1. Helps develop the cured color and flavor.",
-      "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
-      },
-      "hints": [],
-      "type": "match",
-      "inputLabel": "Your answer",
-      "placeholder": "Choose an ingredient",
-      "options": [
-        {
-          "id": "nitrite",
-          "text": "Sodium nitrite",
-          "correct": true,
-          "feedback": "Nitrite contributes to the characteristic cured color and flavor."
+          "id": "msg",
+          "text": "Monosodium Glutamate",
+          "feedback": "Monosodium glutamate is a flavor enhancer, not a benzoate.",
+          "correct": false
         },
         {
-          "id": "erythorbate",
-          "text": "Sodium erythorbate",
-          "correct": false,
-          "feedback": "Erythorbate supports the curing reaction; nitrite is the ingredient matched to this role."
-        }
-      ],
-      "explanation": "The lesson identifies sodium nitrite as contributing to the characteristic cured color and flavor of bacon."
-    },
-    {
-      "id": "assessment-04",
-      "originalPage": "assessment.html",
-      "set": "chapter-check",
-      "section": "exam-active",
-      "objective": "P4",
-      "points": 1,
-      "stem": "2. Helps nitrite react during curing and reduces nitrosamine formation.",
-      "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
-      },
-      "hints": [],
-      "type": "match",
-      "inputLabel": "Your answer",
-      "placeholder": "Choose an ingredient",
-      "options": [
-        {
-          "id": "nitrite",
-          "text": "Sodium nitrite",
-          "correct": false,
-          "feedback": "Nitrite is the curing ingredient being assisted; it is not the helper described here."
+          "id": "starch",
+          "text": "Modified Food Starch",
+          "feedback": "Modified food starch helps with texture.",
+          "correct": false
         },
         {
-          "id": "erythorbate",
-          "text": "Sodium erythorbate",
-          "correct": true,
-          "feedback": "Erythorbate helps the nitrite reaction proceed and reduces nitrosamine formation."
-        }
-      ],
-      "explanation": "The sodium erythorbate profile explains its supporting role in curing and in reducing nitrosamine formation. The two ingredients have complementary roles."
-    },
-    {
-      "id": "assessment-05",
-      "originalPage": "assessment.html",
-      "set": "chapter-check",
-      "section": "exam-active",
-      "objective": "P2",
-      "points": 1,
-      "stem": "1. Which TWO are sulfiting agents?",
-      "review": {
-        "href": "preservatives.html#ingredient-names",
-        "label": "Review this part of the lesson"
-      },
-      "hints": [],
-      "type": "multi",
-      "options": [
+          "id": "garlic",
+          "text": "Garlic*",
+          "feedback": "Garlic adds flavor.",
+          "correct": false
+        },
         {
-          "id": "dioxide",
-          "text": "Sulfur dioxide",
-          "correct": true,
-          "feedback": "Sulfur dioxide is a sulfiting agent."
+          "id": "whey",
+          "text": "Whey (from Milk)",
+          "feedback": "Whey is a milk ingredient.",
+          "correct": false
+        },
+        {
+          "id": "phosphoric",
+          "text": "Phosphoric Acid",
+          "feedback": "Phosphoric acid adjusts acidity; it is not a propionate, sorbate or benzoate.",
+          "correct": false
+        },
+        {
+          "id": "xanthan",
+          "text": "Xanthan Gum",
+          "feedback": "Xanthan gum helps thicken and stabilize the dressing.",
+          "correct": false
+        },
+        {
+          "id": "spice",
+          "text": "Spice",
+          "feedback": "Spice contributes flavor.",
+          "correct": false
+        },
+        {
+          "id": "parsley",
+          "text": "Parsley*",
+          "feedback": "Parsley is an herb.",
+          "correct": false
+        },
+        {
+          "id": "guanylate",
+          "text": "Disodium Guanylate",
+          "feedback": "Disodium guanylate is a flavor enhancer.",
+          "correct": false
+        },
+        {
+          "id": "inosinate",
+          "text": "Disodium Inosinate",
+          "feedback": "Disodium inosinate is a flavor enhancer.",
+          "correct": false
+        },
+        {
+          "id": "flavor",
+          "text": "Natural Flavor",
+          "feedback": "Natural flavor does not identify an antimicrobial family.",
+          "correct": false
         },
         {
           "id": "sorbate",
-          "text": "Potassium sorbate",
-          "correct": false,
-          "feedback": "Potassium sorbate belongs to the sorbic acid family, not the sulfiting agents."
+          "text": "Potassium Sorbate",
+          "feedback": "Sorbate identifies a salt of sorbic acid that inhibits microbes.",
+          "correct": true
         },
         {
-          "id": "bisulfite",
-          "text": "Sodium bisulfite",
-          "correct": true,
-          "feedback": "Sodium bisulfite is a sulfiting agent."
+          "id": "benzoate",
+          "text": "Sodium Benzoate",
+          "feedback": "Benzoate identifies a salt of benzoic acid that inhibits microbes.",
+          "correct": true
+        },
+        {
+          "id": "edta",
+          "text": "And Calcium Disodium EDTA (to Protect Flavor)",
+          "feedback": "EDTA protects flavor by binding metals; it is outside the five antimicrobial families in this chapter.",
+          "correct": false
         }
       ],
-      "explanation": "Sulfur dioxide and sodium bisulfite can supply sulfites in food. Potassium sorbate belongs to the sorbic acid family."
+      "selectionHint": "Choose two ingredients.",
+      "labelFootnote": "* Dried."
     },
     {
-      "id": "assessment-06",
-      "originalPage": "assessment.html",
-      "set": "chapter-check",
-      "section": "exam-active",
-      "objective": "P2",
+      "id": "p-1b",
+      "objective": "P5",
+      "stem": "Why keep this dressing refrigerated after opening?",
+      "type": "single",
       "points": 1,
-      "stem": "2. Which earlier ingredient is related to potassium sorbate?",
+      "cognitiveLevel": "evaluate",
       "review": {
         "href": "preservatives.html#ingredient-names",
         "label": "Review this part of the lesson"
       },
-      "hints": [],
-      "type": "single",
       "options": [
         {
-          "id": "nitrite",
-          "text": "Sodium nitrite",
-          "correct": false,
-          "feedback": "Sodium nitrite belongs to a different chemical family."
-        },
-        {
-          "id": "sorbic",
-          "text": "Sorbic acid",
-          "correct": true,
-          "feedback": "Potassium sorbate is a potassium salt of sorbic acid."
-        },
-        {
-          "id": "benzoate",
-          "text": "Sodium benzoate",
-          "correct": false,
-          "feedback": "Sodium benzoate is a salt of benzoic acid, not sorbic acid."
-        }
-      ],
-      "explanation": "Potassium sorbate is a potassium salt of sorbic acid. A shared preservative function alone does not put ingredients in the same chemical family."
-    },
-    {
-      "id": "assessment-07",
-      "originalPage": "assessment.html",
-      "set": "chapter-check",
-      "section": "exam-active",
-      "objective": "P5",
-      "points": 1,
-      "stem": "Which explanation correctly combines these two pieces of information?",
-      "review": {
-        "href": "preservatives.html#drink-label",
-        "label": "Review this part of the lesson"
-      },
-      "hints": [],
-      "type": "single",
-      "options": [
-        {
-          "id": "optional",
-          "text": "The preservatives make refrigeration optional once the bag has been opened.",
-          "correct": false,
-          "feedback": "The presence of preservatives does not cancel the printed refrigeration instruction."
+          "id": "unused",
+          "text": "Refrigeration is mainly for dressings without preservatives.",
+          "feedback": "The bottle still instructs refrigeration even though preservatives are listed.",
+          "correct": false
         },
         {
           "id": "together",
-          "text": "The preservatives help the food keep; the storage instruction still applies after opening.",
-          "correct": true,
-          "feedback": "Both apply: the ingredients help preservation and the bag still advises refrigeration after opening."
+          "text": "The preservatives and refrigeration provide different parts of protection.",
+          "feedback": "Follow the storage instruction alongside the preservative system.",
+          "correct": true
         },
         {
-          "id": "later",
-          "text": "Refrigeration becomes necessary when the preservatives stop protecting the fruit.",
-          "correct": false,
-          "feedback": "The label gives an instruction for opening, not a visible signal for when protection has ended."
+          "id": "replace",
+          "text": "Refrigeration matters only after the preservatives have been used up.",
+          "feedback": "The instruction applies after opening, not after a measurable preservative depletion.",
+          "correct": false
         }
-      ],
-      "explanation": "Preservatives and storage conditions both contribute to keeping food. This bag recommends refrigeration after opening; it gives no later trigger such as a visible change or a preservative “running out.”"
+      ]
     },
     {
-      "id": "assessment-08",
-      "originalPage": "assessment.html",
-      "set": "chapter-check",
-      "section": "exam-active",
-      "objective": "P5",
+      "id": "p-1c",
+      "objective": "P3",
+      "stem": "What makes sorbate and benzoate a good fit for this dressing?",
+      "type": "single",
       "points": 1,
-      "stem": "1. Which headline accurately summarizes this excerpt?",
+      "cognitiveLevel": "analyze",
       "review": {
-        "href": "preservatives.html#food-stories",
+        "href": "preservatives.html#ingredient-names",
         "label": "Review this part of the lesson"
       },
-      "hints": [],
-      "type": "single",
       "options": [
         {
-          "id": "dose",
-          "text": "Floria apricots recalled over excessive sulfite levels",
-          "correct": false,
-          "feedback": "The excerpt reports a labeling problem; it does not report an excessive measured dose."
+          "id": "fat",
+          "text": "The high oil content makes them oil-protecting antioxidants.",
+          "feedback": "These two ingredients primarily inhibit microbes; oil protection is a different role.",
+          "correct": false
         },
         {
-          "id": "label",
-          "text": "Floria apricots recalled over undeclared sulfites",
-          "correct": true,
-          "feedback": "Undeclared sulfites are the stated reason for this recall."
+          "id": "name",
+          "text": "Their salt names show that they lower the dressing’s acidity.",
+          "feedback": "Being a salt does not make acid reduction their preservative function.",
+          "correct": false
         },
         {
-          "id": "illness",
-          "text": "Floria apricots recalled after confirmed sulfite reactions",
-          "correct": false,
-          "feedback": "The notice says no illnesses had been confirmed at the time; it does not establish reactions."
+          "id": "acid",
+          "text": "The vinegar-containing acidic mixture favors their antimicrobial action.",
+          "feedback": "Benzoates and sorbates generally work better in acidic foods.",
+          "correct": true
         }
-      ],
-      "explanation": "The stated problem is undeclared sulfites. The excerpt does not report an excessive level, and it says no illnesses had been confirmed."
+      ]
     },
     {
-      "id": "assessment-09",
-      "originalPage": "assessment.html",
-      "set": "chapter-check",
-      "section": "exam-active",
-      "objective": "P5",
-      "points": 1,
-      "stem": "2. Which detail is missing from this excerpt?",
-      "review": {
-        "href": "preservatives.html#food-stories",
-        "label": "Review this part of the lesson"
-      },
-      "hints": [],
-      "type": "single",
-      "options": [
+      "id": "p-2",
+      "type": "two-tier",
+      "parts": [
         {
-          "id": "product",
-          "text": "The product involved in the recall.",
-          "correct": false,
-          "feedback": "The excerpt identifies the Floria dried apricots."
+          "id": "p-2a",
+          "objective": "P3",
+          "stem": "Which ingredient is the best fit for this production step?",
+          "type": "single",
+          "points": 1,
+          "cognitiveLevel": "analyze",
+          "review": {
+            "href": "preservatives.html#ingredient-names",
+            "label": "Review this part of the lesson"
+          },
+          "options": [
+            {
+              "id": "sorbate",
+              "text": "Potassium sorbate.",
+              "feedback": "It inhibits mold but can also interfere with yeast fermentation when mixed into the dough.",
+              "correct": false
+            },
+            {
+              "id": "propionate",
+              "text": "Calcium propionate.",
+              "feedback": "Propionates are commonly used against mold in yeast-raised bread.",
+              "correct": true
+            },
+            {
+              "id": "benzoate",
+              "text": "Sodium benzoate.",
+              "feedback": "Benzoates are better suited to more acidic foods.",
+              "correct": false
+            }
+          ]
         },
         {
-          "id": "label",
-          "text": "Whether sulfites appeared on its label.",
-          "correct": false,
-          "feedback": "The excerpt says the sulfites were not declared on the label."
+          "id": "p-2b",
+          "objective": "P3",
+          "stem": "Which reason best explains that choice?",
+          "type": "single",
+          "points": 1,
+          "cognitiveLevel": "analyze",
+          "review": {
+            "href": "preservatives.html#ingredient-names",
+            "label": "Review this part of the lesson"
+          },
+          "options": [
+            {
+              "id": "yeast",
+              "text": "It targets bread mold while fitting a process that needs active yeast.",
+              "feedback": "Both the spoilage organism and the fermentation step matter.",
+              "correct": true
+            },
+            {
+              "id": "salt",
+              "text": "A calcium salt mainly works by making the dough more acidic.",
+              "feedback": "The family’s antimicrobial behavior matters, not just the word calcium.",
+              "correct": false
+            },
+            {
+              "id": "moisture",
+              "text": "It removes enough moisture to stop the mold from growing.",
+              "feedback": "Propionate inhibits mold; it is not a drying ingredient.",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "production": true
+    },
+    {
+      "id": "p-3a",
+      "objective": "P3",
+      "stem": "Select the sentence that misreads the ingredient’s role.",
+      "type": "label-select",
+      "points": 1,
+      "cognitiveLevel": "analyze",
+      "review": {
+        "href": "preservatives.html#ingredient-names",
+        "label": "Review this part of the lesson"
+      },
+      "tokens": [
+        {
+          "id": "both",
+          "text": "Sulfur dioxide can help slow browning as well as microbial spoilage.",
+          "feedback": "Sulfiting agents can have both roles in dried fruit.",
+          "correct": false
+        },
+        {
+          "id": "dry",
+          "text": "Drying and an added preservative can both help the product keep.",
+          "feedback": "Drying and chemical preservation can work together.",
+          "correct": false
+        },
+        {
+          "id": "color",
+          "text": "The golden color means sulfur dioxide is acting as a yellow coloring agent.",
+          "feedback": "Retaining color by slowing browning is different from adding a yellow dye.",
+          "correct": true
+        }
+      ],
+      "display": "passage",
+      "maxSelections": 1,
+      "selectionHint": "Choose one sentence."
+    },
+    {
+      "id": "p-3b",
+      "type": "judgment-grid",
+      "parts": [
+        {
+          "id": "p-3b1",
+          "objective": "P5",
+          "stem": "The product contains an added sulfiting agent.",
+          "type": "single",
+          "points": 1,
+          "cognitiveLevel": "evaluate",
+          "review": {
+            "href": "preservatives.html#ingredient-names",
+            "label": "Review this part of the lesson"
+          },
+          "options": [
+            {
+              "id": "supports",
+              "text": "The label supports this.",
+              "feedback": "Sulfur dioxide (sulfites) is explicitly listed as added.",
+              "correct": true
+            },
+            {
+              "id": "contradicts",
+              "text": "The label contradicts this.",
+              "feedback": "Sulfur dioxide (sulfites) is explicitly listed as added.",
+              "correct": false
+            },
+            {
+              "id": "unspecified",
+              "text": "The label does not tell you.",
+              "feedback": "Sulfur dioxide (sulfites) is explicitly listed as added.",
+              "correct": false
+            }
+          ],
+          "explanation": "Sulfur dioxide (sulfites) is explicitly listed as added.",
+          "fixedOrder": true
+        },
+        {
+          "id": "p-3b2",
+          "objective": "P5",
+          "stem": "Only raisins were used; nothing was added to preserve them.",
+          "type": "single",
+          "points": 1,
+          "cognitiveLevel": "evaluate",
+          "review": {
+            "href": "preservatives.html#ingredient-names",
+            "label": "Review this part of the lesson"
+          },
+          "options": [
+            {
+              "id": "supports",
+              "text": "The label supports this.",
+              "feedback": "The ingredient list explicitly names an added preservative.",
+              "correct": false
+            },
+            {
+              "id": "contradicts",
+              "text": "The label contradicts this.",
+              "feedback": "The ingredient list explicitly names an added preservative.",
+              "correct": true
+            },
+            {
+              "id": "unspecified",
+              "text": "The label does not tell you.",
+              "feedback": "The ingredient list explicitly names an added preservative.",
+              "correct": false
+            }
+          ],
+          "explanation": "The ingredient list explicitly names an added preservative.",
+          "fixedOrder": true
+        },
+        {
+          "id": "p-3b3",
+          "objective": "P5",
+          "stem": "This label gives the amount of sulfur dioxide remaining in the raisins.",
+          "type": "single",
+          "points": 1,
+          "cognitiveLevel": "evaluate",
+          "review": {
+            "href": "preservatives.html#ingredient-names",
+            "label": "Review this part of the lesson"
+          },
+          "options": [
+            {
+              "id": "supports",
+              "text": "The label supports this.",
+              "feedback": "It names sulfur dioxide but does not state its remaining amount.",
+              "correct": false
+            },
+            {
+              "id": "contradicts",
+              "text": "The label contradicts this.",
+              "feedback": "It names sulfur dioxide but does not state its remaining amount.",
+              "correct": false
+            },
+            {
+              "id": "unspecified",
+              "text": "The label does not tell you.",
+              "feedback": "It names sulfur dioxide but does not state its remaining amount.",
+              "correct": true
+            }
+          ],
+          "explanation": "It names sulfur dioxide but does not state its remaining amount.",
+          "fixedOrder": true
+        }
+      ],
+      "stem": "What does this label establish?"
+    },
+    {
+      "id": "p-4",
+      "type": "matching",
+      "parts": [
+        {
+          "id": "p-4-0",
+          "objective": "P2",
+          "stem": "sodium propionate",
+          "type": "match",
+          "points": 0.5,
+          "cognitiveLevel": "understand",
+          "review": {
+            "href": "preservatives.html#ingredient-names",
+            "label": "Review this part of the lesson"
+          },
+          "options": [
+            {
+              "id": "propionate",
+              "text": "Propionate",
+              "feedback": "Propionate is the family name; sodium identifies the salt.",
+              "correct": true
+            },
+            {
+              "id": "sorbate",
+              "text": "Sorbate",
+              "feedback": "Sorbate does not match this case. Propionate is the family name; sodium identifies the salt.",
+              "correct": false
+            },
+            {
+              "id": "benzoate",
+              "text": "Benzoate",
+              "feedback": "Benzoate does not match this case. Propionate is the family name; sodium identifies the salt.",
+              "correct": false
+            },
+            {
+              "id": "sulfite",
+              "text": "Sulfiting agent",
+              "feedback": "Sulfiting agent does not match this case. Propionate is the family name; sodium identifies the salt.",
+              "correct": false
+            },
+            {
+              "id": "nitrite",
+              "text": "Nitrite",
+              "feedback": "Nitrite does not match this case. Propionate is the family name; sodium identifies the salt.",
+              "correct": false
+            },
+            {
+              "id": "other",
+              "text": "Outside these five families",
+              "feedback": "Outside these five families does not match this case. Propionate is the family name; sodium identifies the salt.",
+              "correct": false
+            }
+          ],
+          "explanation": "Propionate is the family name; sodium identifies the salt."
+        },
+        {
+          "id": "p-4-1",
+          "objective": "P2",
+          "stem": "calcium sorbate",
+          "type": "match",
+          "points": 0.5,
+          "cognitiveLevel": "understand",
+          "review": {
+            "href": "preservatives.html#ingredient-names",
+            "label": "Review this part of the lesson"
+          },
+          "options": [
+            {
+              "id": "propionate",
+              "text": "Propionate",
+              "feedback": "Propionate does not match this case. Sorbate connects this salt to sorbic acid.",
+              "correct": false
+            },
+            {
+              "id": "sorbate",
+              "text": "Sorbate",
+              "feedback": "Sorbate connects this salt to sorbic acid.",
+              "correct": true
+            },
+            {
+              "id": "benzoate",
+              "text": "Benzoate",
+              "feedback": "Benzoate does not match this case. Sorbate connects this salt to sorbic acid.",
+              "correct": false
+            },
+            {
+              "id": "sulfite",
+              "text": "Sulfiting agent",
+              "feedback": "Sulfiting agent does not match this case. Sorbate connects this salt to sorbic acid.",
+              "correct": false
+            },
+            {
+              "id": "nitrite",
+              "text": "Nitrite",
+              "feedback": "Nitrite does not match this case. Sorbate connects this salt to sorbic acid.",
+              "correct": false
+            },
+            {
+              "id": "other",
+              "text": "Outside these five families",
+              "feedback": "Outside these five families does not match this case. Sorbate connects this salt to sorbic acid.",
+              "correct": false
+            }
+          ],
+          "explanation": "Sorbate connects this salt to sorbic acid."
+        },
+        {
+          "id": "p-4-2",
+          "objective": "P2",
+          "stem": "potassium benzoate",
+          "type": "match",
+          "points": 0.5,
+          "cognitiveLevel": "understand",
+          "review": {
+            "href": "preservatives.html#ingredient-names",
+            "label": "Review this part of the lesson"
+          },
+          "options": [
+            {
+              "id": "propionate",
+              "text": "Propionate",
+              "feedback": "Propionate does not match this case. Benzoate connects this salt to benzoic acid.",
+              "correct": false
+            },
+            {
+              "id": "sorbate",
+              "text": "Sorbate",
+              "feedback": "Sorbate does not match this case. Benzoate connects this salt to benzoic acid.",
+              "correct": false
+            },
+            {
+              "id": "benzoate",
+              "text": "Benzoate",
+              "feedback": "Benzoate connects this salt to benzoic acid.",
+              "correct": true
+            },
+            {
+              "id": "sulfite",
+              "text": "Sulfiting agent",
+              "feedback": "Sulfiting agent does not match this case. Benzoate connects this salt to benzoic acid.",
+              "correct": false
+            },
+            {
+              "id": "nitrite",
+              "text": "Nitrite",
+              "feedback": "Nitrite does not match this case. Benzoate connects this salt to benzoic acid.",
+              "correct": false
+            },
+            {
+              "id": "other",
+              "text": "Outside these five families",
+              "feedback": "Outside these five families does not match this case. Benzoate connects this salt to benzoic acid.",
+              "correct": false
+            }
+          ],
+          "explanation": "Benzoate connects this salt to benzoic acid."
+        },
+        {
+          "id": "p-4-3",
+          "objective": "P2",
+          "stem": "potassium metabisulfite",
+          "type": "match",
+          "points": 0.5,
+          "cognitiveLevel": "understand",
+          "review": {
+            "href": "preservatives.html#ingredient-names",
+            "label": "Review this part of the lesson"
+          },
+          "options": [
+            {
+              "id": "propionate",
+              "text": "Propionate",
+              "feedback": "Propionate does not match this case. Metabisulfite is part of the sulfiting-agent family.",
+              "correct": false
+            },
+            {
+              "id": "sorbate",
+              "text": "Sorbate",
+              "feedback": "Sorbate does not match this case. Metabisulfite is part of the sulfiting-agent family.",
+              "correct": false
+            },
+            {
+              "id": "benzoate",
+              "text": "Benzoate",
+              "feedback": "Benzoate does not match this case. Metabisulfite is part of the sulfiting-agent family.",
+              "correct": false
+            },
+            {
+              "id": "sulfite",
+              "text": "Sulfiting agent",
+              "feedback": "Metabisulfite is part of the sulfiting-agent family.",
+              "correct": true
+            },
+            {
+              "id": "nitrite",
+              "text": "Nitrite",
+              "feedback": "Nitrite does not match this case. Metabisulfite is part of the sulfiting-agent family.",
+              "correct": false
+            },
+            {
+              "id": "other",
+              "text": "Outside these five families",
+              "feedback": "Outside these five families does not match this case. Metabisulfite is part of the sulfiting-agent family.",
+              "correct": false
+            }
+          ],
+          "explanation": "Metabisulfite is part of the sulfiting-agent family."
+        },
+        {
+          "id": "p-4-4",
+          "objective": "P2",
+          "stem": "calcium sulfate",
+          "type": "match",
+          "points": 0.5,
+          "cognitiveLevel": "understand",
+          "review": {
+            "href": "preservatives.html#ingredient-names",
+            "label": "Review this part of the lesson"
+          },
+          "options": [
+            {
+              "id": "propionate",
+              "text": "Propionate",
+              "feedback": "Propionate does not match this case. Sulfate is not sulfite; sharing calcium does not make it a propionate.",
+              "correct": false
+            },
+            {
+              "id": "sorbate",
+              "text": "Sorbate",
+              "feedback": "Sorbate does not match this case. Sulfate is not sulfite; sharing calcium does not make it a propionate.",
+              "correct": false
+            },
+            {
+              "id": "benzoate",
+              "text": "Benzoate",
+              "feedback": "Benzoate does not match this case. Sulfate is not sulfite; sharing calcium does not make it a propionate.",
+              "correct": false
+            },
+            {
+              "id": "sulfite",
+              "text": "Sulfiting agent",
+              "feedback": "Sulfiting agent does not match this case. Sulfate is not sulfite; sharing calcium does not make it a propionate.",
+              "correct": false
+            },
+            {
+              "id": "nitrite",
+              "text": "Nitrite",
+              "feedback": "Nitrite does not match this case. Sulfate is not sulfite; sharing calcium does not make it a propionate.",
+              "correct": false
+            },
+            {
+              "id": "other",
+              "text": "Outside these five families",
+              "feedback": "Sulfate is not sulfite; sharing calcium does not make it a propionate.",
+              "correct": true
+            }
+          ],
+          "explanation": "Sulfate is not sulfite; sharing calcium does not make it a propionate."
+        },
+        {
+          "id": "p-4-5",
+          "objective": "P2",
+          "stem": "sodium erythorbate",
+          "type": "match",
+          "points": 0.5,
+          "cognitiveLevel": "understand",
+          "review": {
+            "href": "preservatives.html#ingredient-names",
+            "label": "Review this part of the lesson"
+          },
+          "options": [
+            {
+              "id": "propionate",
+              "text": "Propionate",
+              "feedback": "Propionate does not match this case. Erythorbate is an antioxidant and curing helper, not one of these five families.",
+              "correct": false
+            },
+            {
+              "id": "sorbate",
+              "text": "Sorbate",
+              "feedback": "Sorbate does not match this case. Erythorbate is an antioxidant and curing helper, not one of these five families.",
+              "correct": false
+            },
+            {
+              "id": "benzoate",
+              "text": "Benzoate",
+              "feedback": "Benzoate does not match this case. Erythorbate is an antioxidant and curing helper, not one of these five families.",
+              "correct": false
+            },
+            {
+              "id": "sulfite",
+              "text": "Sulfiting agent",
+              "feedback": "Sulfiting agent does not match this case. Erythorbate is an antioxidant and curing helper, not one of these five families.",
+              "correct": false
+            },
+            {
+              "id": "nitrite",
+              "text": "Nitrite",
+              "feedback": "Nitrite does not match this case. Erythorbate is an antioxidant and curing helper, not one of these five families.",
+              "correct": false
+            },
+            {
+              "id": "other",
+              "text": "Outside these five families",
+              "feedback": "Erythorbate is an antioxidant and curing helper, not one of these five families.",
+              "correct": true
+            }
+          ],
+          "explanation": "Erythorbate is an antioxidant and curing helper, not one of these five families."
+        }
+      ]
+    },
+    {
+      "id": "p-5a",
+      "objective": "P1",
+      "stem": "Select the wording that identifies a preservative role.",
+      "type": "label-select",
+      "points": 1,
+      "cognitiveLevel": "apply",
+      "review": {
+        "href": "preservatives.html#ingredient-names",
+        "label": "Review this part of the lesson"
+      },
+      "tokens": [
+        {
+          "id": "cheese",
+          "text": "Low-Moisture Part-Skim Mozzarella Cheese (Pasteurized Part-Skim Milk, Cheese Culture, Salt, Enzymes)",
+          "feedback": "This identifies the cheese and its ingredients.",
+          "correct": false
+        },
+        {
+          "id": "starch",
+          "text": "Cornstarch (Added to Prevent Caking)",
+          "feedback": "Preventing caking keeps shreds separate, rather than inhibiting mold.",
+          "correct": false
+        },
+        {
+          "id": "natamycin",
+          "text": "Natamycin (a Natural Mold Inhibitor)",
+          "feedback": "Mold inhibition identifies the preservative role.",
+          "correct": true
+        }
+      ],
+      "maxSelections": 1,
+      "selectionHint": "Choose one ingredient and its purpose statement."
+    },
+    {
+      "id": "p-5b",
+      "objective": "P5",
+      "stem": "Which reading of “a natural mold inhibitor” is supported?",
+      "type": "single",
+      "points": 1,
+      "cognitiveLevel": "evaluate",
+      "review": {
+        "href": "preservatives.html#ingredient-names",
+        "label": "Review this part of the lesson"
+      },
+      "options": [
+        {
+          "id": "natural",
+          "text": "Its described job is mold control; “natural” does not replace the storage directions.",
+          "feedback": "The label gives a role and an origin description, and still says to refrigerate.",
+          "correct": true
+        },
+        {
+          "id": "none",
+          "text": "Its natural origin means it is not doing a preservative job.",
+          "feedback": "A naturally sourced ingredient can still preserve food.",
+          "correct": false
         },
         {
           "id": "amount",
-          "text": "The amount of sulfites measured in the product.",
-          "correct": true,
-          "feedback": "No measured sulfite amount is supplied, so it cannot support a claim about an excessive dose."
+          "text": "Its natural origin tells us how much is appropriate in any recipe.",
+          "feedback": "The word natural does not specify an amount for another recipe.",
+          "correct": false
         }
-      ],
-      "explanation": "The excerpt names the product and describes the missing label declaration. It gives no measured sulfite amount, so it cannot establish an excessive dose."
+      ]
     },
     {
-      "id": "assessment-10",
-      "originalPage": "assessment.html",
-      "set": "chapter-check",
-      "section": "exam-active",
-      "objective": "P5",
-      "points": 1,
-      "stem": "Which response follows the approach taught in this chapter?",
-      "review": {
-        "href": "preservatives.html#food-stories",
-        "label": "Review this part of the lesson"
-      },
-      "hints": [],
-      "type": "single",
-      "options": [
+      "id": "p-6",
+      "type": "two-tier",
+      "parts": [
         {
-          "id": "source",
-          "text": "Check whether it is plant-derived; a natural source is enough to establish safety.",
-          "correct": false,
-          "feedback": "A natural source alone does not establish safety for every amount, use or person."
+          "id": "p-6a",
+          "objective": "P5",
+          "stem": "Which conclusion fits the complete claim?",
+          "type": "single",
+          "points": 1,
+          "cognitiveLevel": "evaluate",
+          "review": {
+            "href": "preservatives.html#ingredient-names",
+            "label": "Review this part of the lesson"
+          },
+          "options": [
+            {
+              "id": "absence",
+              "text": "No nitrites can be present in the finished food.",
+              "feedback": "The exception explicitly allows nitrites from celery powder.",
+              "correct": false
+            },
+            {
+              "id": "exception",
+              "text": "The claim allows nitrites associated with celery powder.",
+              "feedback": "Read “except” as part of the claim, not as a separate detail.",
+              "correct": true
+            },
+            {
+              "id": "flavor",
+              "text": "Celery powder is identified only as a flavor ingredient.",
+              "feedback": "This statement links it to the nitrite claim.",
+              "correct": false
+            }
+          ]
         },
         {
-          "id": "context",
-          "text": "Check the amount and intended use; consider any relevant personal sensitivity.",
-          "correct": true,
-          "feedback": "Amount, intended use and relevant sensitivity provide the context needed to judge the claim."
+          "id": "p-6b",
+          "objective": "P5",
+          "stem": "Select the complete statement that supports your conclusion.",
+          "type": "label-select",
+          "points": 1,
+          "cognitiveLevel": "evaluate",
+          "review": {
+            "href": "preservatives.html#ingredient-names",
+            "label": "Review this part of the lesson"
+          },
+          "tokens": [
+            {
+              "id": "beef",
+              "text": "Made with beef.",
+              "feedback": "This identifies the meat, not the nitrite exception.",
+              "correct": false
+            },
+            {
+              "id": "cold",
+              "text": "Keep refrigerated.",
+              "feedback": "This is a storage instruction.",
+              "correct": false
+            },
+            {
+              "id": "claim",
+              "text": "No nitrites added, except those naturally occurring in celery powder.",
+              "feedback": "The complete statement includes the exception.",
+              "correct": true
+            }
+          ],
+          "display": "passage",
+          "maxSelections": 1,
+          "selectionHint": "Choose one statement."
+        }
+      ]
+    },
+    {
+      "id": "p-7-drink",
+      "type": "two-tier",
+      "parts": [
+        {
+          "id": "p-7a",
+          "objective": "P3",
+          "stem": "A lemon drink at pH 3 develops yeast during shelf storage. Which ingredient is the best fit?",
+          "type": "single",
+          "points": 1,
+          "cognitiveLevel": "analyze",
+          "review": {
+            "href": "preservatives.html#ingredient-names",
+            "label": "Review this part of the lesson"
+          },
+          "options": [
+            {
+              "id": "propionate",
+              "text": "Calcium propionate.",
+              "feedback": "Propionates are a common mold-control choice for bread, but benzoate better matches this acidic drink.",
+              "correct": false
+            },
+            {
+              "id": "nitrite",
+              "text": "Sodium nitrite.",
+              "feedback": "Nitrite belongs to a meat-curing system, not this lemon drink.",
+              "correct": false
+            },
+            {
+              "id": "benzoate",
+              "text": "Sodium benzoate.",
+              "feedback": "Benzoate fits the acidic conditions and microbial problem.",
+              "correct": true
+            }
+          ]
         },
         {
-          "id": "approval",
-          "text": "Check whether it is allowed in food; approval makes the amount unimportant.",
-          "correct": false,
-          "feedback": "Authorization applies to specified uses and conditions; it does not make amount irrelevant."
+          "id": "p-7b",
+          "objective": "P3",
+          "stem": "Which feature of the drink supports that choice?",
+          "type": "single",
+          "points": 1,
+          "cognitiveLevel": "analyze",
+          "review": {
+            "href": "preservatives.html#ingredient-names",
+            "label": "Review this part of the lesson"
+          },
+          "options": [
+            {
+              "id": "clear",
+              "text": "Its clear appearance shows that oxidation is the main problem.",
+              "feedback": "Appearance does not replace the stated problem: yeast growth.",
+              "correct": false
+            },
+            {
+              "id": "acid",
+              "text": "Its low pH favors the active acid form of this preservative.",
+              "feedback": "Acidity affects benzoate’s antimicrobial action.",
+              "correct": true
+            },
+            {
+              "id": "sweet",
+              "text": "Its sweetness means preservatives mainly need to bind metals.",
+              "feedback": "Metal binding addresses oxidation, not the stated yeast problem.",
+              "correct": false
+            }
+          ]
         }
       ],
-      "explanation": "The lesson considers the substance, intended use, exposure and individual sensitivity. A natural source or an authorization alone does not establish safety for every amount and every person."
+      "production": true
+    },
+    {
+      "id": "p-7-meat",
+      "type": "two-tier",
+      "parts": [
+        {
+          "id": "p-7c",
+          "objective": "P4",
+          "stem": "A cured sausage uses sodium nitrite and sodium erythorbate. Which description separates their roles?",
+          "type": "single",
+          "points": 2,
+          "cognitiveLevel": "analyze",
+          "review": {
+            "href": "preservatives.html#ingredient-names",
+            "label": "Review this part of the lesson"
+          },
+          "options": [
+            {
+              "id": "roles",
+              "text": "Nitrite supports microbial control and curing; erythorbate helps curing and antioxidant protection.",
+              "feedback": "These ingredients work together but do not have identical jobs.",
+              "correct": true
+            },
+            {
+              "id": "swap",
+              "text": "Erythorbate controls the main microbial risk; nitrite mainly protects fats from rancidity.",
+              "feedback": "Erythorbate is not nitrite or a vitamin C nutrient claim.",
+              "correct": false
+            },
+            {
+              "id": "same",
+              "text": "Both ingredients serve the same antimicrobial role; the second provides extra coverage.",
+              "feedback": "Their roles overlap in preservation, but erythorbate does not replace nitrite’s antimicrobial and curing functions.",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "production": true
     }
   ],
   "blocks": [
@@ -783,78 +1419,117 @@ window.LabelNotesBanks.preservatives = {
       }
     },
     {
-      "id": "preservatives-chapter-check-1",
-      "set": "chapter-check",
-      "section": "exam-active",
-      "title": "Read the pickle label",
+      "id": "p-check-1",
+      "title": "Turn the dressing bottle over",
+      "intro": "Start with the ingredient list, then consider how this dressing is stored.",
       "questionIds": [
-        "assessment-01",
-        "assessment-02"
+        "p-1a",
+        "p-1b",
+        "p-1c"
       ],
-      "intro": "<p>Read this Mt. Olive Kosher Dill Spears label. Identify its preservative, then explain what that ingredient does.</p>",
+      "set": "chapter-check",
       "product": {
-        "name": "Mt. Olive Kosher Dill Spears, 24 fl oz",
-        "image": "assets/products/mtolive-spears-back.jpg",
-        "imageAlt": "Mt. Olive Kosher Dill Spears, 24 fl oz",
-        "ingredientsText": "Cucumbers, water, vinegar, salt, calcium chloride, 0.1% sodium benzoate (preservative), natural flavors, polysorbate 80, and Yellow 5.",
-        "sourceUrl": "https://www.mtolivepickles.com/pickle-products/kosher-dill-spears/",
-        "sourceLabel": "Product & package source",
-        "fictional": false,
-        "presentationHTML": "<figure class=\"exam-package\"><a aria-label=\"Enlarge the pickle jar label\" data-zoom-image=\"\" href=\"assets/products/mtolive-spears-back.jpg\"><img alt=\"Mt. Olive Kosher Dill Spears, 24 fl oz jar.\" height=\"1220\" src=\"assets/products/mtolive-spears-front.jpg\" width=\"915\"/></a><figcaption><a data-zoom-image=\"\" href=\"assets/products/mtolive-spears-back.jpg\">Read the back label</a></figcaption></figure>"
+        "name": "Kraft Classic Ranch Dressing · 8 fl oz",
+        "ingredientsText": "Soybean Oil, Vinegar, Water, Buttermilk, Sugar, Egg Yolks, Contains Less Than 2% Of Salt, Onion*, Monosodium Glutamate, Modified Food Starch, Garlic*, Whey (from Milk), Phosphoric Acid, Xanthan Gum, Spice, Parsley*, Disodium Guanylate, Disodium Inosinate, Natural Flavor, Potassium Sorbate, Sodium Benzoate, And Calcium Disodium EDTA (to Protect Flavor). * Dried.",
+        "transcriptOpen": true,
+        "statements": [
+          "Refrigerate after opening."
+        ],
+        "sourceUrl": "https://foodlion.com/groceries/condiments-sauces/salad-dressings-toppings/kraft-classic-ranch-dressing-8-oz-btl.html",
+        "sourceLabel": "Product source",
+        "image": "assets/products/check-ranch-back.jpg",
+        "imageAlt": "Kraft Classic Ranch Dressing · 8 fl oz ingredient label"
       }
     },
     {
-      "id": "preservatives-chapter-check-2",
-      "set": "chapter-check",
-      "section": "exam-active",
-      "title": "Two ingredients in bacon",
+      "id": "p-check-2",
+      "title": "A bakery has a mold problem",
+      "intro": "A bakery wants soft dinner rolls to resist mold. The dough must rise with yeast, and the preservative will be mixed in before proofing.",
       "questionIds": [
-        "assessment-03",
-        "assessment-04"
+        "p-2"
       ],
-      "intro": "<p>The bacon example contains sodium nitrite and sodium erythorbate. Choose the ingredient associated with each role.</p>"
+      "set": "chapter-check",
+      "production": true
     },
     {
-      "id": "preservatives-chapter-check-3",
-      "set": "chapter-check",
-      "section": "exam-active",
-      "title": "Sort the ingredient families",
+      "id": "p-check-3",
+      "title": "A short list can still say a lot",
+      "intro": "Use this golden-raisin label and what you learned about sulfiting agents.",
       "questionIds": [
-        "assessment-05",
-        "assessment-06"
+        "p-3a",
+        "p-3b"
       ],
-      "intro": "<p>The apricot bag lists sulfur dioxide, sodium bisulfite and potassium sorbate as preservatives. They do not all belong to the same chemical family.</p>"
+      "set": "chapter-check",
+      "product": {
+        "name": "Sun-Maid California Golden Raisins",
+        "ingredientsText": "California Golden Raisins, Sulfur Dioxide (Sulfites) Added as a Preservative.",
+        "transcriptOpen": true,
+        "sourceUrl": "https://www.sunmaid.com/products/golden-raisins/",
+        "sourceLabel": "Product source"
+      }
     },
     {
-      "id": "preservatives-chapter-check-4",
-      "set": "chapter-check",
-      "section": "exam-active",
-      "title": "After opening",
+      "id": "p-check-4",
+      "title": "Sort by the whole name",
+      "intro": "A supplier sends these names. Match each to its family. You can use a family more than once.",
       "questionIds": [
-        "assessment-07"
+        "p-4"
       ],
-      "intro": "<p>The apricot bag lists preservatives and says “refrigerate after opening for best quality.”</p>"
+      "set": "chapter-check"
     },
     {
-      "id": "preservatives-chapter-check-5",
-      "set": "chapter-check",
-      "section": "exam-active",
-      "title": "Read the recall carefully",
+      "id": "p-check-5",
+      "title": "A name you have not studied",
+      "intro": "You pick up a bag of shredded cheese and check why natamycin was added.",
       "questionIds": [
-        "assessment-08",
-        "assessment-09"
+        "p-5a",
+        "p-5b"
       ],
-      "intro": "<div class=\"news-brief\"><p>Turkana Food recalled Floria dried apricots after inspectors found sulfites that were not declared on the label. The notice warned about reactions in people with severe sulfite sensitivity. No illnesses had been confirmed at the time.</p></div>"
+      "set": "chapter-check",
+      "product": {
+        "name": "Kraft Finely Shredded Mozzarella · 8 oz",
+        "ingredientsText": "Low-Moisture Part-Skim Mozzarella Cheese (Pasteurized Part-Skim Milk, Cheese Culture, Salt, Enzymes), Cornstarch (Added to Prevent Caking), Natamycin (a Natural Mold Inhibitor).",
+        "transcriptOpen": true,
+        "statements": [
+          "Keep refrigerated."
+        ],
+        "sourceUrl": "https://foodlion.com/groceries/product/kraft-natural-part-skim-finely-shredded-mozzarella-cheese-8-oz-bag/384413",
+        "sourceLabel": "Product source",
+        "image": "assets/products/check-mozzarella-back.jpg",
+        "imageAlt": "Kraft Finely Shredded Mozzarella · 8 oz ingredient label"
+      }
     },
     {
-      "id": "preservatives-chapter-check-6",
-      "set": "chapter-check",
-      "section": "exam-active",
-      "title": "Check the claim",
+      "id": "p-check-6",
+      "title": "The exception matters",
+      "intro": "A practice package carries the following statements. Read the claim and its qualification together.",
       "questionIds": [
-        "assessment-10"
+        "p-6"
       ],
-      "intro": "<p>A shopper says, “It is a natural preservative, so the amount I eat does not matter.”</p>"
+      "set": "chapter-check",
+      "product": {
+        "name": "Practice package",
+        "ingredientsText": "Beef, water, sea salt, vinegar, celery powder, spices.",
+        "transcriptOpen": true,
+        "fictional": true,
+        "statements": [
+          "Made with beef.",
+          "Keep refrigerated.",
+          "No nitrites added, except those naturally occurring in celery powder."
+        ]
+      }
+    },
+    {
+      "id": "p-check-7",
+      "title": "Two jobs on the production line",
+      "intro": "A food team is reviewing two products. Choose ingredients by the problem they need to solve.",
+      "questionIds": [
+        "p-7-drink",
+        "p-7-meat"
+      ],
+      "set": "chapter-check",
+      "production": true
     }
-  ]
+  ],
+  "version": "20261114-7"
 };
