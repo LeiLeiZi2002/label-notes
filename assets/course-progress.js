@@ -1,8 +1,8 @@
 /* 首次成绩、完成状态和阅读位置共用一份本地记录。 */
 (() => {
-  const key = 'label-notes-course-v1';
+  const key = 'label-notes-course-v2';
   const chapters = ['preservatives', 'antioxidants'];
-  let memory = { version: 1, assessments: {}, visits: {} };
+  let memory = { version: 2, assessments: {}, visits: {}, practice: {} };
   let persistent = true;
   let storage;
   try { storage = localStorage; storage.setItem(`${key}-check`, '1'); storage.removeItem?.(`${key}-check`); }
@@ -14,7 +14,7 @@
   function read() {
     try {
       const saved = JSON.parse(storage?.getItem(key) || 'null');
-      if (saved?.version === 1 && saved.assessments && saved.visits) memory = saved;
+      if (saved?.version === 2 && saved.assessments && saved.visits) memory = saved;
     } catch { /* 无有效记录时允许重新学习。 */ }
     return memory;
   }
@@ -53,7 +53,7 @@
     document.querySelectorAll('[data-chapter-status]').forEach(label => {
       const id = label.dataset.chapterStatus;
       const result = data.assessments[id];
-      label.textContent = result ? `Completed · ${result.latest.earned}/${result.latest.total}` : canOpen(id) ? 'Ready to start' : 'Not started';
+      label.textContent = result ? `Completed · ${result.first.earned}/${result.first.total}` : canOpen(id) ? 'Ready to start' : 'Not started';
     });
     document.querySelectorAll('[data-progress-note]').forEach(note => {
       note.textContent = !storage ? 'Browser storage is blocked. Progress cannot be saved between pages. Allow site storage to keep your results.' : !persistent ? 'Progress is saved for this tab only. Allow local storage to keep it after closing the browser.' : 'Your progress is saved in this browser.';
@@ -66,7 +66,18 @@
     }
   }
   window.LabelNotesProgress = {
-    read, complete, canOpen, isPersistent: () => persistent,
+    read, complete, canOpen,
+    savePractice(id, current, result) {
+      const data=read(); data.practice ||= {}; const previous=data.practice[id] || {};
+      data.practice[id]={...previous,current};
+      if(result) {
+        const first=previous.first || result;
+        result.outcomes=result.outcomes.map(o=>({...o,firstCorrect:first.outcomes.find(p=>p.id===o.id)?.correct ?? o.correct}));
+        data.practice[id]={current,first,latest:result,attempts:(previous.attempts||0)+1};
+      }
+      write();
+    },
+    isPersistent: () => persistent,
     visit(chapter, section) { const data = read(); data.visits[chapter] = section; data.lastVisit = { chapter, section }; write(); }
   };
   render();

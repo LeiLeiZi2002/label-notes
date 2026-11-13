@@ -1,7 +1,5 @@
 /* 包装原图使用原生弹窗放大；没有脚本时，链接仍可直接打开图片。 */
 (() => {
-  const links = [...document.querySelectorAll('[data-zoom-image]')];
-  if (!links.length) return;
   const viewer = document.createElement('dialog');
   viewer.className = 'image-viewer';
   viewer.setAttribute('aria-label', 'Package image');
@@ -50,6 +48,35 @@
   let scale = 1;
   let fitted = true;
   let ready = false;
+  let pan = null;
+
+  function endPan() {
+    if (!pan) return;
+    const pointerId = pan.pointerId;
+    pan = null;
+    delete stage.dataset.dragging;
+    if (stage.hasPointerCapture(pointerId)) stage.releasePointerCapture(pointerId);
+  }
+
+  stage.addEventListener('pointerdown', event => {
+    // 触屏保留浏览器原生滑动；鼠标和触控笔按住后平移放大的图片。
+    if (event.button !== 0 || event.pointerType === 'touch' || !ready || stage.dataset.pannable !== 'true') return;
+    const box = stage.getBoundingClientRect();
+    if (event.clientX >= box.left + stage.clientWidth || event.clientY >= box.top + stage.clientHeight) return;
+    pan = { pointerId: event.pointerId, x: event.clientX, y: event.clientY, left: stage.scrollLeft, top: stage.scrollTop };
+    stage.setPointerCapture(event.pointerId);
+    stage.dataset.dragging = 'true';
+    stage.focus({ preventScroll: true });
+    event.preventDefault();
+  });
+  stage.addEventListener('pointermove', event => {
+    if (!pan || event.pointerId !== pan.pointerId) return;
+    stage.scrollLeft = pan.left - (event.clientX - pan.x);
+    stage.scrollTop = pan.top - (event.clientY - pan.y);
+  });
+  stage.addEventListener('pointerup', endPan);
+  stage.addEventListener('pointercancel', endPan);
+  stage.addEventListener('lostpointercapture', endPan);
 
   function fitScale() {
     return Math.min(1, stage.clientWidth / image.naturalWidth, stage.clientHeight / image.naturalHeight);
@@ -57,6 +84,7 @@
 
   function setZoom(value, toFit = false) {
     if (!ready) return;
+    endPan();
     const width = image.getBoundingClientRect().width;
     const height = image.getBoundingClientRect().height;
     const centerX = width ? (stage.scrollLeft + Math.min(stage.clientWidth, width) / 2) / width : 0.5;
@@ -78,17 +106,20 @@
     larger.disabled = scale >= 4;
     fit.disabled = fitted;
     actual.disabled = Math.abs(scale - 1) < 0.001;
+    stage.dataset.pannable = String(stage.scrollWidth > stage.clientWidth || stage.scrollHeight > stage.clientHeight);
   }
 
   function showLoadedImage() {
     if (!viewer.open || !image.naturalWidth) return;
     ready = true;
     stage.setAttribute('aria-busy', 'false');
-    hint.textContent = 'Use + and − to zoom, or 0 to fit the window. Scroll or focus the image and use arrow keys to move around.';
+    hint.textContent = 'Use + and − to zoom, or 0 to fit the window. Drag the enlarged image, scroll, or use arrow keys to move around.';
     setZoom(fitScale(), true);
   }
 
-  links.forEach(link => link.addEventListener('click', event => {
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[data-zoom-image]');
+    if (!link) return;
     if (typeof viewer.showModal !== 'function' || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
     trigger = link;
@@ -103,7 +134,7 @@
     viewer.showModal();
     stage.focus({ preventScroll: true });
     if (image.complete) showLoadedImage();
-  }));
+  });
   image.addEventListener('load', showLoadedImage);
   image.addEventListener('error', () => {
     ready = false;
@@ -127,7 +158,10 @@
     if (viewer.open && ready) setZoom(fitted ? fitScale() : scale, fitted);
   });
   close.addEventListener('click', () => viewer.close());
-  viewer.addEventListener('close', () => trigger?.focus({ preventScroll: true }));
+  viewer.addEventListener('close', () => {
+    endPan();
+    trigger?.focus({ preventScroll: true });
+  });
   viewer.addEventListener('click', event => {
     if (event.target !== viewer) return;
     const box = viewer.getBoundingClientRect();
