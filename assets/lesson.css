@@ -279,3 +279,54 @@
 .texture-label-controls { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
 .ingredient-label mark[data-label-group] { background: none; padding: 0; }
 .ingredient-label mark.active-label-group { background: var(--highlight); padding: 3px; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: .2em; font-weight: 700; }
+
+.quick-ref-dock { margin-top: 18px; }
+.quick-ref-trigger, .quick-ref-close {
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  font-size: 15px;
+  line-height: 1.3;
+}
+.quick-ref-trigger { display: flex; justify-content: space-between; align-items: center; gap: 12px; width: 100%; font-weight: 600; }
+.quick-ref-trigger:hover, .quick-ref-close:hover { background: var(--wash); border-color: var(--muted); }
+.quick-ref-count { font-size: 12px; font-weight: 400; color: var(--muted); white-space: nowrap; }
+#quick-ref-hint { margin-top: 6px; color: var(--muted); font-size: 12px; line-height: 1.4; }
+
+.quick-ref-drawer {
+  inset: 0 0 0 auto;
+  margin: 0;
+  width: min(92vw, 420px);
+  height: 100dvh;
+  max-height: none;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-left: 1px solid var(--rule);
+  box-shadow: none;
+}
+.quick-ref-drawer[open] {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  animation: quick-ref-enter .2s ease-out;
+}
+.quick-ref-heading { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 24px; border-bottom: 1px solid var(--rule); }
+.quick-ref-heading h2 { font-size: clamp(26px, 7vw, 34px); line-height: 1.1; }
+.quick-ref-drawer .quick-ref-list { list-style: none; margin: 0; padding: 0 24px max(10px, env(safe-area-inset-bottom)); overflow-y: auto; overscroll-behavior: contain; }
+.quick-ref-list > li { padding: 16px 0; }
+.quick-ref-list li + li { border-top: 1px solid var(--rule); }
+.quick-ref-list a { font-size: 18px; font-weight: 600; }
+.quick-ref-list p { margin-top: 4px; font-size: 16px; line-height: 1.5; }
+.quick-ref-list .quick-ref-example { color: var(--muted); font-size: 14px; }
+.quick-ref-highlight { outline: 2px solid var(--accent); outline-offset: 7px; }
+
+@keyframes quick-ref-enter { from { transform: translateX(100%); } to { transform: translateX(0); } }
+@media (prefers-reduced-motion: reduce) { .quick-ref-drawer[open] { animation: none; } }
+
+@media (width < 900px) {
+  html:has(.quick-ref-dock) { scroll-padding-bottom: 98px; }
+  .lesson-page:has(.quick-ref-dock) .lesson-main { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
+  .quick-ref-dock { position: fixed; z-index: 900; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); margin: 0; }
+  #quick-ref-hint { background: var(--paper); text-align: right; }
+}
