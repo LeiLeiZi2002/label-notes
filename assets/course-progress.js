@@ -1,8 +1,9 @@
 /* 首次成绩、完成状态和阅读位置共用一份本地记录。 */
 (() => {
-  const key = 'label-notes-course-v3';
+  const schemaVersion = 4;
+  const key = `label-notes-course-v${schemaVersion}`;
   const chapters = ['preservatives', 'antioxidants', 'texture', 'sweeteners-flavors', 'colors'];
-  let memory = { version: 3, assessments: {}, visits: {}, practice: {}, warmups: {} };
+  let memory = { version: schemaVersion, assessments: {}, visits: {}, practice: {}, warmups: {} };
   let persistent = true;
   let storage;
   try { storage = localStorage; storage.setItem(`${key}-check`, '1'); storage.removeItem?.(`${key}-check`); }
@@ -13,9 +14,12 @@
   }
   function read() {
     try {
-      const saved = JSON.parse(storage?.getItem(key) || storage?.getItem('label-notes-course-v2') || 'null');
-      if ([2, 3].includes(saved?.version) && saved.assessments && saved.visits)
-        memory = { ...saved, version: 3, warmups: saved.warmups || {} };
+      const snapshot = storage?.getItem(key) || storage?.getItem('label-notes-course-v3')
+        || storage?.getItem('label-notes-course-v2');
+      const saved = JSON.parse(snapshot || 'null');
+      if ([2, 3, schemaVersion].includes(saved?.version) && saved.assessments && saved.visits) {
+        memory = { ...saved, version: schemaVersion, practice: saved.practice || {}, warmups: saved.warmups || {} };
+      }
     } catch { /* 无有效记录时允许重新学习。 */ }
     return memory;
   }
@@ -26,8 +30,8 @@
   }
   const finished = (attempt) => attempt?.finishReason === 'submit' && attempt.outcomes?.length
     && attempt.outcomes.every((outcome) => outcome.answered);
-  const completion = (record) => record?.completion
-    || [record?.first, record?.latest].find(finished);
+  const firstCompleted = record => record?.firstCompleted || [record?.first, record?.latest].find(finished);
+  const completion = record => record?.completion || firstCompleted(record);
   const completionScore = ({ earned, total }) => ({ earned, total });
   function complete(id, result) {
     const data = read();
@@ -43,6 +47,7 @@
     data.assessments[id] = {
       first: !revised && previous?.first || result,
       latest: result,
+      firstCompleted: (!revised && firstCompleted(previous)) || (finished(result) ? result : null),
       completion: done ? completionScore(done) : null,
       attempts: (revised ? 0 : previous?.attempts || 0) + 1,
       history,
@@ -92,7 +97,7 @@
     }
   }
   window.LabelNotesProgress = {
-    read, complete, canOpen,
+    read, complete, canOpen, firstCompleted,
     saveWarmup(chapter, question, answer) {
       const data = read();
       data.warmups[chapter] ||= {};

@@ -188,7 +188,7 @@
     const summary = E.el('div', undefined, 'goal-results');
     const allObjectives = Object.values(window.LabelNotesCourse).flatMap((c) => c.objectives || []);
     const objectives = config.objectives || allObjectives.filter((o) => outcomes.some((r) => r.objective === o.id));
-    const baseline = progress?.read().assessments.pretest?.first;
+    const baseline = progress?.firstCompleted(progress.read().assessments.pretest);
     const totals = (rows) => ({
       earned: Number(rows.reduce((n, r) => n + r.earned, 0).toFixed(2)),
       total: rows.reduce((n, r) => n + r.total, 0),
