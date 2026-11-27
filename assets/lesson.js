@@ -100,7 +100,7 @@
   ingredientButtons.forEach(button => button.addEventListener('click', () => selectIngredient(button.dataset.ingredient)));
   if (ingredientButtons.length) selectIngredient(ingredientButtons[0].dataset.ingredient);
 
-  const reference = document.querySelector('[data-texture-quick-reference]');
+  const reference = document.querySelector('[data-generated-quick-reference]');
   if (reference) {
     document.querySelectorAll('[data-quick-reference-item]').forEach(item => {
       const row = reference.insertRow();
@@ -109,11 +109,13 @@
       name.scope = 'row';
       const link = document.createElement('a');
       link.href = '#' + item.id;
-      link.textContent = item.querySelector('[data-reference-name]').textContent;
+      const nameText = item.querySelector('[data-reference-name]');
+      link.textContent = nameText.dataset.referenceName || nameText.textContent;
       name.append(link);
       row.append(name);
       row.insertCell().textContent = item.querySelector('[data-reference-example]').textContent;
-      row.insertCell().textContent = item.querySelector('[data-reference-purpose]').textContent;
+      const purpose = item.querySelector('[data-reference-purpose]');
+      row.insertCell().textContent = purpose.dataset.referencePurpose || purpose.textContent;
     });
   }
 
@@ -228,10 +230,4 @@
   quickReference = setUpQuickReference();
   followHash(false);
 
-  const kitchen = document.querySelector('.kitchen-observation');
-  kitchen?.addEventListener('change', () => {
-    const response = kitchen.querySelector('[data-kitchen-response]');
-    response.textContent = kitchen.querySelector('input:checked')
-      ? response.dataset.message || 'Keep that example in mind as you look at what each ingredient does.' : '';
-  });
 })();

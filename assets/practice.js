@@ -145,6 +145,13 @@
     }
     function firstMiss(q, outcome) {
       const wrongChoiceClue = outcome.values.map(value => q.retryOnWrong?.[value]).find(Boolean);
+      if (q.retryNoHits) {
+        const hits = outcome.values.filter(value => outcome.expected.includes(value)).length;
+        const clue = hits === 0 ? q.retryNoHits
+          : hits < outcome.expected.length ? q.retryHint
+          : 'You found every sweetener. Remove any selections that do a different job.';
+        return [clue, wrongChoiceClue].filter(Boolean).join(' ');
+      }
       if (wrongChoiceClue) return wrongChoiceClue;
       const missingChoiceClue = outcome.expected.filter(value => !outcome.values.includes(value))
         .map(value => q.retryOnMissing?.[value]).find(Boolean);

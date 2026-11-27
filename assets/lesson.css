@@ -288,10 +288,6 @@
 }
 
 /* Chapter 03 label reading */
-.kitchen-observation fieldset { display: grid; gap: 8px; border: 0; }
-.kitchen-observation legend { margin-bottom: 12px; font-weight: 650; }
-.kitchen-observation input { accent-color: var(--accent); }
-.kitchen-observation p:not(:empty) { margin-top: 14px; }
 .texture-label-controls { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
 .ingredient-label mark[data-label-group] { background: none; padding: 0; }
 .ingredient-label mark.active-label-group { background: var(--highlight); padding: 3px; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: .2em; font-weight: 700; }
@@ -327,7 +323,7 @@
   grid-template-rows: auto minmax(0, 1fr);
   animation: quick-ref-enter .2s ease-out;
 }
-.quick-ref-heading { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 11px 21px; border-bottom: 1px solid var(--rule); }
+.quick-ref-heading { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 11px 21px; padding-inline-end: max(28px, calc(21px + env(safe-area-inset-right))); border-bottom: 1px solid var(--rule); }
 .quick-ref-heading h2 { font-size: clamp(25px, 6vw, 31px); line-height: 1.1; }
 .quick-ref-close { width: 40px; height: 40px; padding: 0; border: 0; background: transparent; color: var(--muted); font-size: 26px; line-height: 1; }
 .quick-ref-close:hover { color: var(--ink); background: var(--wash); }

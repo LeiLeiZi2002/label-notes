@@ -14,26 +14,15 @@ window.LabelNotesBanks["sweeteners-flavors"] = {
       "type": "label-select",
       "points": 3,
       "cognitiveLevel": "apply",
-      "retryHint": "Check the list for all three sweeteners. One appears just after phosphoric acid.",
+      "retryHint": "You found part of the blend. Reread the list from phosphoric acid to the end and check where the other sweeteners appear.",
       "retryOnWrong": {
-        "acid": "Potassium benzoate is a preservative from Chapter 01, and phosphoric acid adds sharpness. Remove non-sweeteners and check the three sweetening ingredients again.",
-        "preserve": "Potassium benzoate is a preservative from Chapter 01, and phosphoric acid adds sharpness. Remove non-sweeteners and check the three sweetening ingredients again."
+        "acid": "Phosphoric acid gives the cola its sharp taste.",
+        "preserve": "Potassium benzoate is a preservative."
       },
       "retryReviews": [
         {
-          "href": "sweeteners-flavors.html#evidence-aspartame",
-          "label": "Read: Aspartame",
-          "quote": "A synthetic sweetener roughly 200 times sweeter than sugar, widely used in cold diet drinks. It breaks down under long, high baking heat, so it rarely appears in baked goods."
-        },
-        {
-          "href": "sweeteners-flavors.html#evidence-ace-k",
-          "label": "Read: Acesulfame potassium",
-          "quote": "A heat-stable, zero-calorie sweetener that can taste slightly bitter on its own, so makers often blend it with aspartame or sucralose to smooth the aftertaste."
-        },
-        {
-          "href": "sweeteners-flavors.html#evidence-stevia-monkfruit",
-          "label": "Read: Stevia & monk fruit",
-          "quote": "Plant-derived high-intensity sweeteners with zero sugar calories. Blending stevia leaf extract (often Reb M) with monk fruit helps soften herbal aftertaste."
+          "href": "sweeteners-flavors.html#sweeteners-in-this-chapter",
+          "label": "Read: Sweeteners in this chapter"
         }
       ],
       "references": [
@@ -96,9 +85,7 @@ window.LabelNotesBanks["sweeteners-flavors"] = {
           "feedback": "Stevia extract supplies sweetness in this formula."
         }
       ],
-      "retryOnMissing": {
-        "stevia": "You found part of the sweetener blend, but this formula uses three sweeteners together—check the very end of the list too."
-      }
+      "retryNoHits": "None of the selected ingredients sweeten this drink. Start just after phosphoric acid, then work through the rest of the list."
     },
     {
       "id": "fx-blend",
@@ -560,42 +547,47 @@ window.LabelNotesBanks["sweeteners-flavors"] = {
           "id": "citrate",
           "text": "Potassium citrate",
           "correct": false,
-          "feedback": "Both mixes contain it for acidity control."
+          "feedback": "Both mixes contain it for acidity control.",
+          "suffix": ""
         },
         {
           "id": "sucralose",
           "text": "Sucralose",
           "correct": true,
-          "feedback": "Both lists give sucralose as a sweetener."
+          "feedback": "Both lists give sucralose as a sweetener.",
+          "suffix": ""
         },
         {
           "id": "glycerin",
           "text": "Glycerin",
           "correct": false,
-          "feedback": "Glycerin appears in Mix A only."
+          "feedback": "Glycerin appears in Mix A only.",
+          "suffix": ""
         },
         {
           "id": "ace-k",
           "text": "Acesulfame potassium",
           "correct": true,
-          "feedback": "Both lists give acesulfame potassium as a sweetener."
+          "feedback": "Both lists give acesulfame potassium as a sweetener.",
+          "suffix": ""
         },
         {
           "id": "gum",
           "text": "Gum arabic",
           "correct": false,
-          "feedback": "Gum arabic appears in Mix B only."
+          "feedback": "Gum arabic appears in Mix B only.",
+          "suffix": ""
         }
       ]
     },
     {
       "id": "f-mix-claim",
       "objective": "F4",
-      "stem": "A shopper picks Mix A assuming \"Naturally Flavored\" means it skips synthetic sweeteners and dyes. What does the ingredient list show?",
+      "stem": "A shopper reads \"with other natural flavors\" on Mix A and assumes the mix has no synthetic sweeteners or dyes. What does the ingredient list show?",
       "review": {
         "href": "sweeteners-flavors.html#evidence-natural-claim",
         "label": "Read: What “Naturally Flavored” tells you",
-        "quote": "On Country Time Lemon Iced Tea liquid mix, the front says \"Naturally Flavored,\" yet the ingredient list still includes sucralose, acesulfame potassium, and certified dyes. The phrase describes only the flavoring source."
+        "quote": "Country Time Lemon Iced Tea says \"with other natural flavors\" on the front. The ingredient list also includes sucralose, acesulfame potassium, and certified dyes. The phrase describes only the flavoring source."
       },
       "type": "single",
       "points": 1,
@@ -1079,7 +1071,9 @@ window.LabelNotesBanks["sweeteners-flavors"] = {
         "ingredientsText": "Carbonated water, caramel color, phosphoric acid, aspartame, potassium benzoate (to protect taste), natural flavors, potassium citrate, acesulfame potassium, caffeine, stevia extract. Phenylketonurics: contains phenylalanine.",
         "sourceUrl": "https://www.coca-cola.com/us/en/brands/coca-cola/products/zero/zero-sugar",
         "sourceLabel": "Manufacturer’s ingredient list",
-        "showTranscript": true
+        "showTranscript": true,
+        "image": "assets/products/ch04/coke-zero-front.jpg",
+        "packageFront": true
       }
     },
     {
