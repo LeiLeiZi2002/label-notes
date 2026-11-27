@@ -1,6 +1,6 @@
 window.LabelNotesBanks ||= {};
-window.LabelNotesBanks.colors = {
-  "version": "20261127-13",
+window.LabelNotesBanks["colors"] = {
+  "version": "20261128-7",
   "questions": [
     {
       "id": "cx-yogurt",
@@ -200,7 +200,7 @@ window.LabelNotesBanks.colors = {
     {
       "id": "cx-cereal-colors",
       "objective": "C3",
-      "stem": "Select all three color additives on this cereal label. Leave out acids, preservatives, and antioxidants.",
+      "stem": "Select the ingredients used to color this cereal.",
       "review": {
         "href": "colors.html#evidence-plant-juices",
         "label": "Read: Beet / vegetable juice",
@@ -219,21 +219,21 @@ window.LabelNotesBanks.colors = {
         },
         {
           "id": "vegetable-juice-for-color",
-          "text": "Vegetable juice for color",
+          "text": "Vegetable juice",
           "correct": true,
           "feedback": "The vegetable juice is there for color.",
           "suffix": ""
         },
         {
           "id": "natural-and-artificial-flavors",
-          "text": "Natural and artificial flavors",
+          "text": "Natural flavor",
           "correct": false,
           "feedback": "Flavorings contribute taste and aroma.",
           "suffix": ""
         },
         {
           "id": "paprika-extract-color",
-          "text": "Paprika extract color",
+          "text": "Paprika extract",
           "correct": true,
           "feedback": "Paprika extract contributes color.",
           "suffix": ""
@@ -247,14 +247,14 @@ window.LabelNotesBanks.colors = {
         },
         {
           "id": "beta-carotene-for-color",
-          "text": "Beta-carotene for color",
+          "text": "Beta-carotene",
           "correct": true,
           "feedback": "Beta-carotene supplies color.",
           "suffix": ""
         },
         {
           "id": "bht-for-freshness",
-          "text": "BHT for freshness",
+          "text": "BHT",
           "correct": false,
           "feedback": "BHT helps protect freshness.",
           "suffix": ""
@@ -272,11 +272,13 @@ window.LabelNotesBanks.colors = {
           "quote": "What it does · A fat-soluble yellow-orange pigment (the same compound that colors carrots) used in broths, cereals, margarines, and candies."
         }
       ],
-      "retryHint": "There are three color ingredients on this list—check both plant-juice and spice/pigment names.",
-      "retryOnWrong": {
-        "bht-for-freshness": "BHT slows oxidation (Chapter 02) and citric acid adds tartness (Chapter 04). Look for the three entries tied to color.",
-        "citric-acid": "BHT slows oxidation (Chapter 02) and citric acid adds tartness (Chapter 04). Look for the three entries tied to color."
-      }
+      "retryHint": "Compare the ingredient names by what they do in this cereal.",
+      "retryReviews": [
+        {
+          "href": "colors.html#ingredient-names",
+          "label": "Read: Ingredients & their uses"
+        }
+      ]
     },
     {
       "id": "cx-cereal-claim",
@@ -952,89 +954,104 @@ window.LabelNotesBanks.colors = {
       ]
     },
     {
-      "id": "c-yogurt-color",
+      "id": "c-box-color",
       "objective": "C1",
-      "stem": "Read both ingredient lists above. Which cup uses a plant-derived color additive rather than an animal-derived one?",
+      "stem": "Which box lists color additives that require FDA batch certification?",
       "review": {
-        "href": "colors.html#evidence-annatto",
-        "label": "Read: Annatto",
-        "quote": "What it does · An orange-yellow extract from achiote seeds that gives cheddar cheese, crackers, and butter-flavored snacks a consistent golden shade."
+        "href": "colors.html#evidence-red-40",
+        "label": "Read: Red 40",
+        "quote": "What it does · The most widely used certified red dye in U.S. drinks, candies, and cereals, prized for staying bright across heat and light."
       },
       "type": "single",
       "points": 1,
       "cognitiveLevel": "apply",
       "options": [
         {
-          "id": "cup-a",
-          "text": "Cup A",
+          "id": "box-a",
+          "text": "Box A",
           "correct": false,
-          "feedback": "Cup A lists an animal-derived color."
+          "feedback": "Oleoresin paprika, oleoresin turmeric, and annatto are exempt from batch certification."
         },
         {
-          "id": "cup-b",
-          "text": "Cup B",
+          "id": "box-b",
+          "text": "Box B",
           "correct": true,
-          "feedback": "Cup B uses annatto extract from achiote seeds, whereas Cup A uses insect-derived carmine."
+          "feedback": "The cereal lists Red 40, Yellow 5, Blue 1, and Yellow 6."
         },
         {
-          "id": "neither-cup-lists-any-color-additive",
-          "text": "Neither cup lists any color additive.",
+          "id": "both",
+          "text": "Both boxes",
           "correct": false,
-          "feedback": "Both lists include an ingredient for color."
+          "feedback": "Only the cereal lists numbered certified colors."
         },
         {
-          "id": "both-cups-use-plant-derived-colors",
-          "text": "Both cups use plant-derived colors.",
+          "id": "neither",
+          "text": "Neither box",
           "correct": false,
-          "feedback": "One color comes from a plant and the other comes from insects."
+          "feedback": "The cereal lists numbered colors that require batch certification."
         }
       ],
       "references": [
         {
-          "href": "colors.html#evidence-carmine",
-          "label": "Read: Carmine",
-          "quote": "What it does · A deep, heat-stable crimson pigment extracted from cochineal scale insects, used in some strawberry yogurts and pink drinks."
+          "href": "colors.html#evidence-yellow-5-6",
+          "label": "Read: Yellow 5 and Yellow 6",
+          "quote": "What it does · Certified lemon-yellow (Yellow 5) and orange-yellow (Yellow 6) dyes used alone or blended with blues to make bright greens."
+        },
+        {
+          "href": "colors.html#evidence-blue-1-2",
+          "label": "Read: Blue dyes",
+          "quote": "What it does · Water-soluble synthetic blues used in drinks, icings, and candies—often paired with red or yellow dyes to create purple and green."
         }
       ],
       "fixedOrder": true
     },
     {
-      "id": "c-yogurt-claim",
+      "id": "c-box-claim",
       "objective": "C4",
-      "stem": "Why is reading the specific color name on these two cups more useful than relying on a general \"natural color\" label?",
+      "stem": "A shopper sees the orange color of the cheese sauce and assumes it contains certified dyes. What do the two labels show?",
       "review": {
-        "href": "colors.html#evidence-carmine",
-        "label": "Read: Carmine",
-        "quote": "What it does · A deep, heat-stable crimson pigment extracted from cochineal scale insects, used in some strawberry yogurts and pink drinks."
+        "href": "colors.html#evidence-turmeric",
+        "label": "Read: Turmeric",
+        "quote": "What it does · A bright yellow pigment extracted from turmeric root, commonly paired with paprika and annatto to replace Yellow 5 and Yellow 6 in cheese sauces and snacks."
       },
       "type": "single",
       "points": 2,
       "cognitiveLevel": "evaluate",
       "options": [
         {
-          "id": "exempt-colors-can-come-from-different-sources-reading-the-name-helps-vegetarian-shoppers-and-people-tracking-specific-sensitivities",
-          "text": "Exempt colors can come from different sources. Reading the name helps vegetarian shoppers and people tracking specific sensitivities.",
+          "id": "both",
+          "text": "Both products use certified dyes, but the cheese sauce lists them under the names of spices.",
+          "correct": false,
+          "feedback": "The spice extracts are different ingredients from certified dyes."
+        },
+        {
+          "id": "plant",
+          "text": "The cheese sauce uses plant-derived colors exempt from certification. The cereal lists certified dyes by number.",
           "correct": true,
-          "feedback": "Both carmine and annatto are exempt natural-source colors, yet they come from very different sources (insects vs. plant seeds), which matters for vegetarian shoppers and people tracking specific sensitivities."
+          "feedback": "Read the specific color names. Annatto, paprika, and turmeric differ from Red 40, Yellow 5, Blue 1, and Yellow 6."
         },
         {
-          "id": "only-certified-fd-c-colors-can-ever-cause-sensitivities",
-          "text": "Only certified FD&C colors can ever cause sensitivities.",
+          "id": "permanent",
+          "text": "The cheese sauce’s color comes from the cheese alone. Only the cereal lists added colors.",
           "correct": false,
-          "feedback": "Some exempt colors can also cause reactions."
-        },
-        {
-          "id": "every-exempt-color-comes-from-a-plant",
-          "text": "Every exempt color comes from a plant.",
-          "correct": false,
-          "feedback": "Carmine comes from cochineal insects."
+          "feedback": "The cheese sauce lists three ingredients added for color."
         }
       ],
       "references": [
         {
+          "href": "colors.html#evidence-paprika",
+          "label": "Read: Paprika",
+          "quote": "What it does · A warm red-orange color extracted from sweet red peppers, used alongside turmeric and annatto in savory snacks, dressings, and cheese sauces."
+        },
+        {
           "href": "colors.html#evidence-annatto",
           "label": "Read: Annatto",
           "quote": "What it does · An orange-yellow extract from achiote seeds that gives cheddar cheese, crackers, and butter-flavored snacks a consistent golden shade."
+        },
+        {
+          "href": "colors.html#evidence-red-40",
+          "label": "Read: Red 40",
+          "quote": "What it does · The most widely used certified red dye in U.S. drinks, candies, and cereals, prized for staying bright across heat and light."
         }
       ]
     }
@@ -1131,14 +1148,6 @@ window.LabelNotesBanks.colors = {
       "retryBeforeReveal": true
     },
     {
-      "id": "colors-check-sort",
-      "set": "chapter-check",
-      "title": "Separate colors from earlier chapters",
-      "questionIds": [
-        "c-sort"
-      ]
-    },
-    {
       "id": "colors-check-pouches",
       "set": "chapter-check",
       "title": "Two pouches of Skittles",
@@ -1184,14 +1193,12 @@ window.LabelNotesBanks.colors = {
       ]
     },
     {
-      "id": "colors-check-line",
+      "id": "colors-check-sort",
       "set": "chapter-check",
-      "title": "Two problems on the color line",
+      "title": "Separate colors from earlier chapters",
       "questionIds": [
-        "c-line-a",
-        "c-line-b"
-      ],
-      "intro": "<p>Choose each ingredient separately. You can use the same name more than once.</p>"
+        "c-sort"
+      ]
     },
     {
       "id": "colors-check-claims",
@@ -1202,38 +1209,45 @@ window.LabelNotesBanks.colors = {
       ]
     },
     {
-      "id": "colors-check-yogurts",
+      "id": "colors-check-line",
       "set": "chapter-check",
-      "title": "Reading two yogurt cups side by side",
+      "title": "Two problems on the color line",
       "questionIds": [
-        "c-yogurt-color",
-        "c-yogurt-claim"
+        "c-line-a",
+        "c-line-b"
+      ],
+      "intro": "<p>Choose each ingredient separately. You can use the same name more than once.</p>",
+      "production": true
+    },
+    {
+      "id": "colors-check-boxes",
+      "set": "chapter-check",
+      "title": "Two boxes, two ways to add color",
+      "questionIds": [
+        "c-box-color",
+        "c-box-claim"
       ],
       "products": [
         {
-          "name": "Cup A · Yoplait Protein Strawberry",
-          "ingredientsText": "Cultured nonfat milk, sugar, strawberries, water. Contains 1% or less of: modified corn starch, fruit pectin, natural flavor, carmine (for color), vitamin D3. Contains milk ingredients.",
-          "sourceUrl": "https://www.yoplait.com/products/yoplait-protein-strawberry-single-serve",
+          "name": "Box A · Kraft Original Mac & Cheese",
+          "ingredientsText": "Enriched macaroni (wheat flour, durum flour, niacin, ferrous sulfate [iron], thiamin mononitrate [vitamin B1], riboflavin [vitamin B2], folic acid), cheese sauce mix (whey, milkfat, salt, milk protein concentrate, nonfat dry milk, contains less than 2% of sodium triphosphate, with oleoresin paprika, oleoresin turmeric, and annatto added for color, dry buttermilk, sodium phosphate, tapioca flour, citric acid, lactic acid, calcium phosphate, milk, silicon dioxide, cheese cultures, enzymes). Contains: wheat, milk.",
+          "image": "assets/products/ch05/kraft-mac-front.jpg",
+          "sourceUrl": "https://www.kraftheinz.com/kraft-mac-and-cheese/products/00021000658831-original-mac-cheese-macaroni-and-cheese-dinner",
           "sourceLabel": "Manufacturer’s ingredient list",
-          "image": "assets/products/ch03/yoplait-yogurt-front.jpg",
-          "packageFront": true,
-          "showTranscript": true,
           "switchViews": true,
           "transcriptOpen": true
         },
         {
-          "name": "Cup B · Yoplait Protein Peach",
-          "ingredientsText": "Cultured nonfat milk, sugar, peaches, water. Contains 1% or less of: modified corn starch, fruit pectin, natural flavor, annatto extract (for color), vitamin D3. Contains milk ingredients.",
-          "sourceUrl": "https://www.yoplait.com/products/yoplait-protein-peach-single-serve",
+          "name": "Box B · Kellogg’s Froot Loops",
+          "ingredientsText": "Corn flour blend (whole grain yellow corn flour, degerminated yellow corn flour), sugar, wheat flour, whole grain oat flour, modified food starch, contains 2% or less of vegetable oil (hydrogenated coconut, soybean and/or cottonseed), oat fiber, maltodextrin, salt, soluble corn fiber, natural flavor, red 40, yellow 5, blue 1, yellow 6. Vitamins and minerals: vitamin C (ascorbic acid), reduced iron, niacinamide, vitamin B6 (pyridoxine hydrochloride), vitamin B2 (riboflavin), vitamin B1 (thiamin hydrochloride), folic acid, vitamin D3, vitamin B12. BHT added to packaging for freshness.",
+          "image": "assets/products/ch05/froot-loops-front.jpg",
+          "sourceUrl": "https://www.wkkellogg.com/products/froot-loops-cereal",
           "sourceLabel": "Manufacturer’s ingredient list",
-          "image": "assets/products/ch05/yoplait-peach-front.jpg",
-          "packageFront": true,
-          "showTranscript": true,
           "switchViews": true,
           "transcriptOpen": true
         }
       ],
-      "intro": "<p>Compare Cup A and Cup B. Yoplait describes both as made without artificial flavors, sweeteners, or preservatives.</p>"
+      "intro": "<p>Compare the cheese sauce mix in Box A with the cereal in Box B.</p>"
     }
   ]
 };

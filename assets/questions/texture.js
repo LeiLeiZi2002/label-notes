@@ -1,6 +1,6 @@
 window.LabelNotesBanks ||= {};
-window.LabelNotesBanks.texture = {
-  "version": "20261127-8",
+window.LabelNotesBanks["texture"] = {
+  "version": "20261128-7",
   "questions": [
     {
       "id": "tx-silk",
@@ -16,36 +16,42 @@ window.LabelNotesBanks.texture = {
           "id": "gellan",
           "text": "Gellan gum",
           "correct": true,
-          "feedback": "Gellan gum helps fine particles stay suspended in the carton."
+          "feedback": "Gellan gum gives the drink enough structure to hold fine particles in suspension."
         },
         {
           "id": "ascorbic",
           "text": "Ascorbic acid",
           "correct": false,
-          "feedback": "The label connects this ingredient to freshness. It is not the suspension stabilizer."
+          "feedback": "This label lists ascorbic acid to protect freshness."
         },
         {
-          "id": "sugar",
-          "text": "Cane sugar",
+          "id": "sorbate",
+          "text": "Potassium sorbate",
           "correct": false,
-          "feedback": "Cane sugar sweetens the drink."
+          "feedback": "Potassium sorbate helps control spoilage."
         },
         {
-          "id": "calcium",
-          "text": "Calcium carbonate",
+          "id": "lecithin",
+          "text": "Soy lecithin",
           "correct": false,
-          "feedback": "Calcium carbonate supplies calcium. It can settle without help from a stabilizer."
+          "feedback": "Lecithin helps liquids and fats stay mixed. Here the problem is solid particles settling."
         }
       ],
       "points": 1,
       "type": "single",
       "cognitiveLevel": "apply",
-      "retryHint": "Check which name belongs to the gum family and which comes with a freshness note.",
+      "retryHint": "Look for the ingredient that keeps small solid particles suspended.",
       "references": [
         {
           "href": "https://www.silk.com/plant-based-products/almondmilk/original-almondmilk/",
           "label": "Silk Original Almondmilk · ingredient list",
           "quote": "Gellan gum; ascorbic acid (vitamin C to protect freshness)."
+        }
+      ],
+      "retryReviews": [
+        {
+          "href": "texture.html#ingredient-names",
+          "label": "Read: Ingredients & their uses"
         }
       ]
     },
@@ -279,6 +285,12 @@ window.LabelNotesBanks.texture = {
           "correct": false,
           "feedback": "Sodium citrate can help control acidity. The target here is the gelling ingredient and the emulsifier."
         }
+      ],
+      "retryReviews": [
+        {
+          "href": "texture.html#ingredient-names",
+          "label": "Read: Ingredients & their uses"
+        }
       ]
     },
     {
@@ -293,19 +305,19 @@ window.LabelNotesBanks.texture = {
       "options": [
         {
           "id": "swapped",
-          "text": "Pectin keeps the peanut oil mixed. Monoglycerides form the jelly gel.",
+          "text": "A gelling ingredient keeps the oil mixed. An emulsifier helps the jelly set.",
           "correct": false,
           "feedback": "The roles are reversed. Think about which stripe has the oil."
         },
         {
           "id": "correct",
-          "text": "Monoglycerides help keep peanut oil mixed in. Pectin gives the jelly its gel.",
+          "text": "An emulsifier helps keep the peanut oil mixed. A gelling ingredient gives the jelly its shape.",
           "correct": true,
           "feedback": "The peanut butter and the jelly have different texture needs."
         },
         {
           "id": "preserve",
-          "text": "Both ingredients control mold growth in the jar.",
+          "text": "The two ingredients slow mold growth in the jar.",
           "correct": false,
           "feedback": "The label identifies potassium sorbate as the preservative."
         },
@@ -325,6 +337,12 @@ window.LabelNotesBanks.texture = {
           "href": "texture.html#evidence-mono-diglycerides",
           "label": "Read: Mono- and diglycerides",
           "quote": "Mono- and diglycerides help keep peanut oil mixed into the peanut butter."
+        }
+      ],
+      "retryReviews": [
+        {
+          "href": "texture.html#ingredient-names",
+          "label": "Read: Ingredients & their uses"
         }
       ]
     },
@@ -449,12 +467,6 @@ window.LabelNotesBanks.texture = {
       ],
       "tokens": [
         {
-          "id": "molasses",
-          "text": "Molasses",
-          "correct": false,
-          "feedback": "Molasses is part of the flavor and sweetener blend."
-        },
-        {
           "id": "oils",
           "text": "Fully hydrogenated vegetable oils",
           "correct": false,
@@ -467,10 +479,10 @@ window.LabelNotesBanks.texture = {
           "feedback": "This phrase names the emulsifier that helps keep oil mixed."
         },
         {
-          "id": "peanuts",
-          "text": "Organic peanuts",
+          "id": "molasses",
+          "text": "Molasses",
           "correct": false,
-          "feedback": "Peanuts are the main ingredient in the spread."
+          "feedback": "Molasses is part of the flavor and sweetener blend."
         },
         {
           "id": "salt",
@@ -630,13 +642,13 @@ window.LabelNotesBanks.texture = {
     },
     {
       "id": "t-line-dressing",
-      "stem": "Line A · Low-fat herb dressing",
+      "stem": "Low-fat herb vinaigrette — mostly water with a little oil and chopped garlic. Which two ingredients keep oil droplets mixed and herbs suspended?",
       "type": "matching",
       "parts": [
         {
           "id": "t-slot-p60",
           "objective": "T2",
-          "stem": "Which ingredient is shown in the lesson keeping oil droplets mixed into a water-based dressing?",
+          "stem": "Which ingredient keeps the oil droplets mixed into the water?",
           "review": {
             "href": "texture.html#evidence-polysorbates",
             "label": "Read: Polysorbate 60 & polysorbate 80",
@@ -656,22 +668,22 @@ window.LabelNotesBanks.texture = {
               "feedback": "Xanthan could slow separation by thickening the liquid. It does not do the same job at the droplet surface."
             },
             {
-              "id": "lecithin",
-              "text": "Soy lecithin",
-              "correct": false,
-              "feedback": "Lecithin can emulsify some foods. The water-rich dressing example uses polysorbate 60 for this job."
-            },
-            {
-              "id": "starch",
-              "text": "Modified corn starch",
-              "correct": false,
-              "feedback": "Starch could add body, but it does not replace the emulsifier at the droplet surface in this example."
-            },
-            {
               "id": "propionate",
               "text": "Calcium propionate",
               "correct": false,
               "feedback": "Propionate slows mold in baked goods. It would not keep the oil droplets dispersed."
+            },
+            {
+              "id": "ssl",
+              "text": "Sodium stearoyl lactylate",
+              "correct": false,
+              "feedback": "Its role in yeast-raised bread is to support dough and crumb."
+            },
+            {
+              "id": "benzoate",
+              "text": "Sodium benzoate",
+              "correct": false,
+              "feedback": "This preservative controls certain microbes in acidic foods."
             }
           ],
           "points": 1,
@@ -682,7 +694,7 @@ window.LabelNotesBanks.texture = {
         {
           "id": "t-slot-xanthan",
           "objective": "T2",
-          "stem": "Which ingredient helps keep the garlic suspended in this cold dressing?",
+          "stem": "Which ingredient keeps the chopped garlic and herbs suspended?",
           "review": {
             "href": "texture.html#evidence-xanthan-gum",
             "label": "Read: Xanthan gum",
@@ -702,22 +714,22 @@ window.LabelNotesBanks.texture = {
               "feedback": "Xanthan gum thickens cold dressing and helps keep the garlic suspended."
             },
             {
-              "id": "lecithin",
-              "text": "Soy lecithin",
-              "correct": false,
-              "feedback": "Lecithin can help mix oils with other ingredients. It does not provide the body needed to hold the garlic here."
-            },
-            {
-              "id": "starch",
-              "text": "Modified corn starch",
-              "correct": false,
-              "feedback": "Some starches can thicken cold liquids. The lesson example uses xanthan gum to hold pieces in suspension."
-            },
-            {
               "id": "propionate",
               "text": "Calcium propionate",
               "correct": false,
               "feedback": "Propionate helps slow mold in bread. It would not hold the garlic up in the dressing."
+            },
+            {
+              "id": "ssl",
+              "text": "Sodium stearoyl lactylate",
+              "correct": false,
+              "feedback": "Its role in yeast-raised bread is to support dough and crumb."
+            },
+            {
+              "id": "benzoate",
+              "text": "Sodium benzoate",
+              "correct": false,
+              "feedback": "This preservative controls certain microbes in acidic foods."
             }
           ],
           "points": 1,
@@ -728,49 +740,49 @@ window.LabelNotesBanks.texture = {
       ]
     },
     {
-      "id": "t-line-chocolate",
-      "stem": "Line B · Molded milk chocolate",
+      "id": "t-line-bread",
+      "stem": "Line B · Yeast-raised sandwich bread",
       "type": "matching",
       "parts": [
         {
-          "id": "t-slot-lecithin",
+          "id": "t-slot-ssl",
           "objective": "T2",
-          "stem": "Which ingredient would help the chocolate flow into thin molds?",
+          "stem": "Yeast-raised sandwich bread — dough tears easily during proofing and loaves go stale quickly on the shelf. Which emulsifier strengthens gluten and keeps the crumb soft?",
           "review": {
-            "href": "texture.html#evidence-lecithin",
-            "label": "Read: Soy lecithin & sunflower lecithin",
-            "quote": "Lecithin helps fat coat dry particles, so melted chocolate can flow more easily."
+            "href": "texture.html#evidence-datem-ssl",
+            "label": "Read: DATEM and sodium stearoyl lactylate",
+            "quote": "DATEM helps dough hold gas as it rises. Sodium stearoyl lactylate helps keep the crumb soft."
           },
           "options": [
+            {
+              "id": "ssl",
+              "text": "Sodium stearoyl lactylate",
+              "correct": true,
+              "feedback": "It helps strengthen the dough and can keep the crumb soft."
+            },
             {
               "id": "p60",
               "text": "Polysorbate 60",
               "correct": false,
-              "feedback": "The lesson uses polysorbate 60 in water-based dressing. For the fat-based chocolate here, the demonstrated flow aid is soy lecithin."
+              "feedback": "It helps disperse oil droplets in dressing."
             },
             {
               "id": "xanthan",
               "text": "Xanthan gum",
               "correct": false,
-              "feedback": "Xanthan is a water-binding thickener. It would not improve flow in melted chocolate the way lecithin does."
-            },
-            {
-              "id": "lecithin",
-              "text": "Soy lecithin",
-              "correct": true,
-              "feedback": "Soy lecithin helps fat coat dry particles and helps melted chocolate flow."
-            },
-            {
-              "id": "starch",
-              "text": "Modified corn starch",
-              "correct": false,
-              "feedback": "Starch adds body when hydrated. It would not help this fat-based mixture flow."
+              "feedback": "Xanthan gum thickens liquids rather than strengthening wheat gluten networks."
             },
             {
               "id": "propionate",
               "text": "Calcium propionate",
               "correct": false,
-              "feedback": "Propionate helps control mold in baked goods. It would not make the chocolate easier to pour."
+              "feedback": "Calcium propionate slows mold growth; it does not reinforce dough structure or soften crumb."
+            },
+            {
+              "id": "sorbate",
+              "text": "Potassium sorbate",
+              "correct": false,
+              "feedback": "It helps control mold and yeast. The dough still needs an emulsifier that supports its structure."
             }
           ],
           "points": 1,
@@ -937,7 +949,8 @@ window.LabelNotesBanks.texture = {
         "name": "Silk Original Almondmilk",
         "ingredientsText": "Almondmilk (water, almonds), cane sugar, contains 2% or less of: vitamin and mineral blend (calcium carbonate, vitamin E acetate, vitamin A palmitate, vitamin D2, vitamin B12), sea salt, gellan gum, ascorbic acid (vitamin C to protect freshness), natural flavor.",
         "sourceUrl": "https://www.silk.com/plant-based-products/almondmilk/original-almondmilk/",
-        "sourceLabel": "Manufacturer’s product page"
+        "sourceLabel": "Manufacturer’s product page",
+        "transcriptOpen": true
       }
     },
     {
@@ -1057,10 +1070,10 @@ window.LabelNotesBanks.texture = {
       "title": "Two problems on the production line",
       "questionIds": [
         "t-line-dressing",
-        "t-line-chocolate"
+        "t-line-bread"
       ],
       "production": true,
-      "intro": "<p><strong>Line A:</strong> Oil separates from a cold dressing, and chopped garlic sinks. <strong>Line B:</strong> Melted chocolate is too thick to fill narrow molds. You can use any ingredient in each slot.</p>"
+      "intro": "<p>Choose an ingredient for each job. Each menu has its own choices.</p>"
     },
     {
       "id": "texture-check-claims",

@@ -27,7 +27,7 @@
 
   function checkSummary(data, id) {
     const record = data.assessments[id];
-    const version = course[id].assessmentVersion;
+    const version = course[id].assessmentVersion || banks[id]?.version;
     const status = !record ? 'Not started'
       : version && record.latest.assessmentVersion !== version ? 'Earlier version'
       : record.latest.finishReason === 'ended-early' || !progress.firstCompleted(record) ? 'Ended early'
@@ -87,7 +87,7 @@
     const host = $('confidence-results');
     host.replaceChildren();
     if (!counts.rated) {
-      host.append(el('p', 'Use the optional "How sure are you?" check inside lesson exercises to see where your confidence matches your answers.'));
+      host.append(el('p', 'Use the optional confidence check inside lesson exercises to see where your confidence matches your answers.'));
       return;
     }
     const list = el('dl');

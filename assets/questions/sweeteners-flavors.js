@@ -1,6 +1,6 @@
 window.LabelNotesBanks ||= {};
 window.LabelNotesBanks["sweeteners-flavors"] = {
-  "version": "20261127-10",
+  "version": "20261128-7",
   "questions": [
     {
       "id": "fx-coke",
@@ -14,7 +14,7 @@ window.LabelNotesBanks["sweeteners-flavors"] = {
       "type": "label-select",
       "points": 3,
       "cognitiveLevel": "apply",
-      "retryHint": "You found part of the blend. Reread the list from phosphoric acid to the end and check where the other sweeteners appear.",
+      "retryHint": "You found part of the blend. Look for ingredients that add sweetness alongside the one you picked.",
       "retryOnWrong": {
         "acid": "Phosphoric acid gives the cola its sharp taste.",
         "preserve": "Potassium benzoate is a preservative."
@@ -62,7 +62,7 @@ window.LabelNotesBanks["sweeteners-flavors"] = {
         },
         {
           "id": "preserve",
-          "text": "Potassium benzoate (to protect taste)",
+          "text": "Potassium benzoate",
           "correct": false,
           "feedback": "This benzoate is a preservative."
         },
@@ -85,7 +85,7 @@ window.LabelNotesBanks["sweeteners-flavors"] = {
           "feedback": "Stevia extract supplies sweetness in this formula."
         }
       ],
-      "retryNoHits": "None of the selected ingredients sweeten this drink. Start just after phosphoric acid, then work through the rest of the list."
+      "retryNoHits": "None of these choices sweetens the cola. Compare the jobs of the ingredients in the list."
     },
     {
       "id": "fx-blend",
@@ -251,27 +251,11 @@ window.LabelNotesBanks["sweeteners-flavors"] = {
       "type": "label-select",
       "points": 3,
       "cognitiveLevel": "apply",
-      "retryHint": "Look toward the end of the list for the two high-intensity sweeteners.",
-      "retryOnWrong": {
-        "starch": "Modified cornstarch and sodium stearoyl lactylate handle thickness and smoothness from Chapter 03. Look for the -ol sugar alcohol and the two high-intensity sweeteners.",
-        "ssl": "Modified cornstarch and sodium stearoyl lactylate handle thickness and smoothness from Chapter 03. Look for the -ol sugar alcohol and the two high-intensity sweeteners.",
-        "alginate": "Modified cornstarch and sodium stearoyl lactylate handle thickness and smoothness from Chapter 03. Look for the -ol sugar alcohol and the two high-intensity sweeteners."
-      },
+      "retryHint": "Compare the jobs of the sweeteners and the ingredients that give the pudding body.",
       "retryReviews": [
         {
-          "href": "sweeteners-flavors.html#evidence-sugar-alcohols",
-          "label": "Read: Sugar alcohols (Xylitol, Maltitol, Sorbitol, Erythritol)",
-          "quote": "Reduced-calorie carbohydrates (not alcoholic) that replace the physical volume sugar normally gives to gum, candies, and puddings, often with a mild cooling feel."
-        },
-        {
-          "href": "sweeteners-flavors.html#evidence-sucralose",
-          "label": "Read: Sucralose",
-          "quote": "A chlorinated derivative of table sugar that stays sweet under heat, making it common in liquid drink mixes, puddings, and sugar-free baked goods."
-        },
-        {
-          "href": "sweeteners-flavors.html#evidence-ace-k",
-          "label": "Read: Acesulfame potassium",
-          "quote": "A heat-stable, zero-calorie sweetener that can taste slightly bitter on its own, so makers often blend it with aspartame or sucralose to smooth the aftertaste."
+          "href": "sweeteners-flavors.html#sweeteners-in-this-chapter",
+          "label": "Read: Sweeteners in this chapter"
         }
       ],
       "references": [
@@ -341,7 +325,7 @@ window.LabelNotesBanks["sweeteners-flavors"] = {
     {
       "id": "fx-pudding-roles",
       "objective": "F2",
-      "stem": "Why does this pudding include maltitol in addition to sucralose and acesulfame potassium?",
+      "stem": "Why does a zero-sugar pudding pair a sugar alcohol with high-intensity sweeteners?",
       "review": {
         "href": "sweeteners-flavors.html#evidence-sugar-alcohols",
         "label": "Read: Sugar alcohols (Xylitol, Maltitol, Sorbitol, Erythritol)",
@@ -352,46 +336,35 @@ window.LabelNotesBanks["sweeteners-flavors"] = {
       "cognitiveLevel": "analyze",
       "options": [
         {
-          "id": "preserve",
-          "text": "Maltitol stops bacteria from spoiling the milk protein.",
-          "correct": false,
-          "feedback": "Maltitol contributes sweetness and bulk."
-        },
-        {
           "id": "bulk",
-          "text": "High-intensity sweeteners add sweetness in tiny amounts, while maltitol helps replace the physical bulk and mouthfeel lost when sugar is removed.",
+          "text": "High-intensity sweeteners add sweetness in tiny amounts, while the sugar alcohol replaces physical bulk and mouthfeel.",
           "correct": true,
-          "feedback": "Sucralose and Ace-K do much of the sweetening. The amount of maltitol can help replace some of the body from sugar."
+          "feedback": "A small amount of sweetener can replace sweetness. Maltitol adds the body sugar would have provided."
         },
         {
-          "id": "color",
-          "text": "Maltitol adds the dark chocolate color.",
+          "id": "preserve",
+          "text": "The sugar alcohol stops dairy proteins from spoiling, while high-intensity sweeteners keep the cocoa dissolved.",
           "correct": false,
-          "feedback": "Cocoa contributes the chocolate color."
+          "feedback": "The sugar alcohol supplies bulk and sweetness."
         },
         {
           "id": "solubility",
-          "text": "Sucralose only dissolves in cold soda, not pudding.",
+          "text": "High-intensity sweeteners only work in clear drinks, so puddings need a sugar alcohol to carry all the sweetness.",
           "correct": false,
-          "feedback": "Sucralose is in the pudding’s ingredient list as a sweetener."
+          "feedback": "Sucralose and acesulfame potassium both sweeten this pudding."
+        },
+        {
+          "id": "color",
+          "text": "The sugar alcohol thickens the pudding like cornstarch, while high-intensity sweeteners deepen the brown color.",
+          "correct": false,
+          "feedback": "Cocoa contributes the color. Maltitol supplies bulk."
         }
       ],
-      "retryHint": "Think about what a spoonful of sugar adds to the texture and what a tiny amount of sweetener can replace.",
+      "retryHint": "Think about the amount of each sweetening ingredient the pudding needs.",
       "retryReviews": [
         {
-          "href": "sweeteners-flavors.html#evidence-sugar-alcohols",
-          "label": "Read: Sugar alcohols (Xylitol, Maltitol, Sorbitol, Erythritol)",
-          "quote": "Reduced-calorie carbohydrates (not alcoholic) that replace the physical volume sugar normally gives to gum, candies, and puddings, often with a mild cooling feel."
-        },
-        {
-          "href": "sweeteners-flavors.html#evidence-sucralose",
-          "label": "Read: Sucralose",
-          "quote": "A chlorinated derivative of table sugar that stays sweet under heat, making it common in liquid drink mixes, puddings, and sugar-free baked goods."
-        },
-        {
-          "href": "sweeteners-flavors.html#evidence-ace-k",
-          "label": "Read: Acesulfame potassium",
-          "quote": "A heat-stable, zero-calorie sweetener that can taste slightly bitter on its own, so makers often blend it with aspartame or sucralose to smooth the aftertaste."
+          "href": "sweeteners-flavors.html#sweeteners-in-this-chapter",
+          "label": "Read: Sweeteners in this chapter"
         }
       ],
       "references": [
@@ -486,7 +459,7 @@ window.LabelNotesBanks["sweeteners-flavors"] = {
     {
       "id": "f-mix-flavor",
       "objective": "F1",
-      "stem": "Which drink mix uses \"natural flavor\" rather than \"artificial flavor\" on its ingredient list?",
+      "stem": "Both mixes taste sweet with zero calories, yet only Mix A says \"Naturally Flavored\" on the front. What does checking both ingredient lists show?",
       "review": {
         "href": "sweeteners-flavors.html#evidence-flavorings",
         "label": "Read: Natural flavors & artificial flavors",
@@ -494,19 +467,31 @@ window.LabelNotesBanks["sweeteners-flavors"] = {
       },
       "type": "single",
       "points": 1,
-      "cognitiveLevel": "apply",
+      "cognitiveLevel": "analyze",
       "options": [
         {
-          "id": "country",
-          "text": "Mix A",
+          "id": "same-ingredients",
+          "text": "Both use high-intensity sweeteners and share some certified dyes. The flavor wording describes the flavoring.",
           "correct": true,
-          "feedback": "The Country Time list says natural flavor."
+          "feedback": "“Naturally Flavored” applies to the flavoring. The two mixes share sweeteners and two dyes, and Mix A adds Yellow 5."
         },
         {
-          "id": "kool",
-          "text": "Mix B",
+          "id": "natural-first",
+          "text": "Mix A uses plant-based sweeteners, while Mix B uses high-intensity sweeteners.",
           "correct": false,
-          "feedback": "The Kool-Aid list says artificial flavor."
+          "feedback": "Both ingredient lists name sucralose and acesulfame potassium."
+        },
+        {
+          "id": "colors-first",
+          "text": "Only Mix B lists numbered colors. Mix A uses its flavoring to add color.",
+          "correct": false,
+          "feedback": "Red 40 and Blue 1 appear in both ingredient lists."
+        },
+        {
+          "id": "identical",
+          "text": "Both list the same flavor source, but they name different sweeteners and colors.",
+          "correct": false,
+          "feedback": "Mix A lists natural flavor and Mix B lists artificial flavor."
         }
       ],
       "fixedOrder": true,
@@ -583,7 +568,7 @@ window.LabelNotesBanks["sweeteners-flavors"] = {
     {
       "id": "f-mix-claim",
       "objective": "F4",
-      "stem": "A shopper reads \"with other natural flavors\" on Mix A and assumes the mix has no synthetic sweeteners or dyes. What does the ingredient list show?",
+      "stem": "Could a shopper use the front labels alone to tell which mix lists a preservative?",
       "review": {
         "href": "sweeteners-flavors.html#evidence-natural-claim",
         "label": "Read: What “Naturally Flavored” tells you",
@@ -594,28 +579,32 @@ window.LabelNotesBanks["sweeteners-flavors"] = {
       "cognitiveLevel": "evaluate",
       "options": [
         {
-          "id": "lemon",
-          "text": "Mix A is sweetened only with lemon juice.",
-          "correct": false,
-          "feedback": "The list identifies sucralose and acesulfame potassium as sweeteners."
-        },
-        {
-          "id": "supports",
-          "text": "The phrase applies only to the flavoring source; Mix A still lists sucralose, acesulfame potassium, and certified dyes.",
+          "id": "no",
+          "text": "The ingredient lists show which mix lists preservatives. The flavor wording covers the flavoring.",
           "correct": true,
-          "feedback": "Check each part of the ingredient list on its own. The same label contains natural flavor, two high-intensity sweeteners and named dyes."
+          "feedback": "The Kool-Aid list names sodium benzoate and potassium sorbate. The front flavor wording does not give that information."
         },
         {
-          "id": "hidden",
-          "text": "Synthetic sweeteners can be grouped under \"natural flavor.\"",
+          "id": "b-only",
+          "text": "Only an artificially flavored product can contain a preservative.",
           "correct": false,
-          "feedback": "Both sweeteners appear separately by name on Mix A."
+          "feedback": "Flavoring and preservation describe different roles."
+        },
+        {
+          "id": "a-only",
+          "text": "Mix A’s natural flavor claim tells you it uses a preservative from a plant.",
+          "correct": false,
+          "feedback": "The claim describes the source of the flavoring."
         }
       ],
       "references": [
         {
           "href": "https://www.kraftheinz.com/country-time/products/00043000007730-lemon-iced-tea-naturally-flavored-liquid-drink-mix",
           "label": "Country Time Lemon Iced Tea Naturally Flavored Liquid Drink Mix"
+        },
+        {
+          "href": "https://www.kraftheinz.com/kool-aid/products/00043000005743-liquid-cherry-artificially-flavored-soft-drink-mix",
+          "label": "Kool-Aid Liquid Cherry Artificially Flavored Soft Drink Mix"
         }
       ]
     },
@@ -624,124 +613,121 @@ window.LabelNotesBanks["sweeteners-flavors"] = {
       "type": "matching",
       "parts": [
         {
-          "id": "f-mech-umami",
+          "id": "f-mech-notice",
           "objective": "F2",
-          "stem": "A savory potato crisp lists both MSG and disodium guanylate.",
+          "stem": "A diet cola prints \"Phenylketonurics: Contains phenylalanine\" under its ingredients.",
           "review": {
-            "href": "sweeteners-flavors.html#evidence-nucleotides",
-            "label": "Read: Disodium inosinate & disodium guanylate",
-            "quote": "Nucleotide flavor enhancers that do little on their own but multiply savory intensity when paired with MSG or yeast extract."
+            "href": "sweeteners-flavors.html#label-aspartame",
+            "label": "Read: Aspartame’s label notice",
+            "quote": "On the label · U.S. labels with aspartame must print a mandatory notice: \"Phenylketonurics: Contains phenylalanine.\""
           },
+          "references": [],
           "type": "match",
           "points": 1,
           "cognitiveLevel": "analyze",
+          "inputLabel": "Choose an explanation",
           "options": [
             {
-              "id": "umami",
-              "text": "Multiplies umami intensity through synergy",
+              "id": "mechanism-1",
+              "text": "Mandatory notice triggered by aspartame",
               "correct": true,
-              "feedback": "The nucleotides amplify the savory taste produced by glutamate."
+              "feedback": "Aspartame triggers the phenylalanine notice."
             },
             {
-              "id": "cola",
-              "text": "Creates a sharp cola bite without citrus fruit tartness",
+              "id": "mechanism-2",
+              "text": "Different food acids shape citrus tartness versus crisp cola bite",
               "correct": false,
-              "feedback": "Phosphoric acid gives cola a sharper, drier taste."
+              "feedback": "Citric acid adds citrus tartness. Phosphoric acid gives cola a crisp bite."
             },
             {
-              "id": "bulk",
-              "text": "Provides physical bulk and cooling sweetness with fewer calories",
+              "id": "mechanism-3",
+              "text": "One ingredient can assist oxidation control in oils or add tartness in drinks depending on context",
               "correct": false,
-              "feedback": "Sugar alcohols can replace some of sugar’s bulk and feel cool as they dissolve."
-            },
-            {
-              "id": "droplets",
-              "text": "Prevents oil droplets from separating in water",
-              "correct": false,
-              "feedback": "Keeping oil droplets mixed into water is an emulsifier’s job."
+              "feedback": "In oil, citric acid can help slow oxidation. In a drink, it can add tartness."
             }
-          ],
-          "inputLabel": "Choose a matching purpose"
+          ]
         },
         {
           "id": "f-mech-cola",
           "objective": "F2",
-          "stem": "A zero-sugar cola lists phosphoric acid rather than citric acid.",
+          "stem": "A citrus fruit punch lists citric acid, while a zero-sugar cola lists phosphoric acid.",
           "review": {
             "href": "sweeteners-flavors.html#evidence-phosphoric-acid",
             "label": "Read: Phosphoric acid",
             "quote": "Gives colas a crisp, dry sharpness without adding citrus fruitiness, while lowering pH."
           },
+          "references": [
+            {
+              "href": "sweeteners-flavors.html#evidence-food-acids",
+              "label": "Read: Citric acid",
+              "quote": "Organic acids that shape tartness: citric acid tastes bright and citrusy, malic acid gives a lingering fruit tang, and lactic acid adds mild, creamy yogurt-like acidity."
+            }
+          ],
           "type": "match",
           "points": 1,
           "cognitiveLevel": "analyze",
+          "inputLabel": "Choose an explanation",
           "options": [
             {
-              "id": "umami",
-              "text": "Multiplies umami intensity through synergy",
+              "id": "mechanism-1",
+              "text": "Mandatory notice triggered by aspartame",
               "correct": false,
-              "feedback": "The nucleotides amplify the savory taste produced by glutamate."
+              "feedback": "Aspartame triggers the phenylalanine notice."
             },
             {
-              "id": "cola",
-              "text": "Creates a sharp cola bite without citrus fruit tartness",
+              "id": "mechanism-2",
+              "text": "Different food acids shape citrus tartness versus crisp cola bite",
               "correct": true,
-              "feedback": "Phosphoric acid gives cola a sharper, drier taste."
+              "feedback": "Citric acid adds citrus tartness. Phosphoric acid gives cola a crisp bite."
             },
             {
-              "id": "bulk",
-              "text": "Provides physical bulk and cooling sweetness with fewer calories",
+              "id": "mechanism-3",
+              "text": "One ingredient can assist oxidation control in oils or add tartness in drinks depending on context",
               "correct": false,
-              "feedback": "Sugar alcohols can replace some of sugar’s bulk and feel cool as they dissolve."
-            },
-            {
-              "id": "droplets",
-              "text": "Prevents oil droplets from separating in water",
-              "correct": false,
-              "feedback": "Keeping oil droplets mixed into water is an emulsifier’s job."
+              "feedback": "In oil, citric acid can help slow oxidation. In a drink, it can add tartness."
             }
-          ],
-          "inputLabel": "Choose a matching purpose"
+          ]
         },
         {
-          "id": "f-mech-bulk",
+          "id": "f-mech-context",
           "objective": "F2",
-          "stem": "A sugar-free chewing gum lists xylitol and maltitol first.",
+          "stem": "A box of flavored vegetable oil and a fruit drink both list citric acid.",
           "review": {
-            "href": "sweeteners-flavors.html#evidence-sugar-alcohols",
-            "label": "Read: Sugar alcohols (Xylitol, Maltitol, Sorbitol, Erythritol)",
-            "quote": "Reduced-calorie carbohydrates (not alcoholic) that replace the physical volume sugar normally gives to gum, candies, and puddings, often with a mild cooling feel."
+            "href": "sweeteners-flavors.html#evidence-food-acids",
+            "label": "Read: Citric acid in drinks",
+            "quote": "Organic acids that shape tartness: citric acid tastes bright and citrusy, malic acid gives a lingering fruit tang, and lactic acid adds mild, creamy yogurt-like acidity."
           },
+          "references": [
+            {
+              "href": "antioxidants.html#evidence-citric",
+              "label": "Read: Citric acid and oxidation",
+              "quote": "Citric acid is the acid associated with the tart taste of citrus fruit. In foods it can adjust acidity and bind small amounts of metals that would otherwise speed up oxidation."
+            }
+          ],
           "type": "match",
           "points": 1,
           "cognitiveLevel": "analyze",
+          "inputLabel": "Choose an explanation",
           "options": [
             {
-              "id": "umami",
-              "text": "Multiplies umami intensity through synergy",
+              "id": "mechanism-1",
+              "text": "Mandatory notice triggered by aspartame",
               "correct": false,
-              "feedback": "The nucleotides amplify the savory taste produced by glutamate."
+              "feedback": "Aspartame triggers the phenylalanine notice."
             },
             {
-              "id": "cola",
-              "text": "Creates a sharp cola bite without citrus fruit tartness",
+              "id": "mechanism-2",
+              "text": "Different food acids shape citrus tartness versus crisp cola bite",
               "correct": false,
-              "feedback": "Phosphoric acid gives cola a sharper, drier taste."
+              "feedback": "Citric acid adds citrus tartness. Phosphoric acid gives cola a crisp bite."
             },
             {
-              "id": "bulk",
-              "text": "Provides physical bulk and cooling sweetness with fewer calories",
+              "id": "mechanism-3",
+              "text": "One ingredient can assist oxidation control in oils or add tartness in drinks depending on context",
               "correct": true,
-              "feedback": "Sugar alcohols can replace some of sugar’s bulk and feel cool as they dissolve."
-            },
-            {
-              "id": "droplets",
-              "text": "Prevents oil droplets from separating in water",
-              "correct": false,
-              "feedback": "Keeping oil droplets mixed into water is an emulsifier’s job."
+              "feedback": "In oil, citric acid can help slow oxidation. In a drink, it can add tartness."
             }
-          ],
-          "inputLabel": "Choose a matching purpose"
+          ]
         }
       ]
     },
@@ -1071,7 +1057,6 @@ window.LabelNotesBanks["sweeteners-flavors"] = {
         "ingredientsText": "Carbonated water, caramel color, phosphoric acid, aspartame, potassium benzoate (to protect taste), natural flavors, potassium citrate, acesulfame potassium, caffeine, stevia extract. Phenylketonurics: contains phenylalanine.",
         "sourceUrl": "https://www.coca-cola.com/us/en/brands/coca-cola/products/zero/zero-sugar",
         "sourceLabel": "Manufacturer’s ingredient list",
-        "showTranscript": true,
         "image": "assets/products/ch04/coke-zero-front.jpg",
         "packageFront": true
       }
@@ -1140,12 +1125,31 @@ window.LabelNotesBanks["sweeteners-flavors"] = {
       "retryBeforeReveal": true
     },
     {
+      "id": "flavors-check-claims",
+      "set": "chapter-check",
+      "title": "Spot the overclaims",
+      "questionIds": [
+        "f-overclaims"
+      ]
+    },
+    {
       "id": "flavors-check-sort",
       "set": "chapter-check",
       "title": "Separate taste from texture and preservation",
       "questionIds": [
         "f-sort"
       ]
+    },
+    {
+      "id": "flavors-check-line",
+      "set": "chapter-check",
+      "title": "Two problems on the flavor line",
+      "questionIds": [
+        "f-line-cookie",
+        "f-line-snack"
+      ],
+      "production": true,
+      "intro": "<p><strong>Line A</strong> bakes cookies at 375°F and needs concentrated sweetness plus sugar-like bulk. <strong>Line B</strong> needs a stronger savory taste without doubling the table salt. Each slot has the same choices.</p>"
     },
     {
       "id": "flavors-check-mixes",
@@ -1176,12 +1180,7 @@ window.LabelNotesBanks["sweeteners-flavors"] = {
           "switchViews": true,
           "transcriptOpen": true
         }
-      ],
-      "diagnostic": {
-        "afterCorrect": "f-mix-flavor",
-        "target": "f-mix-sweeteners",
-        "text": "You matched the flavoring label on Mix A, but check the sweetener lines on both mixes—sucralose and acesulfame potassium appear in both."
-      }
+      ]
     },
     {
       "id": "flavors-check-mechanisms",
@@ -1189,25 +1188,6 @@ window.LabelNotesBanks["sweeteners-flavors"] = {
       "title": "Match the taste mechanism",
       "questionIds": [
         "f-mechanisms"
-      ]
-    },
-    {
-      "id": "flavors-check-line",
-      "set": "chapter-check",
-      "title": "Two problems on the flavor line",
-      "questionIds": [
-        "f-line-cookie",
-        "f-line-snack"
-      ],
-      "production": true,
-      "intro": "<p><strong>Line A</strong> bakes cookies at 375°F and needs concentrated sweetness plus sugar-like bulk. <strong>Line B</strong> needs a stronger savory taste without doubling the table salt. Each slot has the same choices.</p>"
-    },
-    {
-      "id": "flavors-check-claims",
-      "set": "chapter-check",
-      "title": "Spot the overclaims",
-      "questionIds": [
-        "f-overclaims"
       ]
     },
     {
