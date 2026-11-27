@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Review your Label Notes scores and compare your practice confidence with your results.">
+  <title>Progress &amp; calibration | Label Notes</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/site.css?v=20261128-4">
+  <link rel="stylesheet" href="assets/lesson.css?v=20261127-13">
+  <link rel="stylesheet" href="assets/summary.css?v=20261128-4">
+  <script defer src="assets/objectives.js?v=20261128-3"></script>
+  <script defer src="assets/course-progress.js?v=20261128-4"></script>
+  <script defer src="assets/assessment-session.js?v=20261114-9"></script>
+  <script defer src="assets/assessment-results.js?v=20261128-3"></script>
+  <script defer src="assets/questions/preservatives.js"></script>
+  <script defer src="assets/questions/antioxidants.js"></script>
+  <script defer src="assets/questions/texture.js"></script>
+  <script defer src="assets/questions/sweeteners-flavors.js"></script>
+  <script defer src="assets/questions/colors.js"></script>
+  <script defer src="assets/summary.js?v=20261128-4"></script>
+</head>
+<body class="lesson-page">
+  <a class="skip-link" href="#main">Skip to progress</a>
+  <div class="site-shell">
+    <aside class="sidebar lesson-sidebar" aria-label="Course navigation">
+      <a class="wordmark" href="index.html" aria-label="Label Notes home">Label<br>Notes<span class="wordmark-dot">.</span></a>
+      <a class="course-return secondary-link" href="index.html#course">Course outline</a>
+      <nav class="side-nav" aria-label="On this page">
+        <a href="#scores">Scores</a>
+        <a href="#confidence">Confidence calibration</a>
+        <a href="#export">Anonymous summary</a>
+      </nav>
+    </aside>
+    <main class="lesson-main progress-main" id="main">
+      <header class="masthead"><span class="eyebrow">Label Notes / Course progress</span></header>
+      <h1>Progress &amp; calibration</h1>
+      <p class="source-note" data-progress-note></p>
+      <noscript><p>Enable JavaScript to view your saved results.</p></noscript>
+
+      <section class="progress-section" id="scores" aria-labelledby="scores-title">
+        <h2 id="scores-title">Scores</h2>
+        <table class="progress-table" aria-labelledby="scores-title">
+          <thead>
+            <tr><th scope="col">Check</th><th scope="col">First</th><th scope="col">Latest</th><th scope="col">Status</th></tr>
+          </thead>
+          <tbody id="score-rows"></tbody>
+        </table>
+        <div data-before-after></div>
+      </section>
+
+      <section class="progress-section" id="confidence" aria-labelledby="confidence-title">
+        <h2 id="confidence-title">Confidence calibration</h2>
+        <div id="confidence-results"></div>
+      </section>
+
+      <section class="progress-section" id="export" aria-labelledby="export-title">
+        <h2 id="export-title">Anonymous summary</h2>
+        <p>Copy your scores and confidence counts to share if you choose.</p>
+        <div class="progress-links">
+          <button class="secondary-link" id="copy-summary" type="button">Copy anonymous summary</button>
+          <a class="text-link" id="survey-link" target="_blank" rel="noopener noreferrer" hidden>Share 2-minute course feedback</a>
+        </div>
+        <p role="status" class="source-note" id="copy-status"></p>
+        <textarea id="manual-summary" readonly hidden aria-label="Anonymous summary to copy"></textarea>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

@@ -158,3 +158,18 @@ The lesson uses the ingredient panel for the exact pudding variety in the manufa
 - `assets/products/ch05/mini-wheats-front.jpg` · [Matching 14.3 oz box](https://www.gosupps.com/media/catalog/product/8/1/81iyYViv62L.jpg)
 - `assets/products/ch05/mini-wheats-back.jpg` · [Matching full side panel](https://www.gosupps.com/media/catalog/product/cache/25/image/1500x/040ec09b1e35df139433887a97daa66f/7/1/714I7Ei7h0L._SL1500_.jpg)
 - `assets/products/ch05/mini-wheats-ingredients.jpg` · [Ingredient crop from the photographed 14.3 oz side panel](https://www.gosupps.com/media/catalog/product/cache/25/image/1500x/040ec09b1e35df139433887a97daa66f/7/1/714I7Ei7h0L._SL1500_.jpg)
+
+## Chapter 00 and paired course checks
+
+- Chapter 00 reuses the Pepperidge Farm Farmhouse Whole Grain White Bread label from Chapter 03. [FDA ingredient order and labeling rule](https://www.ecfr.gov/current/title-21/section-101.4).
+- The quick check uses an archived U.S. [Signature Select Plain Sliced Bagels package record](https://www.similarfoods.org/foods/maker/safeway%2C-inc./brand/signature-select/product/plain-sliced-bagels-plain-021130182503). Its other product references are linked from the question feedback.
+
+### Chapter 06 · Final label check
+
+| Station | U.S. product and ingredient source | Package image source |
+| --- | --- | --- |
+| Bakery shelf | [Pepperidge Farm Farmhouse Butter Hamburger Buns](https://www.pepperidgefarm.com/product/farmhouse-butter-buns/) · [Full ingredient list, 18 oz](https://www.heb.com/product-detail/pepperidge-farm-farmhouse-butter-hamburger-buns/4040007) | [H-E-B 18 oz front](https://images.heb.com/is/image/HEBGrocery/004040007-1?wid=1400&hei=1400) |
+| Drink mix aisle | [Kool-Aid Singles Sugar-Sweetened Tropical Punch](https://www.kraftheinz.com/koolaid/products/00043000003688-singles-sugar-sweetened-tropical-punch-powdered-soft-drink) | [Kraft Heinz product photo](https://res.cloudinary.com/kraft-heinz-whats-cooking-ca/image/upload/f_jpg/q_90/c_limit,w_1600/v1/dxp-images/brands/products/00043000003688-singles-sugar-sweetened-tropical-punch-powdered-soft-drink/marketing-view-color-front_5934a9ecc8cd17fb068df2f9067a36aba9d09f8c_864c9a1822d26ce24bf94c29ebc4c04c) |
+| Iced tea cooler | [Peace Tea Razzleberry, 16 fl oz](https://www.coca-cola.com/us/en/brands/peace-tea) | [Coca-Cola pack shot](https://www.coca-cola.com/content/dam/onexp/us/en/brands/peace-tea/packshots/2025-razzleberry-packshot-16oz.png) |
+
+Front photos show the exact product used in each station. Expand “Show ingredient list as text” to read the sourced ingredient list.

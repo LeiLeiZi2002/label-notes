@@ -1,0 +1,20 @@
+.progress-main { padding-bottom: 3rem; }
+.progress-main h1 { margin-block: 2rem .5rem; }
+.progress-main .source-note { color: var(--muted); font-size: .875rem; }
+.progress-section { border-top: 1px solid var(--rule); margin-top: 2rem; padding-top: 1.25rem; }
+.progress-section h2 { font-size: clamp(1.55rem, 3vw, 2rem); margin-bottom: .75rem; }
+.progress-table { width: 100%; border-collapse: collapse; text-align: left; font-size: .94rem; }
+.progress-table th, .progress-table td { padding: .65rem .75rem; border-bottom: 1px solid var(--rule); }
+.progress-table thead { background: var(--surface); }
+.progress-table tbody th { font-weight: 500; }
+.progress-table td:nth-child(2), .progress-table td:nth-child(3) { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.score-history { margin-top: .4rem; font-size: .83rem; color: var(--muted); }
+.score-history summary { cursor: pointer; }
+.confidence-misses { padding-left: 1.2rem; }
+.confidence-misses li + li { margin-top: .6rem; }
+.confidence-misses a { display: block; width: fit-content; }
+#manual-summary { width: 100%; min-height: 10rem; margin-top: .5rem; font: .875rem/1.5 monospace; }
+@media (max-width: 540px) {
+  .progress-table { font-size: .82rem; }
+  .progress-table th, .progress-table td { padding: .55rem .26rem; }
+}

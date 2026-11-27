@@ -91,13 +91,31 @@
     });
     const summary = document.getElementById('course-progress-summary');
     if (summary) {
-      const baseline = data.assessments.pretest?.first;
+      const baseline = firstCompleted(data.assessments.pretest);
       const count = chapters.filter(id => completion(data.assessments[id])).length;
       summary.textContent = baseline ? `First quick check: ${baseline.earned}/${baseline.total}. ${count} of ${chapters.length} available chapters completed.` : 'Nine short questions before you begin. No time limit and no pass mark.';
     }
   }
+  function countRatings(ratings, attempt) {
+    for (const outcome of attempt?.outcomes || []) {
+      const confidence = outcome.confidence || attempt.confidence;
+      if (!outcome.answered || !['sure', 'think', 'guess'].includes(confidence)) continue;
+      const counts = { rated: 0, sureRight: 0, sureMissed: 0, guessRight: 0, ...ratings[outcome.id] };
+      counts.rated += 1;
+      if (confidence === 'sure') counts[outcome.correct ? 'sureRight' : 'sureMissed'] += 1;
+      if (confidence === 'guess' && outcome.correct) counts.guessRight += 1;
+      ratings[outcome.id] = counts;
+    }
+    return ratings;
+  }
+  function practiceRatings(record) {
+    if (record?.ratings) return { ...record.ratings };
+    const ratings = countRatings({}, record?.first);
+    if (record?.latest?.submittedAt !== record?.first?.submittedAt) countRatings(ratings, record?.latest);
+    return ratings;
+  }
   window.LabelNotesProgress = {
-    read, complete, canOpen, firstCompleted,
+    read, complete, canOpen, firstCompleted, practiceRatings,
     saveWarmup(chapter, question, answer) {
       const data = read();
       data.warmups[chapter] ||= {};
@@ -111,7 +129,10 @@
       if(result) {
         const first=previous.first || result;
         result.outcomes=result.outcomes.map(o=>({...o,firstCorrect:first.outcomes.find(p=>p.id===o.id)?.correct ?? o.correct}));
-        data.practice[id]={current,first,latest:result,attempts:(previous.attempts||0)+1};
+        data.practice[id] = {
+          current, first, latest: result, attempts: (previous.attempts || 0) + 1,
+          ratings: countRatings(practiceRatings(previous), result),
+        };
       }
       write();
     },
