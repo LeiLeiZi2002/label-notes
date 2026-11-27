@@ -265,7 +265,9 @@
           revealAnswers();
           feedback.focus({ preventScroll: true });
         });
-        feedback.append(retry, show);
+        const actions = E.el('div', undefined, 'practice-retry-actions');
+        actions.append(retry, show);
+        feedback.append(actions);
       } else {
         revealAnswers();
         if (correct) appendNextStep();

@@ -91,6 +91,7 @@
 .check-feedback p { font-size: 18px; line-height: 1.6; }
 .check-feedback a { display: inline-block; margin-top: 12px; font-size: 16px; }
 .check-feedback a + a { margin-left: 20px; }
+.check-feedback .practice-retry-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
 .check-feedback .next-practice { display: flex; align-items: center; gap: 10px; width: fit-content; margin-left: 0; }
 .feedback-details { list-style: none; padding: 0; margin: 18px 0; }
 .feedback-details li + li { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--rule); }

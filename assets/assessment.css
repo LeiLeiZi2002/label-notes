@@ -1,5 +1,6 @@
 /* 测验沿用课程的字体、按钮和配色。 */
 .assessment-page [hidden] { display: none !important; }
+.exam-results h1[tabindex="-1"]:is(:focus, :focus-visible) { outline: none; }
 .exam-ready, .exam-results { padding-block: 44px; max-width: 860px; }
 .exam-ready > .eyebrow, .exam-results > .eyebrow { margin-bottom: 18px; color: var(--muted); }
 .exam-ready h1, .exam-results h1 { max-width: 20ch; }
