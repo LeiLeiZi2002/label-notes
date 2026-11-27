@@ -34,7 +34,8 @@
     const block = bank.blocks.find((b) => b.id === host.dataset.practiceBlock);
     if (!block) return;
     const qs = block.questionIds.map((id) => bank.questions.find((q) => q.id === id));
-    const saved = window.LabelNotesProgress?.read().practice?.[block.id];
+    const past = window.LabelNotesProgress?.read().practice || {};
+    const saved = past[block.id] || past[block.priorPractice];
     let state = saved?.current || {
       answers: {},
       confidence: '',
@@ -49,15 +50,33 @@
       pageVisible = !document.hidden;
     const form = E.el('form', undefined, 'knowledge-check');
     form.noValidate = true;
+    const challenge = host.closest('[data-practice-section="try-new-label"]');
+    const parts = challenge ? [...challenge.querySelectorAll('[data-practice-block]')] : [];
+    const partIndex = parts.indexOf(host);
+    const isFirst = partIndex === 0 && parts.length > 1;
+    const second = isFirst ? parts[1] : null;
+    let lockedNote;
+    if (second) {
+      second.hidden = !saved?.latest;
+      lockedNote = E.el('p', 'Complete Part 1 above to unlock Part 2', 'challenge-lock');
+      lockedNote.hidden = !second.hidden;
+      second.before(lockedNote);
+    }
+    if (partIndex >= 0 && parts.length > 1) {
+      form.append(E.el('p', `Part ${partIndex + 1}`, 'eyebrow challenge-part'));
+    }
     const rendered = E.renderBlock(block, bank);
     form.append(rendered);
     host.append(form);
     const confidence = E.el('fieldset', undefined, 'confidence');
-    confidence.append(E.el('legend', 'How sure are you? (optional)'));
+    const legend = E.el('legend', 'Confidence (optional):', 'visually-hidden');
+    const segments = E.el('div', undefined, 'confidence-segments');
+    confidence.append(legend, E.el('span', legend.textContent, 'confidence-caption'), segments);
+    confidence.querySelector('.confidence-caption').setAttribute('aria-hidden', 'true');
     [
-      ['sure', "I'm sure"],
-      ['think', 'I think so'],
-      ['guess', "I'm guessing"],
+      ['sure', 'Sure'],
+      ['think', 'Think so'],
+      ['guess', 'Guessing'],
     ].forEach(([value, text]) => {
       const label = E.el('label', text),
         input = E.el('input');
@@ -66,9 +85,9 @@
       input.value = value;
       input.checked = state.confidence === value;
       label.prepend(input);
-      confidence.append(label);
+      segments.append(label);
     });
-    form.append(confidence);
+
     const hintList = E.el('ol', undefined, 'hint-list'),
       hints = [...new Set(qs.flatMap((q) => q.hints || []))];
     const hintButton = E.el('button', 'Show a hint', 'secondary-link');
@@ -84,7 +103,9 @@
     }
     const submit = E.el('button', 'Check my answer', 'check-button');
     submit.type = 'submit';
-    form.append(submit);
+    const controls = E.el('div', undefined, 'practice-controls');
+    controls.append(confidence, submit);
+    form.append(controls);
     const feedback = E.el('div', undefined, 'check-feedback');
     feedback.hidden = true;
     feedback.tabIndex = -1;
@@ -245,6 +266,12 @@
           elapsedMs: state.elapsedMs,
         },
       );
+      const openSecond = second?.hidden;
+      if (openSecond) {
+        lockedNote.hidden = true;
+        second.hidden = false;
+        second.classList.add('challenge-reveal');
+      }
       const retry = E.el('button', 'Try again', 'secondary-link');
       retry.type = 'button';
       retry.addEventListener('click', () => {
@@ -286,7 +313,10 @@
         if (correct) appendNextStep();
       }
       feedback.focus({ preventScroll: true });
-      feedback.scrollIntoView({ block: 'start', behavior: 'instant' });
+      if (openSecond) {
+        const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        second.scrollIntoView({ block: 'nearest', behavior: reduced ? 'instant' : 'smooth' });
+      } else feedback.scrollIntoView({ block: 'start', behavior: 'instant' });
     });
   });
 })();

@@ -64,7 +64,7 @@
   }
   function render() {
     const data = read();
-    const current = data.lastVisit?.chapter === 'label-basics' ? 'preservatives' : data.lastVisit?.chapter || 'preservatives';
+    const current = chapters.includes(data.lastVisit?.chapter) ? data.lastVisit.chapter : 'preservatives';
     document.querySelectorAll('[data-basics-next]').forEach(link => {
       const ready = canOpen('preservatives');
       link.href = ready ? 'preservatives.html' : 'pretest.html';
@@ -72,7 +72,8 @@
     });
     document.querySelectorAll('[data-resume-link]').forEach(link => {
       link.href = entry(current);
-      link.textContent = data.assessments.pretest ? 'Continue learning' : 'Start the quick check';
+      const number = String(chapters.indexOf(current) + 1).padStart(2, '0');
+      link.textContent = data.assessments.pretest ? `Continue Chapter ${number} →` : 'Start quick check →';
     });
     document.querySelectorAll('[data-chapter-entry]').forEach(link => {
       const id = link.dataset.chapterEntry;
@@ -83,6 +84,9 @@
       const id = label.dataset.chapterStatus;
       const result = data.assessments[id];
       const done = completion(result);
+      const item = label.closest?.('.chapter');
+      if (item) item.dataset.learningState = done ? 'completed'
+        : result ? 'ended' : data.visits[id] ? 'in-progress' : 'ready';
       label.textContent = done ? `Completed · ${done.earned}/${done.total}`
         : result ? 'Ended early' : canOpen(id) ? 'Ready to start' : 'Not started';
     });
@@ -137,6 +141,14 @@
       write();
     },
     isPersistent: () => persistent,
+    completeStep(chapter, section) {
+      const data = read();
+      data.readSteps ||= {};
+      data.readSteps[chapter] ||= [];
+      if (data.readSteps[chapter].includes(section)) return;
+      data.readSteps[chapter].push(section);
+      write();
+    },
     visit(chapter, section) { const data = read(); data.visits[chapter] = section; data.lastVisit = { chapter, section }; write(); }
   };
   render();

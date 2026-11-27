@@ -9,7 +9,44 @@
   let reviewQuestion = null;
   let quickReference;
   const chapter = document.body.dataset.chapter;
-  const savedSection = window.LabelNotesProgress?.read().visits[chapter];
+  const progress = window.LabelNotesProgress;
+  const savedSection = progress?.read().visits[chapter];
+  const readSteps = new Set(progress?.read().readSteps?.[chapter]);
+  const readBar = document.createElement('div');
+  readBar.className = 'reading-progress';
+  readBar.setAttribute('aria-hidden', 'true');
+  document.body.prepend(readBar);
+  let activeStep;
+  let frame;
+  function markRead() {
+    if (!activeStep || readSteps.has(activeStep.id)) return;
+    readSteps.add(activeStep.id);
+    progress?.completeStep(chapter, activeStep.id);
+    links[steps.indexOf(activeStep)]?.classList.add('is-read');
+  }
+  function updateReading() {
+    const end = pager || activeStep;
+    if (!end) return;
+    const distance = window.scrollY + end.getBoundingClientRect().bottom - window.innerHeight;
+    const ratio = distance > 0 ? Math.min(1, window.scrollY / distance) : 1;
+    readBar.style.transform = `scaleX(${ratio})`;
+  }
+  window.addEventListener('scroll', () => {
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => {
+      updateReading();
+      if (activeStep && (pager || activeStep).getBoundingClientRect().bottom <= innerHeight + 1) markRead();
+    });
+  }, { passive: true });
+  const size = new ResizeObserver(updateReading);
+  size.observe(document.getElementById('main'));
+  if (pager) {
+    const hint = document.createElement('span');
+    hint.className = 'eyebrow pager-caption';
+    hint.textContent = 'Next step';
+    pager.prepend(hint);
+    next.addEventListener('click', markRead);
+  }
 
   function sectionFor(id) {
     return document.getElementById(id)?.closest('[data-lesson-step]');
@@ -20,8 +57,10 @@
     const step = sectionFor(id);
     const index = steps.indexOf(step);
     if (index < 0) return;
+    activeStep = step;
     steps.forEach((step, position) => { step.hidden = position !== index; });
     links.forEach((link, position) => {
+      link.classList.toggle('is-read', readSteps.has(steps[position].id));
       if (position === index) link.setAttribute('aria-current', 'step');
       else link.removeAttribute('aria-current');
     });
@@ -30,10 +69,12 @@
       previous.hidden = index === 0;
       previous.href = `#${steps[Math.max(0, index - 1)].id}`;
       const following = steps[index + 1];
-      next.href = following ? `#${following.id}` : 'index.html#course';
+      const check = step.querySelector('.exam-invitation a');
+      next.href = following ? `#${following.id}` : check?.href || 'index.html#course';
+      if (check) check.classList.replace('primary-link', 'secondary-link');
       next.firstChild.textContent = following
         ? `Next: ${links[index + 1].textContent.trim().replace(/^\d+\s*/, '')} `
-        : 'Return to course outline ';
+        : check ? 'Open the chapter check ' : 'Return to course outline ';
       pager.hidden = false;
     }
     reviewReturn.hidden = !reviewQuestion;
@@ -51,6 +92,7 @@
     }
     if (target !== step) target.scrollIntoView({ block: 'start', behavior: scrollBehavior });
     else if (focus) window.scrollTo({ top: 0, behavior: 'instant' });
+    updateReading();
   }
 
   function followHash(focus) {
@@ -97,9 +139,25 @@
   function selectIngredient(id) {
     ingredientButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.ingredient === id)));
     labelGroups.forEach(mark => { mark.classList.toggle('active-label-group', mark.dataset.labelGroup === id); });
-    ingredientNotes.forEach(note => { note.hidden = note.dataset.ingredientNote !== id; });
+    ingredientNotes.forEach(note => {
+      const selected = note.dataset.ingredientNote === id;
+      note.hidden = !selected;
+      if (selected && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        note.animate([{opacity: .5}, {opacity: 1}], {duration: 180, easing: 'ease-out'});
+      }
+    });
   }
   ingredientButtons.forEach(button => button.addEventListener('click', () => selectIngredient(button.dataset.ingredient)));
+  labelGroups.forEach(mark => {
+    const target = ingredientButtons.find(button => button.dataset.ingredient === mark.dataset.labelGroup);
+    if (!target) return;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'label-mark-button';
+    button.textContent = mark.textContent;
+    button.addEventListener('click', () => selectIngredient(target.dataset.ingredient));
+    mark.replaceChildren(button);
+  });
   if (ingredientButtons.length) selectIngredient(ingredientButtons[0].dataset.ingredient);
 
   const reference = document.querySelector('[data-generated-quick-reference]');
@@ -229,6 +287,14 @@
     };
   }
 
+  document.querySelectorAll('[data-lesson-step] h3').forEach(heading => {
+    if (heading.textContent.trim() !== 'A common mix-up') return;
+    heading.parentElement.classList.add('misconception-card');
+    const kicker = document.createElement('p');
+    kicker.className = 'eyebrow';
+    kicker.textContent = 'Label check';
+    heading.before(kicker);
+  });
   quickReference = setUpQuickReference();
   followHash(false);
 

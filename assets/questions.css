@@ -268,3 +268,42 @@ summary:focus-visible {
 .package-view-controls { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 .package-view-controls button { min-height: 44px; padding: 6px 12px; background: var(--paper); border: 1px solid var(--rule); font-size: 15px; }
 .package-view-controls button[aria-pressed="true"] { color: var(--paper); background: var(--ink); border-color: var(--ink); }
+
+.practice-controls { display: flex; justify-content: space-between; align-items: center; gap: .8rem; flex-wrap: wrap; margin-top: 1.2rem; }
+.knowledge-check .confidence { display: flex; align-items: center; flex-wrap: wrap; gap: .35rem .6rem; margin: 0; max-width: 100%; }
+.confidence-caption { font-size: .8rem; color: var(--muted); }
+.confidence-segments { display: inline-flex; max-width: 100%; border: 1px solid var(--rule); border-radius: 30px; background: var(--paper); }
+.knowledge-check .confidence label { position: relative; display: grid; place-items: center; min-height: 30px; min-width: 0; padding: 3px 9px; margin: 0; font-size: .8rem; border: 0; border-radius: 22px; white-space: nowrap; }
+.knowledge-check .confidence label:has(:checked) { background: var(--ink); color: var(--paper); }
+.knowledge-check .confidence label:has(:focus-visible) { outline: 2px solid var(--ink); outline-offset: 2px; }
+.knowledge-check .confidence input, .confidence .visually-hidden { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; clip-path: inset(50%); }
+.ingredient-token { position: relative; box-shadow: 0 1.5px 0 rgba(20, 20, 19, 0.14); transition: transform 100ms, border-color 100ms; }
+.ingredient-token:hover { transform: translateY(-1px); border-color: var(--ink); }
+.ingredient-token:active { transform: translateY(.5px); }
+.ingredient-token[aria-pressed="true"]::before { content: '✓'; margin-inline-end: .35em; }
+.ingredient-list .ingredient-token::after { content: none; }
+.compare-packages { align-items: stretch; }
+.compare-packages > .question-product { min-width: 0; display: flex; flex-direction: column; }
+.compare-packages .package-view { display: grid; flex: 1; min-height: 230px; align-items: center; }
+.package-view > * { grid-area: 1 / 1; }
+.package-view > .package-frame, .package-view.is-front > .evidence-transcript { visibility: hidden; }
+.package-view.is-front > .package-frame { visibility: visible; }
+.question-product .package-view .package-frame { position: relative; display: grid; width: 100%; max-width: none; height: 230px; margin: 0; }
+.package-view .package-frame img { width: 100%; height: 100%; min-height: 0; }
+.package-zoom-label { position: absolute; bottom: 9px; right: 9px; padding: 4px 9px; border: 1px solid var(--rule); background: var(--paper); font-size: .8rem; }
+.package-view-caption { color: var(--muted); margin-top: .65rem; font-size: .78rem; }
+.package-view-controls { gap: 0; width: max-content; }
+.package-view-controls button { min-height: 36px; }
+.package-view-controls button + button { border-left: 0; }
+.question-item[data-question-type="matching"].single-slot { grid-template-columns: minmax(0, 560px); }
+.production-lines { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-items: stretch; }
+.production-lines:has(> .question-item:only-child) { display: block; }
+.production-lines > .question-item { margin-block: .6rem; }
+.production-lines > [data-question-type="matching"]:not(.single-slot) { grid-column: 1 / -1; }
+.production-lines > .single-slot { grid-template-columns: minmax(0, 1fr); }
+.production-lines > [data-question-type="two-tier"] { grid-column: 1 / -1; }
+.production-lines .single-slot > .question-item, .production-lines .single-slot fieldset { display: flex; flex-direction: column; height: 100%; }
+.production-lines .single-slot:has(> h3) { grid-template-rows: auto 1fr; }
+.production-lines .single-slot fieldset > label { margin-top: auto; }
+@media (max-width: 680px) { .production-lines { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: reduce) { .ingredient-token { transition: none; } }

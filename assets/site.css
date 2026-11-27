@@ -257,3 +257,13 @@ body:has(dialog[open]) { overflow: hidden; }
 .course-progress .progress-links { justify-content: space-between; }
 .progress-section .progress-links { margin-block: .8rem .4rem; }
 .progress-links [hidden] { display: none; }
+
+.intro-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 1.25rem; }
+.intro-actions a { width: fit-content; }
+.side-nav + .course-outline-link { width: fit-content; }
+.chapter[data-learning-state] { border-inline-start: 2.5px solid transparent; }
+.chapter[data-learning-state="completed"] { border-inline-start-color: var(--ink); }
+.chapter[data-learning-state="ended"],
+.chapter[data-learning-state="in-progress"] { border-inline-start-color: var(--muted); }
+.chapter[data-learning-state="ready"] { border-inline-start-color: var(--rule); }
+.chapter[data-learning-state="preview"] { border-inline-start-style: dotted; }

@@ -117,6 +117,7 @@
     let packageImage;
     if (p.fictional) box.append(el('p', 'Practice label, not a real product', 'eyebrow'));
     if (p.name) box.append(el('p', p.name, 'product-name'));
+    let sourceLink;
     if (p.labelView) {
       const { label, front, back, pending } = p.labelView;
       const figure = el('figure', undefined, 'challenge-label');
@@ -200,17 +201,27 @@
         const front = el('button', 'Front');
         const ingredients = el('button', 'Ingredients');
         front.type = ingredients.type = 'button';
+        const view = el('div', undefined, 'package-view');
         const reading = el('p', p.ingredientsText, 'evidence-transcript');
+        const zoom = el('span', 'Zoom ↗', 'package-zoom-label');
+        packageImage.append(zoom);
+        view.append(packageImage, reading);
+        const caption = el('p', undefined, 'package-view-caption');
         function showFront(show) {
+          caption.textContent = show ? 'Package front' : 'Ingredients';
+          if (sourceLink && /^Manufacturer/i.test(p.sourceLabel || '')) {
+            updateSourceLabel(sourceLink, show ? 'Package front source' : p.sourceLabel);
+          }
           front.setAttribute('aria-pressed', String(show));
           ingredients.setAttribute('aria-pressed', String(!show));
-          packageImage.hidden = !show;
-          reading.hidden = show;
+          view.classList.toggle('is-front', show);
+          packageImage.inert = !show;
+          reading.inert = show;
         }
         front.addEventListener('click', () => showFront(true));
         ingredients.addEventListener('click', () => showFront(false));
         controls.append(front, ingredients);
-        box.append(controls, packageImage, reading);
+        box.append(controls, view, caption);
         showFront(false);
       } else if (p.transcriptOpen) {
         box.append(el('p', 'Ingredients', 'label-heading'), el('p', p.ingredientsText, 'evidence-transcript'));
@@ -222,13 +233,17 @@
       }
     }
     (p.statements || []).forEach((s) => box.append(el('p', s, 'package-statement')));
+    function updateSourceLabel(link, text) {
+      link.textContent = text;
+      link.setAttribute('aria-label', `${text} (opens in a new tab)`);
+    }
     if (p.sourceUrl) {
-      const a = el('a', p.sourceLabel || 'Product source', 'text-link');
-      a.href = p.sourceUrl;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      a.setAttribute('aria-label', `${a.textContent} (opens in a new tab)`);
-      box.append(a);
+      sourceLink = el('a', undefined, 'text-link');
+      sourceLink.href = p.sourceUrl;
+      sourceLink.target = '_blank';
+      sourceLink.rel = 'noopener noreferrer';
+      updateSourceLabel(sourceLink, p.sourceLabel || 'Product source');
+      box.append(sourceLink);
     }
     return box;
   }
@@ -236,6 +251,7 @@
     const wrap = el('div', undefined, 'question-item');
     wrap.dataset.questionId = q.id;
     wrap.dataset.questionType = q.type;
+    if (q.type === 'matching' && q.parts.length === 1) wrap.classList.add('single-slot');
     if (q.objective) wrap.dataset.objective = q.objective;
     if (q.demo) wrap.append(el('p', 'Demo · not part of the course', 'eyebrow'));
     if (q.type === 'scenario') {
@@ -314,10 +330,10 @@
       list.setAttribute('role', 'group');
       list.setAttribute('aria-label', q.display === 'passage' ? 'Select a statement' : 'Select ingredients');
       ordered.forEach((o) => {
-        const b = el('button', o.text, 'ingredient-token');
+        const b = el('button', q.display === 'passage' ? o.text : o.text.replace(/[,.]+$/, ''), 'ingredient-token');
         b.type = 'button';
         b.dataset.tokenId = o.id;
-        if (o.suffix !== undefined) b.dataset.suffix = o.suffix;
+
         b.setAttribute('aria-pressed', 'false');
         b.addEventListener('click', () => {
           const selected = b.getAttribute('aria-pressed') !== 'true';
@@ -476,13 +492,15 @@
       root.append(product(block.product, !block.product.showTranscript && first?.type === 'label-select' && first.display !== 'passage'));
     }
     if (block.products) {
-      const compare = el('div', undefined, 'product-comparison');
+      const compare = el('div', undefined, 'product-comparison compare-packages');
       block.products.forEach((p) => compare.append(product(p)));
       root.append(compare);
     }
+    const questionHost = block.production ? el('div', undefined, 'production-lines') : root;
+    if (block.production) root.append(questionHost);
     block.questionIds.forEach((id) => {
       const q = bank.questions.find((q) => q.id === id);
-      root.append(renderQuestion(q, order));
+      questionHost.append(renderQuestion(q, order));
     });
     return root;
   }

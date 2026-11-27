@@ -1,5 +1,5 @@
 window.LabelNotesBanks ||= {};
-window.LabelNotesBanks.antioxidants = {
+window.LabelNotesBanks["antioxidants"] = {
   "questions": [
     {
       "id": "a-ramen-oil",
@@ -1321,8 +1321,7 @@ window.LabelNotesBanks.antioxidants = {
       "section": "try-new-label",
       "title": "",
       "questionIds": [
-        "a-rice-treat-antioxidants",
-        "a-rice-treat-role"
+        "a-rice-treat-antioxidants"
       ],
       "intro": "<p>Read the label on this crispy marshmallow bar. Identify the antioxidants, then explain why they are there.</p>",
       "product": {
@@ -1337,6 +1336,16 @@ window.LabelNotesBanks.antioxidants = {
         "ingredientsCaption": "Ingredient list from SmartLabel"
       },
       "retryBeforeReveal": true
+    },
+    {
+      "id": "rice-treat-label-part-2",
+      "title": "Explain what you found",
+      "set": "new-food",
+      "section": "try-new-label",
+      "questionIds": [
+        "a-rice-treat-role"
+      ],
+      "priorPractice": "rice-treat-label"
     },
     {
       "id": "a-check-1",

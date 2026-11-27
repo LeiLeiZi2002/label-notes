@@ -11,7 +11,7 @@
 .lesson-heading { margin-bottom: 32px; }
 .lesson-heading > .eyebrow { color: var(--muted); margin-bottom: 16px; }
 .lesson-heading h1, .lesson-heading h2 { max-width: 24ch; }
-.lesson-heading :is(h1, h2):focus-visible, .knowledge-check legend:focus-visible { outline: none; }
+h1[tabindex="-1"]:is(:focus, :focus-visible) { outline: none; }
 .lesson-lead { font-size: var(--lead-size); line-height: 1.6; margin-top: 24px; max-width: 68ch; }
 .lesson-step h3 { font-size: 22px; line-height: 1.35; }
 .lesson-goals { margin-bottom: 26px; }
@@ -353,3 +353,22 @@
   .quick-ref-short { display: inline; }
   #quick-ref-hint { background: var(--paper); text-align: right; }
 }
+
+.reading-progress { position: fixed; inset: 0 0 auto; z-index: 4; height: 2px; background: var(--ink); transform: scaleX(0); transform-origin: left; pointer-events: none; }
+.lesson-nav a { align-items: baseline; }
+.lesson-nav a::before { content: ''; width: 7px; height: 7px; border: 1px solid var(--rule); border-radius: 50%; flex: none; }
+.lesson-nav a.is-read::before { content: '✓'; border: 0; color: var(--muted); font-size: 11px; line-height: 7px; }
+.lesson-nav a[aria-current="step"] { border-left-width: 2.5px; font-weight: 650; }
+.lesson-nav a[aria-current="step"]::before { content: ''; background: var(--ink); border: 1px solid var(--ink); }
+.pager-caption { color: var(--muted); }
+.label-mark-button { border: 0; padding: 0; display: inline; background: transparent; color: inherit; font: inherit; text-align: inherit; }
+.ingredient-label mark.active-label-group { padding: 0; text-decoration: none; border-bottom: 2px solid var(--ink); }
+.lesson-step .misconception-card { border: 0; border-top: 2px solid var(--ink); background: var(--surface); }
+.lesson-step .misconception-card > .eyebrow { color: var(--muted); margin-bottom: .4rem; }
+.lesson-step .misconception-card > h3 { font: 650 1.45rem/1.25 var(--serif); }
+.lesson-step .knowledge-check { border: 0; border-top: 2px solid var(--ink); background: var(--surface); padding: clamp(1rem, 3vw, 1.6rem); }
+.challenge-part { color: var(--muted); margin-bottom: .55rem; }
+.challenge-lock { border-block: 1px solid var(--rule); padding: .8rem 0; color: var(--muted); font-size: .93rem; }
+.challenge-reveal { animation: reveal-practice 180ms ease-out; }
+@keyframes reveal-practice { from { opacity: .2; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .challenge-reveal { animation: none; } }

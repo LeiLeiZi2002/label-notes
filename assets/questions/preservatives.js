@@ -1,5 +1,5 @@
 window.LabelNotesBanks ||= {};
-window.LabelNotesBanks.preservatives = {
+window.LabelNotesBanks["preservatives"] = {
   "questions": [
     {
       "id": "preservatives-01",
@@ -1550,8 +1550,7 @@ window.LabelNotesBanks.preservatives = {
       "section": "try-new-label",
       "title": "Use what you have learned",
       "questionIds": [
-        "preservatives-08",
-        "preservatives-09"
+        "preservatives-08"
       ],
       "intro": "<p class=\"lesson-lead\">You’re reading a jar of Smucker’s Sugar Free Strawberry Preserves. Read its ingredient list, then explain the role of potassium sorbate and connect it with an earlier ingredient.</p>",
       "product": {
@@ -1568,6 +1567,16 @@ window.LabelNotesBanks.preservatives = {
           "back": "assets/products/smuckers-strawberry-back.jpg"
         }
       }
+    },
+    {
+      "id": "check-transfer-part-2",
+      "title": "Explain what you found",
+      "set": "new-food",
+      "section": "try-new-label",
+      "questionIds": [
+        "preservatives-09"
+      ],
+      "priorPractice": "check-transfer"
     },
     {
       "id": "p-check-1",

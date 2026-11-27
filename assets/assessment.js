@@ -74,6 +74,7 @@
   function render() {
     questionHost.replaceChildren();
     $('question-tabs').replaceChildren();
+    if (config.objectives?.length) $('question-tabs').classList.add('group-progress');
     ordered().forEach((b, i) => {
       const section = E.el('section', undefined, 'exam-question');
       section.dataset.question = '';
@@ -87,6 +88,7 @@
       tab.addEventListener('click', () => showQuestion(i));
       $('question-tabs').append(tab);
     });
+    paintAnsweredGroups();
     questions.forEach((q) => E.restore(q, form, state?.answers?.[q.id]));
     (state?.revealedParts || []).forEach((qid) => {
       const part = form.querySelector(`[id="part-${qid}"]`);
@@ -109,12 +111,15 @@
     state.answers = Object.fromEntries(questions.map((q) => [q.id, E.read(q, form)]));
     state.revealedParts = [...form.querySelectorAll('[id^="part-"]:not([hidden])')].map((part) => part.dataset.questionId);
     store.write(state);
+    paintAnsweredGroups();
+  }
+  function paintAnsweredGroups() {
     ordered().forEach((b, i) => {
       const complete = b.questionIds.every(
           (qid) =>
             E.grade(
               bank.questions.find((q) => q.id === qid),
-              state.answers[qid],
+              state?.answers?.[qid],
             ).answered,
       );
       const tab = $('question-tabs').children[i];
@@ -179,13 +184,15 @@
     const incomplete = outcomes.some((outcome) => !outcome.answered);
     results.querySelector(':scope > .eyebrow').textContent = incomplete ? 'Ended early'
       : id === 'pretest' ? 'Quick check complete' : id === 'capstone' ? 'Final label check complete' : 'Chapter check complete';
-    $('result-score').textContent = `Total · ${earned} / ${total}`;
-    $('saved-result').textContent = `First attempt · ${initial?.earned ?? earned} / ${initial?.total ?? total}`;
+    const scoreText = $('result-score');
+    const savedText = $('saved-result');
+    scoreText.textContent = `${earned} / ${total}`;
+    savedText.textContent = `First attempt · ${initial?.earned ?? earned} / ${initial?.total ?? total}`;
     $('result-summary').textContent = id === 'pretest'
       ? 'Here is your starting point. Follow a review link to begin learning.'
       : 'See how you did in each area, then revisit the questions below.';
     results.querySelector('[data-objectives]')?.remove();
-    results.querySelector('.goal-results')?.remove();
+    results.querySelector('.result-overview')?.remove();
     const summary = E.el('div', undefined, 'goal-results');
     const allObjectives = Object.values(window.LabelNotesCourse).flatMap((c) => c.objectives || []);
     const objectives = config.objectives || allObjectives.filter((o) => outcomes.some((r) => r.objective === o.id));
@@ -209,10 +216,9 @@
       meter.value = e;
       meter.setAttribute('aria-label', `${dimension.title}: ${e} out of ${t}`);
       card.append(meter, E.el('p', status, 'dimension-status'));
-      if (id !== 'pretest' && id !== 'capstone' && baseline?.assessmentVersion === window.LabelNotesCourse.pretest.assessmentVersion) {
-        const earlier = (baseline.outcomes || []).filter((r) => ids.includes(r.objective));
-        const correct = earlier.filter((r) => r.correct).length;
-        if (earlier.length) card.append(E.el('p', `Before learning · ${Math.round(correct / earlier.length * 100)}% (${correct} of ${earlier.length} ${earlier.length === 1 ? 'question' : 'questions'})`, 'baseline-record'));
+      if (config.objectives?.length && t && baseline?.assessmentVersion === window.LabelNotesCourse.pretest.assessmentVersion) {
+        const earlier = totals(baseline.outcomes.filter((row) => dimension.objectives.includes(row.objective)));
+        if (earlier.total) card.append(E.el('p', `Before → Now · ${Math.round(earlier.earned / earlier.total * 100)}% → ${Math.round(e / t * 100)}%`, 'baseline-record'));
       }
       const detail = E.el('details', undefined, 'objective-breakdown');
       detail.append(E.el('summary', 'Learning goals & review links'));
@@ -229,7 +235,11 @@
       card.append(detail);
       summary.append(card);
     });
-    $('results-title').after($('result-summary'), summary, $('result-score'), $('saved-result'));
+    const overview = E.el('div', undefined, 'result-overview');
+    const scoreCard = E.el('div', undefined, 'result-overview-score');
+    scoreCard.append(E.el('p', 'Total score', 'eyebrow'), scoreText, savedText);
+    overview.append(scoreCard, summary);
+    $('results-title').after($('result-summary'), overview);
     $('result-details').replaceChildren(...blocks.map((block, index) => {
       const qs = block.questionIds.map((qid) => questions.find((q) => q.id === qid));
       const grades = qs.map((q) => E.grade(q, state.answers[q.id]));
