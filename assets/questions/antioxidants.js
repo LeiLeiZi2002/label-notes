@@ -1332,8 +1332,7 @@ window.LabelNotesBanks.antioxidants = {
         "sourceLabel": "Kellogg’s SmartLabel",
         "labelView": {
           "front": "assets/products/rice-krispies-treats-original-front.jpg",
-          "label": "assets/products/rice-krispies-treats-original-ingredients.jpg",
-          "pending": true
+          "label": "assets/products/rice-krispies-treats-original-ingredients.jpg"
         }
       },
       "retryBeforeReveal": true
