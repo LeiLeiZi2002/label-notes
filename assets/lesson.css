@@ -257,3 +257,16 @@
 }
 .lesson-step p[id^="evidence-"] { scroll-margin-top: 115px; }
 .lesson-step p[id^="evidence-"]:target { background: var(--wash); outline: 8px solid var(--wash); }
+
+.quick-reference { margin-top: 38px; padding-top: 26px; border-top: 1px solid var(--rule); scroll-margin-top: 24px; }
+.lesson-step .quick-reference h3 { margin-top: 9px; font: 27px/1.25 var(--serif); }
+.quick-reference-intro { margin-top: 10px; color: var(--muted); }
+.quick-reference .comparison-table { margin-top: 20px; }
+.quick-reference thead th { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+.quick-reference .comparison-table th, .quick-reference .comparison-table td { padding: 10px 12px; }
+.quick-reference .comparison-table thead th:first-child { width: 26%; }
+.quick-reference .comparison-table thead th:nth-child(2) { width: 22%; }
+.quick-reference th a:hover { text-decoration: underline; }
+@media (max-width: 639px) {
+  .quick-reference .comparison-table table { min-width: 580px; }
+}
