@@ -1564,7 +1564,7 @@ window.LabelNotesBanks.preservatives = {
         "sourceLabel": "Product and package source",
         "fictional": false,
         "labelView": {
-          "label": "assets/products/smuckers-strawberry-ingredients.jpg",
+          "label": "assets/products/smuckers-strawberry-ingredients-flat.png",
           "front": "assets/products/smuckers-strawberry-front.jpg",
           "back": "assets/products/smuckers-strawberry-back.jpg"
         }
