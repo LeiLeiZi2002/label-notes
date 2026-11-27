@@ -28,7 +28,10 @@
     since = Date.now(),
     hasFinished = false,
     pageVisible = !document.hidden;
-  if (state?.assessmentVersion !== bank.version) state = null;
+  if (state && state.assessmentVersion !== bank.version) {
+    store.write(null);
+    state = null;
+  }
   if (!state) {
     const last = progress?.read().assessments[id]?.latest;
     if (last?.assessmentVersion === bank.version) state = { ...last, status: 'completed' };

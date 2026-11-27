@@ -21,7 +21,7 @@
 | --- | ---: | ---: |
 | 1 · Ranch dressing：成分、储存、酸度 | 3 | 4 |
 | 2 · Yeast-raised bread：选择与理由 | 2 | 2 |
-| 3 · Golden raisins：找错与三行判断 | 4 | 4 |
+| 3 · 两款 Sun-Maid 葡萄干：选包装、圈证据、两行判断 | 4 | 4 |
 | 4 · 家族名称匹配 | 6 | 3 |
 | 5 · Mozzarella：用途片段与标签判断 | 2 | 2 |
 | 6 · 虚构热狗标签：结论与两处证据 | 2 | 2 |
@@ -41,9 +41,9 @@
 
 | 目标 | 小题数 | 分值 | 维度 |
 | --- | ---: | ---: | --- |
-| P1 | 2 | 3 | Reading labels |
+| P1 | 3 | 4 | Reading labels |
 | P2 | 6 | 3 | Reading labels |
-| P3 | 6 | 6 | Explaining functions |
+| P3 | 5 | 5 | Explaining functions |
 | P4 | 2 | 2 | Explaining functions |
 | P5 | 7 | 7 | Judging claims |
 | A1 | 3 | 5 | Reading labels |
@@ -52,7 +52,7 @@
 | A4 | 3 | 3 | Judging claims |
 | A5 | 4 | 4 | Judging claims |
 
-三个维度为结果页主体。第一章维度满分依次为 6、8、7；第二章为 5、10、7。总分和首次成绩在下方以小字显示。前测按本章相关目标筛选，以百分比和题数显示，例如 `Before learning · 50% (1 of 2 questions)`；不据此宣称平行卷增益。
+三个维度为结果页主体。第一章维度满分依次为 7、7、7；第二章为 5、10、7。总分和首次成绩在下方以小字显示。前测按本章相关目标筛选，以百分比和题数显示，例如 `Before learning · 50% (1 of 2 questions)`；不据此宣称平行卷增益。
 
 前测中 P1、P2、A1、P3、A2、A3、A5 各有 1 题，P5 有 2 题。章前情境不分配目标，也不进入维度。
 
@@ -91,7 +91,7 @@
 
 ## 存储与版本
 
-- 章节题库版本 `20261114-9`；前测内容未变，保留 `20261114-7`，`objectives.js` 的前测版本决定哪些基线记录可用。
+- 章节题库版本 `20261127-6`；前测内容未变，保留 `20261114-7`，`objectives.js` 的前测版本决定哪些基线记录可用。
 - `label-notes-course-v3`：长期本地记录，承接 v2 的成绩、练习和阅读位置，新增 `warmups` 保存首次与最近猜测。
 - `label-notes-check-{章名}-v5`：本标签页的测验答案、顺序、展开状态及位置。
 - `label-notes-active-check-v4`：本标签页的测验导航状态。

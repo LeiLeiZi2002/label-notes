@@ -608,7 +608,7 @@ window.LabelNotesBanks.preservatives = {
             {
               "id": "sorbate",
               "text": "Potassium sorbate.",
-              "feedback": "It inhibits mold but can also interfere with yeast fermentation when mixed into the dough.",
+              "feedback": "If mixed into the dough before proofing, sorbate could inhibit the yeast and slow the rise.",
               "correct": false
             },
             {
@@ -620,7 +620,7 @@ window.LabelNotesBanks.preservatives = {
             {
               "id": "benzoate",
               "text": "Sodium benzoate.",
-              "feedback": "Benzoates are better suited to more acidic foods.",
+              "feedback": "If the dough is less acidic than a soft drink, benzoate may be less effective against spoilage.",
               "correct": false
             }
           ]
@@ -662,91 +662,90 @@ window.LabelNotesBanks.preservatives = {
       "production": true
     },
     {
-      "id": "p-3a",
-      "objective": "P3",
-      "stem": "Select the sentence that misreads the ingredient’s role.",
-      "type": "label-select",
+      "id": "p-raisins-pack",
+      "objective": "P1",
+      "stem": "Which package explicitly lists an added sulfiting agent?",
+      "type": "single",
       "points": 1,
-      "cognitiveLevel": "analyze",
+      "cognitiveLevel": "apply",
       "review": {
-        "href": "preservatives.html#evidence-sulfites",
-        "label": "Read: Sulfur dioxide",
-        "quote": "Drying changes how fruit keeps, and the recipe can include preservatives too. Sulfur dioxide is used to help limit browning and microbial spoilage in dried fruit. Here it appears alongside two other preservatives."
+        "href": "preservatives.html#evidence-sulfite-family",
+        "label": "Read: Sulfiting agents",
+        "quote": "Sulfur dioxide and sodium bisulfite can supply sulfites in food. Other examples include sodium sulfite and potassium metabisulfite. Recognizing this group matters for people with sulfite sensitivity."
       },
-      "tokens": [
+      "references": [
         {
-          "id": "both",
-          "text": "Sulfur dioxide can help slow browning as well as microbial spoilage.",
-          "feedback": "Sulfiting agents can have both roles in dried fruit.",
-          "correct": false
-        },
-        {
-          "id": "dry",
-          "text": "Drying and an added preservative can both help the product keep.",
-          "feedback": "Drying and chemical preservation can work together.",
-          "correct": false
-        },
-        {
-          "id": "drying-claim",
-          "text": "Dark raisins do not need sulfur dioxide because drying prevents any further browning.",
-          "feedback": "Drying reduces moisture, but it does not stop every browning reaction. Sulfur dioxide can still help limit browning in dried fruit.",
-          "correct": true
+          "href": "https://www.sunmaid.com/products/golden-raisins/",
+          "label": "Package source: Sun-Maid California Golden Raisins",
+          "quote": "Sulfur Dioxide (Sulfites) Added as a Preservative."
         }
       ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Pack A: California Sun-Dried Raisins.",
+          "correct": false,
+          "feedback": "Pack A lists only California seedless raisins."
+        },
+        {
+          "id": "b",
+          "text": "Pack B: California Golden Raisins.",
+          "correct": true,
+          "feedback": "Pack B explicitly lists sulfur dioxide as an added preservative."
+        }
+      ]
+    },
+    {
+      "id": "p-raisins-evidence",
+      "objective": "P5",
+      "stem": "Select the label wording that explicitly names an added sulfiting agent.",
+      "type": "label-select",
       "display": "passage",
       "maxSelections": 1,
-      "selectionHint": "Choose one sentence."
+      "selectionHint": "Choose one phrase.",
+      "points": 1,
+      "cognitiveLevel": "evaluate",
+      "review": {
+        "href": "preservatives.html#evidence-sulfite-family",
+        "label": "Read: Sulfiting agents",
+        "quote": "Sulfur dioxide and sodium bisulfite can supply sulfites in food. Other examples include sodium sulfite and potassium metabisulfite. Recognizing this group matters for people with sulfite sensitivity."
+      },
+      "references": [
+        {
+          "href": "https://www.sunmaid.com/products/golden-raisins/",
+          "label": "Package source: Sun-Maid California Golden Raisins",
+          "quote": "Sulfur Dioxide (Sulfites) Added as a Preservative."
+        }
+      ],
+      "tokens": [
+        {
+          "id": "sun-dried",
+          "text": "California Seedless Raisins.",
+          "correct": false,
+          "feedback": "This names the food in Pack A. It does not name an added sulfiting agent."
+        },
+        {
+          "id": "golden",
+          "text": "California Golden Raisins",
+          "correct": false,
+          "feedback": "This names the food in Pack B. The color name alone does not identify an additive."
+        },
+        {
+          "id": "sulfites",
+          "text": "Sulfur Dioxide (Sulfites) Added as a Preservative.",
+          "correct": true,
+          "feedback": "This wording names the sulfiting agent and explicitly states that it was added."
+        }
+      ]
     },
     {
       "id": "p-3b",
       "type": "judgment-grid",
       "parts": [
         {
-          "id": "p-3b1",
-          "objective": "P5",
-          "stem": "The product contains an added sulfiting agent.",
-          "type": "single",
-          "points": 1,
-          "cognitiveLevel": "evaluate",
-          "review": {
-            "href": "preservatives.html#evidence-sulfite-family",
-            "label": "Read: Sulfiting agents",
-            "quote": "Sulfur dioxide and sodium bisulfite can supply sulfites in food. Other examples include sodium sulfite and potassium metabisulfite. Recognizing this group matters for people with sulfite sensitivity."
-          },
-          "options": [
-            {
-              "id": "supports",
-              "text": "The label supports this.",
-              "feedback": "Sulfur dioxide (sulfites) is explicitly listed as added.",
-              "correct": true
-            },
-            {
-              "id": "contradicts",
-              "text": "The label contradicts this.",
-              "feedback": "Sulfur dioxide (sulfites) is explicitly listed as added.",
-              "correct": false
-            },
-            {
-              "id": "unspecified",
-              "text": "The label does not tell you.",
-              "feedback": "Sulfur dioxide (sulfites) is explicitly listed as added.",
-              "correct": false
-            }
-          ],
-          "explanation": "Sulfur dioxide (sulfites) is explicitly listed as added.",
-          "fixedOrder": true,
-          "references": [
-            {
-              "href": "https://www.sunmaid.com/products/golden-raisins/",
-              "label": "Package source: Sun-Maid California Golden Raisins",
-              "quote": "Sulfur Dioxide (Sulfites) Added as a Preservative."
-            }
-          ]
-        },
-        {
           "id": "p-3b2",
           "objective": "P5",
-          "stem": "Only raisins were used; nothing was added to preserve them.",
+          "stem": "Pack B: Only raisins were used; nothing was added to preserve them.",
           "type": "single",
           "points": 1,
           "cognitiveLevel": "evaluate",
@@ -788,7 +787,7 @@ window.LabelNotesBanks.preservatives = {
         {
           "id": "p-3b3",
           "objective": "P5",
-          "stem": "This label gives the amount of sulfur dioxide remaining in the raisins.",
+          "stem": "Pack B: This label gives the amount of sulfur dioxide remaining in the raisins.",
           "type": "single",
           "points": 1,
           "cognitiveLevel": "evaluate",
@@ -1344,7 +1343,7 @@ window.LabelNotesBanks.preservatives = {
         {
           "id": "p-7a",
           "objective": "P3",
-          "stem": "A lemon drink at pH 3 develops yeast during shelf storage. Which ingredient is the best fit?",
+          "stem": "A lemon drink at pH 3 develops yeast on the shelf. Potassium sorbate is unavailable for this batch. Which available ingredient best fits the drink?",
           "type": "single",
           "points": 1,
           "cognitiveLevel": "analyze",
@@ -1355,22 +1354,22 @@ window.LabelNotesBanks.preservatives = {
           },
           "options": [
             {
-              "id": "propionate",
-              "text": "Calcium propionate.",
-              "feedback": "Propionates are a common mold-control choice for bread, but benzoate better matches this acidic drink.",
-              "correct": false
+              "id": "sorbate",
+              "text": "Potassium sorbate.",
+              "correct": false,
+              "feedback": "Sorbate could help control yeast in an acidic drink, but it is unavailable for this batch."
             },
             {
-              "id": "nitrite",
-              "text": "Sodium nitrite.",
-              "feedback": "Nitrite belongs to a meat-curing system, not this lemon drink.",
-              "correct": false
+              "id": "propionate",
+              "text": "Calcium propionate.",
+              "correct": false,
+              "feedback": "Propionate is commonly used against bread mold. If yeast is the problem in this acidic drink, benzoate is a better fit."
             },
             {
               "id": "benzoate",
               "text": "Sodium benzoate.",
-              "feedback": "Benzoate fits the acidic conditions and microbial problem.",
-              "correct": true
+              "correct": true,
+              "feedback": "Low pH favors the active form of benzoate, which can help control yeast in this drink."
             }
           ]
         },
@@ -1605,20 +1604,30 @@ window.LabelNotesBanks.preservatives = {
     },
     {
       "id": "p-check-3",
-      "title": "A short list can still say a lot",
-      "intro": "Use this golden-raisin label and what you learned about sulfiting agents.",
+      "title": "Compare two raisin labels",
+      "intro": "Compare the ingredient lists. Use only what each label tells you.",
       "questionIds": [
-        "p-3a",
+        "p-raisins-pack",
+        "p-raisins-evidence",
         "p-3b"
       ],
       "set": "chapter-check",
-      "product": {
-        "name": "Sun-Maid California Golden Raisins",
-        "ingredientsText": "California Golden Raisins, Sulfur Dioxide (Sulfites) Added as a Preservative.",
-        "transcriptOpen": true,
-        "sourceUrl": "https://www.sunmaid.com/products/golden-raisins/",
-        "sourceLabel": "Product source"
-      }
+      "products": [
+        {
+          "name": "Pack A · Sun-Maid California Sun-Dried Raisins",
+          "ingredientsText": "California Seedless Raisins.",
+          "transcriptOpen": true,
+          "sourceUrl": "https://www.sunmaid.com/products/california-sun-dried-raisins/",
+          "sourceLabel": "Product source"
+        },
+        {
+          "name": "Pack B · Sun-Maid California Golden Raisins",
+          "ingredientsText": "California Golden Raisins, Sulfur Dioxide (Sulfites) Added as a Preservative.",
+          "transcriptOpen": true,
+          "sourceUrl": "https://www.sunmaid.com/products/golden-raisins/",
+          "sourceLabel": "Product source"
+        }
+      ]
     },
     {
       "id": "p-check-4",
@@ -1686,5 +1695,5 @@ window.LabelNotesBanks.preservatives = {
       "production": true
     }
   ],
-  "version": "20261114-9"
+  "version": "20261127-6"
 };

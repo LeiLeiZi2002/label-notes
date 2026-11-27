@@ -26,7 +26,8 @@ The chapter checks use the products below. Ingredient text follows the cited lis
 | Product | Check | Material | Source |
 | --- | --- | --- | --- |
 | Kraft Classic Ranch Dressing · 8 fl oz | preservatives, Turn the dressing bottle over | `check-ranch-back.jpg` + text | https://foodlion.com/groceries/condiments-sauces/salad-dressings-toppings/kraft-classic-ranch-dressing-8-oz-btl.html |
-| Sun-Maid California Golden Raisins | preservatives, A short list can still say a lot | Ingredient text | https://www.sunmaid.com/products/golden-raisins/ |
+| Sun-Maid California Golden Raisins | preservatives, Compare two raisin labels | Ingredient text | https://www.sunmaid.com/products/golden-raisins/ |
+| Sun-Maid California Sun-Dried Raisins | preservatives, Compare two raisin labels | Ingredient text | https://www.sunmaid.com/products/california-sun-dried-raisins/ |
 | Kraft Finely Shredded Mozzarella · 8 oz | preservatives, A name you have not studied | `check-mozzarella-back.jpg` + text | https://foodlion.com/groceries/product/kraft-natural-part-skim-finely-shredded-mozzarella-cheese-8-oz-bag/384413 |
 | Idahoan Original Mashed Potatoes | antioxidants, One heading, different ingredients | Ingredient text | https://www.wegmans.com/shop/product/631071-Original-Mashed-Potatoes |
 | Crisco All-Vegetable Shortening Baking Sticks | antioxidants, Protecting a blend of oils | Ingredient text | https://crisco.com/products/all-vegetable-shortening-baking-sticks-2/ |

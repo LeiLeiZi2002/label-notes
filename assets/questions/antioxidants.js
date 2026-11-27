@@ -1012,19 +1012,19 @@ window.LabelNotesBanks.antioxidants = {
             {
               "id": "rosemary",
               "text": "Rosemary extract",
-              "feedback": "Rosemary extract does not match this case. Calcium ascorbate helps slow browning of cut apple surfaces.",
+              "feedback": "On wet cut surfaces, rosemary extract would not provide the vitamin C treatment used here to slow browning.",
               "correct": false
             },
             {
               "id": "edta",
               "text": "Calcium disodium EDTA",
-              "feedback": "Calcium disodium EDTA does not match this case. Calcium ascorbate helps slow browning of cut apple surfaces.",
+              "feedback": "EDTA can bind metals. If the main problem is browning on the cut surface, it does not replace the ascorbate treatment.",
               "correct": false
             },
             {
               "id": "propionate",
               "text": "Calcium propionate",
-              "feedback": "Calcium propionate does not match this case. Calcium ascorbate helps slow browning of cut apple surfaces.",
+              "feedback": "Propionate targets mold. The cut surfaces could still turn brown.",
               "correct": false
             }
           ],
@@ -1046,7 +1046,7 @@ window.LabelNotesBanks.antioxidants = {
             {
               "id": "ascorbate",
               "text": "Calcium ascorbate",
-              "feedback": "Calcium ascorbate does not match this case. Rosemary extract can protect oils from oxidation and rancidity.",
+              "feedback": "Calcium ascorbate works well on wet cut fruit. In an oil-rich snack it may not protect the oil as intended.",
               "correct": false
             },
             {
@@ -1058,13 +1058,13 @@ window.LabelNotesBanks.antioxidants = {
             {
               "id": "edta",
               "text": "Calcium disodium EDTA",
-              "feedback": "Calcium disodium EDTA does not match this case. Rosemary extract can protect oils from oxidation and rancidity.",
+              "feedback": "EDTA can help when trace metals drive oxidation. This chip scenario does not identify trace metals as the cause.",
               "correct": false
             },
             {
               "id": "propionate",
               "text": "Calcium propionate",
-              "feedback": "Calcium propionate does not match this case. Rosemary extract can protect oils from oxidation and rancidity.",
+              "feedback": "Propionate targets mold. The sunflower oil could still turn rancid.",
               "correct": false
             }
           ],
@@ -1086,13 +1086,13 @@ window.LabelNotesBanks.antioxidants = {
             {
               "id": "ascorbate",
               "text": "Calcium ascorbate",
-              "feedback": "Calcium ascorbate does not match this case. EDTA can bind metal ions that promote oxidation.",
+              "feedback": "Adding calcium ascorbate would not directly address the trace iron identified in this case.",
               "correct": false
             },
             {
               "id": "rosemary",
               "text": "Rosemary extract",
-              "feedback": "Rosemary extract does not match this case. EDTA can bind metal ions that promote oxidation.",
+              "feedback": "Rosemary extract can help slow oxidation in oils. The existing antioxidant still needs support that addresses the trace iron.",
               "correct": false
             },
             {
@@ -1104,7 +1104,7 @@ window.LabelNotesBanks.antioxidants = {
             {
               "id": "propionate",
               "text": "Calcium propionate",
-              "feedback": "Calcium propionate does not match this case. EDTA can bind metal ions that promote oxidation.",
+              "feedback": "Propionate targets mold. The trace iron could still speed up oxidation.",
               "correct": false
             }
           ],
@@ -1498,5 +1498,5 @@ window.LabelNotesBanks.antioxidants = {
       ]
     }
   ],
-  "version": "20261114-9"
+  "version": "20261127-6"
 };
