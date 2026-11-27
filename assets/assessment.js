@@ -220,7 +220,8 @@
         const row = E.el('div', undefined, 'objective-result');
         row.append(E.el('strong', `${o.id} · ${score.total ? `${score.earned}/${score.total}` : 'Not assessed'}`), E.el('p', o.text));
         const link = E.el('a', 'Review this part of the lesson', 'text-link');
-        link.href = `${o.id.startsWith('P') ? 'preservatives' : 'antioxidants'}.html#${o.sections[0]}`;
+        const [chapter] = Object.entries(window.LabelNotesCourse).find(([, course]) => course.objectives?.includes(o));
+        link.href = chapter + '.html#' + o.sections[0];
         row.append(link);
         detail.append(row);
       });

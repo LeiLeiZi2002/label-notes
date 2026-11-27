@@ -41,10 +41,12 @@
             .map((o) => o.id);
     const wanted = expected.map(normalizeAnswer);
     let fraction = 0;
+    let earned;
     if (q.type === 'short-text') fraction = selected.length === 1 && wanted.includes(selected[0]) ? 1 : 0;
     else if (q.type === 'multi' || q.type === 'label-select') {
       const right = selected.filter((v) => wanted.includes(v)).length,
         wrong = selected.filter((v) => !wanted.includes(v)).length;
+      if (q.pointsByHits) earned = Math.max(0, q.pointsByHits[right] - wrong);
       fraction = q.allOrNothing ? Number(right === wanted.length && !wrong)
         : wanted.length ? Math.max(0, (right - wrong) / wanted.length) : Number(selected.length === 0);
     } else fraction = selected.length === 1 && wanted.includes(selected[0]) ? 1 : 0;
@@ -55,7 +57,7 @@
     return {
       id: q.id,
       objective: q.objective,
-      earned: Math.round(fraction * maximum(q) * 100) / 100,
+      earned: earned ?? Math.round(fraction * maximum(q) * 100) / 100,
       total: maximum(q),
       correct,
       answered: selected.length > 0,
@@ -435,7 +437,7 @@
     if (block.intro) root.append(html('div', block.intro, 'question-context'));
     if (block.product) {
       const first = bank.questions.find((q) => q.id === block.questionIds[0]);
-      root.append(product(block.product, first?.type === 'label-select' && first.display !== 'passage'));
+      root.append(product(block.product, !block.product.showTranscript && first?.type === 'label-select' && first.display !== 'passage'));
     }
     if (block.products) {
       const compare = el('div', undefined, 'product-comparison');

@@ -83,6 +83,18 @@ window.LabelNotesCourse = {
       'try-new-label': ['A1', 'A2'],
     },
   },
+  texture: {
+    title: 'Emulsifiers, stabilizers & thickeners',
+    timeLimitSeconds: null,
+    suggestedMinutes: 12,
+    thresholds: { secure: 0.8, developing: 0.5 },
+    objectives: [
+      { id: 'T1', text: 'Find common emulsifiers, stabilizers and thickeners in an unfamiliar ingredient list, including abbreviations and seed gum names.', sections: ['ingredient-names', 'read-label'] },
+      { id: 'T2', text: 'Explain which texture problem an ingredient addresses, such as separation, watery yogurt, settling or ice crystal growth.', sections: ['why-texture', 'ingredient-names', 'check-understanding'] },
+      { id: 'T3', text: 'Distinguish ingredients that change texture from preservatives and antioxidants on the same label.', sections: ['read-label', 'try-new-label'] },
+      { id: 'T4', text: 'Evaluate claims about separated peanut butter, “free from” wording and long ingredient lists using the available evidence.', sections: ['check-understanding'] },
+    ],
+  },
   pretest: {
     title: 'Your starting point',
     assessmentVersion: '20261114-7',
@@ -98,9 +110,9 @@ window.LabelNotesCourse = {
   },
 };
 window.LabelNotesDimensions = [
-  { title: 'Reading labels', objectives: ['P1', 'P2', 'A1'] },
-  { title: 'Explaining functions', objectives: ['P3', 'P4', 'A2', 'A3'] },
-  { title: 'Judging claims', objectives: ['P5', 'A4', 'A5'] },
+  { title: 'Reading labels', objectives: ['P1', 'P2', 'A1', 'T1', 'T3'] },
+  { title: 'Explaining functions', objectives: ['P3', 'P4', 'A2', 'A3', 'T2'] },
+  { title: 'Judging claims', objectives: ['P5', 'A4', 'A5', 'T4'] },
 ];
 window.LabelNotesObjectives = {
   get(id) {

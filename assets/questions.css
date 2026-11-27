@@ -258,3 +258,9 @@ summary:focus-visible {
     max-height: 300px;
   }
 }
+
+[data-chapter="texture"] .challenge-label { max-width: 560px; }
+[data-chapter="texture"] .challenge-label img { object-view-box: inset(61% 46% 26% 25%); }
+[data-chapter="texture"] .product-comparison .package-photo img { max-height: 200px; }
+
+[data-chapter="texture"] .question-item[data-question-type="matching"] > h3 { grid-column: 1 / -1; }

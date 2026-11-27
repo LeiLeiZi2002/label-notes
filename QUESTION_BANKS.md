@@ -1,6 +1,6 @@
 # 题库编辑说明
 
-更新：2026-11-27。题目位于 `assets/questions/pretest.js`、`preservatives.js`、`antioxidants.js`。学习目标和维度在 `assets/objectives.js`，保持现有 P1–P5、A1–A5。
+更新：2026-11-27。题目位于 `assets/questions/pretest.js`、`preservatives.js`、`antioxidants.js`、`texture.js`。学习目标和维度在 `assets/objectives.js`，目标为 P1–P5、A1–A5、T1–T4。
 
 ## 当前题量
 
@@ -12,6 +12,8 @@
 | 第二章随堂练习 | 7 | 8 | 8，独立记录 |
 | 第二章章前情境 W1–W4 | 4 | 4 | 不计分 |
 | 第二章正式章测 | 7 | 20 | 22 |
+| 第三章随堂练习 | 6 | 6 | 9，独立记录 |
+| 第三章正式章测 | 6 | 13 | 18 |
 
 小题指可以单独作答和计分的末级题目。两段式中的两问、匹配的每一行、判断表的每一行分别算一小题；多选按钮不单独算一题。
 
@@ -37,6 +39,15 @@
 | 6 · Peaches / applesauce：双标签对比 | 2 | 2 |
 | 7 · 工厂问题匹配 | 3 | 3 |
 
+| 第三章 | 小题数 | 分值 |
+| --- | ---: | ---: |
+| 1 · 面包乳化剂点选 | 1 | 3 |
+| 2 · 两种花生酱：产品、依据、浮油 | 3 | 3 |
+| 3 · 三种质地问题匹配 | 3 | 3 |
+| 4 · 两条产线，各槽位独立选择 | 3 | 3 |
+| 5 · 选出超过标签证据的句子 | 1 | 3 |
+| 6 · 冷冻甜品：胶类、标签主张 | 2 | 3 |
+
 ### 正式章测的目标覆盖
 
 | 目标 | 小题数 | 分值 | 维度 |
@@ -51,8 +62,12 @@
 | A3 | 6 | 6 | Explaining functions |
 | A4 | 3 | 3 | Judging claims |
 | A5 | 4 | 4 | Judging claims |
+| T1 | 3 | 3 | Reading labels |
+| T2 | 6 | 6 | Explaining functions |
+| T3 | 1 | 3 | Reading labels |
+| T4 | 3 | 6 | Judging claims |
 
-三个维度为结果页主体。第一章维度满分依次为 7、7、7；第二章为 5、10、7。总分和首次成绩在下方以小字显示。前测按本章相关目标筛选，以百分比和题数显示，例如 `Before learning · 50% (1 of 2 questions)`；不据此宣称平行卷增益。
+三个维度为结果页主体。第一章维度满分依次为 7、7、7；第二章为 5、10、7；第三章为 6、6、6。现有前测未覆盖第三章目标，第三章结果页不显示前测对比。总分和首次成绩在下方以小字显示。前测按本章相关目标筛选，以百分比和题数显示，例如 `Before learning · 50% (1 of 2 questions)`；不据此宣称平行卷增益。
 
 前测中 P1、P2、A1、P3、A2、A3、A5 各有 1 题，P5 有 2 题。章前情境不分配目标，也不进入维度。
 
@@ -62,7 +77,7 @@
 
 | 字段 | 用途 |
 | --- | --- |
-| `set` | `pretest`、`label-practice`、`review`、`new-food`、`chapter-check`、`warm-up`。 |
+| `set` | `pretest`、`label-practice`、`review`、`new-food`、`chapter-check`、`warm-up`、`practice`。 |
 | `section` | 教学小节锚点。章前情境专门位于第一节目标之前，不进入普通练习插槽。 |
 | `objective` | 计分小题的主目标。作答时隐藏代码，结果反馈显示；章前情境不填写。 |
 | `type` | `single`、`multi`、`match`、`matching`、`short-text`、`label-select`、`two-tier`、`judgment-grid`、`scenario`。 |

@@ -1,7 +1,7 @@
 /* 首次成绩、完成状态和阅读位置共用一份本地记录。 */
 (() => {
   const key = 'label-notes-course-v3';
-  const chapters = ['preservatives', 'antioxidants'];
+  const chapters = ['preservatives', 'antioxidants', 'texture'];
   let memory = { version: 3, assessments: {}, visits: {}, practice: {}, warmups: {} };
   let persistent = true;
   let storage;
@@ -83,7 +83,7 @@
     if (summary) {
       const baseline = data.assessments.pretest?.first;
       const count = chapters.filter(id => completion(data.assessments[id])).length;
-      summary.textContent = baseline ? `First quick check: ${baseline.earned}/${baseline.total}. ${count} of 2 available chapters completed.` : 'Nine short questions before you begin. No time limit and no pass mark.';
+      summary.textContent = baseline ? `First quick check: ${baseline.earned}/${baseline.total}. ${count} of ${chapters.length} available chapters completed.` : 'Nine short questions before you begin. No time limit and no pass mark.';
     }
   }
   window.LabelNotesProgress = {

@@ -46,3 +46,27 @@ The chapter checks use the products below. Ingredient text follows the cited lis
 - The proposed Oscar Mayer source now shows a different formula with sodium nitrite; it was not used for an uncured/celery claim question.
 - Existing teaching photos and classroom practice remain in place. Mt. Olive was removed from the chapter check; its older local photos are retained but unused.
 - `dev-question-types.html` is an unlinked demonstration and contributes no course result.
+
+## Chapter 03 · Emulsifiers, stabilizers & thickeners
+
+| Product | Ingredient evidence | Source |
+| --- | --- | --- |
+| Hellmann’s Real Mayonnaise | Egg yolks and the calcium disodium EDTA purpose statement. | [Manufacturer](https://www.hellmanns.com/us/en/faq.html) |
+| Hershey’s Milk Chocolate Bar | Lecithin (Soy) and PGPR. The label names soy as the lecithin source. | [Manufacturer](https://www.hersheyland.com/products/hersheys-milk-chocolate-candy-bar-1-55-oz.html) |
+| Jif Dark Roast Creamy Peanut Butter | Mono and diglycerides and fully hydrogenated vegetable oils. Used in the chapter check with the manufacturer’s front image. | [Manufacturer](https://www.jif.com/products/creamy/dark-roast-creamy-peanut-butter) |
+| Smucker’s Organic Creamy Peanut Butter | Organic peanuts and salt. Used in the chapter check with the manufacturer’s front image. | [Manufacturer](https://www.smuckers.com/peanut-butter/organic/organic-creamy-peanut-butter) |
+| Pepperidge Farm Farmhouse Whole Grain White Bread | DATEM, sodium stearoyl lactylate and monoglycerides appear in the documented 24 oz ingredient list. Calcium propionate and sorbic acid are listed for freshness. | [Manufacturer](https://www.pepperidgefarm.com/product/farmhouse-whole-grain-white-bread/) · [Ingredient list](https://www.target.com/p/-/A-13285339) |
+| Kraft Classic Ranch Lite Dressing | Egg yolks, polysorbate 60, xanthan gum and modified food starch. Potassium sorbate and calcium disodium EDTA appear together with a flavor protection note. This is the Lite dressing. | [Manufacturer](https://www.kraftheinz.com/kraft-sauces/products/00021000643530-classic-ranch-lite-dressing) |
+| Blue Bunny Peanut Butter Party | Tara, guar and carob bean gums and carrageenan appear at the end of the list. Polysorbate 80 is part of the fudge swirl ingredient list. | [Manufacturer](https://www.bluebunny.com/products/scoopables/traditional/peanut-butter-party) |
+| Silk Original Almondmilk | Gellan gum and the freshness note beside ascorbic acid. The free-from-carrageenan wording comes from the manufacturer’s product page. | [Manufacturer](https://www.silk.com/plant-based-products/almondmilk/original-almondmilk/) |
+| Yoplait Protein Strawberry Yogurt | Modified corn starch and fruit pectin. | [Manufacturer](https://www.yoplait.com/products/yoplait-protein-strawberry-single-serve) |
+| Smucker’s Goober Grape | Distilled monoglycerides, pectin and potassium sorbate. The learning challenge shows the original 18 oz package front and back. | [Manufacturer](https://www.smuckers.com/peanut-butter/goober/goober-grape) |
+
+The bakery chapter-check list is a classroom example. The Pepperidge Farm product appears in the lesson and its practice item.
+
+### Chapter 03 package images
+
+- assets/products/ch03/goober-front.jpg · [Original image](https://www.smuckers.com/smuckers/products/goober-grape/68104/image-thumb__68104__responsive_960_JPEG/goober-grape_00051500000557_C1C1.ffa617a3.jpg)
+- assets/products/ch03/goober-back.jpg · [Original image](https://www.smuckers.com/smuckers/products/goober-grape/68108/image-thumb__68108__responsive_1700_JPEG/goober-grape_00051500000557_C7C1.6077e216.jpg)
+- assets/products/ch03/jif-front.jpg · [Original image](https://www.jif.com/jif/products/dark-roast/90199/image-thumb__90199__responsive_960_JPEG/dark-roast_00051500319505_C1C1.850d2182.jpg)
+- assets/products/ch03/organic-front.jpg · [Original image](https://www.smuckers.com/smuckers/products/organic-creamy-peanut-butter/77948/image-thumb__77948__responsive_960_JPEG/organic-creamy-peanut-butter_00051500053300_C1C1.8d7f9921.jpg)

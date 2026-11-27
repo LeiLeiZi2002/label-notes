@@ -89,12 +89,35 @@
   });
 
   const ingredientButtons = [...document.querySelectorAll('[data-ingredient]')];
+  const labelGroups = [...document.querySelectorAll('[data-label-group]')];
   const ingredientNotes = [...document.querySelectorAll('[data-ingredient-note]')];
   function selectIngredient(id) {
     ingredientButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.ingredient === id)));
+    labelGroups.forEach(mark => { mark.classList.toggle('active-label-group', mark.dataset.labelGroup === id); });
     ingredientNotes.forEach(note => { note.hidden = note.dataset.ingredientNote !== id; });
   }
   ingredientButtons.forEach(button => button.addEventListener('click', () => selectIngredient(button.dataset.ingredient)));
   if (ingredientButtons.length) selectIngredient(ingredientButtons[0].dataset.ingredient);
 
+  const reference = document.querySelector('[data-texture-quick-reference]');
+  if (reference) {
+    document.querySelectorAll('[data-quick-reference-item]').forEach(item => {
+      const row = reference.insertRow();
+      const name = document.createElement('th');
+      name.scope = 'row';
+      const link = document.createElement('a');
+      link.href = '#' + item.id;
+      link.textContent = item.querySelector('[data-reference-name]').textContent;
+      name.append(link);
+      row.append(name);
+      row.insertCell().textContent = item.querySelector('[data-reference-example]').textContent;
+      row.insertCell().textContent = item.querySelector('[data-reference-purpose]').textContent;
+    });
+  }
+
+  const kitchen = document.querySelector('.kitchen-observation');
+  kitchen?.addEventListener('change', () => {
+    kitchen.querySelector('[data-kitchen-response]').textContent = kitchen.querySelector('input:checked')
+      ? 'Keep that example in mind as you look at what each ingredient does.' : '';
+  });
 })();

@@ -270,3 +270,12 @@
 @media (max-width: 639px) {
   .quick-reference .comparison-table table { min-width: 580px; }
 }
+
+/* Chapter 03 label reading */
+.kitchen-observation fieldset { display: grid; gap: 8px; border: 0; }
+.kitchen-observation legend { margin-bottom: 12px; font-weight: 650; }
+.kitchen-observation input { accent-color: var(--accent); }
+.kitchen-observation p:not(:empty) { margin-top: 14px; }
+.texture-label-controls { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.ingredient-label mark[data-label-group] { background: none; padding: 0; }
+.ingredient-label mark.active-label-group { background: var(--highlight); padding: 3px; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: .2em; font-weight: 700; }
