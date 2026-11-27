@@ -19,7 +19,8 @@ window.LabelNotesBanks["capstone"] = {
         "sourceLabel": "Product and ingredients",
         "packageFront": true,
         "showTranscript": true
-      }
+      },
+      "stationTitle": "Bakery"
     },
     {
       "id": "cap-drink-mix",
@@ -38,7 +39,8 @@ window.LabelNotesBanks["capstone"] = {
         "sourceLabel": "Product and ingredients",
         "packageFront": true,
         "showTranscript": true
-      }
+      },
+      "stationTitle": "Drink mix"
     },
     {
       "id": "cap-iced-tea",
@@ -57,7 +59,8 @@ window.LabelNotesBanks["capstone"] = {
         "sourceLabel": "Product and ingredients",
         "packageFront": true,
         "showTranscript": true
-      }
+      },
+      "stationTitle": "Iced tea"
     }
   ],
   "questions": [

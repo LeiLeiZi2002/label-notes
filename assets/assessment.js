@@ -79,12 +79,23 @@
       const section = E.el('section', undefined, 'exam-question');
       section.dataset.question = '';
       section.dataset.block = b.id;
-      section.append(E.renderBlock(b, bank, state?.order?.options));
+      const content = E.renderBlock(b, bank, state?.order?.options);
+      if (b.stationTitle) {
+        const photo = content.querySelector('.question-product [data-zoom-image]');
+        photo.append(E.el('span', 'Zoom ↗', 'package-zoom-label'));
+        const labels = ['Label', 'Function', 'Claim'];
+        content.querySelectorAll(':scope > .question-item').forEach((item, index) => {
+          item.prepend(E.el('p', `0${index + 1} · ${labels[index]}`, 'eyebrow station-question-label'));
+        });
+      }
+      section.append(content);
       section.querySelector('h2')?.setAttribute('tabindex', '-1');
       questionHost.append(section);
-      const tab = E.el('button', String(i + 1));
+      const tab = E.el('button', b.stationTitle ? undefined : String(i + 1));
       tab.type = 'button';
-      tab.setAttribute('aria-label', `${unit} ${i + 1}`);
+      tab.dataset.title = b.stationTitle ? `${unit} ${i + 1} · ${b.stationTitle}` : `${unit} ${i + 1}`;
+      if (b.stationTitle) tab.append(E.el('span', `${unit} ${i + 1} ·`), E.el('strong', b.stationTitle));
+      tab.setAttribute('aria-label', tab.dataset.title);
       tab.addEventListener('click', () => showQuestion(i));
       $('question-tabs').append(tab);
     });
@@ -124,7 +135,7 @@
       );
       const tab = $('question-tabs').children[i];
       tab.dataset.answered = String(complete);
-      tab.setAttribute('aria-label', `${unit} ${i + 1}: ${complete ? 'answered' : 'incomplete'}`);
+      tab.setAttribute('aria-label', `${tab.dataset.title}: ${complete ? 'answered' : 'incomplete'}`);
     });
   }
   function showQuestion(index, focus = true) {
@@ -192,7 +203,7 @@
       ? 'Here is your starting point. Follow a review link to begin learning.'
       : 'See how you did in each area, then revisit the questions below.';
     results.querySelector('[data-objectives]')?.remove();
-    results.querySelector('.result-overview')?.remove();
+    (results.querySelector('.capstone-score-details') || results.querySelector('.result-overview'))?.remove();
     const summary = E.el('div', undefined, 'goal-results');
     const allObjectives = Object.values(window.LabelNotesCourse).flatMap((c) => c.objectives || []);
     const objectives = config.objectives || allObjectives.filter((o) => outcomes.some((r) => r.objective === o.id));
@@ -239,7 +250,17 @@
     const scoreCard = E.el('div', undefined, 'result-overview-score');
     scoreCard.append(E.el('p', 'Total score', 'eyebrow'), scoreText, savedText);
     overview.append(scoreCard, summary);
-    $('results-title').after($('result-summary'), overview);
+    const comparison = results.querySelector('[data-before-after]');
+    if (comparison) {
+      const comparable = window.LabelNotesResults.renderComparison(comparison, progress.read());
+      const progressLink = results.querySelector('.capstone-progress-link');
+      let scoreSection = overview;
+      if (comparable) {
+        scoreSection = E.el('details', undefined, 'capstone-score-details');
+        scoreSection.append(E.el('summary', 'Scores and learning goals'), overview);
+      }
+      $('results-title').after($('result-summary'), comparison, progressLink, scoreSection);
+    } else $('results-title').after($('result-summary'), overview);
     $('result-details').replaceChildren(...blocks.map((block, index) => {
       const qs = block.questionIds.map((qid) => questions.find((q) => q.id === qid));
       const grades = qs.map((q) => E.grade(q, state.answers[q.id]));
@@ -272,8 +293,6 @@
       });
       return d;
     }));
-    const comparison = results.querySelector('[data-before-after]');
-    if (comparison) window.LabelNotesResults.renderComparison(comparison, progress.read());
     results.querySelector('.warmup-recap')?.remove();
     window.LabelNotesWarmup?.appendRecap(results);
     $('results-title').focus();

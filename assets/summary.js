@@ -53,7 +53,12 @@
       name.append(details);
     }
     const row = el('tr');
-    row.append(name, el('td', scoreText(assessment.first)), el('td', scoreText(assessment.latest)), el('td', assessment.status));
+    const status = el('span', assessment.status);
+    status.className = 'score-status';
+    status.dataset.status = assessment.status;
+    const statusCell = el('td');
+    statusCell.append(status);
+    row.append(name, el('td', scoreText(assessment.first)), el('td', scoreText(assessment.latest)), statusCell);
     return row;
   }
 
@@ -87,15 +92,28 @@
     const host = $('confidence-results');
     host.replaceChildren();
     if (!counts.rated) {
-      host.append(el('p', 'Use the optional confidence check inside lesson exercises to see where your confidence matches your answers.'));
+      const empty = el('div');
+      empty.className = 'confidence-empty';
+      const link = el('a', 'Open a practice exercise');
+      link.className = 'secondary-link';
+      link.href = 'preservatives.html#check-understanding';
+      const message = progress.canOpen('preservatives')
+        ? 'Rate how sure you are during a practice exercise to see how your confidence matches your answers.'
+        : 'Take the quick check first, then rate how sure you are during a practice exercise.';
+      empty.append(el('p', message), link);
+      host.append(empty);
       return;
     }
     const list = el('dl');
-    list.className = 'course-score-comparison';
-    for (const [key, label] of [['sureRight', 'Sure & right'], ['sureMissed', 'Sure & missed'], ['guessRight', 'Guessing & right']]) {
+    list.className = 'confidence-metrics';
+    for (const [key, label, subtitle] of [
+      ['sureRight', 'Sure & right', 'Correct with confidence'],
+      ['sureMissed', 'Sure & missed', 'Worth a second look'],
+      ['guessRight', 'Guessing & right', 'Check your reasoning'],
+    ]) {
       const card = el('div');
       const value = el('dd');
-      value.append(el('strong', counts[key]));
+      value.append(el('strong', counts[key]), el('span', subtitle));
       card.append(el('dt', label), value);
       list.append(card);
     }
@@ -111,9 +129,10 @@
         row.append(link);
         list.append(row);
       });
-      host.append(el('h3', 'Questions you were sure about and missed'), list);
+      const heading = el('h3', 'Questions to revisit');
+      heading.className = 'confidence-review-heading';
+      host.append(heading, list);
     }
-    if (counts.guessRight) host.append(el('p', 'If you guessed correctly, revisit the label and see if you can explain your choice.'));
   }
 
   function anonymousSummary(data) {
@@ -134,6 +153,7 @@
 
   const copyButton = $('copy-summary');
   const manual = $('manual-summary');
+  const copyStatus = $('copy-status');
   let resetCopy;
   copyButton.addEventListener('click', async () => {
     const output = JSON.stringify(anonymousSummary(progress.read()), null, 2);
@@ -141,11 +161,12 @@
     try {
       await navigator.clipboard.writeText(output);
       manual.hidden = true;
-      $('copy-status').textContent = 'Copied to clipboard';
-      copyButton.textContent = 'Copied to clipboard';
+      copyStatus.dataset.copied = '';
+      copyStatus.textContent = 'Copied to clipboard';
+      copyButton.textContent = '✓ Copied';
       resetCopy = window.setTimeout(() => {
         copyButton.textContent = 'Copy anonymous summary';
-        $('copy-status').textContent = '';
+        copyStatus.textContent = '';
       }, 2000);
     } catch {
       copyButton.textContent = 'Copy anonymous summary';
@@ -153,7 +174,8 @@
       manual.hidden = false;
       manual.focus();
       manual.select();
-      $('copy-status').textContent = 'Select and copy the summary below.';
+      delete copyStatus.dataset.copied;
+      copyStatus.textContent = 'Select and copy the summary below.';
     }
   });
 

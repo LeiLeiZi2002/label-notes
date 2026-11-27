@@ -29,6 +29,7 @@
 
   function renderComparison(host, data) {
     host.replaceChildren();
+    host.classList.remove('has-comparison');
     const before = currentAttempt(data, 'pretest');
     const after = currentAttempt(data, 'capstone');
     if (!after) {
@@ -53,26 +54,38 @@
       const name = document.createElement('dt');
       name.textContent = title;
       const change = document.createElement('dd');
-      const results = document.createElement('strong');
-      results.textContent = `${prior[index].earned}/${prior[index].total} → ${final[index].earned}/${final[index].total}`;
+      const scoresText = document.createElement('strong');
+      scoresText.className = 'comparison-numbers';
+      scoresText.textContent = `${prior[index].earned} / ${prior[index].total} → ${final[index].earned} / ${final[index].total}`;
+      const pair = document.createElement('div');
+      pair.className = 'comparison-bars';
+      pair.setAttribute('aria-hidden', 'true');
+      for (const score of [prior[index], final[index]]) {
+        const bar = document.createElement('progress');
+        bar.max = score.total || 1;
+        bar.value = score.earned;
+        pair.append(bar);
+      }
       const delta = final[index].earned - prior[index].earned;
       const difference = document.createElement('span');
       difference.textContent = `${delta > 0 ? '+' : ''}${delta} ${Math.abs(delta) === 1 ? 'point' : 'points'}`;
       const review = document.createElement('a');
       review.className = 'text-link';
       [review.href, review.textContent] = reviews[index];
-      change.append(results, difference, review);
+      change.append(scoresText, pair, difference, review);
       area.append(name, change);
       list.append(area);
     });
     const heading = document.createElement('h2');
     heading.textContent = 'Before and after';
     const description = document.createElement('p');
-    description.textContent = 'First complete quick check → first complete final label check';
+    description.textContent = 'Before → Now · First complete attempt on each check';
     const caveat = document.createElement('p');
     caveat.className = 'source-note';
     caveat.textContent = note;
+    host.classList.add('has-comparison');
     host.append(heading, description, list, caveat);
+    return true;
   }
 
   window.LabelNotesResults = { scores, currentAttempt, renderComparison };

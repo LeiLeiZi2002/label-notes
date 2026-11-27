@@ -1,0 +1,155 @@
+/* Shared reading rhythm for the course introduction, final check, and progress pages. */
+.course-page {
+  --course-section-space: clamp(40px, 4vw, 48px);
+  --course-card-padding: clamp(20px, 2.3vw, 24px);
+  font-variant-numeric: tabular-nums;
+}
+.course-page :is(.rule-number, .comparison-numbers, .exam-facts strong, .confidence-metrics strong, .result-score, .dimension-heading strong) { font-variant-numeric: tabular-nums; }
+.course-page .lesson-main :is(p, figcaption) { max-width: 64ch; }
+.course-page .lesson-main p:not(.eyebrow, .part-label, .result-score) { line-height: 1.625; }
+
+.rule-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 20px;
+  margin-block: var(--course-section-space);
+}
+.rule-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: var(--course-card-padding);
+  border-top: 1.5px solid var(--ink);
+  background: var(--surface);
+}
+.rule-number { font: 38px/1 var(--serif); color: var(--muted); }
+.rule-card h2 { font: 25px/1.2 var(--serif); letter-spacing: -.35px; margin-block: .7rem .45rem; }
+.rule-card p { font-size: 16px; }
+.rule-card .rule-example { margin-top: auto; padding-top: .75rem; }
+.rule-example code { display: block; width: fit-content; font-size: .88em; color: var(--muted); border-top: 1px solid var(--rule); padding-top: .55rem; }
+.basics-label-study { grid-template-columns: minmax(0, 1fr) minmax(0, 2.6fr); }
+.basics-label-study .label-excerpt { padding: var(--course-card-padding); }
+.basics-label-study .package-frame { max-width: 215px; }
+.basics-rule-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  padding: 1px;
+  border: 1px solid var(--rule);
+  background: var(--rule);
+}
+.basics-rule-tabs .ingredient-button {
+  display: grid;
+  place-items: center;
+  min-height: 41px;
+  padding: 6px 5px;
+  border: 0;
+  background: var(--paper);
+  font-size: 14px;
+  line-height: 1.25;
+  text-align: center;
+}
+.basics-rule-tabs .ingredient-button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.basics-label-study .ingredient-notes { padding: 16px var(--course-card-padding); border: 1px solid var(--rule); border-top: 0; }
+.basics-label-study .ingredient-notes h3 { font: 650 16px/1.35 var(--sans); margin: 0 0 4px; }
+.basics-label-study .ingredient-notes p { margin: 0; font-size: 16px; }
+.basics-warm-up { margin-top: var(--course-section-space); padding-top: 15px; border-top: 2px solid var(--ink); }
+.basics-warm-up h2.eyebrow { margin-bottom: 20px; letter-spacing: 1px; font-family: var(--sans); }
+.basics-warm-up [data-practice-block] + [data-practice-block] { margin-top: 24px; }
+.course-page .basics-warm-up .knowledge-check { padding: var(--course-card-padding); border-top: 1px solid var(--rule); }
+
+.station-rail {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  max-width: 650px;
+  gap: 8px;
+}
+.station-rail button {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 .35em;
+  width: 100%;
+  height: auto;
+  min-height: 44px;
+  border: 0;
+  border-top: 3px solid var(--rule);
+  border-radius: 0;
+  padding: 7px 5px;
+  font-size: .9rem;
+  line-height: 1.35;
+}
+.station-rail button[data-answered="true"]:not([aria-current]) { border-color: var(--ink); background: var(--paper); }
+.station-rail button[aria-current="step"] { border-color: var(--ink); background: var(--wash); color: var(--ink); }
+.station-rail button span { color: var(--muted); font-size: .92em; }
+.station-rail button strong { font-weight: 650; }
+[data-assessment="capstone"] .exam-toolbar { align-items: flex-start; }
+[data-assessment="capstone"] .exam-ready,
+[data-assessment="capstone"] .exam-results { max-width: 960px; }
+[data-assessment="capstone"] .exam-active .question-product {
+  display: grid;
+  grid-template-columns: minmax(110px, 1fr) minmax(0, 3fr);
+  gap: 10px 22px;
+  align-items: start;
+  margin-block: 24px var(--course-section-space);
+  padding: var(--course-card-padding);
+  border: 1px solid var(--rule);
+  background: var(--surface);
+}
+[data-assessment="capstone"] .exam-active .question-product > :not(.package-frame) { grid-column: 2; }
+[data-assessment="capstone"] .exam-active .question-product .package-frame {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  display: grid;
+  position: relative;
+  width: 100%;
+  height: 154px;
+  margin: 0;
+}
+[data-assessment="capstone"] .exam-active .question-product img { height: 100%; }
+[data-assessment="capstone"] .exam-active .product-name { font: 24px/1.2 var(--serif); }
+[data-assessment="capstone"] .exam-active .question-product .learning-prompt { margin: 0; }
+[data-assessment="capstone"] .exam-active .question-product > .text-link { width: fit-content; }
+[data-assessment="capstone"] .question-item { margin-block: 0 24px; padding-bottom: 24px; border-bottom: 1px solid var(--rule); }
+[data-assessment="capstone"] .question-item fieldset { margin-top: 8px; }
+.station-question-label { color: var(--muted); }
+[data-assessment="capstone"] .capstone-progress-link { margin: 14px 0 0; }
+.capstone-progress-link a { width: fit-content; }
+.capstone-score-details { margin-top: var(--course-section-space); padding-top: 14px; border-top: 1px solid var(--rule); }
+.capstone-score-details summary { cursor: pointer; font-weight: 600; }
+[data-assessment="capstone"] #result-details { margin-top: var(--course-section-space); }
+
+.course-page [data-before-after] { margin-top: var(--course-section-space); }
+.course-page [data-before-after].has-comparison {
+  padding: var(--course-card-padding);
+  border: 1px solid var(--rule);
+  border-top: 2px solid var(--ink);
+  background: var(--surface);
+}
+.course-page [data-before-after] > h2 { font: clamp(26px, 3vw, 34px)/1.2 var(--serif); }
+.course-page .course-score-comparison { gap: 18px; }
+.course-page .course-score-comparison dt { min-height: 2.7em; line-height: 1.35; }
+.course-page .course-score-comparison dd strong { font: clamp(23px, 2.65vw, 37px)/1.2 var(--serif); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.comparison-bars { display: grid; gap: 3px; margin-block: 3px 6px; }
+.comparison-bars progress { appearance: none; width: 100%; height: 2px; border: 0; background: var(--rule); color: var(--ink); }
+.comparison-bars progress::-webkit-progress-bar { background: var(--rule); }
+.comparison-bars progress::-webkit-progress-value { background: var(--ink); }
+.comparison-bars progress::-moz-progress-bar { background: var(--ink); }
+.comparison-bars progress:first-child { opacity: .5; }
+.course-page [data-before-after] > .source-note { max-width: 64ch; margin-top: 18px; }
+@media (max-width: 720px) {
+  .rule-grid, .basics-label-study, .course-page .course-score-comparison { grid-template-columns: minmax(0, 1fr); }
+  .rule-grid { grid-auto-rows: auto; gap: 12px; }
+  .course-page .course-score-comparison dt { min-height: 0; }
+}
+@media (max-width: 540px) {
+  .basics-rule-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .station-rail button { flex-direction: column; align-items: center; justify-content: center; gap: 0; }
+  [data-assessment="capstone"] .exam-active .question-product { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  [data-assessment="capstone"] .exam-active .question-product > :not(.package-frame),
+  [data-assessment="capstone"] .exam-active .question-product .package-frame { grid-column: 1; grid-row: auto; }
+  [data-assessment="capstone"] .exam-active .question-product img { max-height: 150px; }
+}

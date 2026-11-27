@@ -1,20 +1,50 @@
 .progress-main { padding-bottom: 3rem; }
 .progress-main h1 { margin-block: 2rem .5rem; }
 .progress-main .source-note { color: var(--muted); font-size: .875rem; }
-.progress-section { border-top: 1px solid var(--rule); margin-top: 2rem; padding-top: 1.25rem; }
+.progress-section { border-top: 1px solid var(--rule); margin-top: var(--course-section-space, 44px); padding-top: 18px; }
 .progress-section h2 { font-size: clamp(1.55rem, 3vw, 2rem); margin-bottom: .75rem; }
 .progress-table { width: 100%; border-collapse: collapse; text-align: left; font-size: .94rem; }
-.progress-table th, .progress-table td { padding: .65rem .75rem; border-bottom: 1px solid var(--rule); }
-.progress-table thead { background: var(--surface); }
+.progress-table th, .progress-table td { padding: 10px 12px; height: 50px; border-bottom: 1px solid var(--rule); }
+.progress-table thead { color: var(--muted); font-size: .83rem; }
 .progress-table tbody th { font-weight: 500; }
-.progress-table td:nth-child(2), .progress-table td:nth-child(3) { white-space: nowrap; font-variant-numeric: tabular-nums; }
-.score-history { margin-top: .4rem; font-size: .83rem; color: var(--muted); }
-.score-history summary { cursor: pointer; }
-.confidence-misses { padding-left: 1.2rem; }
-.confidence-misses li + li { margin-top: .6rem; }
-.confidence-misses a { display: block; width: fit-content; }
+.progress-table :is(th, td):is(:nth-child(2), :nth-child(3)) { white-space: nowrap; text-align: right; font-variant-numeric: tabular-nums; }
+.progress-table tbody th a { text-decoration-thickness: 1px; }
+.score-status { display: inline-flex; align-items: center; gap: 8px; font-size: .86em; }
+.score-status::before { content: ''; width: 6px; height: 6px; border: 1px solid var(--muted); border-radius: 50%; flex: none; }
+.score-status[data-status="Completed"]::before { border-color: var(--ink); background: var(--ink); }
+.score-status[data-status="Not started"]::before { width: 8px; height: 1px; border: 0; border-radius: 0; background: var(--muted); }
+.score-status[data-status="Earlier version"]::before { border-style: dotted; }
+.score-history { margin-top: 3px; font-size: .76rem; color: var(--muted); }
+.score-history summary { cursor: pointer; width: fit-content; }
+
+.confidence-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-block: 1rem 0; }
+.confidence-metrics > div { border-top: 1.5px solid var(--ink); padding: var(--course-card-padding, 20px); background: var(--surface); }
+.confidence-metrics dt { font-size: .88rem; font-weight: 650; line-height: 1.4; }
+.confidence-metrics dd { margin: .45rem 0 0; }
+.confidence-metrics dd strong { display: block; font: clamp(27px, 4vw, 45px)/1.15 var(--serif); }
+.confidence-metrics dd span { display: block; margin-top: 4px; font-size: .8rem; line-height: 1.45; color: var(--muted); }
+.confidence-review-heading { margin-top: 25px; }
+.confidence-misses { padding: 0; margin-block: 8px 0; list-style: none; }
+.confidence-misses li { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 18px; border-top: 1px solid var(--rule); padding-block: 12px; font-size: .95rem; }
+.confidence-misses li:last-child { border-bottom: 1px solid var(--rule); }
+.confidence-misses a { flex-shrink: 0; width: fit-content; font-size: .875rem; }
+.confidence-empty { padding: var(--course-card-padding, 20px); border: 1px dashed var(--rule); }
+.confidence-empty .secondary-link { margin-top: 12px; width: fit-content; }
+
+.summary-export { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 18px; }
+.summary-export p { flex: 1 1 18em; }
+.summary-export button { min-width: 12.5em; }
+#survey-link:not([hidden]) { margin-top: 12px; }
+.copy-status[data-copied] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.copy-status:empty { margin: 0; }
 #manual-summary { width: 100%; min-height: 10rem; margin-top: .5rem; font: .875rem/1.5 monospace; }
+
 @media (max-width: 540px) {
   .progress-table { font-size: .82rem; }
-  .progress-table th, .progress-table td { padding: .55rem .26rem; }
+  .progress-table th, .progress-table td { padding-inline: 5px; }
+  .score-status { gap: 4px; }
+  .confidence-metrics { gap: 5px; }
+  .confidence-metrics > div { overflow-wrap: anywhere; }
+  .confidence-metrics dt { min-height: 2.8em; font-size: .78rem; }
+  .confidence-metrics dd span { font-size: .72rem; }
 }
