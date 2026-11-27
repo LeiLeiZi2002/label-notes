@@ -107,6 +107,18 @@ window.LabelNotesCourse = {
       { id: 'F4', text: 'Evaluate “Zero Sugar,” “Naturally Flavored,” and “No MSG Added” claims against the ingredient list and Nutrition Facts panel.', sections: ['check-understanding'] },
     ],
   },
+  colors: {
+    title: 'Food color additives',
+    timeLimitSeconds: null,
+    suggestedMinutes: 12,
+    thresholds: { secure: 0.8, developing: 0.5 },
+    objectives: [
+      { id: 'C1', text: 'Find certified dyes, lakes and colors exempt from batch certification in unfamiliar ingredient lists.', sections: ['ingredient-names', 'read-label'] },
+      { id: 'C2', text: 'Explain how dyes and lakes behave in drinks and coatings, and how heat, light or acidity can affect color.', sections: ['why-colors', 'ingredient-names', 'check-understanding'] },
+      { id: 'C3', text: 'Distinguish color additives from preservatives, antioxidants, texture ingredients and flavor ingredients on the same label.', sections: ['read-label', 'check-understanding', 'try-new-label'] },
+      { id: 'C4', text: 'Evaluate claims about added colors and their sources using specific ingredient names and U.S. labeling rules.', sections: ['ingredient-names', 'check-understanding'] },
+    ],
+  },
   pretest: {
     title: 'Your starting point',
     assessmentVersion: '20261114-7',
@@ -122,9 +134,9 @@ window.LabelNotesCourse = {
   },
 };
 window.LabelNotesDimensions = [
-  { title: 'Reading labels', objectives: ['P1', 'P2', 'A1', 'T1', 'T3', 'F1', 'F3'] },
-  { title: 'Explaining functions', objectives: ['P3', 'P4', 'A2', 'A3', 'T2', 'F2'] },
-  { title: 'Judging claims', objectives: ['P5', 'A4', 'A5', 'T4', 'F4'] },
+  { title: 'Reading labels', objectives: ['P1', 'P2', 'A1', 'T1', 'T3', 'F1', 'F3', 'C1', 'C3'] },
+  { title: 'Explaining functions', objectives: ['P3', 'P4', 'A2', 'A3', 'T2', 'F2', 'C2'] },
+  { title: 'Judging claims', objectives: ['P5', 'A4', 'A5', 'T4', 'F4', 'C4'] },
 ];
 window.LabelNotesObjectives = {
   get(id) {

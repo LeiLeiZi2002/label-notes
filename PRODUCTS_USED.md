@@ -122,3 +122,39 @@ The lesson uses the ingredient panel for the exact pudding variety in the manufa
 - `assets/products/ch03/pepperidge-bread-ingredients.jpg` · [Target ingredient panel](https://target.scene7.com/is/image/Target/GUEST_26fa6a3c-3009-4d2c-8bea-24a299b0b10a?wid=800&hei=800&qlt=80&fmt=pjpeg).
 - `assets/products/ch03/goober-ingredients.jpg` · Crop and curved-label correction of the manufacturer’s Goober Grape back photo listed above. The site also links to the full back photo.
 - `mayo-pack-4.jpg`, `heinz-relish-ingredients.jpg`, `check-ranch-ingredients.jpg` and `check-beans-ingredients.jpg` · Tighter ingredient-panel views from the existing sources listed above, with full-package images available in the viewer.
+
+## Chapter 05 · Food color additives
+
+| Product | Evidence | Source |
+| --- | --- | --- |
+| Kool-Aid Liquid Cherry Drink Mix | Red 40 and Blue 1 alongside sweeteners and preservatives. | [Product information](https://www.kraftheinz.com/kool-aid/products/00043000005743-liquid-cherry-artificially-flavored-soft-drink-mix) |
+| Country Time Lemon Iced Tea Liquid Drink Mix | Yellow 5, Red 40 and Blue 1. | [Product information](https://www.kraftheinz.com/country-time/products/00043000007730-lemon-iced-tea-naturally-flavored-liquid-drink-mix) |
+| Froot Loops U.S. label | The labeled formula contains Red 40, Yellow 5, Blue 1 and Yellow 6. | [Product information](https://www.wkkellogg.com/products/froot-loops-cereal) |
+| Skittles Original 2.17 oz | Numbered colors, including lake and non-lake forms of several dyes. | [Product information](https://www.skittles.com/products/skittles-original-fruity-candy-single-pack-217-oz-skittles-chewy) |
+| Skittles Original made without FD&C colors 27.5 oz | Mars lists beet and grape juice concentrates, beta-carotene, calcium carbonate, spirulina extract and turmeric oleoresin. The comparison identifies this as the manufacturer’s color list. | [Product information](https://www.skittles.com/our-colors) |
+| M&M’s Our Colors | Manufacturer background on numbered colors and other pigments. | [Product information](https://www.mms.com/en-us/our-colors) |
+| Goldfish Cheddar 6.6 oz | Annatto is listed within the cheddar cheese. The cropped retail package adds monocalcium phosphate to the list shown on the brand website. | [Product information](https://goldfishsmiles.com/crackers/cheddar-baked-snack-crackers/) |
+| Kraft Original Mac & Cheese | Oleoresin paprika, oleoresin turmeric and annatto are listed as colors in the cheese sauce mix. | [Product information](https://www.kraftheinz.com/kraft-mac-and-cheese/products/00021000658831-original-mac-cheese-macaroni-and-cheese-dinner) |
+| Frosted Mini-Wheats Strawberry 14.3 oz | Vegetable juice, paprika extract color, and beta-carotene. The exercise uses the photographed label wording for BHT and the rest of the list. | [Product information](https://smartlabel.wkkellogg.com/Product/Index?gtin=00038000199462) |
+| Campbell’s Condensed Homestyle Chicken Noodle Soup | Beta carotene for color. Same package and verified label panel as Chapter 04. | [Product information](https://www.target.com/p/-/A-95174557) |
+| Coca-Cola Zero Sugar | Caramel color. Same manufacturer package photo as Chapter 04. | [Product information](https://www.coca-cola.com/us/en/brands/coca-cola/products/zero/zero-sugar) |
+| Yoplait Protein Strawberry | Carmine (for color). Same manufacturer photo as Chapter 03. | [Product information](https://www.yoplait.com/products/yoplait-protein-strawberry-single-serve) |
+| Yoplait Protein Peach | Annatto extract (for color). | [Product information](https://www.yoplait.com/products/yoplait-protein-peach-single-serve) |
+
+- [Kellogg’s strawberry cereal packaging archive](https://www.kelloggs.com/content/dam/kelloggsnutrition/resources/wic/image-library/fmw-strawberry/K183913000_KDW.pdf)
+- [FDA: Color additive rules](https://www.fda.gov/food/color-additives-information-consumers/understanding-how-fda-regulates-color-additives)
+- [FDA: “No Artificial Colors” industry letter](https://www.fda.gov/food/food-chemical-safety/letter-food-industry-no-artificial-colors-labeling-claims)
+- [FDA: Carmine and cochineal extract declarations](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/small-entity-compliance-guide-declaration-name-label-all-foods-and-cosmetic-products-contain)
+
+### Package photos and crops
+
+- `assets/products/ch05/skittles-original.jpg` · [Source image](https://www.skittles.com/sites/g/files/fnmzdf586/files/migrate-product-files/bam8afcev37jvz2mfpnk.png)
+- `assets/products/ch05/skittles-no-fdc.jpg` · [Mars listing for the 27.5 oz pouch, Amazon ASIN B0H9NRPRK6](https://m.media-amazon.com/images/I/51VetKN9xrL.jpg)
+- `assets/products/ch05/goldfish-front.jpg` · [Source image](https://images.salsify.com/image/upload/s--E7j9JUv---/h_700,w_700,q_auto,g_center,fl_clip/c3fe187294a9bc83386aa189cabf5e4ccd99bd7e.png)
+- `assets/products/ch05/goldfish-ingredients.jpg` · [Super 1 Foods ingredient-panel crop, 6.6 oz](https://storage.googleapis.com/images-bks-prd-1385851.bks.prd.v8.commerce.mi9cloud.com/product-images/detail/00014100085478_L4_1.jpeg)
+- `assets/products/ch05/froot-loops-front.jpg` · [Source image](https://s7d9.scene7.com/is/image/wkkellogg/prod_img-369292_usen?wid=1000&fmt=png-alpha)
+- `assets/products/ch05/kraft-mac-front.jpg` · [Source image](https://cdn.allotta.io/image/upload/v1790748701/dxp-images/brands/products/00021000658831-original-mac--cheese-macaroni-and-cheese-dinner/marketing-view-color-front_content-hub-13928526_bd4e307b824eb067818a4967996805cd.png)
+- `assets/products/ch05/yoplait-peach-front.jpg` · [Source image](https://www.yoplait.com/wp-content/uploads/2024/01/00070470238036_H1C1_s101.png)
+- `assets/products/ch05/mini-wheats-front.jpg` · [Matching 14.3 oz box](https://www.gosupps.com/media/catalog/product/8/1/81iyYViv62L.jpg)
+- `assets/products/ch05/mini-wheats-back.jpg` · [Matching full side panel](https://www.gosupps.com/media/catalog/product/cache/25/image/1500x/040ec09b1e35df139433887a97daa66f/7/1/714I7Ei7h0L._SL1500_.jpg)
+- `assets/products/ch05/mini-wheats-ingredients.jpg` · [Ingredient crop from the photographed 14.3 oz side panel](https://www.gosupps.com/media/catalog/product/cache/25/image/1500x/040ec09b1e35df139433887a97daa66f/7/1/714I7Ei7h0L._SL1500_.jpg)

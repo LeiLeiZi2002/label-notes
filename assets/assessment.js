@@ -247,6 +247,7 @@
         const feedback = E.feedback(q, state.answers[q.id]);
         const note = block.diagnostic;
         if (note?.target === q.id && !grades[position].correct
+          && (!note.wrongSelection || grades[position].values.includes(note.wrongSelection))
           && grades.some(grade => grade.id === note.afterCorrect && grade.correct)) {
           feedback.append(E.el('p', note.text, 'selected-feedback'));
         }

@@ -43,7 +43,7 @@
     let fraction = 0;
     let earned;
     if (q.type === 'short-text') fraction = selected.length === 1 && wanted.includes(selected[0]) ? 1 : 0;
-    else if (q.type === 'multi' || q.type === 'label-select') {
+    else if (q.type === 'multi' || (q.type === 'label-select' && q.maxSelections !== 1)) {
       const right = selected.filter((v) => wanted.includes(v)).length,
         wrong = selected.filter((v) => !wanted.includes(v)).length;
       if (q.pointsByHits) earned = Math.max(0, q.pointsByHits[right] - wrong);
@@ -51,7 +51,7 @@
         : wanted.length ? Math.max(0, (right - wrong) / wanted.length) : Number(selected.length === 0);
     } else fraction = selected.length === 1 && wanted.includes(selected[0]) ? 1 : 0;
     const correct =
-      q.type === 'short-text'
+      q.type === 'short-text' || q.maxSelections === 1
         ? fraction === 1
         : selected.length === wanted.length && wanted.every((v) => selected.includes(v));
     return {
@@ -307,7 +307,7 @@
       group.append(label);
     } else if (q.type === 'label-select') {
       if (q.fictional) group.append(el('p', 'Practice label', 'eyebrow'));
-      const multiple = opts.filter((o) => o.correct).length > 1;
+      const multiple = q.maxSelections !== 1 && opts.filter((o) => o.correct).length > 1;
       const hint = q.selectionHint || (multiple ? 'Select all that apply.' : 'Choose one.');
       group.append(el('p', `${hint}${multiple ? ' Extra selections lose credit.' : ''}`, 'selection-hint'));
       const list = el('div', undefined, `label-tokens${q.display === 'passage' ? ' passage-tokens' : ' ingredient-list'}`);

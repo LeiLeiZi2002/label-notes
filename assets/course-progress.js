@@ -1,7 +1,7 @@
 /* 首次成绩、完成状态和阅读位置共用一份本地记录。 */
 (() => {
   const key = 'label-notes-course-v3';
-  const chapters = ['preservatives', 'antioxidants', 'texture', 'sweeteners-flavors'];
+  const chapters = ['preservatives', 'antioxidants', 'texture', 'sweeteners-flavors', 'colors'];
   let memory = { version: 3, assessments: {}, visits: {}, practice: {}, warmups: {} };
   let persistent = true;
   let storage;
