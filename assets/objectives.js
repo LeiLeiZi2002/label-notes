@@ -95,6 +95,18 @@ window.LabelNotesCourse = {
       { id: 'T4', text: 'Evaluate claims about separated peanut butter, “free from” wording and long ingredient lists using the available evidence.', sections: ['check-understanding'] },
     ],
   },
+  'sweeteners-flavors': {
+    title: 'Sweeteners & flavor enhancers',
+    timeLimitSeconds: null,
+    suggestedMinutes: 12,
+    thresholds: { secure: 0.8, developing: 0.5 },
+    objectives: [
+      { id: 'F1', text: 'Find sweeteners, savory enhancers, food acids, and flavorings in unfamiliar ingredient lists.', sections: ['ingredient-names', 'read-label'] },
+      { id: 'F2', text: 'Explain why a recipe blends sweeteners, adds bulk with sugar alcohols, or combines savory enhancers and food acids.', sections: ['ingredient-names', 'check-understanding'] },
+      { id: 'F3', text: 'Distinguish ingredients used for sweetness and flavor from those used for preservation, oxidation control, or texture.', sections: ['read-label', 'try-new-label'] },
+      { id: 'F4', text: 'Evaluate “Zero Sugar,” “Naturally Flavored,” and “No MSG Added” claims against the ingredient list and Nutrition Facts panel.', sections: ['check-understanding'] },
+    ],
+  },
   pretest: {
     title: 'Your starting point',
     assessmentVersion: '20261114-7',
@@ -110,9 +122,9 @@ window.LabelNotesCourse = {
   },
 };
 window.LabelNotesDimensions = [
-  { title: 'Reading labels', objectives: ['P1', 'P2', 'A1', 'T1', 'T3'] },
-  { title: 'Explaining functions', objectives: ['P3', 'P4', 'A2', 'A3', 'T2'] },
-  { title: 'Judging claims', objectives: ['P5', 'A4', 'A5', 'T4'] },
+  { title: 'Reading labels', objectives: ['P1', 'P2', 'A1', 'T1', 'T3', 'F1', 'F3'] },
+  { title: 'Explaining functions', objectives: ['P3', 'P4', 'A2', 'A3', 'T2', 'F2'] },
+  { title: 'Judging claims', objectives: ['P5', 'A4', 'A5', 'T4', 'F4'] },
 ];
 window.LabelNotesObjectives = {
   get(id) {

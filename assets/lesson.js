@@ -215,7 +215,8 @@
 
   const kitchen = document.querySelector('.kitchen-observation');
   kitchen?.addEventListener('change', () => {
-    kitchen.querySelector('[data-kitchen-response]').textContent = kitchen.querySelector('input:checked')
-      ? 'Keep that example in mind as you look at what each ingredient does.' : '';
+    const response = kitchen.querySelector('[data-kitchen-response]');
+    response.textContent = kitchen.querySelector('input:checked')
+      ? response.dataset.message || 'Keep that example in mind as you look at what each ingredient does.' : '';
   });
 })();

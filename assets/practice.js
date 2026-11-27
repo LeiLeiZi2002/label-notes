@@ -144,6 +144,11 @@
       return link;
     }
     function firstMiss(q, outcome) {
+      const wrongChoiceClue = outcome.values.map(value => q.retryOnWrong?.[value]).find(Boolean);
+      if (wrongChoiceClue) return wrongChoiceClue;
+      const missingChoiceClue = outcome.expected.filter(value => !outcome.values.includes(value))
+        .map(value => q.retryOnMissing?.[value]).find(Boolean);
+      if (missingChoiceClue) return missingChoiceClue;
       const hint = q.retryHint || q.hints?.[0];
       if (q.type !== 'multi') return hint;
       const found = outcome.values.filter((value) => outcome.expected.includes(value));
@@ -254,10 +259,11 @@
           if (outcomes[i].correct) return;
           const clue = firstMiss(q, outcomes[i]);
           if (clue) feedback.append(E.el('p', clue));
-          if (q.review && !seen.has(q.review.href)) {
-            seen.add(q.review.href);
-            feedback.append(reviewLink(q.review));
-          }
+          (q.retryReviews || [q.review]).filter(Boolean).forEach(source => {
+            if (seen.has(source.href)) return;
+            seen.add(source.href);
+            feedback.append(reviewLink(source));
+          });
         });
         const show = E.el('button', 'Show answer', 'secondary-link');
         show.type = 'button';

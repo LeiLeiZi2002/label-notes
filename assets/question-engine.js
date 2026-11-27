@@ -114,6 +114,7 @@
   }
   function product(p, hideTranscript = false) {
     const box = el('div', undefined, `question-product${p.transcriptOpen ? ' label-evidence' : ''}`);
+    let packageImage;
     if (p.fictional) box.append(el('p', 'Practice label, not a real product', 'eyebrow'));
     if (p.name) box.append(el('p', p.name, 'product-name'));
     if (p.labelView) {
@@ -169,14 +170,35 @@
       image.alt = p.imageAlt || p.name;
       image.loading = 'lazy';
       a.append(image);
-      if (p.transcriptOpen) {
+      if (p.switchViews) {
+        packageImage = a;
+      } else if (p.transcriptOpen) {
         const photo = el('details', undefined, 'package-photo');
         photo.append(el('summary', 'View the package'), a);
         box.append(photo);
       } else box.append(a);
     }
     if (p.ingredientsText && !hideTranscript) {
-      if (p.transcriptOpen) {
+      if (packageImage) {
+        const controls = el('div', undefined, 'package-view-controls');
+        controls.setAttribute('role', 'group');
+        controls.setAttribute('aria-label', 'Package view');
+        const front = el('button', 'Front');
+        const ingredients = el('button', 'Ingredients');
+        front.type = ingredients.type = 'button';
+        const reading = el('p', p.ingredientsText, 'evidence-transcript');
+        function showFront(show) {
+          front.setAttribute('aria-pressed', String(show));
+          ingredients.setAttribute('aria-pressed', String(!show));
+          packageImage.hidden = !show;
+          reading.hidden = show;
+        }
+        front.addEventListener('click', () => showFront(true));
+        ingredients.addEventListener('click', () => showFront(false));
+        controls.append(front, ingredients);
+        box.append(controls, packageImage, reading);
+        showFront(false);
+      } else if (p.transcriptOpen) {
         box.append(el('p', 'Ingredients', 'label-heading'), el('p', p.ingredientsText, 'evidence-transcript'));
       } else {
         const details = el('details', undefined, 'learning-prompt');

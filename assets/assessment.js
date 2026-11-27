@@ -243,7 +243,15 @@
         material.forEach((p) => evidence.append(E.product(p)));
         d.append(evidence);
       }
-      qs.forEach((q) => d.append(E.feedback(q, state.answers[q.id])));
+      qs.forEach((q, position) => {
+        const feedback = E.feedback(q, state.answers[q.id]);
+        const note = block.diagnostic;
+        if (note?.target === q.id && !grades[position].correct
+          && grades.some(grade => grade.id === note.afterCorrect && grade.correct)) {
+          feedback.append(E.el('p', note.text, 'selected-feedback'));
+        }
+        d.append(feedback);
+      });
       // Keep the result and its expanded feedback in place while the learner reads the passage.
       d.querySelectorAll('[data-feedback-review]').forEach((a) => {
         a.target = '_blank';

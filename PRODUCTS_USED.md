@@ -70,3 +70,31 @@ The bakery chapter-check list is a classroom example. The Pepperidge Farm produc
 - assets/products/ch03/goober-back.jpg · [Original image](https://www.smuckers.com/smuckers/products/goober-grape/68108/image-thumb__68108__responsive_1700_JPEG/goober-grape_00051500000557_C7C1.6077e216.jpg)
 - assets/products/ch03/jif-front.jpg · [Original image](https://www.jif.com/jif/products/dark-roast/90199/image-thumb__90199__responsive_960_JPEG/dark-roast_00051500319505_C1C1.850d2182.jpg)
 - assets/products/ch03/organic-front.jpg · [Original image](https://www.smuckers.com/smuckers/products/organic-creamy-peanut-butter/77948/image-thumb__77948__responsive_960_JPEG/organic-creamy-peanut-butter_00051500053300_C1C1.8d7f9921.jpg)
+
+## Chapter 04 · Sweeteners & flavor enhancers
+
+| Product | Ingredient evidence | Official source |
+| --- | --- | --- |
+| Hi-C Orange Lavaburst | High fructose corn syrup, the two high-intensity sweeteners and citric acid (provides tartness). | [Manufacturer](https://www.coca-cola.com/us/en/brands/hi-c) |
+| Minute Maid Lemonade Carton (59 fl oz) | The 59 fl oz regular lemonade carton lists high fructose corn syrup, sucralose and acesulfame potassium. | [Manufacturer](https://www.coca-cola.com/us/en/brands/minute-maid/products/lemonades-and-fruit-drinks) |
+| Coca-Cola Zero Sugar | Aspartame, acesulfame potassium and stevia extract, plus the phenylalanine notice and the purpose statement next to potassium benzoate. | [Manufacturer](https://www.coca-cola.com/us/en/brands/coca-cola/products/zero/zero-sugar) |
+| Country Time Lemon Iced Tea Naturally Flavored Liquid Drink Mix | Naturally Flavored packaging, natural flavor, two sweeteners and Red 40, Blue 1, and Yellow 5. | [Manufacturer](https://www.kraftheinz.com/country-time/products/00043000007730-lemon-iced-tea-naturally-flavored-liquid-drink-mix) |
+| Kool-Aid Liquid Cherry Artificially Flavored Soft Drink Mix | Artificially Flavored packaging, artificial flavor, sucralose and acesulfame potassium. | [Manufacturer](https://www.kraftheinz.com/kool-aid/products/00043000005743-liquid-cherry-artificially-flavored-soft-drink-mix) |
+| Chobani Zero Sugar Vanilla 4 Pack | Allulose, stevia leaf extract (Reb M), monk fruit extract and guar gum. | [Manufacturer](https://chobani.com/products/yogurt-zerosugar-vanilla-multi-pack) |
+| ICE BREAKERS ICE CUBES Bubble Breeze Gum | Xylitol, maltitol syrup, mannitol and maltitol appear in the Bubble Breeze bottle formula. | [Manufacturer](https://www.hersheyland.com/products/ice-breakers-ice-cubes-bubble-breeze-sugar-free-gum-3-24-oz-bottle-40-pieces.html) |
+| Campbell’s Condensed Homestyle Chicken Noodle Soup | Monosodium glutamate and yeast extract are listed separately. | [Manufacturer](https://www.campbells.com/products/condensed/homestyle-condensed-chicken-noodle-soup/) |
+| Pringles Sour Cream & Onion Crisps · Official SmartLabel | Official U.S. SmartLabel 00038000138423. Lists monosodium glutamate, yeast extract, disodium inosinate, disodium guanylate, citric acid, lactic acid, malic acid and natural flavors. | [Manufacturer](https://smartlabel.kelloggs.com/Product/Index/00038000138423) |
+| Jell-O Zero Sugar Dark Chocolate Pudding Snack Cups | Maltitol, sucralose and acesulfame potassium. Sodium stearoyl lactylate is labeled “for smooth texture.” | [Manufacturer](https://www.kraftheinz.com/jell-o/products/00043000042038-zero-sugar-dark-chocolate-pudding-snack-cups) |
+
+The lesson uses the ingredient panel for the exact pudding variety in the manufacturer’s listing. The panel and back photo are from the matching [Smart & Final package gallery](https://www.smartandfinal.com/product/jello-pudding-snacks-reduced-calorie-zero-sugar-dark-chocolate-id-00043000042038).
+
+- assets/products/ch04/country-time-front.jpg · [Source image](https://res.cloudinary.com/kraft-heinz-whats-cooking-ca/image/upload/f_jpg/q_90/c_limit,w_1600/v1/dxp-images/brands/products/00043000007730-lemon-iced-tea-naturally-flavored-liquid-drink-mix/marketing-view-color-front_content-hub-9979987_32568fc052a1db6dcd9d33b19ee2bc80.jpg)
+- assets/products/ch04/kool-aid-front.jpg · [Source image](https://res.cloudinary.com/kraft-heinz-whats-cooking-ca/image/upload/f_jpg/q_90/c_limit,w_1600/v1/dxp-images/brands/products/00043000005743-liquid-cherry-artificially-flavored-soft-drink-mix/marketing-view-color-front_content-hub-9909370_e0b719ac68f4bff9201ff49ab661277e.jpg)
+- assets/products/ch04/jello-zero-pudding-front.jpg · [Source image](https://res.cloudinary.com/kraft-heinz-whats-cooking-ca/image/upload/f_jpg/q_90/c_limit,w_1600/v1/dxp-images/brands/products/00043000042038-zero-sugar-dark-chocolate-pudding-snack-cups/marketing-view-color-front_content-hub-7707210_7dab047c5949dcd59c8d01b8a2cb67cc.jpg)
+- assets/products/ch04/jello-zero-pudding-ingredients.jpg · [Source image](https://storage.googleapis.com/images-che-prd-2b77e46.che.prd.v8.commerce.mi9cloud.com/product-images/detail/f1887e84-034e-4e44-b48b-6f4977099dd0.jpeg)
+- assets/products/ch04/jello-zero-pudding-back.jpg · [Source image](https://storage.googleapis.com/images-che-prd-2b77e46.che.prd.v8.commerce.mi9cloud.com/product-images/detail/ca3a4146-18d5-4cca-842f-77d6acf974f7.jpeg)
+
+- [FDA: Aspartame and other sweeteners](https://www.fda.gov/food/food-additives-petitions/aspartame-and-other-sweeteners-food)
+- [FDA: Allulose labeling guidance](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/guidance-industry-declaration-allulose-and-calories-allulose-nutrition-and-supplement-facts-labels)
+- [FDA: Questions and answers on MSG](https://www.fda.gov/food/food-additives-petitions/questions-and-answers-monosodium-glutamate-msg)
+- [21 CFR 101.22: Flavor labeling](https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-101/subpart-B/section-101.22)
