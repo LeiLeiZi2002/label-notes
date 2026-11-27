@@ -121,7 +121,7 @@
       const { label, front, back, pending } = p.labelView;
       const figure = el('figure', undefined, 'challenge-label');
       const caption = el('figcaption');
-      function photoLink(path, title, preview = false) {
+      function photoLink(path, title, preview = false, onLoad) {
         const link = el('a', preview ? undefined : title);
         link.href = path;
         link.dataset.zoomImage = '';
@@ -136,7 +136,7 @@
             link.hidden = true;
             photo.addEventListener('load', () => {
               link.hidden = false;
-              if (preview) { placeholder.hidden = true; enlarge.hidden = false; }
+              onLoad?.();
             });
           }
           if (preview) link.append(photo);
@@ -153,10 +153,23 @@
       enlarge.dataset.imageAlt = `${p.name} ingredient label`;
       enlarge.hidden = Boolean(pending);
       caption.append(enlarge, placeholder);
-      if (front) caption.append(photoLink(front, 'View package front'));
       if (back) caption.append(photoLink(back, 'View full package label'));
-      figure.append(photoLink(label, 'Enlarge label', true), caption);
-      box.append(figure);
+      if (p.ingredientsCaption) caption.append(el('p', p.ingredientsCaption, 'source-note'));
+      figure.append(photoLink(label, 'Enlarge label', true, () => {
+        placeholder.hidden = true;
+        enlarge.hidden = false;
+      }), caption);
+      if (front) {
+        const layout = el('div', undefined, 'challenge-packaging');
+        const frontFigure = el('figure', undefined, 'challenge-front');
+        const frontPhoto = photoLink(front, 'Enlarge package front', true);
+        frontPhoto.className = 'package-frame';
+        const frontCaption = el('figcaption');
+        frontCaption.append(photoLink(front, 'View package front'));
+        frontFigure.append(frontPhoto, frontCaption);
+        layout.append(frontFigure, figure);
+        box.append(layout);
+      } else box.append(figure);
     }
     if (p.presentationHTML) box.append(html('div', p.presentationHTML));
     if (p.image && !p.presentationHTML && !p.labelView) {
@@ -165,6 +178,7 @@
       a.dataset.zoomImage = '';
       a.dataset.imageAlt = p.imageAlt || p.name;
       a.setAttribute('aria-label', `Enlarge ${p.name || 'package'}`);
+      if (p.packageFront || p.switchViews) a.classList.add('package-frame');
       const image = el('img');
       image.src = p.displayImage || p.image;
       image.alt = p.imageAlt || p.name;

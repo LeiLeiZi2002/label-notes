@@ -98,3 +98,16 @@ The lesson uses the ingredient panel for the exact pudding variety in the manufa
 - [FDA: Allulose labeling guidance](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/guidance-industry-declaration-allulose-and-calories-allulose-nutrition-and-supplement-facts-labels)
 - [FDA: Questions and answers on MSG](https://www.fda.gov/food/food-additives-petitions/questions-and-answers-monosodium-glutamate-msg)
 - [21 CFR 101.22: Flavor labeling](https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-101/subpart-B/section-101.22)
+
+### Chapter 03 product photos and label views
+
+- `assets/products/ch03/hellmanns-mayo-front.jpg` · [Source photo](https://assets.syndigo.cloud/cdn/ce8d40d5-be87-42fa-bed6-c50597c5b15d/fileType_jpg;size_600x600/ce8d40d5-be87-42fa-bed6-c50597c5b15d) · [Product gallery](https://giantfood.com/groceries/product/hellmanns-real-mayonnaise-15-oz-jar/6740)
+- `assets/products/ch03/hersheys-chocolate-front.jpg` · [Source photo](https://s7d1.scene7.com/is/image/hersheyprodcloud/0_34000_00240_5_701_24000_108_Item_Front?fmt=webp-alpha&hei=908&qlt=75)
+- `assets/products/ch03/pepperidge-bread-front.jpg` · [Source photo](https://target.scene7.com/is/image/Target/GUEST_7483a405-03e4-461d-ac2e-8cf49c2d9ef4?wid=800&hei=800&qlt=80&fmt=pjpeg)
+- `assets/products/ch03/kraft-ranch-lite-front.jpg` · [Source photo](https://cdn.allotta.io/image/upload/v1747685930/dxp-images/brands/products/00021000643530-classic-ranch-lite-dressing/marketing-view-color-front_content-hub-11664373_d663be9129d2022b480b233c4b4a2fbb.png)
+- `assets/products/ch03/blue-bunny-front.jpg` · [Source photo](https://wellscdn.com/content/blue-bunny/product/front-view-package/306570d3-f046-4d37-b943-e10a9c496fc7/peanut-butter-party-v2.png)
+- `assets/products/ch03/silk-almondmilk-front.jpg` · [Source photo](https://www.silk.com/wp-content/uploads/silk-Original-almondmilk-2.png)
+- `assets/products/ch03/yoplait-yogurt-front.jpg` · [Source photo](https://www.yoplait.com/wp-content/uploads/2024/01/00070470238043_H1C1_s101.png)
+- `assets/products/ch03/pepperidge-bread-ingredients.jpg` · [Target ingredient panel](https://target.scene7.com/is/image/Target/GUEST_26fa6a3c-3009-4d2c-8bea-24a299b0b10a?wid=800&hei=800&qlt=80&fmt=pjpeg).
+- `assets/products/ch03/goober-ingredients.jpg` · Crop and curved-label correction of the manufacturer’s Goober Grape back photo listed above. The site also links to the full back photo.
+- `mayo-pack-4.jpg`, `heinz-relish-ingredients.jpg`, `check-ranch-ingredients.jpg` and `check-beans-ingredients.jpg` · Tighter ingredient-panel views from the existing sources listed above, with full-package images available in the viewer.

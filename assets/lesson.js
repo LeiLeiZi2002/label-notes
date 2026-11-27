@@ -104,6 +104,7 @@
   if (reference) {
     document.querySelectorAll('[data-quick-reference-item]').forEach(item => {
       const row = reference.insertRow();
+      if (item.dataset.referenceGroup) row.dataset.referenceGroup = item.dataset.referenceGroup;
       const name = document.createElement('th');
       name.scope = 'row';
       const link = document.createElement('a');
@@ -123,11 +124,12 @@
     const dock = document.createElement('div');
     dock.className = 'quick-ref-dock';
     dock.innerHTML = `<button class="quick-ref-trigger" type="button" aria-expanded="false" aria-controls="quick-ref-drawer">
-      <span>Quick reference</span><span class="quick-ref-count"></span>
+      <span class="quick-ref-full">Quick reference</span><span class="quick-ref-short" aria-hidden="true">Quick ref</span><span class="quick-ref-count" aria-hidden="true"></span>
     </button><p id="quick-ref-hint" hidden>Try reading the label first</p>`;
     const trigger = dock.querySelector('button');
     const hint = dock.querySelector('p');
-    dock.querySelector('.quick-ref-count').textContent = `${rows.length} ${rows.length === 1 ? 'item' : 'items'}`;
+    dock.querySelector('.quick-ref-count').textContent = rows.length;
+    trigger.setAttribute('aria-label', `Quick reference ${rows.length} ${rows.length === 1 ? 'item' : 'items'}`);
     document.querySelector('.lesson-nav').after(dock);
 
     const drawer = document.createElement('dialog');
@@ -137,19 +139,32 @@
     drawer.setAttribute('aria-labelledby', 'quick-ref-drawer-title');
     drawer.innerHTML = `<header class="quick-ref-heading">
       <h2 id="quick-ref-drawer-title">Quick reference</h2>
-      <button class="quick-ref-close" type="button" autofocus>Close</button>
+      <button class="quick-ref-close" type="button" aria-label="Close" autofocus>×</button>
     </header><ul class="quick-ref-list"></ul>`;
     const close = drawer.querySelector('button');
     const list = drawer.querySelector('ul');
+    let previousGroup;
     const names = rows.map(row => {
+      const group = row.dataset.referenceGroup;
+      if (group && group !== previousGroup) {
+        const heading = document.createElement('li');
+        heading.className = 'quick-ref-group';
+        heading.textContent = group;
+        list.append(heading);
+      }
+      previousGroup = group;
       const item = document.createElement('li');
+      item.className = 'quick-ref-entry';
+      const line = document.createElement('div');
+      line.className = 'quick-ref-line';
       const name = row.cells[0].querySelector('a').cloneNode(true);
-      const example = document.createElement('p');
+      const example = document.createElement('span');
       example.className = 'quick-ref-example';
       example.textContent = row.cells[1].textContent.trim();
       const purpose = document.createElement('p');
       purpose.textContent = row.cells[2].textContent.trim();
-      item.append(name, example, purpose);
+      line.append(name, example);
+      item.append(line, purpose);
       list.append(item);
       return name;
     });

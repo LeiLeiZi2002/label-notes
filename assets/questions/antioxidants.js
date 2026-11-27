@@ -1333,7 +1333,8 @@ window.LabelNotesBanks.antioxidants = {
         "labelView": {
           "front": "assets/products/rice-krispies-treats-original-front.jpg",
           "label": "assets/products/rice-krispies-treats-original-ingredients.jpg"
-        }
+        },
+        "ingredientsCaption": "Ingredient list from SmartLabel"
       },
       "retryBeforeReveal": true
     },
@@ -1419,7 +1420,8 @@ window.LabelNotesBanks.antioxidants = {
         "sourceUrl": "https://hannaford.com/groceries/soups-canned-goods/canned-beans/canned-kidney-beans/bushs-best-cannellini-white-kidney-beans-155-oz-can.html",
         "sourceLabel": "Product source",
         "image": "assets/products/check-beans-back.jpg",
-        "imageAlt": "Bush’s Best Cannellini White Kidney Beans · 15.5 oz ingredient label"
+        "imageAlt": "Bush’s Best Cannellini White Kidney Beans · 15.5 oz ingredient label",
+        "displayImage": "assets/products/check-beans-ingredients.jpg"
       }
     },
     {

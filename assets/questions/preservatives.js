@@ -1589,7 +1589,8 @@ window.LabelNotesBanks.preservatives = {
         "sourceUrl": "https://foodlion.com/groceries/condiments-sauces/salad-dressings-toppings/kraft-classic-ranch-dressing-8-oz-btl.html",
         "sourceLabel": "Product source",
         "image": "assets/products/check-ranch-back.jpg",
-        "imageAlt": "Kraft Classic Ranch Dressing · 8 fl oz ingredient label"
+        "imageAlt": "Kraft Classic Ranch Dressing · 8 fl oz ingredient label",
+        "displayImage": "assets/products/check-ranch-ingredients.jpg"
       }
     },
     {

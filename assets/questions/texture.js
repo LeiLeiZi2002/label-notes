@@ -987,8 +987,9 @@ window.LabelNotesBanks.texture = {
         "sourceLabel": "Manufacturer’s product page",
         "showTranscript": true,
         "labelView": {
-          "label": "assets/products/ch03/goober-back.jpg",
-          "front": "assets/products/ch03/goober-front.jpg"
+          "label": "assets/products/ch03/goober-ingredients.jpg",
+          "front": "assets/products/ch03/goober-front.jpg",
+          "back": "assets/products/ch03/goober-back.jpg"
         }
       }
     },
@@ -1028,7 +1029,8 @@ window.LabelNotesBanks.texture = {
           "sourceUrl": "https://www.jif.com/products/creamy/dark-roast-creamy-peanut-butter",
           "sourceLabel": "Manufacturer’s product page",
           "transcriptOpen": true,
-          "image": "assets/products/ch03/jif-front.jpg"
+          "image": "assets/products/ch03/jif-front.jpg",
+          "packageFront": true
         },
         {
           "name": "Jar B · Smucker’s Organic Creamy Peanut Butter",
@@ -1036,7 +1038,8 @@ window.LabelNotesBanks.texture = {
           "sourceUrl": "https://www.smuckers.com/peanut-butter/organic/organic-creamy-peanut-butter",
           "sourceLabel": "Manufacturer’s product page",
           "transcriptOpen": true,
-          "image": "assets/products/ch03/organic-front.jpg"
+          "image": "assets/products/ch03/organic-front.jpg",
+          "packageFront": true
         }
       ]
     },

@@ -260,8 +260,7 @@ summary:focus-visible {
 }
 
 [data-chapter="texture"] .challenge-label { max-width: 560px; }
-[data-chapter="texture"] .challenge-label img { object-view-box: inset(61% 46% 26% 25%); }
-[data-chapter="texture"] .product-comparison .package-photo img { max-height: 200px; }
+.question-product .package-frame:not([hidden]) { display: grid; max-width: 306px; margin-inline: auto; background: #f6f4f0; }
 
 [data-chapter="texture"] .question-item[data-question-type="matching"] > h3 { grid-column: 1 / -1; }
 [data-chapter="sweeteners-flavors"] .question-item[data-question-type="matching"] > h3 { grid-column: 1 / -1; }
@@ -269,5 +268,3 @@ summary:focus-visible {
 .package-view-controls { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 .package-view-controls button { min-height: 44px; padding: 6px 12px; background: var(--paper); border: 1px solid var(--rule); font-size: 15px; }
 .package-view-controls button[aria-pressed="true"] { color: var(--paper); background: var(--ink); border-color: var(--ink); }
-.package-view-controls + a:not([hidden]) { display: block; }
-.question-product .package-view-controls + a img { height: 180px; width: 100%; object-fit: contain; }
