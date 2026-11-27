@@ -1,6 +1,6 @@
 # 题库编辑说明
 
-更新：2026-11-14。题目位于 `assets/questions/pretest.js`、`preservatives.js`、`antioxidants.js`。学习目标和维度在 `assets/objectives.js`，保持现有 P1–P5、A1–A5。
+更新：2026-11-27。题目位于 `assets/questions/pretest.js`、`preservatives.js`、`antioxidants.js`。学习目标和维度在 `assets/objectives.js`，保持现有 P1–P5、A1–A5。
 
 ## 当前题量
 
@@ -9,7 +9,7 @@
 | 购物前测 | 9 | 9 | 9 |
 | 第一章随堂练习 | 6 | 9 | 9，独立记录 |
 | 第一章正式章测 | 7 | 23 | 21 |
-| 第二章随堂练习 | 8 | 8 | 8，独立记录 |
+| 第二章随堂练习 | 7 | 8 | 8，独立记录 |
 | 第二章章前情境 W1–W4 | 4 | 4 | 不计分 |
 | 第二章正式章测 | 7 | 20 | 22 |
 
@@ -83,7 +83,7 @@
 
 多选和标签题：`max(0, (选对数 − 选错数) / 正确选项数 × 满分)`，保留两位小数。单选、匹配、输入按题目规则计分；复合题总分是子题之和。
 
-- 随堂练习：点击 Check my answer 后揭晓，附逐选项解释及原文回看，能够返回原题。
+- 随堂练习：点击 Check my answer 后显示反馈，附原文回看。杏干和米果棒练习首次答错先给线索，第二次仍错或主动点 Show answer 后再揭晓。米果棒第一问仅在两项都选对、无多选时给 1 分。
 - 正式章测：交卷后统一显示作答、答案、得分、目标编号及原文。漏答可定位；刷新恢复作答和两段式展开状态。
 - 章前情境：每次选择立即展示全部选项说明和 Find out why 链接。记录首次及最近选择，章测结果底部回顾首次猜测；未作答的情境不会生成猜测回顾。
 
@@ -97,6 +97,6 @@
 - `label-notes-active-check-v4`：本标签页的测验导航状态。
 - 新版章测完成时，旧版成绩归入 `history`；新版单独保留 `first` 和 `latest`。不把旧答案带入新版题目，已有前测和学习位置继续有效。
 
-数据仅保存在当前浏览器，没有上传。真实产品配料表本轮保持原样，来源见 [PRODUCTS_USED.md](PRODUCTS_USED.md)。`dev-question-types.html` 是独立演示页，不计入课程成绩。
+数据仅保存在当前浏览器，没有上传。现用真实产品与配料表来源见 [PRODUCTS_USED.md](PRODUCTS_USED.md)。`dev-question-types.html` 是独立演示页，不计入课程成绩。
 
 换题后需同步核对本文件题数、分值和覆盖表，运行 `tests/questions.test.mjs`、`tests/progress.test.mjs` 及相关浏览器流程。

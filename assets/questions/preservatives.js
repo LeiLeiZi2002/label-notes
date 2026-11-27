@@ -10,9 +10,9 @@ window.LabelNotesBanks.preservatives = {
       "points": 1,
       "stem": "Which THREE ingredients does “added as preservatives” refer to?",
       "review": {
-        "href": "preservatives.html#evidence-purpose",
-        "label": "Read: Reading a purpose statement",
-        "quote": "The parentheses follow both ingredient names. They tell you why this pair is included. This is a useful way to connect a technical name with its job in a particular food."
+        "href": "preservatives.html#evidence-sulfites",
+        "label": "Read: Sulfites in dried fruit",
+        "quote": "Drying changes how fruit keeps, and the recipe can include preservatives too. Sulfur dioxide is used to help limit browning and microbial spoilage in dried fruit. Here it appears alongside two other preservatives."
       },
       "hints": [
         "Find the purpose statement next to the ingredient names.",
@@ -36,13 +36,13 @@ window.LabelNotesBanks.preservatives = {
           "id": "dioxide",
           "text": "Sulfur dioxide",
           "correct": true,
-          "feedback": "Sulfur dioxide is one of the three names linked to “added as preservatives.”"
+          "feedback": "Sulfur dioxide is a sulfiting agent listed near the end."
         },
         {
           "id": "bisulfite",
           "text": "Sodium bisulfite",
           "correct": true,
-          "feedback": "Sodium bisulfite is included in that group of three."
+          "feedback": "Sodium bisulfite is another sulfiting agent in the same group."
         },
         {
           "id": "sorbate",
@@ -51,7 +51,15 @@ window.LabelNotesBanks.preservatives = {
           "feedback": "Potassium sorbate is also included, although it belongs to a different family from the sulfiting agents."
         }
       ],
-      "explanation": "Choose sulfur dioxide, sodium bisulfite and potassium sorbate. These are the three names grouped under the bag’s preservation explanation."
+      "explanation": "The last three names come before “added as preservatives.” Sulfur dioxide and sodium bisulfite are sulfiting agents. Potassium sorbate belongs to the sorbate family.",
+      "references": [
+        {
+          "href": "preservatives.html#evidence-sorbate",
+          "label": "Read: Potassium sorbate",
+          "quote": "Potassium sorbate dissolves readily in water, which helps it spread through a recipe. It is used in foods such as fruit products, sauces and other foods where molds and yeasts need to be controlled. Its effectiveness also depends on conditions in the food, including acidity."
+        }
+      ],
+      "retryHint": "Check the last names before “added as preservatives.” Look for the sulfite and sorbate families."
     },
     {
       "id": "preservatives-02",
@@ -1495,8 +1503,9 @@ window.LabelNotesBanks.preservatives = {
         "sourceUrl": "https://mariani.com/products/mariani-mediterranean-apricots-32-oz",
         "sourceLabel": "Product and package source",
         "fictional": false,
-        "presentationHTML": "<div class=\"label-study\"><figure class=\"package-study\"><a aria-label=\"Enlarge the dried apricot ingredients\" data-zoom-image=\"\" href=\"assets/products/mariani-apricots-back.png\"><img alt=\"Mariani dried apricot bag showing its ingredients and storage advice.\" height=\"2000\" loading=\"lazy\" src=\"assets/products/mariani-apricots-back.png\" width=\"2000\"/></a><figcaption>Mariani Dried Apricots · <a data-zoom-image=\"\" href=\"assets/products/mariani-apricots-back.png\">Enlarge package</a> · <a data-zoom-image=\"\" href=\"assets/products/mariani-apricots-ingredients.png\">Ingredient close-up</a></figcaption></figure><div><p class=\"eyebrow\">Read-along text</p><p class=\"label-transcript\">Dried Apricots, Vegetable Oil (Sunflower and/or Canola), Sulfur Dioxide, Sodium Bisulfite, and Potassium Sorbate added as preservatives.</p><p class=\"source-note\">Transcribed from the bag pictured here.</p></div></div>"
-      }
+        "presentationHTML": "<div class=\"label-study\"><figure class=\"package-study\"><a aria-label=\"Enlarge the dried apricot ingredients\" data-zoom-image=\"\" href=\"assets/products/mariani-apricots-back.png\"><img alt=\"Mariani dried apricot bag showing its ingredients and storage advice.\" height=\"2000\" loading=\"lazy\" src=\"assets/products/mariani-apricots-back.png\" width=\"2000\"/></a><figcaption>Mariani Dried Apricots · <a data-zoom-image=\"\" href=\"assets/products/mariani-apricots-back.png\">Enlarge package</a> · <a data-zoom-image=\"\" href=\"assets/products/mariani-apricots-ingredients.png\">Ingredient close-up</a></figcaption></figure></div>"
+      },
+      "retryBeforeReveal": true
     },
     {
       "id": "check-storage",
@@ -1554,7 +1563,11 @@ window.LabelNotesBanks.preservatives = {
         "sourceUrl": "https://www.smuckers.com/fruit-spreads/sugar-free/strawberry-preserves",
         "sourceLabel": "Product and package source",
         "fictional": false,
-        "presentationHTML": "<div class=\"label-study\"><figure class=\"package-study\"><a aria-label=\"Enlarge the strawberry preserves label\" data-zoom-image=\"\" href=\"assets/products/smuckers-strawberry-back.jpg\"><img alt=\"Back of a Smucker’s Sugar Free Strawberry Preserves jar, with an unmarked ingredient list.\" height=\"1534\" loading=\"lazy\" src=\"assets/products/smuckers-strawberry-back.jpg\" width=\"1534\"/></a><figcaption><a data-zoom-image=\"\" href=\"assets/products/smuckers-strawberry-front.jpg\">View the front</a> · <a data-zoom-image=\"\" href=\"assets/products/smuckers-strawberry-back.jpg\">Enlarge label</a> · <a href=\"https://www.smuckers.com/fruit-spreads/sugar-free/strawberry-preserves\" rel=\"noopener noreferrer\" target=\"_blank\">Smucker’s product page</a></figcaption></figure><div class=\"reading-copy\"><h3>Read the jar</h3><p>Take a closer look at the jar. You can enlarge the package or read its ingredient list below.</p></div></div>"
+        "labelView": {
+          "label": "assets/products/smuckers-strawberry-ingredients.jpg",
+          "front": "assets/products/smuckers-strawberry-front.jpg",
+          "back": "assets/products/smuckers-strawberry-back.jpg"
+        }
       }
     },
     {

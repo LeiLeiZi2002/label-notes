@@ -2,44 +2,48 @@ window.LabelNotesBanks ||= {};
 window.LabelNotesBanks.antioxidants = {
   "questions": [
     {
-      "id": "antioxidants-01",
-      "originalPage": "antioxidants.html",
+      "id": "a-ramen-oil",
       "set": "label-practice",
       "section": "read-label",
       "objective": "A2",
       "points": 1,
-      "stem": "Which phrase tells you the antioxidant’s purpose?",
+      "stem": "What part of the noodles is TBHQ added to protect?",
       "review": {
         "href": "antioxidants.html#evidence-tbhq-label",
         "label": "Read: TBHQ and the oil it protects",
         "quote": "In this ingredient list, “preserved by TBHQ” follows the vegetable oil used in the noodles. That wording tells you what is being protected. TBHQ is not what gives the soup its chicken flavor."
       },
       "hints": [
-        "Look for wording beside the vegetable oil, rather than the product name.",
-        "Which phrase describes a job, rather than listing the oils or naming a flavor?"
+        "Read the part of the ingredient list immediately before “preserved by.”"
       ],
       "type": "single",
       "options": [
         {
-          "id": "purpose",
-          "text": "Preserved by TBHQ.",
+          "id": "flour",
+          "text": "The enriched wheat flour.",
+          "correct": false,
+          "feedback": "The flour begins the noodle ingredient list. The preservation wording appears later, beside the oil."
+        },
+        {
+          "id": "oil",
+          "text": "The vegetable oil in the noodles.",
           "correct": true,
-          "feedback": "“Preserved by” explains why TBHQ is included with the vegetable oil."
+          "feedback": "The words “preserved by TBHQ” follow the vegetable oil."
         },
         {
-          "id": "types",
-          "text": "Canola, cottonseed, palm.",
+          "id": "vegetables",
+          "text": "The dehydrated vegetables in the soup base.",
           "correct": false,
-          "feedback": "These are names of oils. They do not state the antioxidant’s purpose."
+          "feedback": "The vegetables are listed in the soup base. The TBHQ wording is in the noodle ingredients."
         },
         {
-          "id": "chicken",
-          "text": "Chicken Flavor.",
+          "id": "seasoning",
+          "text": "The chicken-flavor seasoning powder.",
           "correct": false,
-          "feedback": "“Chicken Flavor” describes the product, not the antioxidant’s job."
+          "feedback": "The soup base has its own ingredient list. The TBHQ wording belongs to the noodle oil."
         }
       ],
-      "explanation": "“Preserved by TBHQ” names the antioxidant and connects it to the oil. The other words name oil types or a flavor."
+      "explanation": "“Preserved by TBHQ” follows the vegetable oil. The label ties TBHQ to the oil used in the noodles."
     },
     {
       "id": "antioxidants-02",
@@ -227,72 +231,96 @@ window.LabelNotesBanks.antioxidants = {
       "explanation": "The statement describes a role in the food. It does not establish a health benefit or remove the need for proper storage."
     },
     {
-      "id": "antioxidants-07",
-      "originalPage": "antioxidants.html",
       "set": "new-food",
       "section": "try-new-label",
-      "objective": "A1",
       "points": 1,
-      "stem": "What is the antioxidant’s name?",
+      "hints": [],
+      "id": "a-rice-treat-antioxidants",
+      "objective": "A1",
+      "type": "multi",
+      "allOrNothing": true,
+      "stem": "Read the full label. Which two antioxidants are used to slow oxidation?",
       "review": {
         "href": "antioxidants.html#evidence-tbhq",
-        "label": "Read: TBHQ",
+        "label": "Read: Antioxidants in fats and oils",
         "quote": "TBHQ is short for tert-butylhydroquinone. It slows fat oxidation, helping foods made with oil keep their flavor during storage."
       },
-      "hints": [],
-      "type": "short-text",
-      "inputLabel": "Your answer",
-      "acceptedAnswers": [
-        "TBHQ",
-        "tert-butylhydroquinone",
-        "tert butylhydroquinone",
-        "tertbutylhydroquinone",
-        "TBHQ (tert-butylhydroquinone)",
-        "tert-butylhydroquinone (TBHQ)",
-        "TBHQ (tert butylhydroquinone)",
-        "tert butylhydroquinone (TBHQ)",
-        "TBHQ (tertbutylhydroquinone)",
-        "tertbutylhydroquinone (TBHQ)"
-      ],
-      "explanation": "The antioxidant is TBHQ. Its full name is tert-butylhydroquinone.",
-      "answerDisplay": "TBHQ (tert-butylhydroquinone)"
-    },
-    {
-      "id": "antioxidants-08",
-      "originalPage": "antioxidants.html",
-      "set": "new-food",
-      "section": "try-new-label",
-      "objective": "A2",
-      "points": 1,
-      "stem": "What change is this ingredient intended to slow?",
-      "review": {
-        "href": "antioxidants.html#evidence-tbhq-label",
-        "label": "Read: TBHQ and the oil it protects",
-        "quote": "In this ingredient list, “preserved by TBHQ” follows the vegetable oil used in the noodles. That wording tells you what is being protected. TBHQ is not what gives the soup its chicken flavor."
+      "retryClues": {
+        "tbhq": "You caught TBHQ inside the vegetable oil, but there is one more antioxidant later in the list. Scan down to the final ingredients and try again.",
+        "bht": "You spotted BHT at the end of the list, but another antioxidant is listed earlier inside one of the main ingredients. Check the oil entry and try again.",
+        "none": "Look for short purpose phrases like \"for freshness\" in two places: inside the oil entry and at the very end of the list."
       },
-      "hints": [],
-      "type": "single",
+      "retryHint": "Look for the names the label links to “for freshness.” Remove any other choices.",
       "options": [
         {
-          "id": "oxidation",
-          "text": "Oxidation of the oil.",
+          "id": "tbhq",
+          "text": "TBHQ",
           "correct": true,
-          "feedback": "The TBHQ statement is attached to the oil, which it helps protect from oxidation."
+          "feedback": "It is listed with the vegetable oil and described as being there for freshness."
         },
         {
-          "id": "salt",
-          "text": "Loss of sodium.",
+          "id": "glycerin",
+          "text": "Vegetable glycerin",
           "correct": false,
-          "feedback": "The product’s reduced-sodium claim does not make TBHQ a sodium-removal ingredient."
+          "feedback": "The label lists glycerin without a freshness statement."
         },
         {
-          "id": "mixing",
-          "text": "Separation of oil and water.",
+          "id": "lecithin",
+          "text": "Soy lecithin",
           "correct": false,
-          "feedback": "Keeping oil and water mixed is an emulsifying role, not the TBHQ function shown here."
+          "feedback": "The last freshness statement follows the next ingredient."
+        },
+        {
+          "id": "bht",
+          "text": "BHT",
+          "correct": true,
+          "feedback": "It is the last ingredient, followed by “for freshness.”"
         }
       ],
-      "explanation": "TBHQ slows oil oxidation. The “less sodium” product name describes a different feature of the recipe."
+      "explanation": "TBHQ appears inside the vegetable oil entry. BHT appears at the end of the list. Both are listed “for freshness.”"
+    },
+    {
+      "set": "new-food",
+      "section": "try-new-label",
+      "points": 1,
+      "hints": [],
+      "id": "a-rice-treat-role",
+      "objective": "A2",
+      "type": "single",
+      "stem": "What is the main job of these two additives in this snack bar?",
+      "review": {
+        "href": "antioxidants.html#evidence-tbhq",
+        "label": "Read: Antioxidants in fats and oils",
+        "quote": "TBHQ is short for tert-butylhydroquinone. It slows fat oxidation, helping foods made with oil keep their flavor during storage."
+      },
+      "retryHint": "Think about what changes in oils during storage. Check the wording beside the two names.",
+      "options": [
+        {
+          "id": "mold",
+          "text": "Stop mold from growing in the marshmallow coating",
+          "correct": false,
+          "feedback": "These two additives slow oxidation. The label does not identify them as mold inhibitors."
+        },
+        {
+          "id": "oxidation",
+          "text": "Slow fat and oil oxidation so the bar does not go stale or rancid",
+          "correct": true,
+          "feedback": "Both names appear with “for freshness.” These antioxidants help delay stale or rancid flavors."
+        },
+        {
+          "id": "sweetness",
+          "text": "Keep the rice cereal sweet over time",
+          "correct": false,
+          "feedback": "The freshness wording refers to the antioxidants. Sugar and syrups supply sweetness."
+        },
+        {
+          "id": "nutrition",
+          "text": "Add vitamin E for extra nutrition",
+          "correct": false,
+          "feedback": "Neither additive is a form of vitamin E."
+        }
+      ],
+      "explanation": "Both \"with TBHQ for freshness\" and \"BHT for freshness\" point to slowing oxidation in the fats and oils. Neither is there to stop mold or boost nutrition."
     },
     {
       "id": "a-1",
@@ -1224,12 +1252,12 @@ window.LabelNotesBanks.antioxidants = {
   ],
   "blocks": [
     {
-      "id": "label-phrase",
+      "id": "ramen-oil-guided",
       "set": "label-practice",
       "section": "read-label",
       "title": "",
       "questionIds": [
-        "antioxidants-01"
+        "a-ramen-oil"
       ],
       "product": {
         "name": "Maruchan Chicken Flavor Ramen",
@@ -1288,33 +1316,27 @@ window.LabelNotesBanks.antioxidants = {
       ]
     },
     {
-      "id": "new-label",
+      "id": "rice-treat-label",
       "set": "new-food",
       "section": "try-new-label",
       "title": "",
       "questionIds": [
-        "antioxidants-07"
+        "a-rice-treat-antioxidants",
+        "a-rice-treat-role"
       ],
-      "intro": "<div class=\"reading-copy\"><p>Read this excerpt from Maruchan’s <strong>25% Less Sodium Chicken Flavor</strong> ramen. Find the antioxidant and explain its job.</p></div>",
+      "intro": "<p>Read the label on this crispy marshmallow bar. Identify the antioxidants, then explain why they are there.</p>",
       "product": {
-        "name": "Maruchan 25% Less Sodium Chicken Flavor (photographed package, 2020)",
-        "image": "assets/products/reduced-ramen-back.jpg",
-        "imageAlt": "Maruchan 25% Less Sodium Chicken Flavor (photographed package, 2020) ingredient panel",
-        "ingredientsText": "Ramen ingredients: Enriched wheat flour (wheat flour, niacin, reduced iron, thiamine mononitrate, riboflavin, folic acid), vegetable oil (contains one or more of the following: canola, cottonseed, palm) preserved by TBHQ, contains less than 1% of: salt, soy sauce (water, wheat, soybeans, salt), [text partly hidden by the package fold], sodium (mono, hexameta, and/or tripoly) phosphate, sodium carbonate, turmeric. Seasoning ingredients: Salt, sugar, maltodextrin, contains less than 1% of: potassium chloride, dehydrated vegetables (garlic, onion, chive [edge partly obscured]), [start of phrase obscured] fermented soy sauce (wheat, soybeans, salt), hydrolyzed corn, wheat and soy protein, dehydrated shiitake mushroom, powdered [word at edge obscured], spices (celery seed), turmeric, disodium guanylate, disodium inosinate, silicon dioxide (anti-caking agent), vegetable oil (palm), citric acid. Contains wheat, soy, and milk ingredients. Manufactured in a facility that also processes crustacean shellfish products. Brackets identify text that is not fully legible in this photograph.",
-        "sourceUrl": "https://i-ramen.net/blog/2020/06/24/no-6718-maruchan-usa-ramen-25-less-sodium-chicken-flavor/",
-        "sourceLabel": "Product and package source",
-        "fictional": false,
-        "presentationHTML": "<div class=\"challenge-packaging\"><figure><a data-zoom-image=\"\" href=\"assets/products/reduced-ramen-front.jpg\"><img alt=\"Maruchan 25% Less Sodium Chicken Flavor ramen, 3 oz package.\" height=\"670\" loading=\"lazy\" src=\"assets/products/reduced-ramen-front.jpg\" width=\"850\"/></a></figure>\n<figure><a data-zoom-image=\"\" href=\"assets/products/reduced-ramen-back.jpg\"><img alt=\"Back of the same reduced-sodium ramen package; the oil is preserved by TBHQ.\" height=\"650\" loading=\"lazy\" src=\"assets/products/reduced-ramen-back.jpg\" width=\"841\"/></a></figure>\n</div><figure class=\"ingredient-panel\"><a data-image-alt=\"Reduced-sodium chicken ramen ingredient panel.\" data-zoom-image=\"\" href=\"assets/products/reduced-ramen-back.jpg\"><svg aria-label=\"Ingredients on the reduced-sodium ramen: vegetable oil preserved by TBHQ.\" role=\"img\" viewbox=\"70 250 700 110\" xmlns=\"http://www.w3.org/2000/svg\"><image height=\"650\" href=\"assets/products/reduced-ramen-back.jpg\" width=\"841\"/></svg></a><figcaption>Ingredient panel from the package shown above. <a href=\"https://i-ramen.net/blog/2020/06/24/no-6718-maruchan-usa-ramen-25-less-sodium-chicken-flavor/\" rel=\"noopener noreferrer\" target=\"_blank\">Package photos: i-ramen.net, 2020</a>.</figcaption></figure><div class=\"label-transcript\">…Vegetable oil (contains one or more of the following: canola, cottonseed, palm) preserved by TBHQ…</div>"
-      }
-    },
-    {
-      "id": "new-role",
-      "set": "new-food",
-      "section": "try-new-label",
-      "title": "",
-      "questionIds": [
-        "antioxidants-08"
-      ]
+        "name": "Kellogg’s Rice Krispies Treats Original",
+        "ingredientsText": "Toasted rice cereal (rice, sugar, salt, malt flavor), corn syrup, fructose, vegetable oil (soybean, canola, sunflower and/or palm with TBHQ for freshness), sugar, corn syrup solids. Contains 2% or less of vegetable glycerin, dextrose, gelatin, salt, DATEM, acetylated monoglycerides, natural and artificial flavors (contains milk), soy lecithin, BHT for freshness.",
+        "sourceUrl": "https://smartlabel.kelloggs.com/Product/Index/038000350542",
+        "sourceLabel": "Kellogg’s SmartLabel",
+        "labelView": {
+          "front": "assets/products/rice-krispies-treats-original-front.jpg",
+          "label": "assets/products/rice-krispies-treats-original-ingredients.jpg",
+          "pending": true
+        }
+      },
+      "retryBeforeReveal": true
     },
     {
       "id": "a-check-1",

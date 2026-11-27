@@ -204,6 +204,11 @@ summary:focus-visible {
 .question-item .fill-in-label {
   display: block;
 }
+.challenge-label { max-width: 640px; margin-top: 18px; }
+.challenge-label img { width: 100%; height: auto; }
+.challenge-label figcaption { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 10px; }
+.challenge-label figcaption a { text-decoration: underline; }
+.challenge-label figcaption .source-note { margin: 0; }
 .question-item[data-question-type='matching'] > h3 { grid-column: 1 / -1; }
 .warmup { margin-block: 30px 40px; padding: 28px; border: 1px solid var(--rule); background: var(--surface); }
 .warmup > h2 { font: 32px/1.2 var(--serif); margin-bottom: 14px; }

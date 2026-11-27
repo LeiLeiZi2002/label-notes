@@ -45,7 +45,8 @@
     else if (q.type === 'multi' || q.type === 'label-select') {
       const right = selected.filter((v) => wanted.includes(v)).length,
         wrong = selected.filter((v) => !wanted.includes(v)).length;
-      fraction = wanted.length ? Math.max(0, (right - wrong) / wanted.length) : Number(selected.length === 0);
+      fraction = q.allOrNothing ? Number(right === wanted.length && !wrong)
+        : wanted.length ? Math.max(0, (right - wrong) / wanted.length) : Number(selected.length === 0);
     } else fraction = selected.length === 1 && wanted.includes(selected[0]) ? 1 : 0;
     const correct =
       q.type === 'short-text'
@@ -113,8 +114,49 @@
     const box = el('div', undefined, `question-product${p.transcriptOpen ? ' label-evidence' : ''}`);
     if (p.fictional) box.append(el('p', 'Practice label, not a real product', 'eyebrow'));
     if (p.name) box.append(el('p', p.name, 'product-name'));
+    if (p.labelView) {
+      const { label, front, back, pending } = p.labelView;
+      const figure = el('figure', undefined, 'challenge-label');
+      const caption = el('figcaption');
+      function photoLink(path, title, preview = false) {
+        const link = el('a', preview ? undefined : title);
+        link.href = path;
+        link.dataset.zoomImage = '';
+        link.dataset.imageTranscript = '';
+        link.dataset.imageAlt = `${p.name} · ${title === 'Enlarge label' ? 'ingredient label' : title}`;
+        link.setAttribute('aria-label', title);
+        if (preview || pending) {
+          const photo = el('img');
+          photo.alt = preview ? link.dataset.imageAlt : '';
+          photo.loading = preview && !pending ? 'lazy' : 'eager';
+          if (pending) {
+            link.hidden = true;
+            photo.addEventListener('load', () => {
+              link.hidden = false;
+              if (preview) { placeholder.hidden = true; enlarge.hidden = false; }
+            });
+          }
+          if (preview) link.append(photo);
+          photo.src = path;
+        }
+        return link;
+      }
+      const placeholder = el('p', 'Use the ingredient list below to read this label.', 'source-note');
+      placeholder.hidden = !pending;
+      const enlarge = el('a', 'Enlarge label', 'text-link');
+      enlarge.href = label;
+      enlarge.dataset.zoomImage = '';
+      enlarge.dataset.imageTranscript = '';
+      enlarge.dataset.imageAlt = `${p.name} ingredient label`;
+      enlarge.hidden = Boolean(pending);
+      caption.append(enlarge, placeholder);
+      if (front) caption.append(photoLink(front, 'View package front'));
+      if (back) caption.append(photoLink(back, 'View full package label'));
+      figure.append(photoLink(label, 'Enlarge label', true), caption);
+      box.append(figure);
+    }
     if (p.presentationHTML) box.append(html('div', p.presentationHTML));
-    if (p.image && !p.presentationHTML) {
+    if (p.image && !p.presentationHTML && !p.labelView) {
       const a = el('a');
       a.href = p.image;
       a.dataset.zoomImage = '';
@@ -136,7 +178,8 @@
         box.append(el('p', 'Ingredients', 'label-heading'), el('p', p.ingredientsText, 'evidence-transcript'));
       } else {
         const details = el('details', undefined, 'learning-prompt');
-        details.append(el('summary', 'Ingredient list as text'), el('p', p.ingredientsText));
+        details.dataset.ingredientTranscript = '';
+        details.append(el('summary', 'Show ingredient list as text'), el('p', p.ingredientsText));
         box.append(details);
       }
     }
@@ -364,7 +407,7 @@
       details.append(el('summary', 'Why each option is right or wrong'), list);
       box.append(details);
     }
-    if (q.objective) {
+    if (q.objective && !root) {
       const goal = el('p', `Learning goal ${q.objective}`, 'objective-note');
       goal.title = window.LabelNotesObjectives?.get(q.objective)?.text || q.objective;
       box.append(goal);

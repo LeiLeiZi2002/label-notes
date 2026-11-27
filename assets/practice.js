@@ -12,9 +12,6 @@
     .querySelectorAll('[data-objectives]')
     .forEach((host) => window.LabelNotesObjectives.render(host, host.dataset.objectives));
   document.querySelectorAll('[data-lesson-step]').forEach((section) => {
-    const ids = window.LabelNotesCourse[chapter]?.sections[section.id] || [];
-    const line = E.el('p', `Supports ${ids.join(', ')}`, 'objective-note');
-    section.querySelector('.lesson-heading').append(line);
     if (!section.querySelector('[data-practice-section]')) {
       const slot = E.el('div');
       slot.dataset.practiceSection = section.id;
@@ -126,6 +123,7 @@
     form.addEventListener('change', () => {
       state.confidence = confidence.querySelector('input:checked')?.value || '';
       feedback.hidden = true;
+      submit.disabled = false;
       save();
     });
     form.addEventListener('input', save);
@@ -139,6 +137,25 @@
       if (host.closest('[hidden]')) timing = false;
     });
     qs.forEach((q) => E.restore(q, form, state.answers[q.id]));
+    function reviewLink(source) {
+      const link = E.el('a', source.label, 'text-link');
+      link.href = source.href;
+      if (source.href.startsWith(`${chapter}.html#`)) link.dataset.review = host.id;
+      return link;
+    }
+    function firstMiss(q, outcome) {
+      const hint = q.retryHint || q.hints?.[0];
+      if (q.type !== 'multi') return hint;
+      const found = outcome.values.filter((value) => outcome.expected.includes(value));
+      const missing = outcome.expected.length - found.length;
+      const extra = outcome.values.length - found.length;
+      const counts = [];
+      if (missing) counts.push(`${missing} missing`);
+      if (extra) counts.push(`${extra} extra`);
+      const clue = (found.length === 1 && q.retryClues?.[found[0]])
+        || (!found.length && q.retryClues?.none) || hint;
+      return [`${counts.join(', ')}.`, clue].filter(Boolean).join(' ');
+    }
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       save();
@@ -155,25 +172,22 @@
       }
       state.attempts++;
       const correct = outcomes.every((o) => o.correct);
+      if (!correct && block.retryBeforeReveal) state.wrongSubmissions = (state.wrongSubmissions || 0) + 1;
       feedback.append(E.el('h3', correct ? 'All parts correct' : 'Take another look'));
-      if (!correct && state.confidence === 'sure')
-        feedback.append(E.el('p', "This one is worth a second look—it's a common mix-up."));
-      qs.forEach((q) => feedback.append(E.feedback(q, state.answers[q.id], form)));
-      if (block.set === 'new-food' && !correct)
-        feedback.append(
-          E.el(
-            'p',
-            'Look again at the complete ingredient name and the purpose statement beside it. Then compare them with your answer.',
-          ),
-        );
-      const next = E.el('div', undefined, 'next-step');
-      next.append(E.el('h3', 'Where to next?'));
-      if (correct) {
+      const revealAnswers = () => {
+        feedback.replaceChildren(E.el('h3', correct ? 'All parts correct' : 'Answer and explanation'));
+        qs.forEach((q) => feedback.append(E.feedback(q, state.answers[q.id], form)));
+        feedback.querySelectorAll('a').forEach((a) => {
+          if (a.getAttribute('href')?.startsWith(`${chapter}.html#`)) a.dataset.review = host.id;
+        });
+        feedback.append(retry);
+      };
+      function appendNextStep() {
+        const next = E.el('div', undefined, 'next-step');
         const section = host.closest('[data-lesson-step]'),
           remaining = section ? [...section.querySelectorAll('[data-practice-block]')] : [];
         const nextPractice = remaining[remaining.indexOf(host) + 1],
           following = section?.nextElementSibling;
-        next.append(E.el('p', 'You have checked this example. Continue when you are ready.'));
         if (nextPractice) {
           const button = E.el('button', 'Continue to the next question', 'secondary-link');
           button.type = 'button';
@@ -196,22 +210,8 @@
             next.append(a);
           }
         }
-      } else {
-        next.append(E.el('p', 'Review the part behind your missed answer, then try again.'));
-        const urls = new Set();
-        qs.forEach((q, i) => {
-          if (!outcomes[i].correct && q.review && !urls.has(q.review.href)) {
-            urls.add(q.review.href);
-            const a = E.el('a', q.review.label, 'text-link');
-            a.href = q.review.href;
-            next.append(a);
-          }
-        });
+        if (next.childElementCount) retry.before(next);
       }
-      feedback.append(next);
-      feedback.querySelectorAll('a').forEach((a) => {
-        if (a.getAttribute('href')?.startsWith(`${chapter}.html#`)) a.dataset.review = host.id;
-      });
       const flatten = (o) => (o.parts ? o.parts.flatMap(flatten) : [o]);
       const outcomeRecords = outcomes
         .flatMap(flatten)
@@ -236,17 +236,40 @@
       const retry = E.el('button', 'Try again', 'secondary-link');
       retry.type = 'button';
       retry.addEventListener('click', () => {
-        qs.forEach((q) => E.restore(q, form, []));
+        if (!block.retryBeforeReveal) qs.forEach((q) => E.restore(q, form, []));
         confidence.querySelectorAll('input').forEach((i) => (i.checked = false));
         state.confidence = '';
         state.questionTimes = {};
         state.elapsedMs = 0;
         since = Date.now();
         feedback.hidden = true;
+        submit.disabled = false;
         save();
-        form.querySelector('input,select,button').focus();
+        form.querySelector('.question-item input, .question-item select, .question-item button').focus();
       });
-      feedback.append(retry);
+      if (!correct && block.retryBeforeReveal && state.wrongSubmissions === 1) {
+        submit.disabled = true;
+        const seen = new Set();
+        qs.forEach((q, i) => {
+          if (outcomes[i].correct) return;
+          const clue = firstMiss(q, outcomes[i]);
+          if (clue) feedback.append(E.el('p', clue));
+          if (q.review && !seen.has(q.review.href)) {
+            seen.add(q.review.href);
+            feedback.append(reviewLink(q.review));
+          }
+        });
+        const show = E.el('button', 'Show answer', 'secondary-link');
+        show.type = 'button';
+        show.addEventListener('click', () => {
+          revealAnswers();
+          feedback.focus({ preventScroll: true });
+        });
+        feedback.append(retry, show);
+      } else {
+        revealAnswers();
+        if (correct) appendNextStep();
+      }
       feedback.focus({ preventScroll: true });
       feedback.scrollIntoView({ block: 'start', behavior: 'instant' });
     });

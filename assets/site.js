@@ -17,13 +17,15 @@
   const larger = makeButton('+', 'Zoom in');
   const fit = makeButton('Fit to window');
   const actual = makeButton('Actual size');
+  const textMode = makeButton('Show ingredient list as text');
+  textMode.setAttribute('aria-pressed', 'false');
   const close = makeButton('Close image');
   close.classList.add('image-viewer-close');
   const level = document.createElement('output');
   level.className = 'image-viewer-scale';
   level.setAttribute('aria-label', 'Zoom level');
   level.setAttribute('aria-live', 'polite');
-  toolbar.append(smaller, level, larger, fit, actual, close);
+  toolbar.append(smaller, level, larger, fit, actual, textMode, close);
   const hint = document.createElement('p');
   hint.className = 'image-viewer-hint';
   hint.id = 'image-viewer-help';
@@ -35,8 +37,11 @@
   stage.setAttribute('aria-label', 'Scrollable package image');
   stage.setAttribute('aria-describedby', hint.id);
   const image = document.createElement('img');
+  const transcript = document.createElement('p');
+  transcript.className = 'image-viewer-transcript';
+  transcript.hidden = true;
   image.draggable = false;
-  stage.append(image);
+  stage.append(image, transcript);
   const original = document.createElement('a');
   original.className = 'text-link';
   original.target = '_blank';
@@ -49,6 +54,24 @@
   let fitted = true;
   let ready = false;
   let pan = null;
+
+  function showTranscript(show) {
+    endPan();
+    image.hidden = show;
+    transcript.hidden = !show;
+    textMode.textContent = show ? 'Show package image' : 'Show ingredient list as text';
+    textMode.setAttribute('aria-label', textMode.textContent);
+    textMode.setAttribute('aria-pressed', String(show));
+    [smaller, larger, fit, actual].forEach(button => { button.disabled = true; });
+    if (show) {
+      stage.scrollTo(0, 0);
+      stage.dataset.pannable = 'false';
+      hint.textContent = 'Ingredient list as text.';
+    } else if (ready) {
+      hint.textContent = 'Use + and − to zoom, or 0 to fit the window. Drag, scroll, or use arrow keys to move around.';
+      setZoom(fitted ? fitScale() : scale, fitted);
+    }
+  }
 
   function endPan() {
     if (!pan) return;
@@ -83,7 +106,7 @@
   }
 
   function setZoom(value, toFit = false) {
-    if (!ready) return;
+    if (!ready || image.hidden) return;
     endPan();
     const width = image.getBoundingClientRect().width;
     const height = image.getBoundingClientRect().height;
@@ -113,8 +136,9 @@
     if (!viewer.open || !image.naturalWidth) return;
     ready = true;
     stage.setAttribute('aria-busy', 'false');
-    hint.textContent = 'Use + and − to zoom, or 0 to fit the window. Drag the enlarged image, scroll, or use arrow keys to move around.';
-    setZoom(fitScale(), true);
+    scale = fitScale();
+    fitted = true;
+    if (!image.hidden) showTranscript(false);
   }
 
   document.addEventListener('click', event => {
@@ -124,6 +148,11 @@
     event.preventDefault();
     trigger = link;
     ready = false;
+    transcript.textContent = link.hasAttribute('data-image-transcript')
+      ? link.closest('.question-product')?.querySelector('[data-ingredient-transcript] p')?.textContent || ''
+      : '';
+    textMode.hidden = !transcript.textContent;
+    showTranscript(false);
     [smaller, larger, fit, actual].forEach(button => { button.disabled = true; });
     level.value = '…';
     hint.textContent = 'Loading package image…';
@@ -146,8 +175,9 @@
   larger.addEventListener('click', () => setZoom(scale * 1.5));
   fit.addEventListener('click', () => setZoom(fitScale(), true));
   actual.addEventListener('click', () => setZoom(1));
+  textMode.addEventListener('click', () => showTranscript(transcript.hidden));
   viewer.addEventListener('keydown', event => {
-    if (event.ctrlKey || event.metaKey || event.altKey) return;
+    if (image.hidden || event.ctrlKey || event.metaKey || event.altKey) return;
     if (event.key === '+' || event.key === '=') setZoom(scale * 1.5);
     else if (event.key === '-') setZoom(scale / 1.5);
     else if (event.key === '0') setZoom(fitScale(), true);

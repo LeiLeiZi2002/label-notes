@@ -172,6 +172,9 @@
       hasFinished = false;
     }
     const initial = progress?.read().assessments[id]?.first;
+    const incomplete = outcomes.some((outcome) => !outcome.answered);
+    results.querySelector(':scope > .eyebrow').textContent = incomplete ? 'Ended early'
+      : id === 'pretest' ? 'Quick check complete' : 'Chapter check complete';
     $('result-score').textContent = `Total · ${earned} / ${total}`;
     $('saved-result').textContent = `First attempt · ${initial?.earned ?? earned} / ${initial?.total ?? total}`;
     $('result-summary').textContent = id === 'pretest'
@@ -253,6 +256,7 @@
   function finish(reason) {
     if (state?.status !== 'active') return;
     capture();
+    if (reason === 'end') reason = score().every((outcome) => outcome.answered) ? 'submit' : 'ended-early';
     state.status = 'completed';
     state.submittedAt = Date.now();
     state.finishReason = reason;
@@ -349,7 +353,7 @@
   });
   $('end-attempt').addEventListener('click', () => $('end-dialog').showModal());
   $('continue-attempt').addEventListener('click', () => $('end-dialog').close());
-  $('confirm-end').addEventListener('click', () => finish('submit'));
+  $('confirm-end').addEventListener('click', () => finish('end'));
   $('retry-assessment').addEventListener('click', () => {
     state = null;
     store.write(null);

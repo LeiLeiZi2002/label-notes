@@ -125,7 +125,7 @@ window.LabelNotesObjectives = {
       const firstSpace = o.text.indexOf(' ');
       const verb = document.createElement('strong');
       verb.textContent = o.text.slice(0, firstSpace);
-      li.append(`${o.id} · `, verb, o.text.slice(firstSpace));
+      li.append(verb, o.text.slice(firstSpace));
       list.append(li);
     });
     host.append(list);

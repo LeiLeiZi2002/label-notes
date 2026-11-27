@@ -24,6 +24,11 @@
     catch { persistent = false; storage = null; }
     render();
   }
+  const finished = (attempt) => attempt?.finishReason === 'submit' && attempt.outcomes?.length
+    && attempt.outcomes.every((outcome) => outcome.answered);
+  const completion = (record) => record?.completion
+    || [record?.first, record?.latest].find(finished);
+  const completionScore = ({ earned, total }) => ({ earned, total });
   function complete(id, result) {
     const data = read();
     const previous = data.assessments[id];
@@ -34,9 +39,11 @@
       const { history: older, ...archived } = previous;
       history.push(archived);
     }
+    const done = (!revised && completion(previous)) || (finished(result) && result);
     data.assessments[id] = {
       first: !revised && previous?.first || result,
       latest: result,
+      completion: done ? completionScore(done) : null,
       attempts: (revised ? 0 : previous?.attempts || 0) + 1,
       history,
     };
@@ -65,7 +72,9 @@
     document.querySelectorAll('[data-chapter-status]').forEach(label => {
       const id = label.dataset.chapterStatus;
       const result = data.assessments[id];
-      label.textContent = result ? `Completed · ${result.first.earned}/${result.first.total}` : canOpen(id) ? 'Ready to start' : 'Not started';
+      const done = completion(result);
+      label.textContent = done ? `Completed · ${done.earned}/${done.total}`
+        : result ? 'Ended early' : canOpen(id) ? 'Ready to start' : 'Not started';
     });
     document.querySelectorAll('[data-progress-note]').forEach(note => {
       note.textContent = !storage ? 'Browser storage is blocked. Progress cannot be saved between pages. Allow site storage to keep your results.' : !persistent ? 'Progress is saved for this tab only. Allow local storage to keep it after closing the browser.' : 'Your progress is saved in this browser.';
@@ -73,7 +82,7 @@
     const summary = document.getElementById('course-progress-summary');
     if (summary) {
       const baseline = data.assessments.pretest?.first;
-      const count = chapters.filter(id => data.assessments[id]).length;
+      const count = chapters.filter(id => completion(data.assessments[id])).length;
       summary.textContent = baseline ? `First quick check: ${baseline.earned}/${baseline.total}. ${count} of 2 available chapters completed.` : 'Nine short questions before you begin. No time limit and no pass mark.';
     }
   }
