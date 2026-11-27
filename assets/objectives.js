@@ -119,6 +119,13 @@ window.LabelNotesCourse = {
       { id: 'C4', text: 'Evaluate claims about added colors and their sources using specific ingredient names and U.S. labeling rules.', sections: ['ingredient-names', 'check-understanding'] },
     ],
   },
+  capstone: {
+    title: 'Final label check',
+    assessmentVersion: '20261128-3',
+    timeLimitSeconds: null,
+    suggestedMinutes: 10,
+    thresholds: { secure: 0.8, developing: 0.5 },
+  },
   pretest: {
     title: 'Your starting point',
     assessmentVersion: '20261128-2',

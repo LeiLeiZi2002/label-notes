@@ -6,6 +6,7 @@
   const id = document.body.dataset.assessment || 'preservatives',
     bank = window.LabelNotesBanks[id],
     config = window.LabelNotesCourse[id];
+  const unit = id === 'pretest' ? 'Question' : id === 'capstone' ? 'Station' : 'Group';
   const blocks = bank.blocks.filter((b) => b.set === (id === 'pretest' ? 'pretest' : 'chapter-check'));
   const questions = blocks.flatMap((b) =>
     b.questionIds.map((qid) => bank.questions.find((q) => q.id === qid)),
@@ -45,7 +46,7 @@
     .forEach((host) => (host.textContent = questions.reduce((n, q) => n + E.maximum(q), 0)));
   document
     .querySelectorAll('[data-check-count]')
-    .forEach((host) => (host.textContent = `${blocks.length} ${id === 'pretest' ? 'questions' : 'question groups'}`));
+    .forEach((host) => (host.textContent = `${blocks.length} ${id === 'capstone' ? 'stations' : id === 'pretest' ? 'questions' : 'question groups'}`));
   $('assessment-timing').textContent = duration
     ? `Time limit: ${config.timeLimitSeconds / 60} minutes. Your saved answers submit automatically when time runs out.`
     : `No time limit. Suggested time: about ${config.suggestedMinutes} minutes.`;
@@ -82,7 +83,7 @@
       questionHost.append(section);
       const tab = E.el('button', String(i + 1));
       tab.type = 'button';
-      tab.setAttribute('aria-label', `Question ${i + 1}`);
+      tab.setAttribute('aria-label', `${unit} ${i + 1}`);
       tab.addEventListener('click', () => showQuestion(i));
       $('question-tabs').append(tab);
     });
@@ -118,7 +119,7 @@
       );
       const tab = $('question-tabs').children[i];
       tab.dataset.answered = String(complete);
-      tab.setAttribute('aria-label', `${id === 'pretest' ? 'Question' : 'Group'} ${i + 1}: ${complete ? 'answered' : 'incomplete'}`);
+      tab.setAttribute('aria-label', `${unit} ${i + 1}: ${complete ? 'answered' : 'incomplete'}`);
     });
   }
   function showQuestion(index, focus = true) {
@@ -131,7 +132,7 @@
       if (i === state.pageIndex) b.setAttribute('aria-current', 'step');
       else b.removeAttribute('aria-current');
     });
-    $('question-position').textContent = `${id === 'pretest' ? 'Question' : 'Group'} ${state.pageIndex + 1} of ${blocks.length}`;
+    $('question-position').textContent = `${unit} ${state.pageIndex + 1} of ${blocks.length}`;
     $('previous-question').hidden = !state.pageIndex;
     $('next-question').hidden = state.pageIndex === blocks.length - 1;
     $('submit-assessment').hidden = state.pageIndex !== blocks.length - 1;
@@ -177,7 +178,7 @@
     const initial = progress?.read().assessments[id]?.first;
     const incomplete = outcomes.some((outcome) => !outcome.answered);
     results.querySelector(':scope > .eyebrow').textContent = incomplete ? 'Ended early'
-      : id === 'pretest' ? 'Quick check complete' : 'Chapter check complete';
+      : id === 'pretest' ? 'Quick check complete' : id === 'capstone' ? 'Final label check complete' : 'Chapter check complete';
     $('result-score').textContent = `Total · ${earned} / ${total}`;
     $('saved-result').textContent = `First attempt · ${initial?.earned ?? earned} / ${initial?.total ?? total}`;
     $('result-summary').textContent = id === 'pretest'
@@ -208,7 +209,7 @@
       meter.value = e;
       meter.setAttribute('aria-label', `${dimension.title}: ${e} out of ${t}`);
       card.append(meter, E.el('p', status, 'dimension-status'));
-      if (id !== 'pretest' && baseline?.assessmentVersion === window.LabelNotesCourse.pretest.assessmentVersion) {
+      if (id !== 'pretest' && id !== 'capstone' && baseline?.assessmentVersion === window.LabelNotesCourse.pretest.assessmentVersion) {
         const earlier = (baseline.outcomes || []).filter((r) => ids.includes(r.objective));
         const correct = earlier.filter((r) => r.correct).length;
         if (earlier.length) card.append(E.el('p', `Before learning · ${Math.round(correct / earlier.length * 100)}% (${correct} of ${earlier.length} ${earlier.length === 1 ? 'question' : 'questions'})`, 'baseline-record'));
@@ -261,6 +262,8 @@
       });
       return d;
     }));
+    const comparison = results.querySelector('[data-before-after]');
+    if (comparison) window.LabelNotesResults.renderComparison(comparison, progress.read());
     results.querySelector('.warmup-recap')?.remove();
     window.LabelNotesWarmup?.appendRecap(results);
     $('results-title').focus();
