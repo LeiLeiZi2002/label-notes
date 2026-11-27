@@ -372,3 +372,12 @@ h1[tabindex="-1"]:is(:focus, :focus-visible) { outline: none; }
 .challenge-reveal { animation: reveal-practice 180ms ease-out; }
 @keyframes reveal-practice { from { opacity: .2; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .challenge-reveal { animation: none; } }
+
+.label-closeup { max-width: 760px; margin-block: 1.4rem; }
+.label-closeup a { display: block; border: 1px solid var(--rule); }
+.label-closeup img { display: block; width: 100%; height: auto; }
+.label-closeup figcaption { color: var(--muted); font-size: .88rem; }
+@media (min-width: 851px) {
+  [data-chapter="texture"] #read-label .label-study { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+  [data-chapter="texture"] #read-label .package-study { position: sticky; top: 24px; }
+}
