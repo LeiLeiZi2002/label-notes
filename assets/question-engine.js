@@ -409,7 +409,7 @@
     const label = result.correct ? 'Correct' : !result.answered ? 'Not answered' : result.earned > 0 ? 'Partly correct' : 'Review';
     box.dataset.feedbackId = q.id;
     box.append(
-      el('p', `${label} · ${result.earned} / ${result.total} points`, 'feedback-score'),
+      el('p', result.total ? `${label} · ${result.earned} / ${result.total} points` : label, 'feedback-score'),
       html('h3', q.stem),
       el('p', `Your answer: ${answerText(q, result.values)}`),
       el('p', `Answer: ${q.answerDisplay || answerText(q, result.expected)}`),

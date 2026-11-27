@@ -59,7 +59,12 @@
   }
   function render() {
     const data = read();
-    const current = data.lastVisit?.chapter || 'preservatives';
+    const current = data.lastVisit?.chapter === 'label-basics' ? 'preservatives' : data.lastVisit?.chapter || 'preservatives';
+    document.querySelectorAll('[data-basics-next]').forEach(link => {
+      const ready = canOpen('preservatives');
+      link.href = ready ? 'preservatives.html' : 'pretest.html';
+      link.textContent = ready ? 'Continue to Chapter 01: Preservatives →' : 'Take the quick check first →';
+    });
     document.querySelectorAll('[data-resume-link]').forEach(link => {
       link.href = entry(current);
       link.textContent = data.assessments.pretest ? 'Continue learning' : 'Start the quick check';

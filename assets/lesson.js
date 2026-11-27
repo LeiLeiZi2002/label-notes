@@ -25,18 +25,20 @@
       if (position === index) link.setAttribute('aria-current', 'step');
       else link.removeAttribute('aria-current');
     });
-    document.getElementById('section-position').textContent = `Section ${index + 1} of ${steps.length}`;
-    previous.hidden = index === 0;
-    previous.href = `#${steps[Math.max(0, index - 1)].id}`;
-    const following = steps[index + 1];
-    next.href = following ? `#${following.id}` : 'index.html#course';
-    next.firstChild.textContent = following
-      ? `Next: ${links[index + 1].textContent.trim().replace(/^\d+\s*/, '')} `
-      : 'Return to course outline ';
-    pager.hidden = false;
+    if (pager) {
+      document.getElementById('section-position').textContent = `Section ${index + 1} of ${steps.length}`;
+      previous.hidden = index === 0;
+      previous.href = `#${steps[Math.max(0, index - 1)].id}`;
+      const following = steps[index + 1];
+      next.href = following ? `#${following.id}` : 'index.html#course';
+      next.firstChild.textContent = following
+        ? `Next: ${links[index + 1].textContent.trim().replace(/^\d+\s*/, '')} `
+        : 'Return to course outline ';
+      pager.hidden = false;
+    }
     reviewReturn.hidden = !reviewQuestion;
     quickReference?.showChallengeHint(step.id === 'try-new-label');
-    if (chapter) window.LabelNotesProgress?.visit(chapter, id);
+    if (chapter && pager) window.LabelNotesProgress?.visit(chapter, id);
     // 回看链接可以指向步骤内的内容，旧的阅读位置仍然可用。
     for (let node = target; node && node !== step; node = node.parentElement) {
       if (node.matches('details')) node.open = true;
